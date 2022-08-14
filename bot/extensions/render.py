@@ -140,6 +140,8 @@ class Render:
                         except discord.HTTPException:
                             err_message = "Rendered file too large for Discord 8MB limit! Try lowering quality."
                             embed = RenderFailureEmbed(attachment, err_message=err_message)
+                    else:
+                        logger.log(logging.ERROR, f"Unhandled finished render job result {job.result}")
 
                     await message.edit(embed=embed)
                     break
@@ -151,6 +153,8 @@ class Render:
                     embed = RenderEmbed(attachment, RenderFailureEmbed.COLOR, status="Max queue time reached.")
                     await message.edit(embed=embed)
                     break
+                else:
+                    logger.log(logging.ERROR, f"Unhandled render job status {status}")
                 await asyncio.sleep(1)
         except Exception as e:
             logger.log(logging.ERROR, "An error occurred while rendering", exc_info=e)
