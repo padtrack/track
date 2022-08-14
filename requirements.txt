@@ -1,0 +1,11 @@
+git+https://github.com/Rapptz/discord.py@11278d55e80fb7b1e928ce95b2eff32a1b4e0596
+git+https://github.com/WoWs-Builder-Team/minimap_renderer.git@develop
+aioredis==2.0.1
+aiosqlite==0.17.0
+attrs==21.4.0
+cachetools==5.2.0
+environ-config==22.1.0
+jishaku==2.5.0
+redis==4.3.4
+rq==1.11.0
+SQLAlchemy==1.4.39
