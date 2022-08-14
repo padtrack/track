@@ -1,2 +1,4 @@
 /bot/assets/private/*
+!/bot/assets/private
 /bot/logs/*
+!/bot/logs/
