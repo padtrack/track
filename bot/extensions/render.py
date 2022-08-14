@@ -164,61 +164,6 @@ class RenderSingle(Render):
     TASK = tasks.render_single
 
 
-def format_bound(bound: range) -> str:
-    return f"{bound.start} - {bound.stop - 1}"
-
-
-class RenderModal(ui.Modal):
-    FPS_BOUND = range(15, 31)
-    QUALITY_BOUND = range(1, 10)
-
-    FPS_DEFAULT = 20
-    QUALITY_DEFAULT = 7
-
-    fps = ui.TextInput(label="Frames Per Second",
-                       placeholder=format_bound(FPS_BOUND),
-                       default=str(FPS_DEFAULT),
-                       max_length=len(str(FPS_BOUND.stop - 1)))
-
-    quality = ui.TextInput(label="Quality",
-                           placeholder=format_bound(QUALITY_BOUND),
-                           default=str(QUALITY_DEFAULT),
-                           max_length=len(str(QUALITY_BOUND.stop - 1)))
-
-    options = ui.Select(min_values=0, max_values=3, options=[
-        discord.SelectOption(label="Logs", value="logs", description="Shows additional statistics.", emoji="📜", default=True),
-        discord.SelectOption(label="Anonymous Player Names", value="anon", description="Player names become \"Player X\".", emoji="🚫"),
-        discord.SelectOption(label="Enable Chat", value="enable_chat", description="Shows chat.", emoji="💬", default=True),
-    ])
-
-    def __init__(self, bot: Track, interaction: discord.Interaction, attachment: discord.Attachment):
-        super().__init__(title="Render Options")
-        self.bot = bot
-        self.interaction = interaction
-        self.attachment = attachment
-
-    async def on_submit(self, interaction: discord.Interaction):
-        await interaction.response.defer()
-        try:
-            fps = int(self.fps.value)
-            quality = int(self.quality.value)
-
-            _errors = []
-            if fps not in self.FPS_BOUND:
-                _errors.append(f"FPS must be in the range {format_bound(self.FPS_BOUND)}.")
-            if quality not in self.QUALITY_BOUND:
-                _errors.append(f"Quality must be in the range {format_bound(self.QUALITY_BOUND)}.")
-
-            if _errors:
-                await functions.reply(self.interaction, '\n'.join(_errors), ephemeral=True)
-            else:
-                options_args = ["logs", "anon", "enable_chat"]
-                args = [arg in self.options.values for arg in options_args] + [fps, quality, RenderSingle.COOLDOWN]
-                await RenderSingle.worker(self.bot, self.interaction, self.attachment, *args)
-        except ValueError:
-            await functions.reply(self.interaction, content="Invalid FPS or Quality! Please provide a number.", ephemeral=True)
-
-
 class RenderEmbed(discord.Embed):
     TITLE = "**Minimap Renderer**"
 
@@ -283,23 +228,17 @@ class RenderCog(commands.Cog):
         self.bot: Track = bot
         self._render = Render()
 
-    @app_commands.command()
-    @app_commands.describe(replay="A .wowsreplay file.")
-    async def render(self, interaction: discord.Interaction, replay: discord.Attachment):
-        await interaction.response.send_modal(RenderModal(self.bot, interaction, replay))
-
     @app_commands.command(description="Generates a minimap timelapse and more from a replay file.")
     @app_commands.describe(replay="A .wowsreplay file.",
                            fps="Can be a value from 15 to 30, and defaults to 20.",
-                           quality="Can be a value from 1-9, and defaults to 7. Higher values require the server to have sufficient Nitro boosts.",
+                           quality="Can be a value from 1-9, and defaults to 7. Higher values may require Nitro boosts.",
                            logs="Shows additional statistics, and defaults to on.",
                            anon="Anonymizes player names in the format \"Player X\", and defaults to off. Ignored when logs is off.",
                            chat="Shows chat, and defaults to on. Ignored when logs is off.")
-    async def render_test(self, interaction: discord.Interaction, replay: discord.Attachment,
-                          fps: app_commands.Range[int, 15, 30] = 20, quality: app_commands.Range[int, 1, 9] = 7,
-                          logs: bool = True, anon: bool = False, chat: bool = True):
-        await interaction.response.defer()
-        print(fps, quality, logs, anon, chat)
+    async def render(self, interaction: discord.Interaction, replay: discord.Attachment,
+                     fps: app_commands.Range[int, 15, 30] = 20, quality: app_commands.Range[int, 1, 9] = 7,
+                     logs: bool = True, anon: bool = False, chat: bool = True):
+        await RenderSingle.worker(self.bot, interaction, replay, logs, anon, chat, fps, quality, RenderSingle.COOLDOWN)
 
 
 async def setup(bot: Track):
