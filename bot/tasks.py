@@ -33,8 +33,8 @@ def render_single(
 
         try:
             with io.BytesIO(data) as fp:
-                replay_info = ReplayParser(fp).get_info()
-        except RuntimeError:
+                replay_info = ReplayParser(fp, strict=True).get_info()
+        except (ModuleNotFoundError, RuntimeError):
             raise VersionNotFoundError()
         except Exception:
             raise ReadingError()
@@ -43,7 +43,6 @@ def render_single(
 
         # if replay_data.game_battle_type not in [7, 11, 14, 15, 16]:
         #     raise UnsupportedBattleTypeError()
-        print(replay_data.game_battle_type)
 
         try:
             job.meta["status"] = "Rendering"
