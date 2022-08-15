@@ -1,7 +1,7 @@
 import asyncio
 import io
 import logging
-from typing import Callable
+from typing import Callable, Optional
 
 import aioredis
 import discord
@@ -104,57 +104,57 @@ class Render:
 
         message = await functions.reply(interaction, content=None, embed=embed)
         status = "failed"
+        last_position: Optional[int] = None
+        last_progress: Optional[float] = None
 
         try:
             while True:
                 position = Render.get_job_position(job)
-
                 status = job.get_status(refresh=True)
-                if status == "queued":
-                    embed = RenderWaitingEmbed(attachment, position)
-                    await message.edit(embed=embed)
-                elif status == "started":
-                    try:
-                        embed = RenderStartedEmbed(attachment, job)
-                    except Exception as e:
-                        logger.log(logging.ERROR, "An error occurred while building started render embed", exc_info=e)
-                    finally:
-                        await message.edit(embed=embed)
-                elif status == "finished":
-                    if isinstance(job.result, Exception):
-                        if isinstance(job.result, errors.RenderError):
-                            err_message = str(job.result)
-                        else:
-                            logger.log(logging.ERROR, job.result)
-                            err_message = "An unhandled error occurred."
-                        embed = RenderFailureEmbed(attachment, err_message)
-                    elif isinstance(job.result, tuple):
-                        try:
+
+                match status:
+                    case "queued":
+                        if position != last_position:
+                            embed = RenderWaitingEmbed(attachment, position)
+                            await message.edit(embed=embed)
+                            last_position = position
+                    case "started":
+                        progress = job.get_meta(refresh=True).get("progress", 0.0)
+                        if progress != last_progress:
+                            embed = RenderStartedEmbed(attachment, job, progress)
+                            await message.edit(embed=embed)
+                            last_progress = progress
+                    case "finished":
+                        if isinstance(job.result, tuple):
                             data, random_str, time_taken = job.result
-                            with io.BytesIO(data) as reader:
-                                file = discord.File(reader, f"{random_str}.mp4")
 
-                            sent_message = await functions.reply(interaction, content=None, file=file)
-                            embed = RenderSuccessEmbed(attachment, sent_message, time_taken)
-                            status = "Completed"
-                        except discord.HTTPException:
-                            err_message = "Rendered file too large for Discord 8MB limit! Try lowering quality."
-                            embed = RenderFailureEmbed(attachment, err_message=err_message)
-                    else:
-                        logger.log(logging.ERROR, f"Unhandled finished render job result {job.result}")
+                            try:
+                                with io.BytesIO(data) as reader:
+                                    file = discord.File(reader, f"{random_str}.mp4")
 
-                    await message.edit(embed=embed)
-                    break
-                elif status == "failed":
-                    embed = RenderEmbed(attachment, RenderFailureEmbed.COLOR, status="Failed")
-                    await message.edit(embed=embed)
-                    break
-                elif not status:
-                    embed = RenderEmbed(attachment, RenderFailureEmbed.COLOR, status="Max queue time reached.")
-                    await message.edit(embed=embed)
-                    break
-                else:
-                    logger.log(logging.ERROR, f"Unhandled render job status {status}")
+                                sent_message = await functions.reply(interaction, content=None, file=file)
+                                embed = RenderSuccessEmbed(attachment, sent_message, time_taken)
+                            except discord.HTTPException:
+                                err_message = "Rendered file too large for Discord 8MB limit! Try lowering quality."
+                                embed = RenderFailureEmbed(attachment, err_message)
+                        elif isinstance(job.result, errors.RenderError):
+                            embed = RenderFailureEmbed(attachment, str(job.result))
+                        elif isinstance(job.result, rq.worker.JobTimeoutException):
+                            embed = RenderFailureEmbed(attachment, "Max job time reached.")
+                        else:
+                            embed = RenderFailureEmbed(attachment, "An unhandled error occurred.")
+                            logger.error(f"Unhandled job result {job.result}", exc_info=job.result)
+
+                        await message.edit(embed=embed)
+                        break
+                    case "failed":
+                        embed = RenderEmbed(attachment, RenderFailureEmbed.COLOR, status="Failed")
+                        await message.edit(embed=embed)
+                        break
+                    case _base:
+                        logger.warning("Unknown job status", status)
+                        pass
+
                 await asyncio.sleep(1)
         except Exception as e:
             logger.log(logging.ERROR, "An error occurred while rendering", exc_info=e)
@@ -180,13 +180,18 @@ class RenderEmbed(discord.Embed):
 
     def process_kwargs(self, **kwargs):
         if status := kwargs.pop("status", None):
-            self.add_field(name="Status", value=status, inline=True)
+            self.add_field(name="Status", value=status, inline=False)
 
         if position := kwargs.pop("position", None):
-            self.add_field(name="Position", value=position, inline=True)
+            self.add_field(name="Position", value=position, inline=False)
+
+        if progress := kwargs.pop("progress", None):
+            bar = f"{int(progress * 10) * Render.PROGRESS_FOREGROUND}" \
+                  f"{int((1 - progress) * 10) * Render.PROGRESS_BACKGROUND}"
+            self.add_field(name="Progress", value=bar, inline=False)
 
         if time_taken := kwargs.pop("time_taken", None):
-            self.add_field(name="Time taken", value=time_taken, inline=True)
+            self.add_field(name="Time taken", value=time_taken, inline=False)
 
         if result := kwargs.pop("result", None):
             self.add_field(name="Result", value=result, inline=False)
@@ -202,9 +207,9 @@ class RenderWaitingEmbed(RenderEmbed):
 class RenderStartedEmbed(RenderEmbed):
     COLOR = 0xFFFF1A  # yellow
 
-    def __init__(self, attachment: discord.Attachment, job: rq.job.Job):
+    def __init__(self, attachment: discord.Attachment, job: rq.job.Job, progress: float):
         if task_status := job.get_meta(refresh=True).get("status", None):
-            super().__init__(attachment, self.COLOR, status=task_status)
+            super().__init__(attachment, self.COLOR, status=task_status, progress=progress)
         else:
             super().__init__(attachment, self.COLOR, status="Running")
 
