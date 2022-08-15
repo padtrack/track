@@ -41,17 +41,16 @@ def render_single(
 
         replay_data = replay_info["hidden"]["replay_data"]
 
-        # if replay_data.game_battle_type not in [7, 11, 14, 15, 16]:
-        #     raise UnsupportedBattleTypeError()
+        def progress_callback(progress: float):
+            job.meta["progress"] = progress
+            job.save_meta()
 
         try:
             job.meta["status"] = "Rendering"
             job.save_meta()
             with tempfile.NamedTemporaryFile("w+b", suffix=".mp4", delete=False) as video_file:
-                Renderer(replay_data, logs, anon, enable_chat).start(video_file.name, fps, quality)
+                Renderer(replay_data, logs, anon, enable_chat).start(video_file.name, fps, quality, progress_callback)
 
-                # with open(video_file.name, "rb") as f:
-                #     video_data = f.read()
                 video_file.seek(0)
                 video_data = video_file.read()
 
