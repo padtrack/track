@@ -21,7 +21,7 @@ class CustomTree(app_commands.CommandTree):
         if user.is_blacklisted:
             return False
 
-        if interaction.guild.id is not None:
+        if interaction.guild is not None:
             guild = await db.Guild.get_or_create(id=interaction.guild.id)
             if guild.is_blacklisted:
                 return False
