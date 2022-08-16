@@ -1,7 +1,7 @@
 import discord
 
 
-async def reply(interaction: discord.Interaction, content, **kwargs):
+async def reply(interaction: discord.Interaction, content=None, **kwargs):
     if interaction.response.is_done():
         return await interaction.followup.send(content, **kwargs)
     else:
