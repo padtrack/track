@@ -143,7 +143,7 @@ class Render:
                             embed = RenderFailureEmbed(attachment, "Max job time reached.")
                         else:
                             embed = RenderFailureEmbed(attachment, "An unhandled error occurred.")
-                            logger.error(f"Unhandled job result {job.result}", exc_info=job.result)
+                            logger.error(f"Unhandled job result {job.result}", exc_info=job.exc_info)
 
                         await message.edit(embed=embed)
                         break
@@ -186,8 +186,8 @@ class RenderEmbed(discord.Embed):
             self.add_field(name="Position", value=position, inline=False)
 
         if progress := kwargs.pop("progress", None):
-            bar = f"{int(progress * 10) * Render.PROGRESS_FOREGROUND}" \
-                  f"{int((1 - progress) * 10) * Render.PROGRESS_BACKGROUND}"
+            bar = f"{round(progress * 10) * Render.PROGRESS_FOREGROUND}" \
+                  f"{round((1 - progress) * 10) * Render.PROGRESS_BACKGROUND}"
             self.add_field(name="Progress", value=bar, inline=False)
 
         if time_taken := kwargs.pop("time_taken", None):
