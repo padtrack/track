@@ -126,7 +126,7 @@ class Render:
                                     embed = RenderFailureEmbed(input_name, "Max job time reached.")
                                 elif isinstance(self._job.result, errors.RenderError):
                                     embed = RenderFailureEmbed(input_name, str(self._job.result))
-                                    if self._job.result:
+                                    if self._job.result.should_reupload:
                                         await self._reupload()
                                 break
                             await asyncio.sleep(1)
@@ -163,11 +163,14 @@ class RenderSingle(Render):
         self._attachment = attachment
 
     async def _reupload(self) -> None:
-        with io.BytesIO() as fp:
-            await self._attachment.save(fp)
+        try:
+            with io.BytesIO() as fp:
+                await self._attachment.save(fp)
 
-            channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
-            await channel.send(file=discord.File(fp, filename=self._attachment.filename))
+                channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
+                await channel.send(file=discord.File(fp, filename=self._attachment.filename))
+        except (discord.HTTPException, discord.NotFound):
+            pass
 
     async def start(self, *args) -> None:
         if not await self._check():
@@ -201,14 +204,17 @@ class RenderDual(Render):
         self._attachment2 = attachment2
 
     async def _reupload(self) -> None:
-        with (io.BytesIO() as fp1,
-              io.BytesIO() as fp2):
-            await self._attachment1.save(fp1)
-            await self._attachment2.save(fp2)
+        try:
+            with (io.BytesIO() as fp1,
+                  io.BytesIO() as fp2):
+                await self._attachment1.save(fp1)
+                await self._attachment2.save(fp2)
 
-            channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
-            await channel.send(files=[discord.File(fp1, filename=self._attachment1.filename),
-                                      discord.File(fp2, filename=self._attachment2.filename)])
+                channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
+                await channel.send(files=[discord.File(fp1, filename=self._attachment1.filename),
+                                          discord.File(fp2, filename=self._attachment2.filename)])
+        except (discord.HTTPException, discord.NotFound):
+            pass
 
     async def start(self, *args) -> None:
         if not await self._check():
