@@ -25,7 +25,14 @@ class TrackConfig:
 
     redis = environ.group(Redis)
 
+    @environ.config(prefix='CHANNELS')
+    class ChannelIDs:
+        failed_renders = environ.var(converter=int)
+
+    channels = environ.group(ChannelIDs)
+
 
 cfg: TrackConfig = TrackConfig.from_environ(environ={
-    'DISCORD_OWNER_IDS': {212466672450142208, 113104128783159296}
+    'DISCORD_OWNER_IDS': {212466672450142208, 113104128783159296},
+    'CHANNELS_FAILED_RENDERS': 1010834704804614184,
 })

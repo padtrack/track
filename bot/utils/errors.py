@@ -9,6 +9,8 @@ class CustomError(Exception):
 
 
 class RenderError(Exception):
+    should_reupload = False
+
     def __init__(self, message):
         self.message = message
 
@@ -17,11 +19,15 @@ class RenderError(Exception):
 
 
 class ReadingError(RenderError):
+    should_reupload = True
+
     def __init__(self):
         super().__init__("Error while reading replay.")
 
 
 class RenderingError(RenderError):
+    should_reupload = True
+
     def __init__(self):
         super().__init__("Rendering failed.")
 

@@ -1,7 +1,7 @@
 import asyncio
 import io
 import logging
-from typing import Callable, Optional
+from typing import Optional
 
 import aioredis
 import discord
@@ -127,6 +127,8 @@ class Render:
                                     embed = RenderFailureEmbed(input_name, "Max job time reached.")
                                 elif isinstance(self._job.result, errors.RenderError):
                                     embed = RenderFailureEmbed(input_name, str(self._job.result))
+                                    if self._job.result:
+                                        await self.reupload()
                                 break
                             await asyncio.sleep(1)
                         else:
@@ -163,7 +165,11 @@ class RenderSingle(Render):
         self._attachment = attachment
 
     async def reupload(self):
-        pass
+        with io.BytesIO() as fp:
+            await self._attachment.save(fp)
+
+            channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
+            await channel.send(file=discord.File(fp, filename=self._attachment.filename))
 
     async def start(self, *args):
         if not await self._check():
@@ -197,20 +203,27 @@ class RenderDual(Render):
         self._attachment2 = attachment2
 
     async def reupload(self):
-        pass
+        with (io.BytesIO() as fp1,
+              io.BytesIO() as fp2):
+            await self._attachment1.save(fp1)
+            await self._attachment2.save(fp2)
+
+            channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
+            await channel.send(files=[discord.File(fp1, filename=self._attachment1.filename),
+                                      discord.File(fp2, filename=self._attachment2.filename)])
 
     async def start(self, *args):
         if not await self._check():
             return
 
-        with (io.BytesIO() as buf1,
-              io.BytesIO() as buf2):
-            await self._attachment1.save(buf1)
-            buf1.seek(0)
-            await self._attachment2.save(buf2)
-            buf2.seek(0)
+        with (io.BytesIO() as fp1,
+              io.BytesIO() as fp2):
+            await self._attachment1.save(fp1)
+            fp1.seek(0)
+            await self._attachment2.save(fp2)
+            fp2.seek(0)
 
-            arguments = [self._interaction.user.id, self.COOLDOWN, buf1.read(), buf2.read()]
+            arguments = [self._interaction.user.id, self.COOLDOWN, fp1.read(), fp2.read()]
             arguments.extend(args)
             self._job = self.QUEUE.enqueue(
                 tasks.render_dual,
