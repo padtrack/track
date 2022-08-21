@@ -33,7 +33,7 @@ class CustomTree(app_commands.CommandTree):
         command = interaction.command
 
         if command is None:
-            logs.logger.log(logging.ERROR, f"Ignoring exception in command tree", exc_info=error)
+            logs.logger.error(f"Ignoring exception in command tree", exc_info=error)
         elif command.on_error:
             return
 
@@ -43,7 +43,7 @@ class CustomTree(app_commands.CommandTree):
             await functions.reply(interaction, error.message, ephemeral=error.ephemeral)
         else:
             await functions.reply(interaction, "An unhandled error occurred.")
-            logs.logger.log(logging.ERROR, f"Ignoring exception in command {command.name}", exc_info=error)
+            logs.logger.error(f"Ignoring exception in command {command.name}", exc_info=error)
 
 
 class Track(commands.AutoShardedBot):
@@ -78,7 +78,7 @@ class Track(commands.AutoShardedBot):
                         await self.load_extension(extension)
                     except commands.NoEntryPointError as e:
                         message = f"{e.name} has no entry point."
-                        logs.logger.log(logging.WARNING, message)
+                        logs.logger.warning(message)
                         pass
 
         await self.load_extension("jishaku")

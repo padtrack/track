@@ -7,6 +7,8 @@ class CustomError(Exception):
         self.message = message
         self.ephemeral = ephemeral
 
+        # when using ephemeral errors, ensure any defer is also ephemeral!
+
 
 class RenderError(Exception):
     should_reupload = False

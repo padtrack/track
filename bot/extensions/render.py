@@ -25,7 +25,7 @@ _async_redis: aioredis.Redis = aioredis.from_url(_url)
 
 def track_task_request(f):
     async def wrapped(self, *args, **kwargs):
-        await _async_redis.set(f"task_request_{self._interaction.user.id}", "", ex=Render.MAX_WAIT_TIME)
+        await _async_redis.set(f"task_request_{self._interaction.user.id}", "", ex=600)
         try:
             return await f(self, *args, **kwargs)
         except Exception as e:
@@ -40,7 +40,7 @@ class Render:
     DEFAULT_FPS = 30
     DEFAULT_QUALITY = 7
     MAX_WAIT_TIME = 180
-    FINISHED_TTL = 500
+    FINISHED_TTL = 600
     COOLDOWN = 30
     QUEUE_SIZE = 10
 
@@ -54,7 +54,19 @@ class Render:
         self._interaction = interaction
         self._job: Optional[rq.job.Job] = None
 
-    async def _check(self):
+    @property
+    def job_position(self) -> int:
+        pos = self._job.get_position()
+        return pos + 1 if pos else 1
+
+    @property
+    def job_ttl(self) -> int:
+        return max(self.QUEUE.count, 1) * self.MAX_WAIT_TIME
+
+    async def _reupload(self) -> None:
+        raise NotImplementedError()
+
+    async def _check(self) -> bool:
         worker_count = rq.worker.Worker.count(connection=_redis, queue=self.QUEUE)
         cooldown = await _async_redis.ttl(f"cooldown_{self._interaction.user.id}")
 
@@ -69,26 +81,13 @@ class Render:
                 f"{self._interaction.user.mention} You have an ongoing/queued render. Please try again later."
             return True
         except AssertionError as e:
-            await functions.reply(self._interaction, str(e), ephemeral=True)
+            await functions.reply(self._interaction, str(e))
             return False
 
-    @property
-    def job_position(self):
-        pos = self._job.get_position()
-        return pos + 1 if pos else 1
-
-    @property
-    def job_ttl(self):
-        return max(self.QUEUE.count, 1) * self.MAX_WAIT_TIME
-
-    async def reupload(self):
-        raise NotImplementedError()
-
     @track_task_request
-    async def poll_result(self, input_name: str):
+    async def poll_result(self, input_name: str) -> None:
         embed = RenderWaitingEmbed(input_name, self.job_position)
         message = await functions.reply(self._interaction, embed=embed)
-        status = "failed"
         last_position: Optional[int] = None
         last_progress: Optional[float] = None
 
@@ -100,13 +99,13 @@ class Render:
                     case "queued":
                         if (pos := self.job_position) != last_position:
                             embed = RenderWaitingEmbed(input_name, pos)
-                            await message.edit(embed=embed)
+                            message = await message.edit(embed=embed)
                             last_position = pos
                     case "started":
                         progress = self._job.get_meta(refresh=True).get("progress", 0.0)
                         if progress != last_progress:
                             embed = RenderStartedEmbed(input_name, self._job, progress)
-                            await message.edit(embed=embed)
+                            message = await message.edit(embed=embed)
                             last_progress = progress
                     case "finished":
                         for _ in range(0, 10):
@@ -128,20 +127,20 @@ class Render:
                                 elif isinstance(self._job.result, errors.RenderError):
                                     embed = RenderFailureEmbed(input_name, str(self._job.result))
                                     if self._job.result:
-                                        await self.reupload()
+                                        await self._reupload()
                                 break
                             await asyncio.sleep(1)
                         else:
                             embed = RenderFailureEmbed(input_name, "An unhandled error occurred.")
                             logger.error(f"Unhandled job result {self._job.result}", exc_info=self._job.exc_info)
-                            await self.reupload()
+                            await self._reupload()
 
                         await message.edit(embed=embed)
                         break
                     case "failed":
                         embed = RenderFailureEmbed(input_name, "Job Failed.")
                         await message.edit(embed=embed)
-                        await self.reupload()
+                        await self._reupload()
                         break
                     case _base:
                         logger.warning("Unknown job status", status)
@@ -149,10 +148,9 @@ class Render:
 
                 await asyncio.sleep(1)
         except Exception as e:
-            logger.log(logging.ERROR, "An error occurred while rendering", exc_info=e)
+            logger.error("An error occurred while rendering", exc_info=e)
 
         self._job.delete()
-        return status
 
 
 class RenderSingle(Render):
@@ -164,14 +162,14 @@ class RenderSingle(Render):
 
         self._attachment = attachment
 
-    async def reupload(self):
+    async def _reupload(self) -> None:
         with io.BytesIO() as fp:
             await self._attachment.save(fp)
 
             channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
             await channel.send(file=discord.File(fp, filename=self._attachment.filename))
 
-    async def start(self, *args):
+    async def start(self, *args) -> None:
         if not await self._check():
             return
 
@@ -202,7 +200,7 @@ class RenderDual(Render):
         self._attachment1 = attachment1
         self._attachment2 = attachment2
 
-    async def reupload(self):
+    async def _reupload(self) -> None:
         with (io.BytesIO() as fp1,
               io.BytesIO() as fp2):
             await self._attachment1.save(fp1)
@@ -212,7 +210,7 @@ class RenderDual(Render):
             await channel.send(files=[discord.File(fp1, filename=self._attachment1.filename),
                                       discord.File(fp2, filename=self._attachment2.filename)])
 
-    async def start(self, *args):
+    async def start(self, *args) -> None:
         if not await self._check():
             return
 
