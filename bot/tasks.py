@@ -1,5 +1,7 @@
+import contextlib
 import io
 import logging
+import os
 import random
 import string
 import tempfile
@@ -16,6 +18,16 @@ from config import cfg
 
 _url = f"redis://:{cfg.redis.password}@{cfg.redis.host}:{cfg.redis.port}/"
 _redis = redis.from_url(_url)
+
+
+@contextlib.contextmanager
+def temp():
+    tmp = tempfile.NamedTemporaryFile("w+b", suffix=".mp4", delete=False)
+    try:
+        yield tmp
+    finally:
+        tmp.close()
+        os.remove(tmp.name)
 
 
 def render_single(
@@ -47,13 +59,14 @@ def render_single(
         try:
             job.meta["status"] = "Rendering"
             job.save_meta()
-            with tempfile.NamedTemporaryFile("w+b", suffix=".mp4", delete=False) as video_file:
+
+            with temp() as tmp:
                 Renderer(
                     replay_data, logs, anon, enable_chat, team_tracers, use_tqdm=False
-                ).start(video_file.name, fps, quality, progress_callback)
+                ).start(tmp.name, fps, quality, progress_callback)
 
-                video_file.seek(0)
-                video_data = video_file.read()
+                tmp.seek(0)
+                video_data = tmp.read()
 
         except ModuleNotFoundError:
             raise VersionNotFoundError()
@@ -90,13 +103,13 @@ def render_dual(
 
         try:
             with (
-                io.BytesIO(gdata) as gt,
-                io.BytesIO(rdata) as rt,
+                io.BytesIO(gdata) as fp1,
+                io.BytesIO(rdata) as fp2,
             ):
-                g_replay_info = ReplayParser(gt, strict=True).get_info()
+                g_replay_info = ReplayParser(fp1, strict=True).get_info()
                 g_replay_data: ReplayData = g_replay_info["hidden"]["replay_data"]
 
-                r_replay_info = ReplayParser(rt, strict=True).get_info()
+                r_replay_info = ReplayParser(fp2, strict=True).get_info()
                 r_replay_data: ReplayData = r_replay_info["hidden"]["replay_data"]
         except (ModuleNotFoundError, RuntimeError):
             raise VersionNotFoundError()
@@ -110,13 +123,14 @@ def render_dual(
         try:
             job.meta["status"] = "Rendering"
             job.save_meta()
-            with tempfile.NamedTemporaryFile("w+b", suffix=".mp4", delete=False) as video_file:
+
+            with temp() as tmp:
                 RenderDual(
                     g_replay_data, r_replay_data, green_name, red_name, team_tracers, use_tqdm=False
-                ).start(video_file.name, fps, quality, progress_callback)
+                ).start(tmp.name, fps, quality, progress_callback)
 
-                video_file.seek(0)
-                video_data = video_file.read()
+                tmp.seek(0)
+                video_data = tmp.read()
 
         except ModuleNotFoundError:
             raise VersionNotFoundError()
