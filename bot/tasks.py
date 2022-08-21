@@ -19,10 +19,9 @@ _redis = redis.from_url(_url)
 
 
 def render_single(
-        data: bytes, requester_id: int,
-        logs: bool, anon: bool, enable_chat: bool, team_tracers: bool,
+        requester_id: int, cooldown: int, data: bytes,
         fps: int, quality: int,
-        cooldown: int
+        logs: bool, anon: bool, enable_chat: bool, team_tracers: bool
 ):
     job: Job = rq.get_current_job()
 
@@ -78,10 +77,9 @@ def render_single(
 
 
 def render_dual(
-        gdata: bytes, rdata: bytes, requester_id: int,
-        green_name: str, red_name: str, team_tracers: bool,
+        requester_id: int, cooldown: int, gdata: bytes, rdata: bytes,
         fps: int, quality: int,
-        cooldown: int
+        green_name: str, red_name: str, team_tracers: bool
 ):
     job: Job = rq.get_current_job()
 
