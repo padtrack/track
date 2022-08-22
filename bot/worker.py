@@ -10,6 +10,7 @@ from rq import Queue, Connection
 from rq.worker import Worker
 
 from config import cfg
+from bot.tasks import cooldown_handler, timeout_handler
 
 QUEUES = ["single", "dual"]
 
@@ -21,7 +22,7 @@ def run_worker(queues: Union[list, None]):
     queues = queues if queues else QUEUES
 
     with Connection(_redis):
-        worker = Worker(map(Queue, queues))
+        worker = Worker(map(Queue, queues), exception_handlers=[cooldown_handler, timeout_handler])
         worker.work()
 
 

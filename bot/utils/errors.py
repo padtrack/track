@@ -7,31 +7,18 @@ class CustomError(Exception):
         self.message = message
         self.ephemeral = ephemeral
 
-        # when using ephemeral errors, ensure any defer is also ephemeral!
+        # NOBUG: will not actually render as ephemeral
+        # if interaction was deferred without ephemeral
 
 
 class RenderError(Exception):
-    should_reupload = False
-
     def __init__(self, message):
         self.message = message
 
-    def __str__(self) -> str:
-        return self.message
 
-
-class ReadingError(RenderError):
-    should_reupload = True
-
+class ArenaMismatchError(RenderError):
     def __init__(self):
-        super().__init__("Error while reading replay.")
-
-
-class RenderingError(RenderError):
-    should_reupload = True
-
-    def __init__(self):
-        super().__init__("Rendering failed.")
+        super().__init__("Provided replays are not from the same match.")
 
 
 class UnsupportedBattleTypeError(RenderError):
@@ -41,4 +28,4 @@ class UnsupportedBattleTypeError(RenderError):
 
 class VersionNotFoundError(RenderError):
     def __init__(self):
-        super().__init__("Unsupported Version. Only 0.11.6 and 0.11.7 for now!")
+        super().__init__("Unsupported Version (< 0.11.6).")

@@ -29,7 +29,7 @@ def track_task_request(f):
         try:
             return await f(self, *args, **kwargs)
         except Exception as e:
-            logger.error("An error occurred while rendering", exc_info=e)
+            logger.error("Render tracking failed", exc_info=e)
         finally:
             await _async_redis.delete(f"task_request_{self._interaction.user.id}")
 
@@ -63,7 +63,7 @@ class Render:
     def job_ttl(self) -> int:
         return max(self.QUEUE.count, 1) * self.MAX_WAIT_TIME
 
-    async def _reupload(self) -> None:
+    async def _reupload(self, task_status: Optional[str], exc_info: Optional[str]) -> None:
         raise NotImplementedError()
 
     async def _check(self) -> bool:
@@ -91,64 +91,67 @@ class Render:
         last_position: Optional[int] = None
         last_progress: Optional[float] = None
 
-        try:
-            while True:
-                status = self._job.get_status(refresh=True)
+        while True:
+            status = self._job.get_status(refresh=True)
 
-                match status:
-                    case "queued":
-                        if (pos := self.job_position) != last_position:
-                            embed = RenderWaitingEmbed(input_name, pos)
-                            message = await message.edit(embed=embed)
-                            last_position = pos
-                    case "started":
-                        progress = self._job.get_meta(refresh=True).get("progress", 0.0)
-                        if progress != last_progress:
-                            embed = RenderStartedEmbed(input_name, self._job, progress)
-                            message = await message.edit(embed=embed)
-                            last_progress = progress
-                    case "finished":
-                        for _ in range(0, 10):
-                            if self._job.result is not None:
-                                if isinstance(self._job.result, tuple):
-                                    data, random_str, time_taken = self._job.result
+            match status:
+                case "queued":
+                    position = self.job_position
 
-                                    try:
-                                        with io.BytesIO(data) as reader:
-                                            file = discord.File(reader, f"{random_str}.mp4")
+                    if position != last_position:
+                        embed = RenderWaitingEmbed(input_name, position)
+                        message = await message.edit(embed=embed)
+                        last_position = position
+                case "started":
+                    progress = self._job.get_meta(refresh=True).get("progress", 0.0)
 
-                                        sent_message = await functions.reply(self._interaction, content=None, file=file)
-                                        embed = RenderSuccessEmbed(input_name, sent_message, time_taken)
-                                    except discord.HTTPException:
-                                        err_message = "Rendered file too large for Discord 8MB limit! Try lowering quality."
-                                        embed = RenderFailureEmbed(input_name, err_message)
-                                elif isinstance(self._job.result, rq.worker.JobTimeoutException):
-                                    embed = RenderFailureEmbed(input_name, "Max job time reached.")
-                                elif isinstance(self._job.result, errors.RenderError):
-                                    embed = RenderFailureEmbed(input_name, str(self._job.result))
-                                    if self._job.result.should_reupload:
-                                        await self._reupload()
-                                break
-                            await asyncio.sleep(1)
-                        else:
-                            embed = RenderFailureEmbed(input_name, "An unhandled error occurred.")
-                            logger.error(f"Unhandled job result {self._job.result}", exc_info=self._job.exc_info)
-                            await self._reupload()
+                    if progress != last_progress:
+                        embed = RenderStartedEmbed(input_name, self._job, progress)
+                        message = await message.edit(embed=embed)
+                        last_progress = progress
+                case "finished":
+                    # fetch again because job result is not always correctly set by rq
+                    job = rq.job.Job.fetch(self._job.id, connection=_redis)
 
+                    if isinstance(job.result, tuple):
+                        data, filename, time_taken = job.result
+
+                        try:
+                            file = discord.File(io.BytesIO(data), f"{filename}.mp4")
+                            sent_message = await functions.reply(self._interaction, content=None, file=file)
+                            embed = RenderSuccessEmbed(input_name, sent_message, time_taken)
+                        except discord.HTTPException:
+                            embed = RenderFailureEmbed(input_name, "Rendered file too large for Discord 8MB limit! Try lowering quality.")
+                    elif isinstance(job.result, errors.RenderError):
+                        embed = RenderFailureEmbed(input_name, job.result.message)
+                    else:
+                        logger.error(f"Unhandled job result {self._job.result}")
+                        embed = RenderFailureEmbed(input_name, "An unhandled error occurred.")
+
+                    await message.edit(embed=embed)
+                    break
+                case "failed":
+                    # fetch again because exc_info is not updated
+                    job = rq.job.Job.fetch(self._job.id, connection=_redis)
+                    meta = job.get_meta(refresh=True)
+
+                    if meta.get("timeout", None):
+                        logger.warning("Render job timed out")
+                        embed = RenderFailureEmbed(input_name, "Job timed out.")
                         await message.edit(embed=embed)
                         break
-                    case "failed":
-                        embed = RenderFailureEmbed(input_name, "Job Failed.")
-                        await message.edit(embed=embed)
-                        await self._reupload()
-                        break
-                    case _base:
-                        logger.warning("Unknown job status", status)
-                        pass
 
-                await asyncio.sleep(1)
-        except Exception as e:
-            logger.error("An error occurred while rendering", exc_info=e)
+                    task_status = meta.get("status", None)
+                    logger.error(f"Render job failed with status \"{task_status}\"\n{job.exc_info}")
+                    embed = RenderFailureEmbed(input_name, "An unhandled error occurred.")
+                    await message.edit(embed=embed)
+                    await self._reupload(task_status, job.exc_info)
+                    break
+                case _base:
+                    logger.warning("Unknown job status", status)
+                    pass
+
+            await asyncio.sleep(1)
 
         self._job.delete()
 
@@ -162,25 +165,26 @@ class RenderSingle(Render):
 
         self._attachment = attachment
 
-    async def _reupload(self) -> None:
+    async def _reupload(self, task_status: Optional[str], exc_info: Optional[str]) -> None:
         try:
             with io.BytesIO() as fp:
                 await self._attachment.save(fp)
 
                 channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
-                await channel.send(file=discord.File(fp, filename=self._attachment.filename))
+                await channel.send(f"Task Status: {task_status}\nTraceback:\n```\n{exc_info}\n```",
+                                   file=discord.File(fp, filename=self._attachment.filename))
         except (discord.HTTPException, discord.NotFound):
-            pass
+            logger.error(f"Failed to reupload render with interaction ID {self._interaction.id}")
 
     async def start(self, *args) -> None:
         if not await self._check():
             return
 
-        with io.BytesIO() as buf:
-            await self._attachment.save(buf)
-            buf.seek(0)
+        with io.BytesIO() as fp:
+            await self._attachment.save(fp)
+            fp.seek(0)
 
-            arguments = [self._interaction.user.id, self.COOLDOWN, buf.read()]
+            arguments = [self._interaction.user.id, self.COOLDOWN, fp.read()]
             arguments.extend(args)
             self._job = self.QUEUE.enqueue(
                 tasks.render_single,
@@ -203,7 +207,7 @@ class RenderDual(Render):
         self._attachment1 = attachment1
         self._attachment2 = attachment2
 
-    async def _reupload(self) -> None:
+    async def _reupload(self, task_status: Optional[str], exc_info: Optional[str]) -> None:
         try:
             with (io.BytesIO() as fp1,
                   io.BytesIO() as fp2):
@@ -211,10 +215,11 @@ class RenderDual(Render):
                 await self._attachment2.save(fp2)
 
                 channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
-                await channel.send(files=[discord.File(fp1, filename=self._attachment1.filename),
+                await channel.send(f"Task Status: {task_status}\nTraceback:\n```\n{exc_info}\n```",
+                                   files=[discord.File(fp1, filename=self._attachment1.filename),
                                           discord.File(fp2, filename=self._attachment2.filename)])
         except (discord.HTTPException, discord.NotFound):
-            pass
+            logger.error(f"Failed to reupload render with interaction ID {self._interaction.id}")
 
     async def start(self, *args) -> None:
         if not await self._check():
@@ -281,9 +286,9 @@ class RenderStartedEmbed(RenderEmbed):
 
     def __init__(self, input_name: str, job: rq.job.Job, progress: float):
         if task_status := job.get_meta(refresh=True).get("status", None):
-            super().__init__(self.COLOR, input_name, status=task_status, progress=progress)
+            super().__init__(self.COLOR, input_name, status=task_status.title(), progress=progress)
         else:
-            super().__init__(self.COLOR, input_name, status="Running")
+            super().__init__(self.COLOR, input_name, status="Started")
 
 
 class RenderSuccessEmbed(RenderEmbed):

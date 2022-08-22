@@ -1,9 +1,6 @@
 import contextlib
 import io
-import logging
 import os
-import random
-import string
 import tempfile
 import time
 
@@ -13,7 +10,7 @@ from renderer.render import Renderer, RenderDual, ReplayData
 from replay_parser import ReplayParser
 from rq.job import Job
 
-from bot.utils.errors import ReadingError, RenderingError, VersionNotFoundError
+from bot.utils.errors import ArenaMismatchError, VersionNotFoundError
 from config import cfg
 
 _url = f"redis://:{cfg.redis.password}@{cfg.redis.host}:{cfg.redis.port}/"
@@ -30,6 +27,30 @@ def temp():
         os.remove(tmp.name)
 
 
+@contextlib.contextmanager
+def measure_time() -> float:
+    start = time.perf_counter()
+    yield lambda: time.perf_counter() - start
+
+
+def cooldown_handler(job: Job, *_exc_info):
+    _redis.set(f"cooldown_{job.args[0]}", "", ex=job.args[1])
+
+
+def timeout_handler(job: Job, _exc_type, exc_value, _traceback):
+    if isinstance(exc_value, rq.worker.JobTimeoutException):
+        job.meta["timeout"] = True
+        job.save_meta()
+
+
+def progress_callback(job: Job):
+    def callback(progress: float):
+        job.meta["progress"] = progress
+        job.save_meta()
+
+    return callback
+
+
 def render_single(
         requester_id: int, cooldown: int, data: bytes,
         fps: int, quality: int,
@@ -37,56 +58,40 @@ def render_single(
 ):
     job: Job = rq.get_current_job()
 
-    try:
-        t1 = time.perf_counter()
-        job.meta["status"] = "Reading"
+    with measure_time() as t:
+        job.meta["status"] = "reading"
         job.save_meta()
 
         try:
             with io.BytesIO(data) as fp:
                 replay_info = ReplayParser(fp, strict=True).get_info()
+                replay_data: ReplayData = replay_info["hidden"]["replay_data"]
         except (ModuleNotFoundError, RuntimeError):
-            raise VersionNotFoundError()
-        except Exception:
-            raise ReadingError()
-
-        replay_data: ReplayData = replay_info["hidden"]["replay_data"]
-
-        def progress_callback(progress: float):
-            job.meta["progress"] = progress
-            job.save_meta()
+            return VersionNotFoundError()
 
         try:
-            job.meta["status"] = "Rendering"
+            job.meta["status"] = "rendering"
             job.save_meta()
 
             with temp() as tmp:
                 Renderer(
                     replay_data, logs, anon, enable_chat, team_tracers, use_tqdm=False
-                ).start(tmp.name, fps, quality, progress_callback)
-
+                ).start(tmp.name, fps, quality, progress_callback(job))
                 tmp.seek(0)
                 video_data = tmp.read()
-
         except ModuleNotFoundError:
-            raise VersionNotFoundError()
-        except Exception as e:
-            logging.error("Fatal error while rendering", exc_info=e)
-            raise RenderingError()
+            return VersionNotFoundError()
 
-        t2 = time.perf_counter()
-        str_taken = time.strftime("%M:%S", time.gmtime(t2 - t1))
-        random_str = "".join(
-            random.choice(string.ascii_uppercase[:6]) for _ in range(4)
-        )
-        random_str += "".join(random.choice(string.digits) for _ in range(8))
-        return video_data, random_str, str_taken
-    except Exception as e:
-        return e
-    finally:
-        _redis.set(
-            f"cooldown_{requester_id}", "", ex=cooldown
-        )
+    time_taken = time.strftime("%M:%S", time.gmtime(t()))
+    name = str(replay_data.game_arena_id)
+
+    try:
+        name = name[len(name) - 8:]
+    except IndexError:
+        pass
+
+    _redis.set(f"cooldown_{requester_id}", "", ex=cooldown)
+    return video_data, f"render_{name}", time_taken
 
 
 def render_dual(
@@ -96,58 +101,43 @@ def render_dual(
 ):
     job: Job = rq.get_current_job()
 
-    try:
-        t1 = time.perf_counter()
-        job.meta["status"] = "Reading"
+    with measure_time() as t:
+        job.meta["status"] = "reading"
         job.save_meta()
 
         try:
-            with (
-                io.BytesIO(gdata) as fp1,
-                io.BytesIO(rdata) as fp2,
-            ):
+            with (io.BytesIO(gdata) as fp1,
+                  io.BytesIO(rdata) as fp2):
                 g_replay_info = ReplayParser(fp1, strict=True).get_info()
                 g_replay_data: ReplayData = g_replay_info["hidden"]["replay_data"]
-
                 r_replay_info = ReplayParser(fp2, strict=True).get_info()
                 r_replay_data: ReplayData = r_replay_info["hidden"]["replay_data"]
         except (ModuleNotFoundError, RuntimeError):
-            raise VersionNotFoundError()
-        except Exception:
-            raise ReadingError()
+            return VersionNotFoundError()
 
-        def progress_callback(progress: float):
-            job.meta["progress"] = progress
-            job.save_meta()
+        if g_replay_data.game_arena_id != r_replay_data.game_arena_id:
+            return ArenaMismatchError()
 
         try:
-            job.meta["status"] = "Rendering"
+            job.meta["status"] = "rendering"
             job.save_meta()
 
             with temp() as tmp:
                 RenderDual(
                     g_replay_data, r_replay_data, green_name, red_name, team_tracers, use_tqdm=False
-                ).start(tmp.name, fps, quality, progress_callback)
-
+                ).start(tmp.name, fps, quality, progress_callback(job))
                 tmp.seek(0)
                 video_data = tmp.read()
-
         except ModuleNotFoundError:
-            raise VersionNotFoundError()
-        except Exception as e:
-            logging.error("Fatal error while rendering", exc_info=e)
-            raise RenderingError()
+            return VersionNotFoundError()
 
-        t2 = time.perf_counter()
-        str_taken = time.strftime("%M:%S", time.gmtime(t2 - t1))
-        random_str = "".join(
-            random.choice(string.ascii_uppercase[:6]) for _ in range(4)
-        )
-        random_str += "".join(random.choice(string.digits) for _ in range(8))
-        return video_data, random_str, str_taken
-    except Exception as e:
-        return e
-    finally:
-        _redis.set(
-            f"cooldown_{requester_id}", "", ex=cooldown
-        )
+    time_taken = time.strftime("%M:%S", time.gmtime(t()))
+    name = str(g_replay_data.game_arena_id)
+
+    try:
+        name = name[len(name) - 8:]
+    except IndexError:
+        pass
+
+    _redis.set(f"cooldown_{requester_id}", "", ex=cooldown)
+    return video_data, f"render_{green_name}_{red_name}_{name}", time_taken
