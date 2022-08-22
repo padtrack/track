@@ -167,12 +167,13 @@ class RenderSingle(Render):
 
     async def _reupload(self, task_status: Optional[str], exc_info: Optional[str]) -> None:
         try:
-            with io.BytesIO() as fp:
+            with (io.BytesIO() as fp,
+                  io.StringIO(f"Task Status: {task_status}\n\n{exc_info}\n") as report):
                 await self._attachment.save(fp)
 
                 channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
-                await channel.send(f"Task Status: {task_status}\nTraceback:\n```\n{exc_info}\n```",
-                                   file=discord.File(fp, filename=self._attachment.filename))
+                await channel.send(files=[discord.File(report, filename="report.txt"),
+                                          discord.File(fp, filename=self._attachment.filename)])
         except (discord.HTTPException, discord.NotFound):
             logger.error(f"Failed to reupload render with interaction ID {self._interaction.id}")
 
@@ -210,13 +211,15 @@ class RenderDual(Render):
     async def _reupload(self, task_status: Optional[str], exc_info: Optional[str]) -> None:
         try:
             with (io.BytesIO() as fp1,
-                  io.BytesIO() as fp2):
+                  io.BytesIO() as fp2,
+                  io.StringIO(f"Task Status: {task_status}\n\n{exc_info}\n") as report):
                 await self._attachment1.save(fp1)
                 await self._attachment2.save(fp2)
 
                 channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
                 await channel.send(f"Task Status: {task_status}\nTraceback:\n```\n{exc_info}\n```",
-                                   files=[discord.File(fp1, filename=self._attachment1.filename),
+                                   files=[discord.File(report, filename="report.txt"),
+                                          discord.File(fp1, filename=self._attachment1.filename),
                                           discord.File(fp2, filename=self._attachment2.filename)])
         except (discord.HTTPException, discord.NotFound):
             logger.error(f"Failed to reupload render with interaction ID {self._interaction.id}")
