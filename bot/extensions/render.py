@@ -110,20 +110,24 @@ class Render:
                         message = await message.edit(embed=embed)
                         last_progress = progress
                 case "finished":
-                    # fetch again because job result is not always correctly set by rq
-                    job = rq.job.Job.fetch(self._job.id, connection=_redis)
+                    for _index in range(0, 10):  # FIXME: find out why rq doesn't always immediately set job result
+                        if self._job.result:
+                            if isinstance(self._job.result, tuple):
+                                data, filename, time_taken = self._job.result
 
-                    if isinstance(job.result, tuple):
-                        data, filename, time_taken = job.result
+                                try:
+                                    file = discord.File(io.BytesIO(data), f"{filename}.mp4")
+                                    sent_message = await functions.reply(self._interaction, content=None, file=file)
+                                    embed = RenderSuccessEmbed(input_name, sent_message, time_taken)
+                                    break
+                                except discord.HTTPException:
+                                    embed = RenderFailureEmbed(input_name, "Rendered file too large for Discord 8MB limit! Try lowering quality.")
+                                    break
+                            elif isinstance(self._job.result, errors.RenderError):
+                                embed = RenderFailureEmbed(input_name, self._job.result.message)
+                                break
 
-                        try:
-                            file = discord.File(io.BytesIO(data), f"{filename}.mp4")
-                            sent_message = await functions.reply(self._interaction, content=None, file=file)
-                            embed = RenderSuccessEmbed(input_name, sent_message, time_taken)
-                        except discord.HTTPException:
-                            embed = RenderFailureEmbed(input_name, "Rendered file too large for Discord 8MB limit! Try lowering quality.")
-                    elif isinstance(job.result, errors.RenderError):
-                        embed = RenderFailureEmbed(input_name, job.result.message)
+                        await asyncio.sleep(1)
                     else:
                         logger.error(f"Unhandled job result {self._job.result}")
                         embed = RenderFailureEmbed(input_name, "An unhandled error occurred.")
