@@ -1,4 +1,3 @@
-import asyncio
 import io
 import logging
 from typing import Optional
@@ -178,6 +177,7 @@ class RenderSingle(Render):
                 await self._attachment.save(fp)
 
                 channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
+                # noinspection PyTypeChecker
                 await channel.send(files=[discord.File(report, filename="report.txt"),
                                           discord.File(fp, filename=self._attachment.filename)])
         except (discord.HTTPException, discord.NotFound):
