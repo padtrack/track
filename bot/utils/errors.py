@@ -28,4 +28,4 @@ class UnsupportedBattleTypeError(RenderError):
 
 class VersionNotFoundError(RenderError):
     def __init__(self):
-        super().__init__("Unsupported Version (< 0.11.6).")
+        super().__init__("Unsupported Version (<0.11.6).")
