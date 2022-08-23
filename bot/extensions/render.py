@@ -91,43 +91,46 @@ class Render:
         last_position: Optional[int] = None
         last_progress: Optional[float] = None
 
-        while True:
-            status = self._job.get_status(refresh=True)
+        psub = _async_redis.pubsub()
+        psub.ignore_subscribe_messages = True
+        await psub.psubscribe(f"*{self._job.id}")
 
+        async for response in psub.listen():
+            if response["type"] != "pmessage":
+                continue
+
+            status = self._job.get_status(refresh=True)
             match status:
                 case "queued":
                     position = self.job_position
+                    if position == last_position:
+                        continue
 
-                    if position != last_position:
-                        embed = RenderWaitingEmbed(input_name, position)
-                        message = await message.edit(embed=embed)
-                        last_position = position
+                    embed = RenderWaitingEmbed(input_name, position)
+                    message = await message.edit(embed=embed)
+                    last_position = position
                 case "started":
                     progress = self._job.get_meta(refresh=True).get("progress", 0.0)
+                    if progress == last_progress:
+                        continue
 
-                    if progress != last_progress:
-                        embed = RenderStartedEmbed(input_name, self._job, progress)
-                        message = await message.edit(embed=embed)
-                        last_progress = progress
+                    embed = RenderStartedEmbed(input_name, self._job, progress)
+                    message = await message.edit(embed=embed)
+                    last_progress = progress
                 case "finished":
-                    for _index in range(0, 10):  # FIXME: find out why rq doesn't always immediately set job result
-                        if self._job.result:
-                            if isinstance(self._job.result, tuple):
-                                data, filename, time_taken = self._job.result
+                    if not self._job.result:
+                        continue
 
-                                try:
-                                    file = discord.File(io.BytesIO(data), f"{filename}.mp4")
-                                    sent_message = await functions.reply(self._interaction, content=None, file=file)
-                                    embed = RenderSuccessEmbed(input_name, sent_message, time_taken)
-                                    break
-                                except discord.HTTPException:
-                                    embed = RenderFailureEmbed(input_name, "Rendered file too large for Discord 8MB limit! Try lowering quality.")
-                                    break
-                            elif isinstance(self._job.result, errors.RenderError):
-                                embed = RenderFailureEmbed(input_name, self._job.result.message)
-                                break
-
-                        await asyncio.sleep(1)
+                    if isinstance(self._job.result, tuple):
+                        data, filename, time_taken = self._job.result
+                        try:
+                            file = discord.File(io.BytesIO(data), f"{filename}.mp4")
+                            sent_message = await functions.reply(self._interaction, content=None, file=file)
+                            embed = RenderSuccessEmbed(input_name, sent_message, time_taken)
+                        except discord.HTTPException:
+                            embed = RenderFailureEmbed(input_name, "Rendered file too large (>8 MB). Consider reducing quality.")
+                    elif isinstance(self._job.result, errors.RenderError):
+                        embed = RenderFailureEmbed(input_name, self._job.result.message)
                     else:
                         logger.error(f"Unhandled job result {self._job.result}")
                         embed = RenderFailureEmbed(input_name, "An unhandled error occurred.")
@@ -135,29 +138,28 @@ class Render:
                     await message.edit(embed=embed)
                     break
                 case "failed":
-                    # fetch again because exc_info is not updated
-                    job = rq.job.Job.fetch(self._job.id, connection=_redis)
-                    meta = job.get_meta(refresh=True)
-
-                    if meta.get("timeout", None):
+                    timeout = self._job.get_meta(refresh=True).get("timeout", None)
+                    if timeout:
                         logger.warning("Render job timed out")
                         embed = RenderFailureEmbed(input_name, "Job timed out.")
-                        await message.edit(embed=embed)
-                        break
+                    else:
+                        # fetch again to update exc_info
+                        job = rq.job.Job.fetch(self._job.id, connection=_redis)
+                        task_status = self._job.meta.get("status", None)
+                        logger.error(f"Render job failed with status \"{task_status}\"\n{job.exc_info}")
+                        embed = RenderFailureEmbed(input_name, "An unhandled error occurred.")
+                        await self._reupload(task_status, job.exc_info)
 
-                    task_status = meta.get("status", None)
-                    logger.error(f"Render job failed with status \"{task_status}\"\n{job.exc_info}")
-                    embed = RenderFailureEmbed(input_name, "An unhandled error occurred.")
                     await message.edit(embed=embed)
-                    await self._reupload(task_status, job.exc_info)
                     break
                 case _base:
-                    logger.warning("Unknown job status", status)
-                    pass
+                    logger.warning(f"Unknown job status {status}")
+                    embed = RenderFailureEmbed(input_name, "Render job expired.")
+                    await message.edit(embed=embed)
+                    break
 
-            await asyncio.sleep(1)
-
-        self._job.delete()
+        await psub.unsubscribe()
+        await psub.close()
 
 
 class RenderSingle(Render):
@@ -221,6 +223,7 @@ class RenderDual(Render):
                 await self._attachment2.save(fp2)
 
                 channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
+                # noinspection PyTypeChecker
                 await channel.send(f"Task Status: {task_status}\nTraceback:\n```\n{exc_info}\n```",
                                    files=[discord.File(report, filename="report.txt"),
                                           discord.File(fp1, filename=self._attachment1.filename),
@@ -346,3 +349,4 @@ class RenderCog(commands.Cog):
 
 async def setup(bot: Track):
     await bot.add_cog(RenderCog(bot))
+    await _async_redis.config_set("notify-keyspace-events", "KEA")
