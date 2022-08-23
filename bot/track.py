@@ -27,8 +27,10 @@ class CustomTree(app_commands.CommandTree):
 
         return True
 
-    async def on_error(self, interaction: discord.Interaction, error: app_commands.AppCommandError) -> None:
-        error = getattr(error, 'original', error)
+    async def on_error(
+        self, interaction: discord.Interaction, error: app_commands.AppCommandError
+    ) -> None:
+        error = getattr(error, "original", error)
         command = interaction.command
 
         if command is None:
@@ -42,15 +44,19 @@ class CustomTree(app_commands.CommandTree):
             await functions.reply(interaction, error.message, ephemeral=error.ephemeral)
         else:
             await functions.reply(interaction, "An unhandled error occurred.")
-            logs.logger.error(f"Ignoring exception in command {command.name}", exc_info=error)
+            logs.logger.error(
+                f"Ignoring exception in command {command.name}", exc_info=error
+            )
 
 
 class Track(commands.AutoShardedBot):
     def __init__(self):
-        super().__init__(command_prefix=cfg.discord.default_prefix,
-                         intents=intents,
-                         tree_cls=CustomTree,
-                         case_insensitive=True)
+        super().__init__(
+            command_prefix=cfg.discord.default_prefix,
+            intents=intents,
+            tree_cls=CustomTree,
+            case_insensitive=True,
+        )
 
         self.stopping: bool = False  # used for warm shutdowns
         self.online_since: datetime = datetime.utcnow()
@@ -60,10 +66,9 @@ class Track(commands.AutoShardedBot):
             await self.load_extensions()
         except commands.ExtensionError as error:
             print(f"Failed to load extension {error.name}.")
-            traceback.print_exception(type(error),
-                                      error,
-                                      error.__traceback__,
-                                      file=sys.stderr)
+            traceback.print_exception(
+                type(error), error, error.__traceback__, file=sys.stderr
+            )
             sys.exit()
 
         await self.tree.sync()
@@ -73,7 +78,7 @@ class Track(commands.AutoShardedBot):
             for file in files:
                 if file.endswith("py"):
                     try:
-                        extension = f"{root}.{file[:-3]}".replace('/', '.')
+                        extension = f"{root}.{file[:-3]}".replace("/", ".")
                         await self.load_extension(extension)
                     except commands.NoEntryPointError as e:
                         message = f"{e.name} has no entry point."

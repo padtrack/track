@@ -1,6 +1,7 @@
 import os
 import sys
-sys.path.insert(1, os.path.join(sys.path[0], '..'))
+
+sys.path.insert(1, os.path.join(sys.path[0], ".."))
 
 import argparse
 from typing import Union
@@ -22,7 +23,9 @@ def run_worker(queues: Union[list, None]):
     queues = queues if queues else QUEUES
 
     with Connection(_redis):
-        worker = Worker(map(Queue, queues), exception_handlers=[cooldown_handler, timeout_handler])
+        worker = Worker(
+            map(Queue, queues), exception_handlers=[cooldown_handler, timeout_handler]
+        )
         worker.work()
 
 

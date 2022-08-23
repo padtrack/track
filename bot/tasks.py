@@ -6,6 +6,7 @@ import time
 
 import redis
 import rq
+
 # noinspection PyPackageRequirements
 from renderer.render import Renderer, RenderDual, ReplayData
 from replay_parser import ReplayParser
@@ -53,9 +54,15 @@ def progress_callback(job: Job):
 
 
 def render_single(
-        requester_id: int, cooldown: int, data: bytes,
-        fps: int, quality: int,
-        logs: bool, anon: bool, enable_chat: bool, team_tracers: bool
+    requester_id: int,
+    cooldown: int,
+    data: bytes,
+    fps: int,
+    quality: int,
+    logs: bool,
+    anon: bool,
+    enable_chat: bool,
+    team_tracers: bool,
 ):
     job: Job = rq.get_current_job()
 
@@ -87,7 +94,7 @@ def render_single(
     name = str(replay_data.game_arena_id)
 
     try:
-        name = name[len(name) - 8:]
+        name = name[len(name) - 8 :]
     except IndexError:
         pass
 
@@ -96,9 +103,15 @@ def render_single(
 
 
 def render_dual(
-        requester_id: int, cooldown: int, gdata: bytes, rdata: bytes,
-        fps: int, quality: int,
-        green_name: str, red_name: str, team_tracers: bool
+    requester_id: int,
+    cooldown: int,
+    gdata: bytes,
+    rdata: bytes,
+    fps: int,
+    quality: int,
+    green_name: str,
+    red_name: str,
+    team_tracers: bool,
 ):
     job: Job = rq.get_current_job()
 
@@ -107,8 +120,7 @@ def render_dual(
         job.save_meta()
 
         try:
-            with (io.BytesIO(gdata) as fp1,
-                  io.BytesIO(rdata) as fp2):
+            with (io.BytesIO(gdata) as fp1, io.BytesIO(rdata) as fp2):
                 g_replay_info = ReplayParser(fp1, strict=True).get_info()
                 g_replay_data: ReplayData = g_replay_info["hidden"]["replay_data"]
                 r_replay_info = ReplayParser(fp2, strict=True).get_info()
@@ -125,7 +137,12 @@ def render_dual(
 
             with temp() as tmp:
                 RenderDual(
-                    g_replay_data, r_replay_data, green_name, red_name, team_tracers, use_tqdm=False
+                    g_replay_data,
+                    r_replay_data,
+                    green_name,
+                    red_name,
+                    team_tracers,
+                    use_tqdm=False,
                 ).start(tmp.name, fps, quality, progress_callback(job))
                 tmp.seek(0)
                 video_data = tmp.read()
@@ -136,7 +153,7 @@ def render_dual(
     name = str(g_replay_data.game_arena_id)
 
     try:
-        name = name[len(name) - 8:]
+        name = name[len(name) - 8 :]
     except IndexError:
         pass
 

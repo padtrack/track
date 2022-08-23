@@ -62,7 +62,9 @@ class Render:
     def job_ttl(self) -> int:
         return max(self.QUEUE.count, 1) * self.MAX_WAIT_TIME
 
-    async def _reupload(self, task_status: Optional[str], exc_info: Optional[str]) -> None:
+    async def _reupload(
+        self, task_status: Optional[str], exc_info: Optional[str]
+    ) -> None:
         raise NotImplementedError()
 
     async def _check(self) -> bool:
@@ -70,14 +72,18 @@ class Render:
         cooldown = await _async_redis.ttl(f"cooldown_{self._interaction.user.id}")
 
         try:
-            assert worker_count != 0, \
-                f"{self._interaction.user.mention} No running workers detected."
-            assert (self.QUEUE.count <= self.QUEUE_SIZE), \
-                f"{self._interaction.user.mention} Queue full. Please try again later."
-            assert cooldown <= 0, \
-                f"{self._interaction.user.mention} You're on render cooldown for `{cooldown}s`."
-            assert not await _async_redis.exists(f"task_request_{self._interaction.user.id}"), \
-                f"{self._interaction.user.mention} You have an ongoing/queued render. Please try again later."
+            assert (
+                worker_count != 0
+            ), f"{self._interaction.user.mention} No running workers detected."
+            assert (
+                self.QUEUE.count <= self.QUEUE_SIZE
+            ), f"{self._interaction.user.mention} Queue full. Please try again later."
+            assert (
+                cooldown <= 0
+            ), f"{self._interaction.user.mention} You're on render cooldown for `{cooldown}s`."
+            assert not await _async_redis.exists(
+                f"task_request_{self._interaction.user.id}"
+            ), f"{self._interaction.user.mention} You have an ongoing/queued render. Please try again later."
             return True
         except AssertionError as e:
             await functions.reply(self._interaction, str(e))
@@ -124,15 +130,24 @@ class Render:
                         data, filename, time_taken = self._job.result
                         try:
                             file = discord.File(io.BytesIO(data), f"{filename}.mp4")
-                            sent_message = await functions.reply(self._interaction, content=None, file=file)
-                            embed = RenderSuccessEmbed(input_name, sent_message, time_taken)
+                            sent_message = await functions.reply(
+                                self._interaction, content=None, file=file
+                            )
+                            embed = RenderSuccessEmbed(
+                                input_name, sent_message, time_taken
+                            )
                         except discord.HTTPException:
-                            embed = RenderFailureEmbed(input_name, "Rendered file too large (>8 MB). Consider reducing quality.")
+                            embed = RenderFailureEmbed(
+                                input_name,
+                                "Rendered file too large (>8 MB). Consider reducing quality.",
+                            )
                     elif isinstance(self._job.result, errors.RenderError):
                         embed = RenderFailureEmbed(input_name, self._job.result.message)
                     else:
                         logger.error(f"Unhandled job result {self._job.result}")
-                        embed = RenderFailureEmbed(input_name, "An unhandled error occurred.")
+                        embed = RenderFailureEmbed(
+                            input_name, "An unhandled error occurred."
+                        )
 
                     await message.edit(embed=embed)
                     break
@@ -145,8 +160,12 @@ class Render:
                         # fetch again to update exc_info
                         job = rq.job.Job.fetch(self._job.id, connection=_redis)
                         task_status = self._job.meta.get("status", None)
-                        logger.error(f"Render job failed with status \"{task_status}\"\n{job.exc_info}")
-                        embed = RenderFailureEmbed(input_name, "An unhandled error occurred.")
+                        logger.error(
+                            f'Render job failed with status "{task_status}"\n{job.exc_info}'
+                        )
+                        embed = RenderFailureEmbed(
+                            input_name, "An unhandled error occurred."
+                        )
                         await self._reupload(task_status, job.exc_info)
 
                     await message.edit(embed=embed)
@@ -164,24 +183,38 @@ class Render:
 class RenderSingle(Render):
     QUEUE = rq.Queue("single", connection=_redis)
 
-    def __init__(self, bot: Track, interaction: discord.Interaction,
-                 attachment: discord.Attachment):
+    def __init__(
+        self,
+        bot: Track,
+        interaction: discord.Interaction,
+        attachment: discord.Attachment,
+    ):
         super().__init__(bot, interaction)
 
         self._attachment = attachment
 
-    async def _reupload(self, task_status: Optional[str], exc_info: Optional[str]) -> None:
+    async def _reupload(
+        self, task_status: Optional[str], exc_info: Optional[str]
+    ) -> None:
         try:
-            with (io.BytesIO() as fp,
-                  io.StringIO(f"Task Status: {task_status}\n\n{exc_info}\n") as report):
+            with (
+                io.BytesIO() as fp,
+                io.StringIO(f"Task Status: {task_status}\n\n{exc_info}\n") as report,
+            ):
                 await self._attachment.save(fp)
 
                 channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
                 # noinspection PyTypeChecker
-                await channel.send(files=[discord.File(report, filename="report.txt"),
-                                          discord.File(fp, filename=self._attachment.filename)])
+                await channel.send(
+                    files=[
+                        discord.File(report, filename="report.txt"),
+                        discord.File(fp, filename=self._attachment.filename),
+                    ]
+                )
         except (discord.HTTPException, discord.NotFound):
-            logger.error(f"Failed to reupload render with interaction ID {self._interaction.id}")
+            logger.error(
+                f"Failed to reupload render with interaction ID {self._interaction.id}"
+            )
 
     async def start(self, *args) -> None:
         if not await self._check():
@@ -207,42 +240,61 @@ class RenderSingle(Render):
 class RenderDual(Render):
     QUEUE = rq.Queue("dual", connection=_redis)
 
-    def __init__(self, bot: Track, interaction: discord.Interaction,
-                 attachment1: discord.Attachment, attachment2: discord.Attachment):
+    def __init__(
+        self,
+        bot: Track,
+        interaction: discord.Interaction,
+        attachment1: discord.Attachment,
+        attachment2: discord.Attachment,
+    ):
         super().__init__(bot, interaction)
 
         self._attachment1 = attachment1
         self._attachment2 = attachment2
 
-    async def _reupload(self, task_status: Optional[str], exc_info: Optional[str]) -> None:
+    async def _reupload(
+        self, task_status: Optional[str], exc_info: Optional[str]
+    ) -> None:
         try:
-            with (io.BytesIO() as fp1,
-                  io.BytesIO() as fp2,
-                  io.StringIO(f"Task Status: {task_status}\n\n{exc_info}\n") as report):
+            with (
+                io.BytesIO() as fp1,
+                io.BytesIO() as fp2,
+                io.StringIO(f"Task Status: {task_status}\n\n{exc_info}\n") as report,
+            ):
                 await self._attachment1.save(fp1)
                 await self._attachment2.save(fp2)
 
                 channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
                 # noinspection PyTypeChecker
-                await channel.send(f"Task Status: {task_status}\nTraceback:\n```\n{exc_info}\n```",
-                                   files=[discord.File(report, filename="report.txt"),
-                                          discord.File(fp1, filename=self._attachment1.filename),
-                                          discord.File(fp2, filename=self._attachment2.filename)])
+                await channel.send(
+                    f"Task Status: {task_status}\nTraceback:\n```\n{exc_info}\n```",
+                    files=[
+                        discord.File(report, filename="report.txt"),
+                        discord.File(fp1, filename=self._attachment1.filename),
+                        discord.File(fp2, filename=self._attachment2.filename),
+                    ],
+                )
         except (discord.HTTPException, discord.NotFound):
-            logger.error(f"Failed to reupload render with interaction ID {self._interaction.id}")
+            logger.error(
+                f"Failed to reupload render with interaction ID {self._interaction.id}"
+            )
 
     async def start(self, *args) -> None:
         if not await self._check():
             return
 
-        with (io.BytesIO() as fp1,
-              io.BytesIO() as fp2):
+        with (io.BytesIO() as fp1, io.BytesIO() as fp2):
             await self._attachment1.save(fp1)
             fp1.seek(0)
             await self._attachment2.save(fp2)
             fp2.seek(0)
 
-            arguments = [self._interaction.user.id, self.COOLDOWN, fp1.read(), fp2.read()]
+            arguments = [
+                self._interaction.user.id,
+                self.COOLDOWN,
+                fp1.read(),
+                fp2.read(),
+            ]
             arguments.extend(args)
             self._job = self.QUEUE.enqueue(
                 tasks.render_dual,
@@ -273,8 +325,10 @@ class RenderEmbed(discord.Embed):
             self.add_field(name="Position", value=position, inline=False)
 
         if progress := kwargs.pop("progress", None):
-            bar = f"{round(progress * 10) * Render.PROGRESS_FOREGROUND}" \
-                  f"{round((1 - progress) * 10) * Render.PROGRESS_BACKGROUND}"
+            bar = (
+                f"{round(progress * 10) * Render.PROGRESS_FOREGROUND}"
+                f"{round((1 - progress) * 10) * Render.PROGRESS_BACKGROUND}"
+            )
             self.add_field(name="Progress", value=bar, inline=False)
 
         if time_taken := kwargs.pop("time_taken", None):
@@ -296,7 +350,9 @@ class RenderStartedEmbed(RenderEmbed):
 
     def __init__(self, input_name: str, job: rq.job.Job, progress: float):
         if task_status := job.get_meta(refresh=True).get("status", None):
-            super().__init__(self.COLOR, input_name, status=task_status.title(), progress=progress)
+            super().__init__(
+                self.COLOR, input_name, status=task_status.title(), progress=progress
+            )
         else:
             super().__init__(self.COLOR, input_name, status="Started")
 
@@ -307,9 +363,13 @@ class RenderSuccessEmbed(RenderEmbed):
 
     def __init__(self, input_name: str, sent_message: discord.Message, time_taken: str):
         sent_attachment = sent_message.attachments[0]
-        result_msg = self.TEMPLATE.format(sent_attachment.filename, sent_attachment.url, sent_message.jump_url)
+        result_msg = self.TEMPLATE.format(
+            sent_attachment.filename, sent_attachment.url, sent_message.jump_url
+        )
 
-        super().__init__(self.COLOR, input_name, result=result_msg, time_taken=time_taken)
+        super().__init__(
+            self.COLOR, input_name, result=result_msg, time_taken=time_taken
+        )
 
 
 class RenderFailureEmbed(RenderEmbed):
@@ -323,25 +383,46 @@ class RenderCog(commands.Cog):
     def __init__(self, bot: Track):
         self.bot: Track = bot
 
-    @app_commands.command(description="Generates a minimap timelapse and more from a replay file.")
-    @app_commands.describe(replay="A .wowsreplay file.",
-                           fps="Can be a value from 15 to 30, and defaults to 20.",
-                           quality="Can be a value from 1-9, and defaults to 7. Higher values may require Nitro boosts.",
-                           logs="Shows additional statistics, and defaults to on.",
-                           anon="Anonymizes player names in the format \"Player X\", and defaults to off. Ignored when logs is off.",
-                           chat="Shows chat, and defaults to on. Ignored when logs is off.")
-    async def render(self, interaction: discord.Interaction, replay: discord.Attachment,
-                     fps: app_commands.Range[int, 15, 30] = 20, quality: app_commands.Range[int, 1, 9] = 7,
-                     logs: bool = True, anon: bool = False, chat: bool = True, team_tracers: bool = False):
+    @app_commands.command(
+        description="Generates a minimap timelapse and more from a replay file."
+    )
+    @app_commands.describe(
+        replay="A .wowsreplay file.",
+        fps="Can be a value from 15 to 30, and defaults to 20.",
+        quality="Can be a value from 1-9, and defaults to 7. Higher values may require Nitro boosts.",
+        logs="Shows additional statistics, and defaults to on.",
+        anon='Anonymizes player names in the format "Player X", and defaults to off. Ignored when logs is off.',
+        chat="Shows chat, and defaults to on. Ignored when logs is off.",
+    )
+    async def render(
+        self,
+        interaction: discord.Interaction,
+        replay: discord.Attachment,
+        fps: app_commands.Range[int, 15, 30] = 20,
+        quality: app_commands.Range[int, 1, 9] = 7,
+        logs: bool = True,
+        anon: bool = False,
+        chat: bool = True,
+        team_tracers: bool = False,
+    ):
         await interaction.response.defer()
         render = RenderSingle(self.bot, interaction, replay)
         await render.start(fps, quality, logs, anon, chat, team_tracers)
 
-    @app_commands.command(description="Generates a minimap timelapse and more from a replay file.")
-    async def dual_render(self, interaction: discord.Interaction, replay_a: discord.Attachment, replay_b: discord.Attachment,
-                          name_a: app_commands.Range[str, 1, 12] = "Alpha", name_b: app_commands.Range[str, 1, 12] = "Bravo",
-                          fps: app_commands.Range[int, 15, 30] = 20, quality: app_commands.Range[int, 1, 9] = 7,
-                          team_tracers: bool = False):
+    @app_commands.command(
+        description="Generates a minimap timelapse and more from a replay file."
+    )
+    async def dual_render(
+        self,
+        interaction: discord.Interaction,
+        replay_a: discord.Attachment,
+        replay_b: discord.Attachment,
+        name_a: app_commands.Range[str, 1, 12] = "Alpha",
+        name_b: app_commands.Range[str, 1, 12] = "Bravo",
+        fps: app_commands.Range[int, 15, 30] = 20,
+        quality: app_commands.Range[int, 1, 9] = 7,
+        team_tracers: bool = False,
+    ):
         await interaction.response.defer()
         render = RenderDual(self.bot, interaction, replay_a, replay_b)
         await render.start(fps, quality, name_a, name_b, team_tracers)

@@ -2,6 +2,7 @@ git+https://github.com/WoWs-Builder-Team/minimap_renderer.git@develop
 aioredis==2.0.1
 aiosqlite==0.17.0
 attrs==21.4.0
+black==22.6.0
 cachetools==5.2.0
 discord.py==2.0.0
 environ-config==22.1.0

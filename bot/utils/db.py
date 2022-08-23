@@ -9,7 +9,9 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # _DB_PATH = ":memory:"
-_DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../assets/private/bot.db")
+_DB_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "../assets/private/bot.db"
+)
 engine = create_async_engine(f"sqlite+aiosqlite:///{_DB_PATH}", future=True)
 async_session = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 Base = declarative_base()
@@ -37,8 +39,7 @@ class CachedMixin:
             return cached
 
         # noinspection PyUnresolvedReferences
-        clauses = [cls.__table__.columns[key] == value
-                   for key, value in kwargs.items()]
+        clauses = [cls.__table__.columns[key] == value for key, value in kwargs.items()]
 
         async with async_session() as session:
             statement = select(cls).where(*clauses)
@@ -77,10 +78,10 @@ class Guild(Base, CachedMixin):
 
 
 if __name__ == "__main__":
+
     async def create_tables():
         async with engine.begin() as conn:
             await conn.run_sync(Base.metadata.create_all)
-
 
     import asyncio
 
