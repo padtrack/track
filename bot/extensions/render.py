@@ -393,6 +393,7 @@ class RenderCog(commands.Cog):
         logs="Shows additional statistics, and defaults to on.",
         anon='Anonymizes player names in the format "Player X", and defaults to off. Ignored when logs is off.',
         chat="Shows chat, and defaults to on. Ignored when logs is off.",
+        team_tracers="Colors tracers by their relation to the replay creator, and defaults to on.",
     )
     async def render(
         self,
@@ -411,6 +412,15 @@ class RenderCog(commands.Cog):
 
     @app_commands.command(
         description="Generates a minimap timelapse and more from a replay file."
+    )
+    @app_commands.describe(
+        replay_a="The replay to use as the \"green\" team.",
+        replay_b="The replay to use as the \"red\" team.",
+        name_a="The name to use for the \"green\" team.",
+        name_b="The name to use for the \"red\" team.",
+        fps="Can be a value from 15 to 30, and defaults to 20.",
+        quality="Can be a value from 1-9, and defaults to 7. Higher values may require Nitro boosts.",
+        team_tracers="Colors tracers by their relation to the replay creator, and defaults to on.",
     )
     async def dual_render(
         self,
