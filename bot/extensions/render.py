@@ -1,4 +1,5 @@
 import io
+import json
 import logging
 from typing import Optional
 
@@ -8,7 +9,7 @@ import redis
 import rq
 import rq.job
 import rq.worker
-from discord import app_commands
+from discord import app_commands, ui
 from discord.ext import commands
 
 from bot import tasks
@@ -33,6 +34,39 @@ def track_task_request(f):
             await _async_redis.delete(f"task_request_{self._interaction.user.id}")
 
     return wrapped
+
+
+class BuildsButton(ui.Button):
+    def __init__(self, builds: list[dict], **kwargs):
+        super().__init__(label="View Builds", **kwargs)
+
+        self.fp = io.StringIO()
+        for build in builds:
+            if clan := build["clan"]:
+                self.fp.write(f"[{clan}] ")
+            self.fp.write(build["name"] + '\n' + build["build_url"] + '\n\n')
+        self.fp.seek(0)
+
+    async def callback(self, interaction: discord.Interaction) -> None:
+        file = discord.File(self.fp, filename="builds.txt")
+        await functions.reply(interaction, file=file, ephemeral=True)
+
+
+class RenderView(ui.View):
+    def __init__(self, builds: list[dict], **kwargs):
+        super().__init__(**kwargs)
+
+        for build in builds:
+            if build["relation"] == -1:
+                self.add_item(ui.Button(label="Player Build", url=build["build_url"]))
+
+        self.builds_button = BuildsButton(builds)
+        self.add_item(self.builds_button)
+        self.message: Optional[discord.Message] = None
+
+    async def on_timeout(self) -> None:
+        self.builds_button.disabled = True
+        await self.message.edit(view=self)
 
 
 class Render:
@@ -127,12 +161,20 @@ class Render:
                         continue
 
                     if isinstance(self._job.result, tuple):
-                        data, filename, time_taken = self._job.result
+                        data, filename, time_taken, builds_str = self._job.result
+
                         try:
                             file = discord.File(io.BytesIO(data), f"{filename}.mp4")
-                            sent_message = await functions.reply(
-                                self._interaction, content=None, file=file
-                            )
+                            if builds_str:
+                                view = RenderView(json.loads(builds_str))
+                                sent_message = await functions.reply(
+                                    self._interaction, content=None, file=file, view=view
+                                )
+                                view.message = sent_message
+                            else:
+                                sent_message = await functions.reply(
+                                    self._interaction, content=None, file=file
+                                )
                             embed = RenderSuccessEmbed(
                                 input_name, sent_message, time_taken
                             )

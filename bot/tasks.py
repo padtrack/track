@@ -1,5 +1,6 @@
 import contextlib
 import io
+import json
 import os
 import tempfile
 import time
@@ -82,9 +83,10 @@ def render_single(
             job.save_meta()
 
             with temp() as tmp:
-                Renderer(
+                render = Renderer(
                     replay_data, logs, anon, enable_chat, team_tracers, use_tqdm=False
-                ).start(tmp.name, fps, quality, progress_callback(job))
+                )
+                render.start(tmp.name, fps, quality, progress_callback(job))
                 tmp.seek(0)
                 video_data = tmp.read()
         except ModuleNotFoundError:
@@ -99,7 +101,7 @@ def render_single(
         pass
 
     _redis.set(f"cooldown_{requester_id}", "", ex=cooldown)
-    return video_data, f"render_{name}", time_taken
+    return video_data, f"render_{name}", time_taken, json.dumps(render.get_player_build())
 
 
 def render_dual(
@@ -158,4 +160,5 @@ def render_dual(
         pass
 
     _redis.set(f"cooldown_{requester_id}", "", ex=cooldown)
-    return video_data, f"render_{green_name}_{red_name}_{name}", time_taken
+    return video_data, f"render_{green_name}_{red_name}_{name}", time_taken, ""
+    # TODO: implement dual builds
