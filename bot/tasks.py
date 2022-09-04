@@ -101,7 +101,12 @@ def render_single(
         pass
 
     _redis.set(f"cooldown_{requester_id}", "", ex=cooldown)
-    return video_data, f"render_{name}", time_taken, json.dumps(render.get_player_build())
+    return (
+        video_data,
+        f"render_{name}",
+        time_taken,
+        json.dumps(render.get_player_build()),
+    )
 
 
 def render_dual(

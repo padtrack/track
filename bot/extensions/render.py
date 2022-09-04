@@ -44,7 +44,7 @@ class BuildsButton(ui.Button):
         for build in builds:
             if clan := build["clan"]:
                 self.fp.write(f"[{clan}] ")
-            self.fp.write(build["name"] + '\n' + build["build_url"] + '\n\n')
+            self.fp.write(build["name"] + "\n" + build["build_url"] + "\n\n")
         self.fp.seek(0)
 
     async def callback(self, interaction: discord.Interaction) -> None:
@@ -168,7 +168,10 @@ class Render:
                             if builds_str:
                                 view = RenderView(json.loads(builds_str))
                                 sent_message = await functions.reply(
-                                    self._interaction, content=None, file=file, view=view
+                                    self._interaction,
+                                    content=None,
+                                    file=file,
+                                    view=view,
                                 )
                                 view.message = sent_message
                             else:
@@ -210,9 +213,7 @@ class Render:
                         else:
                             err_message = "An unhandled error occurred."
 
-                        embed = RenderFailureEmbed(
-                            input_name, err_message
-                        )
+                        embed = RenderFailureEmbed(input_name, err_message)
                         await self._reupload(task_status, job.exc_info)
 
                     await message.edit(embed=embed)
@@ -464,10 +465,10 @@ class RenderCog(commands.Cog):
         description="Generates a minimap timelapse and more from a replay file."
     )
     @app_commands.describe(
-        replay_a="The replay to use as the \"green\" team.",
-        replay_b="The replay to use as the \"red\" team.",
-        name_a="The name to use for the \"green\" team.",
-        name_b="The name to use for the \"red\" team.",
+        replay_a='The replay to use as the "green" team.',
+        replay_b='The replay to use as the "red" team.',
+        name_a='The name to use for the "green" team.',
+        name_b='The name to use for the "red" team.',
         fps="Can be a value from 15 to 30, and defaults to 20.",
         quality="Can be a value from 1-9, and defaults to 7. Higher values may require Nitro boosts.",
         team_tracers="Colors tracers by their relation to the replay creator, and defaults to on.",
