@@ -120,7 +120,7 @@ class Render:
             ), f"{self._interaction.user.mention} You have an ongoing/queued render. Please try again later."
             return True
         except AssertionError as e:
-            await functions.reply(self._interaction, str(e))
+            await functions.reply(self._interaction, str(e), ephemeral=True)
             return False
 
     @track_task_request
@@ -262,6 +262,8 @@ class RenderSingle(Render):
         if not await self._check():
             return
 
+        await self._interaction.response.defer()
+
         with io.BytesIO() as fp:
             await self._attachment.save(fp)
             fp.seek(0)
@@ -324,6 +326,8 @@ class RenderDual(Render):
     async def start(self, *args) -> None:
         if not await self._check():
             return
+
+        await self._interaction.response.defer()
 
         with (io.BytesIO() as fp1, io.BytesIO() as fp2):
             await self._attachment1.save(fp1)
@@ -448,7 +452,6 @@ class RenderCog(commands.Cog):
         chat: bool = True,
         team_tracers: bool = False,
     ):
-        await interaction.response.defer()
         render = RenderSingle(self.bot, interaction, replay)
         await render.start(fps, quality, logs, anon, chat, team_tracers)
 
@@ -475,7 +478,6 @@ class RenderCog(commands.Cog):
         quality: app_commands.Range[int, 1, 9] = 7,
         team_tracers: bool = False,
     ):
-        await interaction.response.defer()
         render = RenderDual(self.bot, interaction, replay_a, replay_b)
         await render.start(fps, quality, name_a, name_b, team_tracers)
 
