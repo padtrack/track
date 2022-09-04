@@ -1,6 +1,7 @@
 import io
 import json
 import logging
+import time
 from typing import Optional
 
 import aioredis
@@ -21,7 +22,6 @@ logger = logging.getLogger("track")
 _url = f"redis://:{cfg.redis.password}@localhost:{cfg.redis.port}/"
 _redis: redis.Redis = redis.from_url(_url)
 _async_redis: aioredis.Redis = aioredis.from_url(_url)
-
 
 URL_MAX_LENGTH = 512
 
@@ -121,7 +121,7 @@ class Render:
             ), f"{self._interaction.user.mention} Queue full. Please try again later."
             assert (
                 cooldown <= 0
-            ), f"{self._interaction.user.mention} You're on render cooldown for `{cooldown}s`."
+            ), f"{self._interaction.user.mention} You're on render cooldown until <t:{int(time.time()) + cooldown}:R>."
             assert not await _async_redis.exists(
                 f"task_request_{self._interaction.user.id}"
             ), f"{self._interaction.user.mention} You have an ongoing/queued render. Please try again later."
@@ -373,7 +373,7 @@ class RenderEmbed(discord.Embed):
         super().__init__(title=RenderEmbed.TITLE, color=color)
 
         self.add_field(name="Input", value=input_name)
-        self.set_footer(text=f"help me pay jeff bezos https://ko-fi.com/trackpad")
+        self.set_footer(text="help me pay jeff bezos https://ko-fi.com/trackpad")
         self.process_kwargs(**kwargs)
 
     def process_kwargs(self, **kwargs):
@@ -443,7 +443,9 @@ class RenderCog(commands.Cog):
         self.bot: Track = bot
 
     @app_commands.command(
-        description="Generates a minimap timelapse and more from a replay file."
+        name="render",
+        description="Generates a minimap timelapse and more from a replay file.",
+        extras={"category": "wows"}
     )
     @app_commands.describe(
         replay="A .wowsreplay file.",
@@ -469,7 +471,9 @@ class RenderCog(commands.Cog):
         await render.start(fps, quality, logs, anon, chat, team_tracers)
 
     @app_commands.command(
-        description="Generates a minimap timelapse and more from a replay file."
+        name="dualrender",
+        description="Merges two replay files from opposing teams into a minimap timelapse.",
+        extras={"category": "wows"}
     )
     @app_commands.describe(
         replay_a='The replay to use as the "green" team.',
