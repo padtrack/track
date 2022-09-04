@@ -205,8 +205,13 @@ class Render:
                         logger.error(
                             f'Render job failed with status "{task_status}"\n{job.exc_info}'
                         )
+                        if "StopIteration" in job.exc_info:
+                            err_message = "An unhandled error occurred (likely incomplete replay)."
+                        else:
+                            err_message = "An unhandled error occurred."
+
                         embed = RenderFailureEmbed(
-                            input_name, "An unhandled error occurred."
+                            input_name, err_message
                         )
                         await self._reupload(task_status, job.exc_info)
 
