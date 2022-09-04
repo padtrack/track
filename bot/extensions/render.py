@@ -50,6 +50,7 @@ class BuildsButton(ui.Button):
     async def callback(self, interaction: discord.Interaction) -> None:
         file = discord.File(self.fp, filename="builds.txt")
         await functions.reply(interaction, file=file, ephemeral=True)
+        self.fp.seek(0)
 
 
 class RenderView(ui.View):
