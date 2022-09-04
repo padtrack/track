@@ -23,6 +23,9 @@ _redis: redis.Redis = redis.from_url(_url)
 _async_redis: aioredis.Redis = aioredis.from_url(_url)
 
 
+URL_MAX_LENGTH = 512
+
+
 def track_task_request(f):
     async def wrapped(self, *args, **kwargs):
         await _async_redis.set(f"task_request_{self._interaction.user.id}", "", ex=600)
@@ -59,7 +62,10 @@ class RenderView(ui.View):
 
         for build in builds:
             if build["relation"] == -1:
-                self.add_item(ui.Button(label="Player Build", url=build["build_url"]))
+                url = build["build_url"] + "&ref=track"
+                if len(url) <= URL_MAX_LENGTH:
+                    self.add_item(ui.Button(label="Player Build", url=url))
+                break
 
         self.builds_button = BuildsButton(builds)
         self.add_item(self.builds_button)
