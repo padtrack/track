@@ -7,6 +7,9 @@ from bot.track import Track
 
 
 class OwnerCog(commands.Cog):
+    def __init__(self, bot: Track):
+        self.bot: Track = bot
+
     @commands.command()
     @commands.guild_only()
     @commands.is_owner()
