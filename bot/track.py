@@ -56,6 +56,7 @@ class Track(commands.AutoShardedBot):
             intents=intents,
             tree_cls=CustomTree,
             case_insensitive=True,
+            owner_ids=cfg.discord.owner_ids
         )
 
         self.stopping: bool = False  # used for warm shutdowns
@@ -71,7 +72,7 @@ class Track(commands.AutoShardedBot):
             )
             sys.exit()
 
-        await self.tree.sync()
+        await self.tree.sync()  # TODO: remove auto tree sync
 
     async def load_extensions(self) -> None:
         for root, dirs, files in os.walk("extensions"):
