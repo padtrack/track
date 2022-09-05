@@ -56,7 +56,7 @@ class Track(commands.AutoShardedBot):
             intents=intents,
             tree_cls=CustomTree,
             case_insensitive=True,
-            owner_ids=cfg.discord.owner_ids
+            owner_ids=cfg.discord.owner_ids,
         )
 
         self.stopping: bool = False  # used for warm shutdowns

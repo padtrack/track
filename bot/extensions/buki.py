@@ -66,7 +66,9 @@ class BukiCog(commands.Cog):
         if not self.emojis:
             await interaction.response.send_message("Emojis unavailable.")
         elif not query:
-            await interaction.response.send_message(random.choice(list(self.emojis.values())))
+            await interaction.response.send_message(
+                random.choice(list(self.emojis.values()))
+            )
             return
 
         query = query.lower()
@@ -89,7 +91,11 @@ class BukiCog(commands.Cog):
         name="pasta", description="Freshly cooked.", extras={"category": "misc"}
     )
     @app_commands.guilds(*GUILD_IDS)
-    async def pasta(self, interaction: discord.Interaction, num: app_commands.Range[int, 1, len(PASTAS)]):
+    async def pasta(
+        self,
+        interaction: discord.Interaction,
+        num: app_commands.Range[int, 1, len(PASTAS)],
+    ):
         await interaction.response.send_message(PASTAS[num - 1])
 
 

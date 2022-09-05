@@ -445,7 +445,7 @@ class RenderCog(commands.Cog):
     @app_commands.command(
         name="render",
         description="Generates a minimap timelapse and more from a replay file.",
-        extras={"category": "wows"}
+        extras={"category": "wows"},
     )
     @app_commands.describe(
         replay="A .wowsreplay file.",
@@ -473,7 +473,7 @@ class RenderCog(commands.Cog):
     @app_commands.command(
         name="dualrender",
         description="Merges two replay files from opposing teams into a minimap timelapse.",
-        extras={"category": "wows"}
+        extras={"category": "wows"},
     )
     @app_commands.describe(
         replay_a='The replay to use as the "green" team.',

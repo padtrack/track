@@ -69,7 +69,7 @@ def main():
     ships = []
     for index, entity in gp_data.items():
         if entity.typeinfo.type == "Ship":
-            data = {key[key.rfind(".") + 1:]: rgetattr(entity, key) for key in KEYS}
+            data = {key[key.rfind(".") + 1 :]: rgetattr(entity, key) for key in KEYS}
             data["translations"] = get_translations(entity.index)
             ships.append(data)
 
