@@ -42,7 +42,12 @@ class BuildsCog(commands.Cog):
         with open(BUILDS_PATH) as fp:
             self.builds = toml.load(fp)
 
-    @app_commands.command(name="build")
+    @app_commands.command(
+        name="build",
+        description="Shortcut for the builds in wo.ws/builds",
+        extras={"category": "wows"},
+    )
+    @app_commands.describe(ship="The ship to use.")
     async def build(
         self,
         interaction: discord.Interaction,
