@@ -7,6 +7,8 @@ cachetools==5.2.0
 discord.py==2.0.0
 environ-config==22.1.0
 jishaku==2.5.0
+polib==1.1.1
 redis==4.3.4
 rq==1.11.0
 SQLAlchemy==1.4.39
+toml==0.10.2
