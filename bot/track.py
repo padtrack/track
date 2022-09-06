@@ -30,7 +30,8 @@ class CustomTree(app_commands.CommandTree):
     async def on_error(
         self, interaction: discord.Interaction, error: app_commands.AppCommandError
     ) -> None:
-        error = getattr(error, "original", error)
+        error = getattr(error, "original", error)  # normal commands
+        error = getattr(error, "__cause__", error)  # app commands
         command = interaction.command
 
         if command is None:
