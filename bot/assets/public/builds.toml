@@ -1,0 +1,466 @@
+["Incomparable"]
+id = "id.w0hxkbip0bu9"
+ships = [
+    "PBSB610",  # Incomparable
+]
+
+["KM CVs"]
+id = "id.jtq3xxx20b39"
+ships = []
+
+["Anshan"]
+id = "id.vdik1jbjz4ag"
+ships = []
+
+["FR DDs"]
+id = "id.r6wbgmuzr7r9"
+ships = []
+
+["Fen Yang"]
+id = "id.rdq0zskmppym"
+ships = [
+    "PZSD518",  # Fen Yang
+]
+
+["Tone"]
+id = "id.j0pgh5w41soz"
+ships = [
+    "PJSC018",  # Tone
+]
+
+["Vampire II"]
+id = "id.xmhlvj8g3fhk"
+ships = [
+    "PUSD510",  # Vampire II
+    "PUSD507",  # Haida
+]
+
+["Leone"]
+id = "id.r9dz6zw287lw"
+ships = [
+    "PISD506",  # Leone
+]
+
+["FR CAs"]
+id = "id.owmpjybi48qx"
+ships = []
+
+["Plymouth"]
+id = "id.5i3cdfaeerq8"
+ships = []
+
+["Sevastopol"]
+id = "id.6kd121r9y0t7"
+ships = [
+    "PRSC710",  # Sevastopol
+]
+
+["VMF CVs"]
+id = "id.h5yy00r2h2oa"
+ships = []
+
+["USN CVs"]
+id = "id.9xwgg0d91053"
+ships = []
+
+["Colbert"]
+id = "id.rxemlmow4nbk"
+ships = [
+    "PFSC510",  # Colbert
+]
+
+["Thunderer, RN BBs and some premiums"]
+id = "id.qtolc4x83d75"
+ships = []
+
+["Atlanta, Flint"]
+id = "id.cuqerje3k66a"
+ships = [
+    "PASC006",  # Atlanta
+    "PASC707",  # Flint
+]
+
+["IT CAs"]
+id = "id.8iw4mlnq3joj"
+ships = []
+
+["IJN gunboats"]
+id = "id.3s6krd2jzxbz"
+ships = []
+
+["Nevsky, Donskoi"]
+id = "id.3w05jwohl0d"
+ships = [
+    "PRSC210",  # Nevsky
+    "PRSC109",  # Donskoi
+]
+
+["Franklin D. Roosevelt"]
+id = "id.6cuvyjy1udau"
+ships = [
+    "PASA510",  # FDR
+]
+
+["Generic torpedoboat build"]
+id = "id.2qajsumowvhs"
+ships = []
+
+["Repulse"]
+id = "id.ixgdmvl3rc7f"
+ships = [
+    "PBSB526",  # Repulse
+]
+
+["USN fast BB branch"]
+id = "id.o385dmp9wb3l"
+ships = []
+
+["Napoli"]
+id = "id.g810x27hzf17"
+ships = [
+    "PISC510",  # Napoli
+]
+
+["Huanghe"]
+id = "id.99nlj2fbpusb"
+ships = [
+    "PZSC506",  # Huanghe
+]
+
+["Orkan"]
+id = "id.7acpd5vlc5d8"
+ships = []
+
+["KM DDs gunboat branch"]
+id = "id.gt08mamfvnmr"
+ships = []
+
+["FR CAs sub-branch"]
+id = "id.yq4xm08i9990"
+ships = []
+
+["RN (British) DDs"]
+id = "id.c6436n7vehf0"
+ships = []
+
+["Carnot"]
+id = "id.v8j5t94cbfyz"
+ships = [
+    "PFSC509",  # Carnot
+]
+
+["Siliwangi"]
+id = "id.2z9kcywx23hy"
+ships = [
+    "PZSD208",  # Siliwangi
+]
+
+["ZF-6"]
+id = "id.abmw2hixp5zg"
+ships = [
+    "PGSD529",  # ZF-6
+]
+
+["Gibraltar"]
+id = "id.3lljf5bxnjsn"
+ships = [
+    "PBSC610",  # Gibraltar
+]
+
+["Perth"]
+id = "id.2on753u4kx9h"
+ships = [
+    "PUSC506",  # Perth
+]
+
+["RN CLs"]
+id = "id.xrdhjtsd5fcd"
+ships = []
+
+["Forrest Sherman"]
+id = "id.c5qew6k8p89y"
+ships = []
+
+["Kidd"]
+id = "id.f0h4gikm191p"
+ships = []
+
+["IJN CVs"]
+id = "id.h4j2ipd9vlrw"
+ships = []
+
+["Bourgogne, JB, Strasbourg"]
+id = "id.m7k8fzvnx0mp"
+ships = []
+
+["IT BBs"]
+id = "id.3ccr5zavzs1c"
+ships = []
+
+["E. Löwenhardt"]
+id = "id.s4ifvwth8uo6"
+ships = []
+
+["EU DDs"]
+id = "id.rsqm3eck9bx5"
+ships = []
+
+["Odin"]
+id = "id.8x0ciu5s5sx3"
+ships = []
+
+["Haida"]
+id = "id.ge50xdjdqgi6"
+ships = []
+
+["Indomitable"]
+id = "id.oy8926jqgti7"
+ships = []
+
+["Giuseppe Verdi"]
+id = "id.t7rax48q5vb6"
+ships = []
+
+["Montana"]
+id = "id.5a668u6op21p"
+ships = []
+
+["Brandenburg"]
+id = "id.pg3ugjokavb0"
+ships = []
+
+["Bayard"]
+id = "id.vox2pa6t0jj6"
+ships = []
+
+["Småland"]
+id = "id.ptnef125wkec"
+ships = []
+
+["RN CVs"]
+id = "id.2qs4tz8ramnu"
+ships = []
+
+["Neustrashimy"]
+id = "id.bise7uvv0z04"
+ships = []
+
+["Superheal RN BBs"]
+id = "id.zhjoj6qvmu95"
+ships = []
+
+["Champagne"]
+id = "id.firiu64x1q00"
+ships = []
+
+["Ragnar"]
+id = "id.t9yczqxr24us"
+ships = []
+
+["Loyang"]
+id = "id.hwzbaexcrpiy"
+ships = []
+
+["Ohio"]
+id = "id.k8vpmfgn527n"
+ships = []
+
+["IJN BBs"]
+id = "id.17r3seq56mm7"
+ships = []
+
+["Black"]
+id = "id.mzd9tsk8069m"
+ships = []
+
+["KM BCs"]
+id = "id.q7joipudn9br"
+ships = []
+
+["VMF BBs"]
+id = "id.965tufw5ty8g"
+ships = []
+
+["De Zeven Provinciën"]
+id = "id.mynw49aoevnb"
+ships = []
+
+["Smolensk"]
+id = "id.c96ef28v5utj"
+ships = []
+
+["Canarias"]
+id = "id.aym8pk9tihm5"
+ships = []
+
+["Weimar"]
+id = "id.busiua9d7xbc"
+ships = []
+
+["KM subs"]
+id = "id.x8foca204fuw"
+ships = []
+
+["Druid"]
+id = "id.o7ezdtamp82f"
+ships = []
+
+["Mikasa, Agincourt"]
+id = "id.vtvx2jctjhvw"
+ships = []
+
+["Blyskawica"]
+id = "id.o6809xa6q0aq"
+ships = []
+
+["USN super-dreadnought BB branch"]
+id = "id.t4o0zyphy5mv"
+ships = []
+
+["Slava"]
+id = "id.je3j63gc2udz"
+ships = []
+
+["Béarn"]
+id = "id.357wotaqgbkz"
+ships = []
+
+["VMF DDs sub-branch"]
+id = "id.1hwrnias4b7x"
+ships = []
+
+["USN and PA DDs"]
+id = "id.tqzkmc1fti3z"
+ships = []
+
+["Bagration, Molotov, Kirov"]
+id = "id.y2ca90mt5psb"
+ships = []
+
+["Austin"]
+id = "id.fbc02rax2mxt"
+ships = []
+
+["KM BBs"]
+id = "id.uny55pwq7wv"
+ships = []
+
+["Marceau"]
+id = "id.9hf91bph8i31"
+ships = []
+
+["KM CAs"]
+id = "id.ybm0dhobaoge"
+ships = []
+
+["Friesland/Groningen"]
+id = "id.jmwr902j7zlj"
+ships = []
+
+["IT DDs"]
+id = "id.h2zbcoulwrs6"
+ships = []
+
+["Harugumo only farming build"]
+id = "id.9rbp9jxf22bf"
+ships = []
+
+["FR BB tree and some premiums"]
+id = "id.a7yp1qfz0y8"
+ships = []
+
+["Moskva"]
+id = "id.373nc57o1yqr"
+ships = []
+
+["Traditional light cruiser build"]
+id = "id.o56fx6liae6o"
+ships = []
+
+["Georgia"]
+id = "id.vh7pdk69v5j3"
+ships = []
+
+["PA CLs"]
+id = "id.wpg7sebec4hy"
+ships = []
+
+["NL CAs"]
+id = "id.rgukyvcfofjs"
+ships = []
+
+["USN CAs"]
+id = "id.kva9i1xlskob"
+ships = []
+
+["USN subs"]
+id = "id.9klpenssnqn4"
+ships = []
+
+["Battlecruiser build"]
+id = "id.blqxm8hzmlqk"
+ships = []
+
+["VMF (Soviet) DDs, main branch"]
+id = "id.y9y8msu27u6u"
+ships = []
+
+["San Diego"]
+id = "id.41we9xypcyai"
+ships = [
+    "PASC548",  # San Diego
+    "PASC810",  # Austin
+]
+
+["RN CAs"]
+id = "id.l35dsm78vgs1"
+ships = []
+
+["KM (German) DDs main and Z sub-branch"]
+id = "id.dh6i307yqt54"
+ships = []
+
+["Mainz"]
+id = "id.kcjxptc81stg"
+ships = [
+    "PGSC518",  # Mainz
+]
+
+["Dido"]
+id = "id.wy30pyqqogqk"
+ships = [
+    "PBSC526",  # Dido
+]
+
+["Hayate"]
+id = "id.urzuudny2aq"
+ships = [
+    "PJSD510",  # Hayate
+]
+
+["IJN CAs"]
+id = "id.iidpt32z9ctw"
+ships = []
+
+["Roma"]
+id = "id.vpwtkdmq4auq"
+ships = [
+    "PISB508",
+]
+
+["Yoshino"]
+id = "id.tixw05leg201"
+ships = []
+
+["Max Immelmann"]
+id = "id.w1bg6dmfq5wp"
+ships = [
+    "PGSA610",  # Immelmann
+]
+
+["Eagle"]
+id = "id.ta054wt1ioia"
+ships = [
+    "PBSA111",  # Eagle
+]
+

@@ -107,11 +107,7 @@ class ShipTransformer(app_commands.Transformer):
         for ship in ships.values():
             tl = ship.tl(interaction)
             if clean in tl["clean_short"] or clean in tl["clean_full"]:
-                results.append(
-                    app_commands.Choice(
-                        name=tl["full"], value=ship.index
-                    )
-                )
+                results.append(app_commands.Choice(name=tl["full"], value=ship.index))
 
                 if len(results) == self.MAX_AC_RESULTS:
                     break
@@ -144,10 +140,8 @@ class ShipTransformer(app_commands.Transformer):
         elif len(results) > 1:
             raise errors.CustomError(
                 f"Multiple ships returned by query `{value}`. "
-                "Please refine your search.\n" +
-                "\n".join(
-                    f"- {ship.tl(interaction)['full']}" for ship in results
-                )
+                "Please refine your search.\n"
+                + "\n".join(f"- {ship.tl(interaction)['full']}" for ship in results)
             )
         else:
             return results.pop()
