@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import dataclasses
 import json
 import os
@@ -64,6 +66,10 @@ class Ship:
     def clean(string: str):
         return string.lower().translate(_CHARS_TABLE)
 
+    def tl(self, interaction: discord.Interaction):
+        wows_locale = DISCORD_TO_WOWS.get(interaction.locale, "en")
+        return self.translations[wows_locale]
+
 
 def get_ships():
     with open(_SHIPS_DATA_PATH, encoding="utf-8") as fp:
@@ -98,13 +104,12 @@ class ShipTransformer(app_commands.Transformer):
         if len(clean) < self.MIN_AC_LENGTH:
             return results
 
-        wows_locale = DISCORD_TO_WOWS.get(interaction.locale, "en")
         for ship in ships.values():
-            tl = ship.translations[wows_locale]
+            tl = ship.tl(interaction)
             if clean in tl["clean_short"] or clean in tl["clean_full"]:
                 results.append(
                     app_commands.Choice(
-                        name=ship.translations[wows_locale]["full"], value=ship.index
+                        name=tl["full"], value=ship.index
                     )
                 )
 
@@ -119,10 +124,9 @@ class ShipTransformer(app_commands.Transformer):
 
         clean = Ship.clean(value)
         results = []
-        wows_locale = DISCORD_TO_WOWS.get(interaction.locale, "en")
 
         for ship in ships.values():
-            tl = ship.translations[wows_locale]
+            tl = ship.tl(interaction)
 
             if clean == tl["clean_short"] or clean == tl["clean_full"]:
                 return ship
@@ -142,7 +146,7 @@ class ShipTransformer(app_commands.Transformer):
                 f"Multiple ships returned by query `{value}`. "
                 "Please refine your search.\n" +
                 "\n".join(
-                    f"- {ship.translations[wows_locale]['full']}" for ship in results
+                    f"- {ship.tl(interaction)['full']}" for ship in results
                 )
             )
         else:
