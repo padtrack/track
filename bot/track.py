@@ -31,7 +31,8 @@ class CustomTree(app_commands.CommandTree):
         self, interaction: discord.Interaction, error: app_commands.AppCommandError
     ) -> None:
         error = getattr(error, "original", error)  # normal commands
-        error = getattr(error, "__cause__", error)  # app commands
+        if isinstance(error, app_commands.AppCommandError):
+            error = error.__cause__ if error.__cause__ is not None else error
         command = interaction.command
 
         if command is None:
@@ -51,7 +52,7 @@ class CustomTree(app_commands.CommandTree):
 
 
 class Track(commands.AutoShardedBot):
-    def __init__(self):
+    def __init__(self, sync: bool = False):
         super().__init__(
             command_prefix=cfg.discord.default_prefix,
             intents=intents,
@@ -60,6 +61,7 @@ class Track(commands.AutoShardedBot):
             owner_ids=cfg.discord.owner_ids,
         )
 
+        self.sync: bool = sync
         self.stopping: bool = False  # used for warm shutdowns
         self.online_since: datetime = datetime.utcnow()
 
@@ -73,7 +75,10 @@ class Track(commands.AutoShardedBot):
             )
             sys.exit()
 
-        await self.tree.sync()  # TODO: remove auto tree sync
+        if self.sync:
+            logs.logger.info("Syncing tree...")
+            await self.tree.sync()
+            logs.logger.info(f"Syncing tree finished.")
 
     async def load_extensions(self) -> None:
         for root, dirs, files in os.walk("extensions"):
