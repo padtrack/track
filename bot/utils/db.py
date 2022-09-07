@@ -2,7 +2,7 @@ import os
 
 import cachetools
 import cachetools.keys
-from sqlalchemy import Boolean, Column, Integer
+from sqlalchemy import Boolean, Column, Float, Integer
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -65,6 +65,8 @@ class User(Base, CachedMixin):
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True)
+    guess_count = Column(Integer, default=0)
+    guess_record = Column(Float, default=None)
     is_blacklisted = Column(Boolean, default=False)
     is_premium = Column(Boolean, default=False)
 
