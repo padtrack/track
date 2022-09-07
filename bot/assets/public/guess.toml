@@ -1,0 +1,526 @@
+groups =  [
+    "start",  # Tier 1
+    "special",  # Premium
+    "specialUnsellable",  # Unsellable premiums (Flint, Missouri, etc.)
+    "ultimate",  # Tier 10 reward ships
+    "upgradeable",  # Tech-tree ships
+    "upgradeableExclusive",  # Free EXP ships (Nelson, Alaska, etc.)
+    "upgradeableUltimate",  # Free EXP Tier 10 reward ships (Smaland, Hayate, etc.)
+    "superShip"  # Superships
+]
+
+similar = [
+    [
+        "PGSA108",  # Parseval
+        "PGSA518",  # Graf Zeppelin
+    ],
+    [
+        "PASA110",  # Midway
+        "PASA510",  # FDR
+    ],
+    [
+        "PGSA110",  # Manfred
+        "PGSA610",  # Immelmann
+    ],
+    [
+        "PBSB103",  # Bellerophon
+        "PBSB503",  # Dreadnought
+    ],
+    [
+        "PGSB103",  # Nassau
+        "PGSB203",  # Von der Tann
+    ],
+    [
+        "PASB006",  # New York
+        "PASB705",  # Texas
+    ],
+    [
+        "PASB505",  # Oklahoma
+        "PASB506",  # Arizona
+    ],
+    [
+        "PISB505",  # Giulio Cesare
+        "PISB106",  # Andrea Doria
+        "PRSB516",  # Novorossiysk
+    ],
+    [
+        "PBSB002",  # Warspite
+        "PBSB106",  # Queen Elizabeth
+    ],
+    [
+        "PGSB206",  # Mackensen
+        "PGSB506",  # P.E.F.
+    ],
+    [
+        "PASB507",  # W. Virginia
+        "PASB008",  # Colorado
+    ],
+    [
+        "PFSB506",  # Dunkerque
+        "PFSB507",  # Strasbourg
+    ],
+    [
+        "PASB707",  # California
+        "PASB109",  # Minnesota
+    ],
+    [
+        "PBSB107",  # K.G.V
+        "PBSB527",  # Duke of York
+        "PUSB507",  # Yukon
+        "PBSB108",  # Monarch
+        "PBSB109",  # Lion
+    ],
+    [
+        "PGSB107",  # Gneisenau
+        "PGSB507",  # Scharnhorst
+    ],
+    [
+        "PASB508",  # Alabama
+        "PASB518",  # Massachusetts
+    ],
+    [
+        "PBSB508",  # Vanguard
+        "PBSB509",  # Marlborough
+        "PBSB110",  # Conqueror
+        "PBSB510",  # Thunderer
+    ],
+    [
+        "PFSB108",  # Richelieu
+        "PFSB518",  # Jean Bart
+    ],
+    [
+        "PFSB508",  # Gascogne
+        "PFSB528",  # Champagne
+        "PFSB110",  # Republique
+    ],
+    [
+        "PFSB538",  # Flandre
+        "PFSB109",  # Alsace
+        "PFSB510",  # Bourgogne
+    ],
+    [
+        "PGSB002",  # Tirpitz
+        "PGSB108",  # Bismarck
+        "PGSB518",  # Brandenburg
+    ],
+    [
+        "PISB108",  # Vittorio Veneto
+        "PISB508",  # Roma
+        "PISB109",  # Lepanto
+    ],
+    [
+        "PASB018",  # Iowa
+        "PASB509",  # Missouri
+    ],
+    [
+        "PGSB109",  # F.D.G.
+        "PGSB509",  # Pommern
+        "PGSB110",  # G. Kurfurst
+        "PGSB310",  # Preussen
+    ],
+    [
+        "PISB509",  # Marco Polo
+        "PISB519",  # Giuseppe Verdi
+    ],
+    [
+        "PJSB509",  # Musashi
+        "PJSB018",  # Yamato
+        "PJSB510",  # Shikishima
+    ],
+    [
+        "PASB017",  # Montana
+        "PASB510",  # Ohio
+    ],
+    [
+        "PASC003",  # Albany
+        "PVSC502",  # Almirante Abreu
+    ],
+    [
+        "PASC004",  # St. Louis
+        "PASC503",  # Charleston
+    ],
+    [
+        "PRSC002",  # Diana
+        "PRSC001",  # Aurora
+    ],
+    [
+        "PRSC103",  # Bogatyr
+        "PRSC503",  # Oleg
+    ],
+    [
+        "PBSC103",  # Caledon
+        "PBSC104",  # Danae
+    ],
+    [
+        "PGSC002",  # Dresden
+        "PGSC103",  # Kolberg
+        "PGSC104",  # Karlsruhe
+    ],
+    [
+        "PJSC015",  # Tenryu
+        "PJSC026",  # Iwaki Alpha
+    ],
+    [
+        "PASC005",  # Omaha
+        "PASC044",  # Marblehead
+        "PRSC003",  # Murmansk
+    ],
+    [
+        "PRSC215",  # Kotovsky
+        "PRSC515",  # Mikoyan
+    ],
+    [
+        "PGSC106",  # Nurnberg
+        "PRSC606",  # Admiral Makarov
+    ],
+    [
+        "PBSC526",  # Dido
+        "PZSC106",  # Rahmat
+    ],
+    [
+        "PFSC105",  # Emile Bertin
+        "PFSC106",  # La Galissonniere
+    ],
+    [
+        "PZSC105",  # Chungking
+        "PZSC506",  # Huanghe
+    ],
+    [
+        "PUSC516",  # Mysore
+        "PBSC107",  # Fiji
+    ],
+    [
+        "PGSC107",  # Yorck
+        "PGSC517",  # Weimar
+    ],
+    [
+        "PHSC106",  # Kijkduin
+        "PHSC107",  # Eendracht
+    ],
+    [
+        "PISC104",  # Alberto di Giussano
+        "PISC105",  # Raimondo Montecuccoli
+        "PISC106",  # Trento
+        "PISC107",  # Zara
+        "PISC607",  # Gorizia
+    ],
+    [
+        "PASC207",  # Helena
+        "PASC597",  # Boise
+        "PVSC507",  # Nueve de Julio
+    ],
+    [
+        "PASC006",  # Atlanta
+        "PASC707",  # Flint
+        "PZSC107",  # Chumphon
+    ],
+    [
+        "PRSC107",  # Shchors
+        "PRSC518",  # Lazo
+        "PRSC108",  # Chapayev
+    ],
+    [
+        "PRSC508",  # Mikhail Kutuzov
+        "PZSC508",  # Irian
+    ],
+    [
+        "PASC518",  # Anchorage
+        "PASC109",  # Buffalo
+    ],
+    [
+        "PASC528",  # Congress
+        "PASC510",  # Alaska
+    ],
+    [
+        "PFSC108",  # Charles Martel
+        "PFSC109",  # Saint Louis
+    ],
+    [
+        "PGSC509",  # Siegfried
+        "PGSC519",  # Agir
+    ],
+    [
+        "PJSC009",  # Mogami
+        "PJSC012",  # Ibuki
+    ],
+    [
+        "PZSC108",  # Harbin
+        "PZSC509",  # Dalian
+    ],
+    [
+        "PASC538",  # Rochester
+        "PASC519",  # Tulsa
+        "PASC020",  # Des Moines
+        "PASC710",  # Salem
+    ],
+    [
+        "PBSC507",  # Belfast
+        "PBSC108",  # Edinburgh
+        "PBSC528",  # Belfast '43
+        "PBSC510",  # Plymouth
+    ],
+    [
+        "PBSC208",  # Albemarle
+        "PBSC508",  # Cheshire
+        "PBSC209",  # Drake
+        "PBSC610",  # Gibraltar
+    ],
+    [
+        "PGSC108",  # Admiral Hipper
+        "PGSC508",  # Prinz Eugen
+        "PGSC518",  # Mainz
+        "PRSC208",  # Tallinn
+        "PGSC110",  # Hindenburg
+    ],
+    [
+        "PHSC109",  # Johan de Witt
+        "PHSC110",  # Gouden Leeuw
+    ],
+    [
+        "PJSC510",  # Azuma
+        "PJSC520",  # Yoshino
+    ],
+    [
+        "PJSC013",  # Kuma
+        "PJSC610",  # Kitakami
+    ],
+    [
+        "PRSB110",  # Kremlin
+        "PRSB510",  # Slava
+    ],
+    [
+        "PRSC110",  # Moskva
+        "PRSC510",  # Stalingrad
+    ],
+    [
+        "PRSC528",  # Ochakov
+        "PRSC610",  # Smolensk
+    ],
+    [
+        "PRSC509",  # Kronshtadt
+        "PRSC710",  # Sevastopol
+    ],
+    [
+        "PASC810",  # Austin
+        "PZSC110",  # Jinan
+    ],
+    [
+        "PFSC110",  # Henri IV
+        "PFSC111",  # Conde
+    ],
+    [
+        "PGSD102",  # V-25
+        "PZSD102",  # Longjiang
+    ],
+    [
+        "PBSD102",  # Medea
+        "PZSD103",  # Phra Ruang
+    ],
+    [
+        "PASD027",  # Wickes
+        "PBSD503",  # Campbeltown
+        "PASD019",  # Clemson
+    ],
+    [
+        "PASD014",  # Nicholas
+        "PASD505",  # Hill
+    ],
+    [
+        "PFSD103",  # Fusilier
+        "PFSD104",  # Bourrasque
+        "PFSD504",  # Siroco
+    ],
+    [
+        "PJSD024",  # Wakatake
+        "PZSD104",  # Shenyang
+        "PJSD004",  # Minekaze
+        "PJSD025",  # Kamikaze
+        "PJSD105",  # Mutuski
+    ],
+    [
+        "PASD005",  # Farragut
+        "PASD506",  # Monaghan
+    ],
+    [
+        "PBSD103",  # Valkyrie
+        "PBSD104",  # Wakeful
+        "PBSD105",  # Acasta
+        "PZSD105",  # Jianwei
+        "PBSD106",  # Icarus
+        "PBSD506",  # Gallant
+        "PVSD506",  # Jurua
+    ],
+    [
+        "PGSD106",  # Ernst Gaede
+        "PGSD516",  # Karl von Schonberg
+    ],
+    [
+        "PRSD001",  # Gremyashchy
+        "PRSD206",  # Gnevny
+        "PZSD106",  # Fushun
+        "PZSD506",  # Anshan
+    ],
+    [
+        "PFSD106",  # Guepard
+        "PFSD506",  # Aigle
+        "PFSD107",  # Vauquelin
+    ],
+    [
+        "PJSD106",  # Fubuki
+        "PJSD706",  # Shinonome
+        "PJSD107",  # Akatsuki
+    ],
+    [
+        "PJSD207",  # Shiratsuyu
+        "PJSD507",  # Yudachi
+    ],
+    [
+        "PRSD205",  # Podvoisky
+        "PRSD207",  # Minsk
+        "PRSD507",  # Leningrad
+    ],
+    [
+        "PBSD107",  # Jervis
+        "PZSD107",  # Gadjah Mada
+    ],
+    [
+        "PUSD507",  # Haida
+        "PBSD517",  # Cossack
+    ],
+    [
+        "PFSD108",  # Le Fantasque
+        "PFSD508",  # Le Terrible
+    ],
+    [
+        "PBSD108",  # Lightning
+        "PWSD508",  # Orkan
+    ],
+    [
+        "PRSD208",  # Ognevoi
+        "PZSD208",  # Siliwangi
+    ],
+    [
+        "PASD008",  # Benson
+        "PZSD108",  # Hsienyang
+        "PZSD508",  # Loyang
+    ],
+    [
+        "PGSD207",  # Z-31
+        "PGSD508",  # Z-39
+        "PGSD108",  # Z-23
+        "PGSD518",  # Z-35
+        "PGSD519",  # Z-44
+    ],
+    [
+        "PJSD208",  # Kagero
+        "PJSD518",  # Asashio
+        "PJSD209",  # Yugumo
+    ],
+    [
+        "PJSD108",  # Akizuki
+        "PZSD518",  # Fenyang
+        "PJSD219",  # Kitakaze
+    ],
+    [
+        "PHSD509",  # Groningen
+        "PWSD510",  # Friesland
+    ],
+    [
+        "PASD508",  # Kidd
+        "PASD021",  # Fletcher
+        "PASD709",  # Black
+        "PZSD109",  # Chung Mu
+    ],
+    [
+        "PFSD109",  # Mogador
+        "PFSD110",  # Kleber
+        "PFSD210",  # Marceau
+    ],
+    [
+        "PWSD110",  # Halland
+        "PWSD610",  # Smaland
+    ],
+    [
+        "PRSD308",  # Kiev
+        "PRSD410",  # Delny
+    ],
+    [
+        "PASD013",  # Gearing
+        "PZSD110",  # Yueyang
+    ],
+    [
+        "PJSD012",  # Shimakaze
+        "PJSD111",  # Yamagiri
+    ],
+    [
+        "PRSD110",  # Khabarovsk
+        "PRSD111",  # Zorkiy
+    ],
+]
+
+forbidden = [
+    "PASA598",  # Saipan B
+    "PGSA598",  # Graf Zeppelin B
+    "PJSA598",  # Kaga B
+    "PZSA508",  # Sanzang
+    "PGSA510",  # Werner Voss
+    "PJSB705",  # ARP Kongo
+    "PJSB706",  # ARP Kirishima
+    "PJSB707",  # ARP Haruna
+    "PJSB708",  # ARP Hiei
+    "PJSB715",  # HSF Hiei
+    "PFSB596",  # Dunkerque B
+    "PGSB597",  # Scharnhost B
+    "PASB528",  # Alabama VL
+    "PASB598",  # Massachusetts B
+    "PASB708",  # Alabama ST
+    "PGSB598",  # Tirpitz B
+    "PISB708",  # AL Littorio
+    "PJSB878",  # Ignis Purgatio
+    "PJSB888",  # Ragnarok
+    "PFSB599",  # Jean Bart B
+    "PGSB599",  # Pommern B
+    "PRSB709",  # AL Sov. Rossiya
+    "PZSB509",  # Bajie
+    "PZSB519",  # Wujing
+    "PASB910",  # Connecticut
+    "PJSB700",  # ARP Yamato
+    "PRSC010",  # Diana Lima
+    "PASC045",  # Marblehead Lima
+    "PGSC706",  # HSF Graf Spee
+    "PASC587",  # Atlanta B
+    "PJSC705",  # ARP Myoko
+    "PJSC707",  # ARP Ashigara
+    "PJSC709",  # ARP Haguro
+    "PJSC717",  # Southern Dragon
+    "PJSC727",  # Eastern Dragon
+    "PJSC737",  # ARP Nachi
+    "PASC718",  # AL Montpelier
+    "PGSC718",  # Cross of Dorn
+    "PJSC598",  # Atago B
+    "PJSC708",  # ARP Takao
+    "PJSC718",  # ARP Maya
+    "PRSC548",  # Bagaration
+    "PZSC518",  # Wukong
+    "PASC599",  # Alaska B
+    "PBSC910",  # Cyclops
+    "PJSC590",  # Yoshino B
+    "PJSD014",  # Tachibana Lima
+    "PJSD017",  # Fujin
+    "PJSD026",  # Kamikaze R
+    "PASD597",  # Sims B
+    "PBSD598",  # Cossack B
+    "PJSD528",  # HSF Harekaze II
+    "PJSD708",  # HSF Harekaze
+    "PJSD718",  # AL Yukikaze
+    "PJSD598",  # Asashio B
+    "PZSD598",  # Loyang B
+    "PZSD718",  # Ship Smasha
+    "PRSC520",  # Stalingrad #2
+    "PRSD308",  # Kiev (Bad Silhouette)
+    "PISC108",  # Amalfi (Bad Silhouette)
+    "PISC105",  # Montecuccoli (Bad Silhouette)
+    "PUSC506",  # Perth (Bad Silhouette)
+    "PGSD107",  # Maass (Bad Silhouette)
+    "PJSD206",  # Hatsuharu (Bad Silhouette)
+]
