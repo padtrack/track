@@ -373,7 +373,7 @@ class RenderEmbed(discord.Embed):
         super().__init__(title=RenderEmbed.TITLE, color=color)
 
         self.add_field(name="Input", value=input_name)
-        self.set_footer(text="help me pay jeff bezos https://ko-fi.com/trackpad")
+        self.set_footer(text="Consider supporting the project! https://ko-fi.com/trackpad")
         self.process_kwargs(**kwargs)
 
     def process_kwargs(self, **kwargs):
