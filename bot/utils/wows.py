@@ -41,7 +41,7 @@ GROUPS = [
     "upgradeable",  # Tech-tree ships
     "upgradeableExclusive",  # Other Free EXP ships (Nelson, Alaska, etc.)
     "upgradeableUltimate",  # Free EXP Tier 10 reward ships (Smaland, Hayate, etc.)
-    "legendaryBattle",  # Superships
+    "superShip",  # Superships
 ]
 _CHARS_TABLE = {" ": "", "-": "", ".": "", "'": ""}
 
