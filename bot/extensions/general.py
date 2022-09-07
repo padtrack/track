@@ -22,7 +22,7 @@ class UserDataEmbed(discord.Embed):
 
 class GeneralCog(commands.Cog):
     def __init__(self, bot: Track):
-        self.bot = bot
+        self.bot: Track = bot
 
     @app_commands.command(
         name="profile",
