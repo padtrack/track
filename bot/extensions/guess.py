@@ -14,7 +14,7 @@ import discord
 from sqlalchemy import select
 
 from bot.track import Track
-from bot.utils import db, errors, wows
+from bot.utils import assets, db, errors, wows
 
 
 CONFIG_PATH = os.path.join(
@@ -26,7 +26,7 @@ SILHOUETTES_PATH = os.path.join(
 
 
 class InspectEmbed(discord.Embed):
-    ICON = "https://cdn.discordapp.com/attachments/651324664496521225/651332148963442688/logo.png"
+    ICON = assets.get("WG_LOGO")
 
     def __init__(
         self, cog: GuessCog, interaction: discord.Interaction, ship: wows.Ship
