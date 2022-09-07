@@ -13,3 +13,4 @@ redis==4.3.4
 rq==1.11.0
 SQLAlchemy==1.4.39
 toml==0.10.2
+unidecode==1.3.4
