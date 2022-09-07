@@ -64,10 +64,12 @@ class Ship:
 
     @staticmethod
     def clean(string: str):
-        return string.lower().translate(_CHARS_TABLE)
+        string = string.lower()
+        trans = string.maketrans(_CHARS_TABLE)
+        return string.translate(trans)
 
     def tl(self, interaction: discord.Interaction):
-        wows_locale = DISCORD_TO_WOWS.get(interaction.locale, "en")
+        wows_locale = DISCORD_TO_WOWS.get(str(interaction.locale), "en")
         return self.translations[wows_locale]
 
 
