@@ -11,6 +11,41 @@ from discord.app_commands import Choice
 
 from bot.utils import errors
 
+
+# NOTE: this is Player IDs order, they appear to be unique
+REGIONS = ["ru", "eu", "na", "asia"]
+INFERRED_REGIONS = {
+    "en-US": "na",
+    "en-GB": "eu",
+    "bg": "eu",
+    "zh-CN": "asia",
+    "zh-TW": "asia",
+    "hr": "eu",
+    "cs": "eu",
+    "da": "eu",
+    "nl": "eu",
+    "fi": "eu",
+    "fr": "eu",
+    "de": "eu",
+    "el": "eu",
+    "hi": "eu",  # https://worldofwarships.asia/en/content/india-account-migration/
+    "hu": "eu",
+    "it": "eu",
+    "ja": "asia",
+    "ko": "asia",
+    "lt": "eu",
+    "no": "eu",
+    "pl": "eu",
+    "pt-BR": "na",
+    "ro": "eu",
+    "ru": "ru",
+    "es-ES": "eu",
+    "sv-SE": "eu",
+    "th": "asia",
+    "tr": "eu",
+    "uk": "eu",  # https://worldofwarships.ru/ru/news/general-news/UA-account-transfer/
+    "vi": "asia",
+}
 DISCORD_TO_WOWS = {
     "en-US": "en",
     "en-GB": "en",
