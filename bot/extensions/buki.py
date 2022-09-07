@@ -60,12 +60,13 @@ class BukiCog(commands.Cog):
     @app_commands.command(
         name="buki",
         description="Returns a random queried emoji of (Fu)buki from KanColle.",
-        extras={"category": "misc"},
+        extras={"category": "fun"},
     )
     @app_commands.describe(query="The (optional) emoji to search.")
     async def buki(self, interaction: discord.Interaction, query: Optional[str] = None):
         if not self.emojis:
             await interaction.response.send_message("Emojis unavailable.")
+            return
         elif not query:
             await interaction.response.send_message(
                 random.choice(list(self.emojis.values()))
@@ -89,7 +90,7 @@ class BukiCog(commands.Cog):
         await interaction.response.send_message(err_message)
 
     @app_commands.command(
-        name="pasta", description="Freshly cooked.", extras={"category": "misc"}
+        name="pasta", description="Freshly cooked.", extras={"category": "fun"}
     )
     @app_commands.guilds(*GUILD_IDS)
     @app_commands.describe(num="Index of the pasta to fetch.")
