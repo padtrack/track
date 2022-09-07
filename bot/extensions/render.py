@@ -56,6 +56,9 @@ class BuildsButton(ui.Button):
         self.fp.seek(0)
 
 
+# TODO: add chat button
+
+
 class RenderView(ui.View):
     def __init__(self, builds: list[dict], **kwargs):
         super().__init__(**kwargs)
@@ -373,7 +376,9 @@ class RenderEmbed(discord.Embed):
         super().__init__(title=RenderEmbed.TITLE, color=color)
 
         self.add_field(name="Input", value=input_name)
-        self.set_footer(text="Consider supporting the project! https://ko-fi.com/trackpad")
+        self.set_footer(
+            text="Consider supporting the project! https://ko-fi.com/trackpad"
+        )
         self.process_kwargs(**kwargs)
 
     def process_kwargs(self, **kwargs):
