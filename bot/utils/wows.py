@@ -43,7 +43,7 @@ INFERRED_REGIONS = {
     "sv-SE": "eu",
     "th": "asia",
     "tr": "eu",
-    "uk": "eu",  # https://worldofwarships.ru/ru/news/general-news/UA-account-transfer/
+    "uk": "eu",  # https://worldofwarships.ru/ru/news/general-news/accounts-transfer/
     "vi": "asia",
 }
 DISCORD_TO_WOWS = {
