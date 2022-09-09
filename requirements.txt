@@ -1,4 +1,6 @@
 git+https://github.com/WoWs-Builder-Team/minimap_renderer.git@develop
+aiohttp==3.8.1
+aiolimiter==1.0.0
 aioredis==2.0.1
 aiosqlite==0.17.0
 attrs==21.4.0
