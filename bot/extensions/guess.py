@@ -109,18 +109,10 @@ class GuessCancelButton(ui.Button):
         super().__init__(label="Cancel", style=discord.ButtonStyle.danger)
 
         self.loop = interaction.client.loop
-        self.user_id = interaction.user.id
         self.channel_id = interaction.channel_id
         self.ship = ship
 
     async def callback(self, interaction: discord.Interaction):
-        if interaction.user.id != self.user_id:
-            # TODO: this sounds weird
-            await interaction.response.send_message(
-                "You must be the command invoker to do that.", ephemeral=True
-            )
-            return
-
         for task in asyncio.all_tasks(loop=self.loop):
             if task.get_name() == f"guess_{self.channel_id}" and not task.done():
                 task.cancel()
@@ -135,9 +127,19 @@ class GuessView(ui.View):
     def __init__(self, interaction: discord.Interaction, ship: wows.Ship):
         super().__init__(timeout=GuessGame.HINT_TIMER + GuessGame.END_TIMER)
 
+        self.user_id = interaction.user.id
         self.message: Optional[discord.Message] = None
         self.button = GuessCancelButton(interaction, ship)
         self.add_item(self.button)
+
+    async def interaction_check(self, interaction: discord.Interaction) -> bool:
+        if interaction.user.id != self.user_id:
+            # TODO: this sounds weird
+            await interaction.response.send_message(
+                "You must be the command invoker to do that.", ephemeral=True
+            )
+            return False
+        return True
 
     async def close(self) -> None:
         self.button.disabled = True
@@ -216,8 +218,7 @@ class GuessGame:
             time = (discord.utils.snowflake_time(message.id) - start).total_seconds()
 
             # cheap trick to ensure user exists
-            user = await db.User.get_or_create(id=message.author.id)
-            db.User.invalidate(id=user.id)
+            await db.User.get_or_create(id=message.author.id)
 
             result_msg = f"Well done! Time taken: `{time:.3f}s`.\n"
             async with db.async_session() as session:
@@ -233,6 +234,7 @@ class GuessGame:
 
                 user.guess_count += 1
                 await session.commit()
+            db.User.invalidate(id=message.author.id)
 
             await message.channel.send(result_msg, reference=message)
 
