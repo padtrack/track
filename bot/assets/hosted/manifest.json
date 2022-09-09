@@ -1,6 +1,11 @@
 {
-    "WG_LOGO": "https://cdn.discordapp.com/attachments/651324664496521225/651332148963442688/logo.png",
-    "AAH": "https://cdn.discordapp.com/attachments/651330014532468736/677358572186632192/Aaaaaaaaaaaaahhhh.mp4",
-    "HDAAH": "https://cdn.discordapp.com/attachments/651330014532468736/717655219780976650/Aaaaaaaaaaaaahhhh_hd.mp4",
-    "POGGERS": "https://cdn.discordapp.com/attachments/651330014532468736/725481166248869918/poggers.mp4"
+    "WG_LOGO": "https://cdn.discordapp.com/attachments/1017568734652661781/1017569038525800568/logo.png",
+    "AAH": "https://cdn.discordapp.com/attachments/1017568734652661781/1017569187398422558/Aaaaaaaaaaaaahhhh.mp4",
+    "HDAAH": "https://cdn.discordapp.com/attachments/1017568734652661781/1017569187880771676/Aaaaaaaaaaaaahhhh_hd.mp4",
+    "POGGERS": "https://cdn.discordapp.com/attachments/1017568734652661781/1017569188270854175/poggers.mp4",
+    "EMOJI_RANDOM_BATTLE": "<:RandomBattle:1017569848844369920>",
+    "EMOJI_COOPERATIVE_BATTLE": "<:CooperativeBattle:1017569889772376224>",
+    "EMOJI_RANKED_BATTLE": "<:RankedBattle:1017569988313350184>",
+    "EMOJI_CLAN_BATTLE": "<:ClanBattle:1017570018587856936>",
+    "EMOJI_BRAWL_BATTLE": "<:BrawlBattle:1017570052192612452>"
 }
