@@ -31,6 +31,12 @@ class TrackConfig:
 
     channels = environ.group(ChannelIDs)
 
+    @environ.config(prefix="WG")
+    class Wargaming:
+        app_id = ini_secrets.secret(name="wg_application_id")
+
+    wg = environ.group(Wargaming)
+
 
 cfg: TrackConfig = TrackConfig.from_environ(
     environ={
