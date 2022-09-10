@@ -1,9 +1,9 @@
 from __future__ import annotations
-
+from typing import List
 import dataclasses
+import enum
 import json
 import os
-from typing import List
 
 import discord
 from discord import app_commands, Interaction
@@ -83,6 +83,13 @@ _CHARS_TABLE = {" ": "", "-": "", ".": "", "'": ""}
 _SHIPS_DATA_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "../assets/public/ships.json"
 )
+
+
+class Regions(enum.Enum):
+    ru = "ru"
+    eu = "eu"
+    na = "na"
+    asia = "asia"
 
 
 @dataclasses.dataclass
