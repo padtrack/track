@@ -6,9 +6,10 @@ import datetime
 import aiohttp
 import aiolimiter
 from discord.app_commands import Choice
-from discord import app_commands, Interaction
+from discord import app_commands
+import discord
 
-from bot.utils import wows, wg_api
+from bot.utils import db, wows, wg_api
 
 URLS = {
     "ru": "https://worldofwarships.ru",
@@ -206,10 +207,24 @@ async def get_partial_statistics(
 class PlayerTransformer(app_commands.Transformer):
     autocomplete_limit = aiolimiter.AsyncLimiter(5, 1)
 
+    @staticmethod
+    async def get_region(interaction: discord.Interaction) -> str:
+        if (
+            hasattr(interaction.namespace, "region")
+            and interaction.namespace.region is not None
+        ):
+            return interaction.namespace.region
+        else:
+            user = await db.User.get(id=interaction.user.id)
+            if user.wg_region:
+                return user.wg_region
+
+        return wows.INFERRED_REGIONS.get(str(interaction.locale), "eu")
+
     async def autocomplete(
-        self, interaction: Interaction, value: str
+        self, interaction: discord.Interaction, value: str
     ) -> List[Choice[str]]:
-        region = wows.INFERRED_REGIONS.get(str(interaction.locale), "eu")
+        region = self.get_region(interaction)
 
         async with vortex_limit:
             async with self.autocomplete_limit:
@@ -226,11 +241,11 @@ class PlayerTransformer(app_commands.Transformer):
                             for result in (await response.json())["data"]
                         ]
 
-    async def transform(self, interaction: Interaction, value: str) -> Optional[Player]:
-        # TODO: move this defer somewhere more visible?
+    async def transform(
+        self, interaction: discord.Interaction, value: str
+    ) -> Optional[Player]:
+        region = await self.get_region(interaction)
         await interaction.response.defer()
-
-        region = wows.INFERRED_REGIONS.get(str(interaction.locale), "eu")
 
         if player := await get_player(region, value):
             return player
