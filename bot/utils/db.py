@@ -2,7 +2,7 @@ import os
 
 import cachetools
 import cachetools.keys
-from sqlalchemy import Boolean, Column, Float, Integer
+from sqlalchemy import Boolean, Column, Float, Integer, JSON, String
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -67,6 +67,11 @@ class User(Base, CachedMixin):
     id = Column(Integer, primary_key=True)
     guess_count = Column(Integer, default=0)
     guess_record = Column(Float, default=None)
+    wg_region = Column(Integer, default=None)
+    wg_id = Column(Integer, default=None)
+    wg_ac = Column(String, default=None)
+    background = Column(String, default=None)
+    locale = Column(String, default=None)
     is_blacklisted = Column(Boolean, default=False)
     is_premium = Column(Boolean, default=False)
 
@@ -75,6 +80,9 @@ class Guild(Base, CachedMixin):
     __tablename__ = "guilds"
 
     id = Column(Integer, primary_key=True)
+    disabled = Column(JSON, default="[]")
+    wg_region = Column(Integer, default=None)
+    locale = Column(String, default=None)
     is_blacklisted = Column(Boolean, default=False)
     is_premium = Column(Boolean, default=False)
 
