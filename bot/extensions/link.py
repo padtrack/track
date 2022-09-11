@@ -117,6 +117,7 @@ class LinkButton(ui.Button):
 
 
 class LinkView(ui.View):
+    # TODO: change to main branch
     INFO_URL = "https://github.com/padtrack/track/blob/rewrite/docs/LINKS.md"
 
     def __init__(self):
@@ -126,16 +127,12 @@ class LinkView(ui.View):
         self.link_button = LinkButton()
 
         self.add_item(self.link_button)
-        self.add_item(ui.Button(
-            label="More Info", url=self.INFO_URL
-        ))
+        self.add_item(ui.Button(label="More Info", url=self.INFO_URL))
 
     async def on_timeout(self):
         self.link_button.disabled = True
 
-        await self.message.edit(
-            view=self
-        )
+        await self.message.edit(view=self)
 
 
 class LinkCog(commands.Cog):
