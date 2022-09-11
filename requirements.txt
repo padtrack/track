@@ -6,6 +6,7 @@ aiosqlite==0.17.0
 attrs==21.4.0
 black==22.6.0
 cachetools==5.2.0
+dacite==1.6.0
 discord.py==2.0.0
 environ-config==22.1.0
 jishaku==2.5.0
