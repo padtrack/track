@@ -1,42 +1,72 @@
 from __future__ import annotations
-from typing import Optional, List, Tuple, Union
+from typing import Optional, List, Tuple, TypeVar, Union
 import dataclasses
 import datetime
 
 import aiohttp
 import aiolimiter
+import dacite
 from discord.app_commands import Choice
 from discord import app_commands
 import discord
 
 from bot.utils import db, wows, wg_api
 
-URLS = {
-    "ru": "https://worldofwarships.ru",
-    "eu": "https://worldofwarships.eu",
-    "na": "https://worldofwarships.com",
-    "asia": "https://worldofwarships.asia",
-}
-VORTEX = {
-    "ru": "https://vortex.worldofwarships.ru/api/",
-    "eu": "https://vortex.worldofwarships.eu/api/",
-    "na": "https://vortex.worldofwarships.com/api/",
-    "asia": "https://vortex.worldofwarships.asia/api/",
-}
-CLANS = {
-    "ru": "https://clans.worldofwarships.ru/api/",
-    "eu": "https://clans.worldofwarships.eu/api/",
-    "na": "https://clans.worldofwarships.com/api/",
-    "asia": "https://clans.worldofwarships.asia/api/",
-}
-BATTLE_TYPES = [
-    "pvp",
-    "pve",
-    "rank_solo",
-    "rank_old_solo",
-    "cvc",
-]
 
+URL_TEMPLATES = {
+    "ru": "https://{}worldofwarships.ru",
+    "eu": "https://{}worldofwarships.eu",
+    "na": "https://{}worldofwarships.com",
+    "asia": "https://{}worldofwarships.asia",
+}
+URLS: dict[str, str] = {key: value.format("") for key, value in URL_TEMPLATES.items()}
+VORTEX: dict[str, str] = {
+    key: value.format("vortex.") + "/api" for key, value in URL_TEMPLATES.items()
+}
+CLANS: dict[str, str] = {
+    key: value.format("clans.") + "/api" for key, value in URL_TEMPLATES.items()
+}
+DEFAULT_BATTLE_TYPE = "pvp"
+BATTLE_TYPES = {
+    "pvp": {
+        "default": 0,
+        "sizes": {
+            0: "pvp",
+            1: "pvp_solo",
+            2: "pvp_div2",
+            3: "pvp_div3"
+        }
+    },
+    "pve": {
+        "default": 0,
+        "sizes": {
+            0: "pve"
+        }
+    },
+    "rank": {
+        "default": 1,
+        "sizes": {
+            1: "rank_solo"
+        }
+    },
+    "rank_old": {
+        "default": 1,
+        "sizes": {
+            1: "rank_old_solo",
+            2: "rank_old_div2"
+        }
+    }
+}
+
+IT = TypeVar("IT", bound=datetime.datetime)
+ST = TypeVar("ST", bound=datetime.datetime)
+config = dacite.Config(
+    type_hooks={
+        IT: lambda x: datetime.datetime.fromtimestamp(x),
+        ST: lambda x: datetime.datetime.fromisoformat(x),
+    },
+    check_types=False,
+)
 vortex_limit = aiolimiter.AsyncLimiter(10, 1)
 
 
@@ -49,16 +79,20 @@ class Player:
     clan_role: Optional[ClanRole]
 
     @property
-    def profile_link(self) -> str:
+    def profile_url(self) -> str:
         url = URLS.get(self.region)
         return f"{url}/community/accounts/{self.id}-{self.name}"
+
+    @property
+    def wows_numbers_url(self) -> str:
+        return f"https://{self.region}.wows-numbers.com/player/{self.id},{self.name}"
 
 
 @dataclasses.dataclass
 class ClanRole:
     clan: Clan
     clan_id: int
-    joined_at: datetime.datetime
+    joined_at: ST
     role: str
 
 
@@ -88,6 +122,19 @@ class PartialPlayer(Player):
     online_status: bool  # this doesn't seem to actually work without auth
 
 
+@dataclasses.dataclass
+class FullPlayer(Player):
+    statistics: dict[str, dict[str, int]]
+
+    activated_at: IT
+    created_at: IT
+    last_battle_time: IT
+
+    karma: int
+    leveling_points: int
+    leveling_tier: int
+
+
 class VortexError(Exception):
     # TODO: log these!
     pass
@@ -102,7 +149,7 @@ async def get_player(
 
     async with vortex_limit:
         async with aiohttp.ClientSession() as session:
-            url = f"{VORTEX[region]}accounts/{player_id}/"
+            url = f"{VORTEX[region]}/accounts/{player_id}/"
             params = {"ac": access_code} if access_code else None
 
             async with session.get(url, params=params) as response:
@@ -113,28 +160,44 @@ async def get_player(
 
                 data = (await response.json())["data"][player_id]
 
-                hidden_profile = "hidden_profile" in data
-                clan_role = await get_clan_role(region, player_id)
-                kwargs = {
-                    "region": region,
-                    "id": int(player_id),
-                    "name": data["name"],
-                    "hidden_profile": hidden_profile,
-                    "clan_role": clan_role,
-                }
-                if hidden_profile and clan_role:
-                    if statistics := await get_partial_statistics(
-                        region, player_id, clan_role.clan_id, battle_type="pvp"
-                    ):
-                        stats, last_battle_time, online_status = statistics
-                        return PartialPlayer(
-                            statistics={"pvp": stats},
-                            last_battle_time=last_battle_time,
-                            online_status=online_status,
-                            **kwargs,
-                        )
+    hidden_profile = "hidden_profile" in data
+    clan_role = await get_clan_role(region, player_id)
+    kwargs = {
+        "region": region,
+        "id": int(player_id),
+        "name": data["name"],
+        "hidden_profile": hidden_profile,
+        "clan_role": clan_role,
+    }
+    if hidden_profile:
+        if clan_role:
+            if statistics := await get_partial_statistics(
+                region, player_id, clan_role.clan_id, battle_type=DEFAULT_BATTLE_TYPE
+            ):
+                stats, last_battle_time, online_status = statistics
+                return PartialPlayer(
+                    statistics={DEFAULT_BATTLE_TYPE: stats},
+                    last_battle_time=last_battle_time,
+                    online_status=online_status,
+                    **kwargs,
+                )
 
-                return Player(**kwargs)
+        return Player(**kwargs)
+
+    return dacite.from_dict(
+        FullPlayer,
+        {
+            "statistics": {
+                index: data["statistics"][index]
+                for battle_type, type_data in BATTLE_TYPES.items()
+                for size, index in type_data["sizes"].items()
+            },
+            "activated_at": data["activated_at"],
+            **data["statistics"]["basic"],
+            **kwargs,
+        },
+        config=config,
+    )
 
 
 async def get_clan_role(
@@ -143,7 +206,7 @@ async def get_clan_role(
 ) -> Optional[ClanRole]:
     async with vortex_limit:
         async with aiohttp.ClientSession() as session:
-            url = f"{VORTEX[region]}accounts/{player_id}/clans"
+            url = f"{VORTEX[region]}/accounts/{player_id}/clans"
 
             async with session.get(url) as response:
                 if response.status == 404:
@@ -153,12 +216,7 @@ async def get_clan_role(
 
                 data = (await response.json())["data"]
 
-                return ClanRole(
-                    clan=Clan(**data["clan"]),
-                    role=data["role"],
-                    joined_at=datetime.datetime.fromisoformat(data["joined_at"]),
-                    clan_id=data["clan_id"],
-                )
+    return dacite.from_dict(ClanRole, data, config=config)
 
 
 async def get_partial_statistics(
@@ -175,8 +233,8 @@ async def get_partial_statistics(
 
     async with vortex_limit:
         async with aiohttp.ClientSession() as session:
-            url = f"{CLANS[region]}members/{clan_id}/"
-            params = {"battle_type": battle_type if battle_type else "pvp"}
+            url = f"{CLANS[region]}/members/{clan_id}/"
+            params = {"battle_type": battle_type if battle_type else DEFAULT_BATTLE_TYPE}
             if season:
                 params["season"] = season
 
@@ -186,22 +244,17 @@ async def get_partial_statistics(
                 elif response.status != 200:
                     raise VortexError()
 
-                for data in (await response.json())["items"]:
-                    if data["id"] == player_id:
-                        return (
-                            PartialStatistics(
-                                battles_count=data["battles_count"],
-                                battles_per_day=data["battles_per_day"],
-                                damage_per_battle=data["damage_per_battle"],
-                                frags_per_battle=data["frags_per_battle"],
-                                exp_per_battle=data["exp_per_battle"],
-                                wins_percentage=data["wins_percentage"],
-                            ),
-                            datetime.datetime.fromtimestamp(data["last_battle_time"]),
-                            data["online_status"],
-                        )
+                items = (await response.json())["items"]
 
-                return None
+    for data in items:
+        if data["id"] == player_id:
+            return (
+                dacite.from_dict(PartialStatistics, data, config),
+                datetime.datetime.fromtimestamp(data["last_battle_time"]),
+                data["online_status"],
+            )
+
+    return None
 
 
 class PlayerTransformer(app_commands.Transformer):
@@ -215,7 +268,7 @@ class PlayerTransformer(app_commands.Transformer):
         ):
             return interaction.namespace.region
         else:
-            user = await db.User.get(id=interaction.user.id)
+            user = await db.User.get_or_create(id=interaction.user.id)
             if user.wg_region:
                 return user.wg_region
 
@@ -224,22 +277,22 @@ class PlayerTransformer(app_commands.Transformer):
     async def autocomplete(
         self, interaction: discord.Interaction, value: str
     ) -> List[Choice[str]]:
-        region = self.get_region(interaction)
+        region = await self.get_region(interaction)
 
         async with vortex_limit:
             async with self.autocomplete_limit:
                 async with aiohttp.ClientSession() as session:
-                    url = f"{VORTEX[region]}accounts/search/autocomplete/{value}/"
+                    url = f"{VORTEX[region]}/accounts/search/autocomplete/{value}/"
                     async with session.get(url) as response:
                         if response.status != 200:
                             return []
 
-                        return [
-                            app_commands.Choice(
-                                name=result["name"], value=str(result["spa_id"])
-                            )
-                            for result in (await response.json())["data"]
-                        ]
+                        data = (await response.json())["data"]
+
+        return [
+            app_commands.Choice(name=result["name"], value=str(result["spa_id"]))
+            for result in data
+        ]
 
     async def transform(
         self, interaction: discord.Interaction, value: str
@@ -252,13 +305,15 @@ class PlayerTransformer(app_commands.Transformer):
 
         async with vortex_limit:
             async with aiohttp.ClientSession() as session:
-                url = f"{VORTEX[region]}accounts/search/{value}/?limit=1"
+                url = f"{VORTEX[region]}/accounts/search/{value}/?limit=1"
 
                 async with session.get(url) as response:
                     if response.status != 200:
                         raise VortexError()
 
-                    if not (results := (await response.json())["data"]):
-                        return None
-                    else:
-                        return await get_player(region, results[0]["spa_id"])
+                    data = (await response.json())["data"]
+
+        if not data:
+            return None
+
+        return await get_player(region, data[0]["spa_id"])
