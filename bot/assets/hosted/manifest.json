@@ -3,9 +3,20 @@
     "AAH": "https://cdn.discordapp.com/attachments/1017568734652661781/1017569187398422558/Aaaaaaaaaaaaahhhh.mp4",
     "HDAAH": "https://cdn.discordapp.com/attachments/1017568734652661781/1017569187880771676/Aaaaaaaaaaaaahhhh_hd.mp4",
     "POGGERS": "https://cdn.discordapp.com/attachments/1017568734652661781/1017569188270854175/poggers.mp4",
+    "RANDOM_BATTLE": "https://cdn.discordapp.com/attachments/1017568734652661781/1017569785086746654/RandomBattle_big.png",
+    "COOPERATIVE_BATTLE": "https://cdn.discordapp.com/attachments/1017568734652661781/1017569785334218792/CooperativeBattle_big.png",
+    "RANKED_BATTLE": "https://cdn.discordapp.com/attachments/1017568734652661781/1017569785615241286/RankedBattle_big.png",
+    "CLAN_BATTLE": "https://cdn.discordapp.com/attachments/1017568734652661781/1017569785879474206/ClanBattle_big.png",
+    "BRAWL_BATTLE": "https://cdn.discordapp.com/attachments/1017568734652661781/1017569786168877097/BrawlBattle_big.png",
     "EMOJI_RANDOM_BATTLE": "<:RandomBattle:1017569848844369920>",
     "EMOJI_COOPERATIVE_BATTLE": "<:CooperativeBattle:1017569889772376224>",
     "EMOJI_RANKED_BATTLE": "<:RankedBattle:1017569988313350184>",
     "EMOJI_CLAN_BATTLE": "<:ClanBattle:1017570018587856936>",
-    "EMOJI_BRAWL_BATTLE": "<:BrawlBattle:1017570052192612452>"
+    "EMOJI_BRAWL_BATTLE": "<:BrawlBattle:1017570052192612452>",
+    "EMOJI_DAMAGE_DEALT": "<:caused_damage:1018414232049565807>",
+    "EMOJI_FRAGS": "<:frags:1018414233274294312>",
+    "EMOJI_PLANES_KILLED": "<:caused_avia_damage:1018414231131017266>",
+    "EMOJI_SHIPS_SPOTTED": "<:caused_avia_damage:1018414231131017266>",
+    "EMOJI_SCOUTING_DAMAGE": "<:assisted_damage:1018414228341788723>",
+    "EMOJI_POTENTIAL_DAMAGE": "<:blocked_damage:1018414229767852064>"
 }
