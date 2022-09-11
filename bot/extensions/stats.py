@@ -187,6 +187,7 @@ class FullPlayerView(ui.View):
 
 class FullPlayerEmbed(discord.Embed):
     METRICS = {
+        "base_exp": ("Base EXP", "EMOJI_EXP", 0),
         "damage_dealt": ("Damage", "EMOJI_DAMAGE_DEALT", 0),
         "frags": ("Kills", "EMOJI_FRAGS", 2),
         "planes_killed": ("Aircraft", "EMOJI_PLANES_KILLED", 2),
@@ -206,6 +207,8 @@ class FullPlayerEmbed(discord.Embed):
     def __init__(self, player: vortex.FullPlayer, battle_type: str):
         self.stats = player.statistics[battle_type]
         self.stats["total_agro"] = self.stats["art_agro"] + self.stats["tpd_agro"]
+        self.stats["base_exp"] = self.stats["original_exp"]
+        self.stats["max_base_exp"] = self.stats["max_exp"]
 
         wins, wins_rate = self.rate("wins")
         losses = self.stats["losses"]
