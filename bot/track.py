@@ -78,7 +78,7 @@ class Track(commands.AutoShardedBot):
         if self.sync:
             logs.logger.info("Syncing tree...")
             await self.tree.sync()
-            logs.logger.info(f"Syncing tree finished.")
+            logs.logger.info(f"Tree Synced")
 
     async def load_extensions(self) -> None:
         for root, dirs, files in os.walk("extensions"):
