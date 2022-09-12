@@ -30,32 +30,11 @@ DEFAULT_BATTLE_TYPE = "pvp"
 BATTLE_TYPES = {
     "pvp": {
         "default": 0,
-        "sizes": {
-            0: "pvp",
-            1: "pvp_solo",
-            2: "pvp_div2",
-            3: "pvp_div3"
-        }
+        "sizes": {0: "pvp", 1: "pvp_solo", 2: "pvp_div2", 3: "pvp_div3"},
     },
-    "pve": {
-        "default": 0,
-        "sizes": {
-            0: "pve"
-        }
-    },
-    "rank": {
-        "default": 1,
-        "sizes": {
-            1: "rank_solo"
-        }
-    },
-    "rank_old": {
-        "default": 1,
-        "sizes": {
-            1: "rank_old_solo",
-            2: "rank_old_div2"
-        }
-    }
+    "pve": {"default": 0, "sizes": {0: "pve"}},
+    "rank": {"default": 1, "sizes": {1: "rank_solo"}},
+    "rank_old": {"default": 1, "sizes": {1: "rank_old_solo", 2: "rank_old_div2"}},
 }
 
 IT = TypeVar("IT", bound=datetime.datetime)
@@ -77,6 +56,7 @@ class Player:
     name: str
     hidden_profile: bool
     clan_role: Optional[ClanRole]
+    is_empty: bool
 
     @property
     def profile_url(self) -> str:
@@ -179,25 +159,33 @@ async def get_player(
                     statistics={DEFAULT_BATTLE_TYPE: stats},
                     last_battle_time=last_battle_time,
                     online_status=online_status,
+                    is_empty=False,
                     **kwargs,
                 )
 
-        return Player(**kwargs)
+        return Player(is_empty=False, **kwargs)
 
-    return dacite.from_dict(
-        FullPlayer,
-        {
-            "statistics": {
-                index: data["statistics"][index]
-                for battle_type, type_data in BATTLE_TYPES.items()
-                for size, index in type_data["sizes"].items()
+    try:
+        return dacite.from_dict(
+            FullPlayer,
+            {
+                "statistics": {
+                    index: data["statistics"][index]
+                    for battle_type, type_data in BATTLE_TYPES.items()
+                    for size, index in type_data["sizes"].items()
+                },
+                "activated_at": data["activated_at"],
+                **data["statistics"]["basic"],
+                "is_empty": False,
+                **kwargs,
             },
-            "activated_at": data["activated_at"],
-            **data["statistics"]["basic"],
+            config=config,
+        )
+    except KeyError:
+        return Player(
+            is_empty=True,
             **kwargs,
-        },
-        config=config,
-    )
+        )
 
 
 async def get_clan_role(
@@ -216,14 +204,17 @@ async def get_clan_role(
 
                 data = (await response.json())["data"]
 
-    return dacite.from_dict(ClanRole, data, config=config)
+    if "clan_id" in data and data["clan_id"] is None:
+        return None
+    else:
+        return dacite.from_dict(ClanRole, data, config=config)
 
 
 async def get_partial_statistics(
     region: str,
     player_id: Union[int, str],
     clan_id: Union[int, str],
-    battle_type: str = None,
+    battle_type: str = DEFAULT_BATTLE_TYPE,
     season: Optional[int] = None,
 ) -> Optional[Tuple[PartialStatistics, datetime.datetime, bool]]:
     player_id = int(player_id)
@@ -234,7 +225,7 @@ async def get_partial_statistics(
     async with vortex_limit:
         async with aiohttp.ClientSession() as session:
             url = f"{CLANS[region]}/members/{clan_id}/"
-            params = {"battle_type": battle_type if battle_type else DEFAULT_BATTLE_TYPE}
+            params = {"battle_type": battle_type}
             if season:
                 params["season"] = season
 
@@ -255,6 +246,39 @@ async def get_partial_statistics(
             )
 
     return None
+
+
+async def get_ship_statistics(
+    region: str,
+    player_id: Union[int, str],
+    ship_id: Union[int, str],
+    battle_type: str = DEFAULT_BATTLE_TYPE,
+    access_code: Optional[
+        str
+    ] = None,
+) -> Optional[dict[str, int]]:
+    player_id = str(player_id)
+    ship_id = str(ship_id)
+
+    async with vortex_limit:
+        async with aiohttp.ClientSession() as session:
+            url = (
+                f"{VORTEX[region]}/accounts/{player_id}/ships/{ship_id}/{battle_type}/"
+            )
+            params = {"ac": access_code} if access_code else None
+
+            async with session.get(url, params=params) as response:
+                if response.status == 404:
+                    return None
+                elif response.status != 200:
+                    raise VortexError()
+
+                data = (await response.json())["data"][player_id]
+
+    if "hidden_profile" in data or not data["statistics"]:
+        return None
+
+    return data["statistics"][ship_id][battle_type]
 
 
 class PlayerTransformer(app_commands.Transformer):

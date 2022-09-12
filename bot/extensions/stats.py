@@ -1,9 +1,11 @@
 from __future__ import annotations
 from typing import List, Optional, Tuple
+import datetime
+
+
 from discord.ext import commands, tasks
 from discord import app_commands, ui
 import discord
-
 
 from bot.track import Track
 from bot.utils import assets, vortex, wows, wg_api
@@ -21,6 +23,7 @@ BATTLE_TYPES = {
     for b_type, t_data in vortex.BATTLE_TYPES.items()
     for index in t_data["sizes"].values()
 }
+EPOCH = datetime.datetime.fromtimestamp(0)
 
 
 class BattleTypeSelect(ui.Select):
@@ -117,7 +120,11 @@ class PartialPlayerView(ui.View):
 
 
 class PartialPlayerEmbed(discord.Embed):
-    def __init__(self, player: vortex.PartialPlayer, battle_type: str):
+    def __init__(
+        self,
+        player: vortex.PartialPlayer,
+        battle_type: str = vortex.DEFAULT_BATTLE_TYPE,
+    ):
         stats = player.statistics[battle_type]
         clan = player.clan_role.clan
 
@@ -185,7 +192,7 @@ class FullPlayerView(ui.View):
         await self.message.edit(view=self)
 
 
-class FullPlayerEmbed(discord.Embed):
+class StatisticsEmbedCommon(discord.Embed):
     METRICS = {
         "base_exp": ("Base EXP", "EMOJI_EXP", 0),
         "damage_dealt": ("Damage", "EMOJI_DAMAGE_DEALT", 0),
@@ -204,8 +211,13 @@ class FullPlayerEmbed(discord.Embed):
         "ram": "Rams",
     }
 
-    def __init__(self, player: vortex.FullPlayer, battle_type: str):
-        self.stats = player.statistics[battle_type]
+    def __init__(self, statistics: dict[str, int], **kwargs):
+        if not statistics:
+            super().__init__(description="No statistics for this gamemode.", **kwargs)
+            return
+
+        self.stats = statistics
+
         self.stats["total_agro"] = self.stats["art_agro"] + self.stats["tpd_agro"]
         self.stats["base_exp"] = self.stats["original_exp"]
         self.stats["max_base_exp"] = self.stats["max_exp"]
@@ -213,32 +225,28 @@ class FullPlayerEmbed(discord.Embed):
         wins, wins_rate = self.rate("wins")
         losses = self.stats["losses"]
         ties = self.battles - wins - losses
-
         survived, survived_rate = self.rate("survived")
         died = self.battles - survived
 
         super().__init__(
-            title=f"{player.name}'s Stats ({player.region.upper()})",
             description=(
                 f"Battles: `{self.battles}`\n"
                 f"Wins: `{wins_rate * 100:.2f}%` (`{wins}`/`{losses}`/`{ties}`)\n"
                 f"Survival: `{survived_rate * 100:.2f}%` (`{survived}`/`{died}`)"
             ),
-            url=player.profile_url,
-            timestamp=player.last_battle_time,
+            **kwargs,
         )
 
-        clan = player.clan_role.clan
-        self.add_field(
-            name="Clan",
-            value=(
-                f"[{clan.tag}] {clan.name}\n"
-                f"Role: {player.clan_role.role.title().replace('_', ' ')}\n"
-                f"Joined: <t:{int(player.clan_role.joined_at.timestamp())}:D>\n"
-            ),
-            inline=False,
-        )
+    @property
+    def battles(self) -> int:
+        return self.stats["battles_count"]
 
+    def rate(self, key: str, total: str = None) -> Tuple[int, float]:
+        value = self.stats[key]
+        total = self.stats[total] if total else self.battles
+        return value, value / total if self.battles != 0 else 0
+
+    def add_metrics(self):
         averages, max_values = zip(
             *[self.get_metric(key) for key in self.METRICS.keys()]
         )
@@ -255,33 +263,10 @@ class FullPlayerEmbed(discord.Embed):
             inline=True,
         )
 
-        armaments = {
-            key: data
-            for key in self.ARMAMENTS.keys()
-            if (data := self.get_armament(key)) is not None
-        }
-
-        self.add_field(
-            name="Armaments",
-            value=self.format_armaments(armaments),
-            inline=False,
-        )
-
-        label, _, icon_id = BATTLE_TYPES[battle_type]
-        self.set_author(name=label, icon_url=assets.get(icon_id))
-
-        self.set_footer(text="Last battle")
-
-    @property
-    def battles(self) -> int:
-        return self.stats["battles_count"]
-
-    def rate(self, key: str, total: str = None) -> Tuple[int, float]:
-        value = self.stats[key]
-        total = self.stats[total] if total else self.battles
-        return value, value / total if self.battles != 0 else 0
-
     def get_metric(self, key: str) -> Tuple[Optional[float], int]:
+        if not self.battles:
+            return 0, 0
+
         total = self.stats[key]
         max_value = self.stats[f"max_{key}"]
 
@@ -307,6 +292,19 @@ class FullPlayerEmbed(discord.Embed):
 
         return "\n".join(strings)
 
+    def add_armaments(self):
+        armaments = {
+            key: data
+            for key in self.ARMAMENTS.keys()
+            if (data := self.get_armament(key)) is not None
+        }
+
+        self.add_field(
+            name="Armaments",
+            value=self.format_armaments(armaments),
+            inline=False,
+        )
+
     def get_armament(self, key: str) -> Tuple[int, int, Optional[float]]:
         frags = self.stats.get(f"frags_by_{key}", None)
         max_frags = self.stats.get(f"max_frags_by_{key}", None)
@@ -329,6 +327,39 @@ class FullPlayerEmbed(discord.Embed):
         return "\n".join(strings)
 
 
+class FullPlayerEmbed(StatisticsEmbedCommon):
+    def __init__(
+        self, player: vortex.FullPlayer, battle_type: str = vortex.DEFAULT_BATTLE_TYPE
+    ):
+        super().__init__(
+            statistics=player.statistics[battle_type],
+            title=f"{player.name}'s Stats ({player.region.upper()})",
+            url=player.profile_url,
+            timestamp=player.last_battle_time,
+        )
+
+        if player.clan_role:
+            clan = player.clan_role.clan
+            self.add_field(
+                name="Clan",
+                value=(
+                    f"[{clan.tag}] {clan.name}\n"
+                    f"Role: {player.clan_role.role.title().replace('_', ' ')}\n"
+                    f"Joined: <t:{int(player.clan_role.joined_at.timestamp())}:D>\n"
+                ),
+                inline=False,
+            )
+
+        if hasattr(self, "stats"):
+            self.add_metrics()
+            self.add_armaments()
+
+        label, _, icon_id = BATTLE_TYPES[battle_type]
+        self.set_author(name=label, icon_url=assets.get(icon_id))
+
+        self.set_footer(text="Last battle")
+
+
 class HiddenEmbed(discord.Embed):
     def __init__(self, player: vortex.Player):
         clan = player.clan_role.clan
@@ -348,6 +379,89 @@ class HiddenEmbed(discord.Embed):
             ),
             inline=False,
         )
+
+
+class ShipStatisticsView(ui.View):
+    def __init__(
+        self,
+        user_id: int,
+        player: vortex.FullPlayer,
+        ship_id: int,
+        ship_name: str,
+        **kwargs,
+    ):
+        super().__init__(**kwargs)
+
+        self.user_id: int = user_id
+        self.player: vortex.FullPlayer = player
+        self.ship_id: int = ship_id
+        self.ship_name: str = ship_name
+        self.message: Optional[discord.Message] = None
+        self.statistics: dict[str, dict[str, int]] = {}
+
+        self.select = BattleTypeSelect()
+        self.add_item(self.select)
+
+    async def interaction_check(self, interaction: discord.Interaction) -> bool:
+        if interaction.user.id != self.user_id:
+            await interaction.response.send_message(
+                "You must be the command invoker to do that.", ephemeral=True
+            )
+            return False
+        return True
+
+    async def update_battle_type(self, battle_type: str):
+        if battle_type not in self.statistics:
+            if (
+                stats := await vortex.get_ship_statistics(
+                    self.player.region,
+                    self.player.id,
+                    self.ship_id,
+                    battle_type,
+                )
+            ) is not None:
+                self.statistics[battle_type] = stats
+            else:
+                logger.error(
+                    f"Failed to update ship (id {self.ship_id}) statistics for player "
+                    f'(region "{self.player.region}", '
+                    f'id "{self.player.id}", '
+                    f'battle_type "{battle_type}")'
+                )
+                return
+
+        await self.message.edit(
+            embed=ShipStatisticsEmbed(
+                self.player, self.statistics[battle_type], self.ship_name, battle_type
+            ),
+            view=self,
+        )
+
+    async def on_timeout(self):
+        self.select.disabled = True
+        await self.message.edit(view=self)
+
+
+class ShipStatisticsEmbed(StatisticsEmbedCommon):
+    def __init__(
+        self,
+        player: vortex.FullPlayer,
+        stats: dict[str, int],
+        ship_name: str,
+        battle_type: str = vortex.DEFAULT_BATTLE_TYPE,
+    ):
+        super().__init__(
+            statistics=stats,
+            title=f"{player.name}'s {ship_name} ({player.region.upper()})",
+            url=player.profile_url,
+        )
+
+        if hasattr(self, "stats"):
+            self.add_metrics()
+            self.add_armaments()
+
+        label, _, icon_id = BATTLE_TYPES[battle_type]
+        self.set_author(name=label, icon_url=assets.get(icon_id))
 
 
 class StatsCog(commands.Cog):
@@ -386,17 +500,59 @@ class StatsCog(commands.Cog):
         interaction: discord.Interaction,
         region: Optional[wows.Regions],
         player: app_commands.Transform[vortex.Player, vortex.PlayerTransformer],
+        ship: Optional[app_commands.Transform[wows.Ship, wows.ShipTransformer]],
     ):
         if isinstance(player, vortex.PartialPlayer):
-            embed = PartialPlayerEmbed(player, vortex.DEFAULT_BATTLE_TYPE)
-            view = PartialPlayerView(interaction.user.id, player)
-            view.message = await interaction.followup.send(embed=embed, view=view)
+            if ship:
+                await interaction.followup.send(
+                    "Cannot fetch ship statistics for player with hidden profile."
+                )
+            else:
+                embed = PartialPlayerEmbed(player)
+                view = PartialPlayerView(interaction.user.id, player)
+                view.message = await interaction.followup.send(embed=embed, view=view)
         elif isinstance(player, vortex.FullPlayer):
-            embed = FullPlayerEmbed(player, vortex.DEFAULT_BATTLE_TYPE)
-            view = FullPlayerView(interaction.user.id, player)
-            view.message = await interaction.followup.send(embed=embed, view=view)
+            if player.last_battle_time == EPOCH:
+                await interaction.followup.send(
+                    "This player has not played any battles."
+                )
+                return
+
+            if ship:
+                if not (
+                    stats := await vortex.get_ship_statistics(
+                        player.region,
+                        player.id,
+                        ship.id,
+                    )
+                ):
+                    await interaction.followup.send(
+                        "Player has no statistics for this ship."
+                    )
+                else:
+                    ship_name = ship.tl(interaction)["full"]
+                    embed = ShipStatisticsEmbed(player, stats, ship_name)
+                    view = ShipStatisticsView(
+                        interaction.user.id, player, ship.id, ship_name
+                    )
+                    view.message = await interaction.followup.send(
+                        embed=embed, view=view
+                    )
+            else:
+                embed = FullPlayerEmbed(player)
+                view = FullPlayerView(interaction.user.id, player)
+                view.message = await interaction.followup.send(embed=embed, view=view)
         elif isinstance(player, vortex.Player):
-            await interaction.followup.send(embed=HiddenEmbed(player))
+            if ship:
+                await interaction.followup.send(
+                    "Cannot fetch ship statistics for player with hidden profile."
+                )
+            elif player.hidden_profile:
+                await interaction.followup.send(embed=HiddenEmbed(player))
+            else:
+                await interaction.followup.send(
+                    "This player has not played any battles."
+                )
         else:
             await interaction.followup.send("No players found.")
 
