@@ -102,8 +102,8 @@ class UpdateCog(commands.Cog):
             )
         else:
             await interaction.response.send_message(
-                "**Maintenance Times**\n" +
-                "\n".join(
+                "**Maintenance Times**\n"
+                + "\n".join(
                     f"{region.upper()}\n"
                     f"<{url}>\n"
                     f"From <t:{time_from}:F> to <t:{time_until}:F>\n"
