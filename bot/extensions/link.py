@@ -148,7 +148,7 @@ class LinkCog(commands.Cog):
         view = LinkView()
         # TODO: remove disclaimer on release
         await interaction.response.send_message(
-            "**DISCLAIMER: THIS IS A TEST VERSION OF THE BOT. THE DATABASE MAY BE WIPED IN BETWEEN TESTS.**"
+            "**DISCLAIMER: THIS IS A TEST VERSION OF THE BOT. THE DATABASE MAY BE WIPED IN BETWEEN TESTS.**\n"
             "Click your region's link below to visit your profile. "
             "You may need to log in if you haven't already.\n"
             + "\n".join(URLS.values())
