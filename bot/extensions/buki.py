@@ -59,7 +59,7 @@ class BukiCog(commands.Cog):
 
     @app_commands.command(
         name="buki",
-        description="Returns a random queried emoji of (Fu)buki from KanColle.",
+        description="Returns a random or queried emoji of (Fu)buki from KanColle.",
         extras={"category": "fun"},
     )
     @app_commands.describe(query="The (optional) emoji to search.")
