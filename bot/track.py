@@ -14,6 +14,11 @@ intents = discord.Intents.default()
 intents.message_content = True  # required for guess
 
 
+EXTENSIONS_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "extensions"
+)
+
+
 class CustomTree(app_commands.CommandTree):
     async def interaction_check(self, interaction: discord.Interaction, /) -> bool:
         user = await db.User.get_or_create(id=interaction.user.id)
@@ -81,11 +86,11 @@ class Track(commands.AutoShardedBot):
             logs.logger.info(f"Tree Synced")
 
     async def load_extensions(self) -> None:
-        for root, dirs, files in os.walk("extensions"):
+        for root, dirs, files in os.walk(EXTENSIONS_PATH):
             for file in files:
                 if file.endswith("py"):
                     try:
-                        extension = f"{root}.{file[:-3]}".replace("/", ".")
+                        extension = f"extensions.{file[:-3]}".replace("/", ".")
                         await self.load_extension(extension)
                     except commands.NoEntryPointError as e:
                         message = f"{e.name} has no entry point."
