@@ -563,7 +563,7 @@ class StatsCog(commands.Cog):
     @app_commands.describe(
         ship="The ship to search for."
     )
-    async def stats(
+    async def my_stats(
             self,
             interaction: discord.Interaction,
             ship: Optional[app_commands.Transform[wows.Ship, wows.ShipTransformer]],
