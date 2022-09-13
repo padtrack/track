@@ -8,7 +8,7 @@ from discord import app_commands, ui
 import discord
 
 from bot.track import Track
-from bot.utils import assets, vortex, wows, wg_api
+from bot.utils import assets, db, vortex, wows, wg_api
 from bot.utils.logs import logger
 
 
@@ -494,6 +494,7 @@ class StatsCog(commands.Cog):
     @app_commands.describe(
         region="The WoWS region to search players in.",
         player="The username to search for.",
+        ship="The ship to search for."
     )
     async def stats(
         self,
@@ -521,9 +522,7 @@ class StatsCog(commands.Cog):
             if ship:
                 if not (
                     stats := await vortex.get_ship_statistics(
-                        player.region,
-                        player.id,
-                        ship.id,
+                        player.region, player.id, ship.id, access_code=player.used_access_code
                     )
                 ):
                     await interaction.followup.send(
@@ -555,6 +554,66 @@ class StatsCog(commands.Cog):
                 )
         else:
             await interaction.followup.send("No players found.")
+
+    @app_commands.command(
+        name="mystats",
+        description="Shortcut for linked users.",
+        extras={"category": "wows"},
+    )
+    @app_commands.describe(
+        ship="The ship to search for."
+    )
+    async def stats(
+            self,
+            interaction: discord.Interaction,
+            ship: Optional[app_commands.Transform[wows.Ship, wows.ShipTransformer]],
+    ):
+        user = await db.User.get_or_create(id=interaction.user.id)
+
+        if not user.wg_id:
+            await interaction.response.send_message(
+                "You must be linked to use this command! See `/link`.", ephemeral=True
+            )
+            return
+
+        await interaction.response.defer()
+        player = await vortex.get_player(user.wg_region, user.wg_id, user.wg_ac)
+
+        if not isinstance(player, vortex.FullPlayer):
+            await interaction.followup.send(
+                "Failed to fetch your data. Check your profile visibility settings."
+            )
+
+        # Duplicated code
+
+        if player.last_battle_time == EPOCH:
+            await interaction.followup.send(
+                "You have not played any battles."
+            )
+            return
+
+        if ship:
+            if not (
+                    stats := await vortex.get_ship_statistics(
+                        player.region, player.id, ship.id, access_code=player.used_access_code
+                    )
+            ):
+                await interaction.followup.send(
+                    "You have no statistics for this ship."
+                )
+            else:
+                ship_name = ship.tl(interaction)["full"]
+                embed = ShipStatisticsEmbed(player, stats, ship_name)
+                view = ShipStatisticsView(
+                    interaction.user.id, player, ship.id, ship_name
+                )
+                view.message = await interaction.followup.send(
+                    embed=embed, view=view
+                )
+        else:
+            embed = FullPlayerEmbed(player)
+            view = FullPlayerView(interaction.user.id, player)
+            view.message = await interaction.followup.send(embed=embed, view=view)
 
 
 async def setup(bot: Track):

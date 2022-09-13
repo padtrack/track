@@ -57,6 +57,7 @@ class Player:
     hidden_profile: bool
     clan_role: Optional[ClanRole]
     is_empty: bool
+    used_access_code: Optional[str]
 
     @property
     def profile_url(self) -> str:
@@ -148,6 +149,7 @@ async def get_player(
         "name": data["name"],
         "hidden_profile": hidden_profile,
         "clan_role": clan_role,
+        "used_access_code": access_code,
     }
     if hidden_profile:
         if clan_role:
@@ -174,8 +176,8 @@ async def get_player(
                     for battle_type, type_data in BATTLE_TYPES.items()
                     for size, index in type_data["sizes"].items()
                 },
-                "activated_at": data["activated_at"],
                 **data["statistics"]["basic"],
+                "activated_at": data["activated_at"],
                 "is_empty": False,
                 **kwargs,
             },
@@ -253,9 +255,7 @@ async def get_ship_statistics(
     player_id: Union[int, str],
     ship_id: Union[int, str],
     battle_type: str = DEFAULT_BATTLE_TYPE,
-    access_code: Optional[
-        str
-    ] = None,
+    access_code: Optional[str] = None,
 ) -> Optional[dict[str, int]]:
     player_id = str(player_id)
     ship_id = str(ship_id)
@@ -321,10 +321,13 @@ class PlayerTransformer(app_commands.Transformer):
     async def transform(
         self, interaction: discord.Interaction, value: str
     ) -> Optional[Player]:
+        user = await db.User.get_or_create(id=interaction.user.id)
+        access_code = user.wg_ac
+
         region = await self.get_region(interaction)
         await interaction.response.defer()
 
-        if player := await get_player(region, value):
+        if player := await get_player(region, value, access_code):
             return player
 
         async with vortex_limit:
@@ -340,4 +343,4 @@ class PlayerTransformer(app_commands.Transformer):
         if not data:
             return None
 
-        return await get_player(region, data[0]["spa_id"])
+        return await get_player(region, data[0]["spa_id"], access_code)
