@@ -56,11 +56,21 @@ class BuildsButton(ui.Button):
         self.fp.seek(0)
 
 
-# TODO: add chat button
+class ChatButton(ui.Button):
+    def __init__(self, chat: str, **kwargs):
+        super().__init__(label="Export Chat", **kwargs)
+
+        self.fp = io.StringIO(chat)
+        self.fp.seek(0)
+
+    async def callback(self, interaction: discord.Interaction) -> None:
+        file = discord.File(self.fp, filename="chat.txt")
+        await functions.reply(interaction, file=file, ephemeral=True)
+        self.fp.seek(0)
 
 
 class RenderView(ui.View):
-    def __init__(self, builds: list[dict], **kwargs):
+    def __init__(self, builds: list[dict], chat: str, **kwargs):
         super().__init__(**kwargs)
 
         for build in builds:
@@ -72,10 +82,13 @@ class RenderView(ui.View):
 
         self.builds_button = BuildsButton(builds)
         self.add_item(self.builds_button)
+        self.chat_button = ChatButton(chat)
+        self.add_item(self.chat_button)
         self.message: Optional[discord.Message] = None
 
     async def on_timeout(self) -> None:
         self.builds_button.disabled = True
+        self.chat_button.disabled = True
         await self.message.edit(view=self)
 
 
@@ -171,12 +184,12 @@ class Render:
                         continue
 
                     if isinstance(self._job.result, tuple):
-                        data, filename, time_taken, builds_str = self._job.result
+                        data, filename, time_taken, builds_str, chat = self._job.result
 
                         try:
                             file = discord.File(io.BytesIO(data), f"{filename}.mp4")
                             if builds_str:
-                                view = RenderView(json.loads(builds_str))
+                                view = RenderView(json.loads(builds_str), chat)
                                 sent_message = await functions.reply(
                                     self._interaction,
                                     content=None,

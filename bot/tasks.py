@@ -93,19 +93,40 @@ def render_single(
             return VersionNotFoundError()
 
     time_taken = time.strftime("%M:%S", time.gmtime(t()))
-    name = str(replay_data.game_arena_id)
+    file_name = str(replay_data.game_arena_id)
 
     try:
-        name = name[len(name) - 8 :]
+        file_name = file_name[len(file_name) - 8 :]
     except IndexError:
         pass
+
+    players = replay_info["hidden"]["replay_data"].player_info
+    chat = ""
+    for battle_time, events in replay_info["hidden"]["replay_data"].events.items():
+        for message in events.evt_chat:
+            player = players[message.player_id]
+
+            if anon and player.clan_tag:
+                clan_tag = f"[{'#' * len(player.clan_tag)}] "
+            elif player.clan_tag:
+                clan_tag = f"[{player.clan_tag}] "
+            else:
+                clan_tag = ""
+
+            if anon:
+                name = render.usernames[player.id]
+            else:
+                name = player.name
+
+            chat += f"[{battle_time // 60:02}:{battle_time % 60:02}] {clan_tag}{name}: {message.message}\n"
 
     _redis.set(f"cooldown_{requester_id}", "", ex=cooldown)
     return (
         video_data,
-        f"render_{name}",
+        f"render_{file_name}",
         time_taken,
         json.dumps(render.get_player_build()),
+        chat,
     )
 
 
@@ -166,4 +187,3 @@ def render_dual(
 
     _redis.set(f"cooldown_{requester_id}", "", ex=cooldown)
     return video_data, f"render_{green_name}_{red_name}_{name}", time_taken, ""
-    # TODO: implement dual builds
