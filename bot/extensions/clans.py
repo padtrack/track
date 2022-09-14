@@ -69,11 +69,13 @@ class ClanView(ui.View):
 
     def __init__(
         self,
+        user_id: int,
         clan: api.FullClan,
         members_data: Dict[str, List[api.ClanMemberStatistics]],
     ):
         super().__init__(timeout=180)
 
+        self.user_id = user_id
         self.clan = clan
         self.members_count = len(list(members_data.values())[0])
         self.members_data = members_data
@@ -90,6 +92,14 @@ class ClanView(ui.View):
         self.selected_page: int = 0
         self.type_select: Optional[BattleTypeSelect] = None
         self.selected_battle_type: str = api.DEFAULT_BATTLE_TYPE
+
+    async def interaction_check(self, interaction: discord.Interaction) -> bool:
+        if interaction.user.id != self.user_id:
+            await interaction.response.send_message(
+                "You must be the command invoker to do that.", ephemeral=True
+            )
+            return False
+        return True
 
     async def set_active(self, new_mode: str):
         for mode, button in self.mode_buttons.items():
@@ -321,7 +331,7 @@ class ClansCog(commands.Cog):
             return
 
         members_data = {api.DEFAULT_BATTLE_TYPE: members}
-        view = ClanView(clan, members_data)
+        view = ClanView(interaction.user.id, clan, members_data)
         view.message = await interaction.followup.send(
             embed=ClanEmbed(clan, members_data), view=view
         )
