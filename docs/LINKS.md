@@ -20,4 +20,4 @@ Of course, Access Codes are not without downsides:
 However, as previously mentioned, this process only needs to be done once in contrast to every two weeks.
 - Access Codes are not a means of identity verification. 
 In theory, a bandit could trick an unsuspecting user into giving them their Access Code, and link with the bot using it. 
-However, the bot does require such a level of verification, making this a non-concern.
+However, the bot does not require such a level of verification, making this a non-concern.
