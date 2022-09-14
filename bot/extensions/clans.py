@@ -112,6 +112,7 @@ class ClanView(ui.View):
                     self.add_item(button)
 
                 self.selected_page = 0
+                self.selected_battle_type = api.DEFAULT_BATTLE_TYPE
                 self.type_select = BattleTypeSelect(default_only=True)
                 self.add_item(self.type_select)
                 await self.update_members_embed()
