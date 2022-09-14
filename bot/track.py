@@ -34,7 +34,6 @@ class CustomTree(app_commands.CommandTree):
     async def on_error(
         self, interaction: discord.Interaction, error: app_commands.AppCommandError
     ) -> None:
-        # TODO: log APIErrors and namespace
         error = getattr(error, "original", error)  # normal commands
         if isinstance(error, app_commands.AppCommandError):
             error = error.__cause__ if error.__cause__ is not None else error
@@ -59,6 +58,7 @@ class CustomTree(app_commands.CommandTree):
             logs.logger.error(
                 f"Ignoring exception in command {command.name}", exc_info=error
             )
+            logs.logger.error(f"Namespace: {interaction.namespace}")
 
 
 class Track(commands.AutoShardedBot):
