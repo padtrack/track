@@ -14,9 +14,7 @@ intents = discord.Intents.default()
 intents.message_content = True  # required for guess
 
 
-EXTENSIONS_PATH = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "extensions"
-)
+EXTENSIONS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "extensions")
 
 
 class CustomTree(app_commands.CommandTree):
@@ -35,6 +33,7 @@ class CustomTree(app_commands.CommandTree):
     async def on_error(
         self, interaction: discord.Interaction, error: app_commands.AppCommandError
     ) -> None:
+        # TODO: log APIErrors and namespace
         error = getattr(error, "original", error)  # normal commands
         if isinstance(error, app_commands.AppCommandError):
             error = error.__cause__ if error.__cause__ is not None else error
