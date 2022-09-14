@@ -1,4 +1,5 @@
 from typing import List, Optional
+
 __all__ = [
     "PlayerTransformer",
     "ClanTransformer",
@@ -103,8 +104,7 @@ class ClanTransformer(app_commands.Transformer):
 
         return [
             app_commands.Choice(
-                name=f"[{clan['tag']}] {clan['name']}",
-                value=str(clan["id"])
+                name=f"[{clan['tag']}] {clan['name']}", value=str(clan["id"])
             )
             for clan in result
         ]

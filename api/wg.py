@@ -1,7 +1,6 @@
 from __future__ import annotations
-__all__ = [
-    "seasons", "get_seasons", "buildings", "get_buildings"
-]
+
+__all__ = ["seasons", "get_seasons", "buildings", "get_buildings"]
 
 from typing import Dict
 
@@ -38,13 +37,11 @@ async def get_seasons():
         for region, api in API.items():
             url = f"{api}/clans/season/"
 
-            async with session.get(
-                url, params=PARAMS
-            ) as response:
+            async with session.get(url, params=PARAMS) as response:
                 if response.status != 200:
                     raise WGAPIError(response.status)
 
-                data = (await response.json())
+                data = await response.json()
                 temp[region] = dacite.from_dict(SeasonsData, data, config)
 
     global seasons
@@ -58,9 +55,7 @@ async def get_buildings():
         for region, api in API.items():
             url = f"{api}/clans/glossary/"
 
-            async with session.get(
-                url=url, params=PARAMS
-            ) as response:
+            async with session.get(url=url, params=PARAMS) as response:
                 if response.status != 200:
                     raise WGAPIError(response.status)
 

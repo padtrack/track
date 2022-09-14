@@ -50,7 +50,10 @@ class CustomTree(app_commands.CommandTree):
             await functions.reply(interaction, error.message, ephemeral=error.ephemeral)
         else:
             if isinstance(error, (api.VortexError, api.wg.APIError)):
-                await functions.reply(interaction, "An unhandled error occurred while sending a request to the WG API.")
+                await functions.reply(
+                    interaction,
+                    "An unhandled error occurred while sending a request to the WG API.",
+                )
                 logs.logger.error(f"Unhandled error code {error.code}")
             else:
                 await functions.reply(interaction, "An unhandled error occurred.")

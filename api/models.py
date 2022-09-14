@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 __all__ = [
     "Player",
     "PartialPlayer",
@@ -18,6 +19,7 @@ from .utils import *
 
 
 # --- Players ---
+
 
 @dataclass
 class Player:
@@ -77,6 +79,7 @@ class PartialClan:
 
 
 # --- Clans ---
+
 
 @dataclass
 class ClanMemberStatistics:
@@ -176,17 +179,14 @@ class ClanInfo:
 
 # --- Seasons ---
 
+
 @dataclass
 class SeasonsData:
     data: Dict[SI, Season]
 
     @property
     def last_clan_season(self):
-        return max(
-            season_id
-            for season_id in self.data
-            if season_id < 100
-        )
+        return max(season_id for season_id in self.data if season_id < 100)
 
 
 @dataclass
@@ -211,6 +211,7 @@ class League:
 
 # --- Buildings ---
 
+
 @dataclass
 class BuildingsData:
     building_types: Dict[SI, BuildingType]
@@ -223,11 +224,14 @@ class BuildingsData:
         return self.building_types[building.building_type_id]
 
     def upgrades_count(self, building_type: BuildingType):
-        return sum(
-            1
-            for building in self.buildings.values()
-            if building.building_type_id == building_type.building_type_id
-        ) - 1
+        return (
+            sum(
+                1
+                for building in self.buildings.values()
+                if building.building_type_id == building_type.building_type_id
+            )
+            - 1
+        )
 
 
 @dataclass

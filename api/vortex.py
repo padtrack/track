@@ -9,7 +9,7 @@ __all__ = [
     "get_ship_statistics",
     "get_partial_statistics",
     "get_clan_members",
-    "get_clan"
+    "get_clan",
 ]
 
 from typing import List, Optional, Union
