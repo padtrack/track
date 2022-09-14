@@ -182,7 +182,7 @@ class ClanEmbed(ClanEmbedCommon):
         members = list(members_data.values())[0]
         names = sorted((member.name for member in members), key=str.lower)
         self.add_field(
-            name="Members",
+            name=f"Members ({len(members)})",
             value=" • ".join(f"`{name}`" for name in names),
             inline=True,
         )
