@@ -125,10 +125,10 @@ class PartialPlayerEmbed(discord.Embed):
         battle_type: str = api.DEFAULT_BATTLE_TYPE,
     ):
         stats = player.statistics[battle_type]
-        clan = player.clan_role.clan
 
+        cleaned = discord.utils.escape_markdown(player.name)
         super().__init__(
-            title=f"{player.name}'s Partial Stats ({player.region.upper()})",
+            title=f"{cleaned}'s Partial Stats ({player.region.upper()})",
             description=(
                 f"Battles: `{stats.battles_count}`\n"
                 f"Wins: `{stats.wins_percentage:.2f}%`\n"
@@ -137,10 +137,12 @@ class PartialPlayerEmbed(discord.Embed):
             timestamp=list(player.statistics.values())[0].last_battle_time,
         )
 
+        clan = player.clan_role.clan
+        clan_name = discord.utils.escape_markdown(f"[{clan.tag}] {clan.name}")
         self.add_field(
             name="Clan",
             value=(
-                f"[{clan.tag}] {clan.name}\n"
+                f"{clan_name}\n"
                 f"Role: {player.clan_role.role.title().replace('_', ' ')}\n"
                 f"Joined: <t:{int(player.clan_role.joined_at.timestamp())}:D>\n"
             ),
@@ -329,19 +331,21 @@ class FullPlayerEmbed(StatisticsEmbedCommon):
     def __init__(
         self, player: api.FullPlayer, battle_type: str = api.DEFAULT_BATTLE_TYPE
     ):
+        cleaned = discord.utils.escape_markdown(player.name)
         super().__init__(
             statistics=player.statistics[battle_type],
-            title=f"[{player.karma}] {player.name}'s Stats ({player.region.upper()})",
+            title=f"[{player.karma}] {cleaned}'s Stats ({player.region.upper()})",
             url=player.profile_url,
             timestamp=player.last_battle_time,
         )
 
         if player.clan_role:
             clan = player.clan_role.clan
+            clan_name = discord.utils.escape_markdown(f"[{clan.tag}] {clan.name}")
             self.add_field(
                 name="Clan",
                 value=(
-                    f"[{clan.tag}] {clan.name}\n"
+                    f"{clan_name}\n"
                     f"Role: {player.clan_role.role.title().replace('_', ' ')}\n"
                     f"Joined: <t:{int(player.clan_role.joined_at.timestamp())}:D>\n"
                 ),
@@ -360,23 +364,25 @@ class FullPlayerEmbed(StatisticsEmbedCommon):
 
 class HiddenEmbed(discord.Embed):
     def __init__(self, player: api.Player):
-        clan = player.clan_role.clan
-
+        cleaned = discord.utils.escape_markdown(player.name)
         super().__init__(
-            title=f"{player.name}'s Stats ({player.region.upper()})",
+            title=f"{cleaned}'s Stats ({player.region.upper()})",
             description="Profile is hidden.",
             url=player.profile_url,
         )
 
-        self.add_field(
-            name="Clan",
-            value=(
-                f"Clan: [{clan.tag}] {clan.name}\n"
-                f"Role: {player.clan_role.role.title().replace('_', ' ')}\n"
-                f"Joined: <t:{int(player.clan_role.joined_at.timestamp())}:D>\n"
-            ),
-            inline=False,
-        )
+        if player.clan_role:
+            clan = player.clan_role.clan
+            clan_name = discord.utils.escape_markdown(f"[{clan.tag}] {clan.name}")
+            self.add_field(
+                name="Clan",
+                value=(
+                    f"{clan_name}\n"
+                    f"Role: {player.clan_role.role.title().replace('_', ' ')}\n"
+                    f"Joined: <t:{int(player.clan_role.joined_at.timestamp())}:D>\n"
+                ),
+                inline=False,
+            )
 
 
 class ShipStatisticsView(ui.View):
@@ -448,9 +454,10 @@ class ShipStatisticsEmbed(StatisticsEmbedCommon):
         ship_name: str,
         battle_type: str = api.DEFAULT_BATTLE_TYPE,
     ):
+        cleaned = discord.utils.escape_markdown(player.name)
         super().__init__(
             statistics=stats,
-            title=f"{player.name}'s {ship_name} ({player.region.upper()})",
+            title=f"{cleaned}'s {ship_name} ({player.region.upper()})",
             url=player.profile_url,
         )
 

@@ -10,7 +10,6 @@ from bot.track import Track
 from bot.utils.logs import logger
 
 
-# TODO: truncate description, clean markdown
 class ClanEmbed(discord.Embed):
     DEFAULT_COLOR = 0xFFFFFF
     PROGRESS_FOREGROUND = "▰"
@@ -24,8 +23,9 @@ class ClanEmbed(discord.Embed):
     ):
         color = self.DEFAULT_COLOR if not clan.wows_ladder else clan.wows_ladder.color
 
+        clan_name = discord.utils.escape_markdown(f"[{clan.clan.tag}] {clan.clan.name}")
         super().__init__(
-            title=f"[{clan.clan.tag}] {clan.clan.name}",
+            title=clan_name,
             description=f"Created: <t:{int(clan.clan.created_at.timestamp())}:D>\n"
             f"Achievements: `{len(clan.achievements)}`",
             color=color,
@@ -72,6 +72,7 @@ class ClanEmbed(discord.Embed):
 
         # wargaming is really bad at handling apostrophes
         description = html.unescape(html.unescape(clan.clan.raw_description))
+        description = discord.utils.escape_markdown(description)
         if description:
             self.add_field(
                 name="Description", value=self.truncate(description), inline=False
