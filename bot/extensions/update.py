@@ -7,8 +7,8 @@ from discord import app_commands
 import discord
 import requests
 
+import api
 from bot.track import Track
-from bot.utils import vortex
 from bot.utils.logs import logger
 
 
@@ -22,7 +22,7 @@ def scrape():
     try:
         result = {}
 
-        for region, url in vortex.URLS.items():
+        for region, url in api.URLS.items():
             response = requests.get(
                 url + "/en/news",
                 params={"category": "game-updates", "pjax": "1", "multi": "true"},
