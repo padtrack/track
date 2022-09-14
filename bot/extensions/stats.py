@@ -30,8 +30,8 @@ EPOCH = datetime.datetime.fromtimestamp(0)
 class BattleTypeSelect(ui.Select):
     SIZES = ["all", "solo", "duo", "trio"]
 
-    def __init__(self, default_only=False):
-        super().__init__(min_values=1, max_values=1, options=[])
+    def __init__(self, default_only=False, **kwargs):
+        super().__init__(min_values=1, max_values=1, options=[], **kwargs)
 
         for battle_type, type_data in api.BATTLE_TYPES.items():
             if default_only:

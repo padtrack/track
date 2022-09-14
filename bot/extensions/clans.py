@@ -64,6 +64,49 @@ class MembersPageButton(ui.Button):
         await self.view.set_active_page(self.value)
 
 
+class ExpandedSelect(BattleTypeSelect):
+    def __init__(self, **kwargs):
+        super().__init__(default_only=True, **kwargs)
+
+        self.add_option(
+            label="Clan Battles",
+            value="cvc",
+            emoji=assets.get("EMOJI_CLAN_BATTLE"),
+            default=False,
+        )
+
+
+class SeasonsSelect(ui.Select):
+    # TODO: deal with CB Season 26 in 2024
+
+    def __init__(self, region: str, **kwargs):
+        super().__init__(min_values=1, max_values=1, options=[], **kwargs)
+
+        for season in reversed(api.wg.seasons[region].data.values()):
+            if 0 < season.season_id < 100:
+                description = (
+                    f"Tier: {season.ship_tier_min}"
+                    if season.ship_tier_min == season.ship_tier_max
+                    else f"Tiers: {season.ship_tier_min}-{season.ship_tier_max}"
+                )
+
+                self.add_option(
+                    label=f"Season {season.season_id}: {season.name}",
+                    value=str(season.season_id),
+                    description=description,
+                    default=season.season_id == api.wg.seasons[region].last_clan_season,
+                )
+
+    async def callback(self, interaction: discord.Interaction):
+        await interaction.response.defer()
+        value = self.values[0]
+
+        for option in self.options:
+            option.default = option.value == value
+
+        await self.view.update_season(int(value))
+
+
 class ClanView(ui.View):
     MODES = ["overview", "members"]
 
@@ -79,6 +122,7 @@ class ClanView(ui.View):
         self.clan = clan
         self.members_count = len(list(members_data.values())[0])
         self.members_data = members_data
+        self.seasons_data: Dict[int, List[api.ClanMemberStatistics]] = {}
         self.message: Optional[discord.Message] = None
 
         self.mode_buttons = {
@@ -92,6 +136,8 @@ class ClanView(ui.View):
         self.selected_page: int = 0
         self.type_select: Optional[BattleTypeSelect] = None
         self.selected_battle_type: str = api.DEFAULT_BATTLE_TYPE
+        self.seasons_select: Optional[SeasonsSelect] = None
+        self.selected_season: int = api.wg.seasons[clan.region].last_clan_season
 
     async def interaction_check(self, interaction: discord.Interaction) -> bool:
         if interaction.user.id != self.user_id:
@@ -110,6 +156,10 @@ class ClanView(ui.View):
             self.remove_item(button)
         if self.type_select:
             self.remove_item(self.type_select)
+            self.type_select = None
+        if self.seasons_select:
+            self.remove_item(self.seasons_select)
+            self.seasons_select = None
 
         match new_mode:
             case "overview":
@@ -117,25 +167,48 @@ class ClanView(ui.View):
                 await self.message.edit(embed=embed, view=self)
             case "members":
                 for num in range(self.members_pages):
-                    button = MembersPageButton(num, num == 0)
+                    button = MembersPageButton(num, num == 0, row=1)
                     self.page_buttons.append(button)
                     self.add_item(button)
 
                 self.selected_page = 0
                 self.selected_battle_type = api.DEFAULT_BATTLE_TYPE
-                self.type_select = BattleTypeSelect(default_only=True)
+                self.type_select = ExpandedSelect(row=2)
                 self.add_item(self.type_select)
                 await self.update_members_embed()
 
     async def update_members_embed(self):
-        await self.message.edit(
-            embed=ClanMembersEmbed(
+        if self.selected_battle_type == "cvc":
+            if self.selected_season not in self.seasons_data:
+                if statistics := await api.get_clan_members(
+                    self.clan.region,
+                    self.clan.clan.id,
+                    "cvc",
+                    self.selected_season
+                ):
+                    self.seasons_data[self.selected_season] = statistics
+                else:
+                    logger.error(
+                        "Failed to update clan members "
+                        f'(region "{self.clan.region}", '
+                        f'id "{self.clan.clan.id}", '
+                        f'battle_type "cvc" season "{self.selected_season}")'
+                    )
+                    return
+
+            embed = ClanMembersEmbed(
+                self.clan,
+                self.seasons_data[self.selected_season],
+                self.selected_page,
+            )
+        else:
+            embed = ClanMembersEmbed(
                 self.clan,
                 self.members_data[self.selected_battle_type],
                 self.selected_page,
-            ),
-            view=self,
-        )
+            )
+
+        await self.message.edit(embed=embed, view=self)
 
     async def set_active_page(self, page: int):
         self.selected_page = page
@@ -146,23 +219,38 @@ class ClanView(ui.View):
         await self.update_members_embed()
 
     async def update_battle_type(self, battle_type: str):
-        if battle_type not in self.members_data:
-            if statistics := await api.get_clan_members(
-                self.clan.region,
-                self.clan.clan.id,
-                battle_type,
-            ):
-                self.members_data[battle_type] = statistics
-            else:
-                logger.error(
-                    "Failed to update clan members "
-                    f'(region "{self.clan.region}", '
-                    f'id "{self.clan.clan.id}", '
-                    f'battle_type "{battle_type}")'
-                )
-                return
+        if battle_type == "cvc":
+            self.selected_season = api.wg.seasons[self.clan.region].last_clan_season
+
+            if not self.seasons_select:
+                self.seasons_select = SeasonsSelect(self.clan.region, row=3)
+                self.add_item(self.seasons_select)
+        else:
+            if self.seasons_select:
+                self.remove_item(self.seasons_select)
+                self.seasons_select = None
+
+            if battle_type not in self.members_data:
+                if statistics := await api.get_clan_members(
+                    self.clan.region,
+                    self.clan.clan.id,
+                    battle_type,
+                ):
+                    self.members_data[battle_type] = statistics
+                else:
+                    logger.error(
+                        "Failed to update clan members "
+                        f'(region "{self.clan.region}", '
+                        f'id "{self.clan.clan.id}", '
+                        f'battle_type "{battle_type}")'
+                    )
+                    return
 
         self.selected_battle_type = battle_type
+        await self.update_members_embed()
+
+    async def update_season(self, season: int):
+        self.selected_season = season
         await self.update_members_embed()
 
     async def on_timeout(self):
@@ -257,9 +345,9 @@ class ClanMembersEmbed(ClanEmbedCommon):
         "wins_percentage",
         "damage_per_battle",
         "frags_per_battle",
-        "days_in_clan",
+        "battles_count",
     ]
-    HEADERS = ["Name", "W/B", "D/B", "F/B", "Days"]
+    HEADERS = ["Name", "W/B", "D/B", "F/B", "BTL"]
     FLOAT_FMT = ["", ".1f", ".0f", ".2f", ".0f"]
 
     def __init__(
