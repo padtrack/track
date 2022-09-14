@@ -7,6 +7,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
+import api
 from config import cfg
 from bot.utils import db, errors, functions, logs
 
@@ -49,7 +50,12 @@ class CustomTree(app_commands.CommandTree):
         elif isinstance(error, errors.CustomError):
             await functions.reply(interaction, error.message, ephemeral=error.ephemeral)
         else:
-            await functions.reply(interaction, "An unhandled error occurred.")
+            if isinstance(error, (api.VortexError, api.wg.APIError)):
+                await functions.reply(interaction, "An unhandled error occurred while sending a request to the WG API.")
+                logs.logger.error(f"Unhandled error code {error.code}")
+            else:
+                await functions.reply(interaction, "An unhandled error occurred.")
+
             logs.logger.error(
                 f"Ignoring exception in command {command.name}", exc_info=error
             )

@@ -21,6 +21,6 @@ config = dacite.Config(
 )
 
 
-class APIError(Exception):  # TODO: log these
+class APIError(Exception):
     def __init__(self, code: int):
         self.code = code
