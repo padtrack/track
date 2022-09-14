@@ -36,6 +36,7 @@ class PlayerTransformer(app_commands.Transformer):
     async def autocomplete(
         self, interaction: discord.Interaction, value: str
     ) -> List[app_commands.Choice[str]]:
+        await interaction.response.defer()
         region = await get_region(interaction)
 
         async with vortex_limit:
@@ -85,6 +86,7 @@ class ClanTransformer(app_commands.Transformer):
     async def autocomplete(
         self, interaction: discord.Interaction, value: str
     ) -> List[app_commands.Choice[str]]:
+        await interaction.response.defer()
         region = await get_region(interaction)
 
         async with vortex_limit:
