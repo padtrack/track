@@ -7,8 +7,9 @@ from discord import app_commands, ui
 import discord
 from sqlalchemy import select
 
+import api
 from bot.track import Track
-from bot.utils import db, vortex
+from bot.utils import db
 
 
 URLS = {
@@ -47,7 +48,7 @@ class LinkModal(ui.Modal):
                     await interaction.response.defer()
                     player_id, access_code = int(match.group(1)), match.group(2)
 
-                    player = await vortex.get_player(region, player_id)
+                    player = await api.get_player(region, player_id)
 
                     if not player:
                         await interaction.followup.send(
@@ -63,7 +64,7 @@ class LinkModal(ui.Modal):
                         )
                         return
 
-                    player = await vortex.get_player(region, player_id, access_code)
+                    player = await api.get_player(region, player_id, access_code)
 
                     if not player:
                         await interaction.followup.send(
@@ -117,7 +118,7 @@ class LinkButton(ui.Button):
 
 
 class LinkView(ui.View):
-    # TODO: change to main branch
+    # TODO: on release, change url to main branch
     INFO_URL = "https://github.com/padtrack/track/blob/rewrite/docs/LINKS.md"
 
     def __init__(self):
@@ -146,7 +147,7 @@ class LinkCog(commands.Cog):
     )
     async def link(self, interaction: discord.Interaction):
         view = LinkView()
-        # TODO: remove disclaimer on release
+        # TODO: on release, remove disclaimer
         await interaction.response.send_message(
             "**DISCLAIMER: THIS IS A TEST VERSION OF THE BOT. THE DATABASE MAY BE WIPED IN BETWEEN TESTS.**\n"
             "Click your region's link below to visit your profile. "

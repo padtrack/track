@@ -7,8 +7,9 @@ from discord.ext import commands, tasks
 from discord import app_commands, ui
 import discord
 
+import api
 from bot.track import Track
-from bot.utils import assets, db, vortex, wows, wg_api
+from bot.utils import assets, db, wows
 from bot.utils.logs import logger
 
 
@@ -20,7 +21,7 @@ RESOURCES = {
 }
 BATTLE_TYPES = {
     index: RESOURCES[b_type]
-    for b_type, t_data in vortex.BATTLE_TYPES.items()
+    for b_type, t_data in api.BATTLE_TYPES.items()
     for index in t_data["sizes"].values()
 }
 EPOCH = datetime.datetime.fromtimestamp(0)
@@ -32,7 +33,7 @@ class BattleTypeSelect(ui.Select):
     def __init__(self, default_only=False):
         super().__init__(min_values=1, max_values=1, options=[])
 
-        for battle_type, type_data in vortex.BATTLE_TYPES.items():
+        for battle_type, type_data in api.BATTLE_TYPES.items():
             if default_only:
                 index = type_data["sizes"][type_data["default"]]
                 label, emoji_id, _ = BATTLE_TYPES[index]
@@ -41,7 +42,7 @@ class BattleTypeSelect(ui.Select):
                         label=label,
                         value=index,
                         emoji=assets.get(emoji_id),
-                        default=index == vortex.DEFAULT_BATTLE_TYPE,
+                        default=index == api.DEFAULT_BATTLE_TYPE,
                     )
                 )
             else:
@@ -57,7 +58,7 @@ class BattleTypeSelect(ui.Select):
                             label=label,
                             value=index,
                             emoji=assets.get(emoji_id),
-                            default=index == vortex.DEFAULT_BATTLE_TYPE,
+                            default=index == api.DEFAULT_BATTLE_TYPE,
                         )
                     )
 
@@ -72,11 +73,11 @@ class BattleTypeSelect(ui.Select):
 
 
 class PartialPlayerView(ui.View):
-    def __init__(self, user_id: int, player: vortex.PartialPlayer, **kwargs):
+    def __init__(self, user_id: int, player: api.PartialPlayer, **kwargs):
         super().__init__(**kwargs)
 
         self.user_id: int = user_id
-        self.player: vortex.PartialPlayer = player
+        self.player: api.PartialPlayer = player
         self.message: Optional[discord.Message] = None
 
         self.select = BattleTypeSelect(default_only=True)
@@ -92,15 +93,13 @@ class PartialPlayerView(ui.View):
 
     async def update_battle_type(self, battle_type: str):
         if battle_type not in self.player.statistics:
-            if statistics := await vortex.get_partial_statistics(
+            if statistics := await api.get_partial_statistics(
                 self.player.region,
                 self.player.id,
                 self.player.clan_role.clan_id,
                 battle_type,
             ):
-                stats, _, _ = statistics
-
-                self.player.statistics[battle_type] = stats
+                self.player.statistics[battle_type] = statistics
             else:
                 logger.error(
                     "Failed to update partial player "
@@ -122,13 +121,12 @@ class PartialPlayerView(ui.View):
 class PartialPlayerEmbed(discord.Embed):
     def __init__(
         self,
-        player: vortex.PartialPlayer,
-        battle_type: str = vortex.DEFAULT_BATTLE_TYPE,
+        player: api.PartialPlayer,
+        battle_type: str = api.DEFAULT_BATTLE_TYPE,
     ):
         stats = player.statistics[battle_type]
         clan = player.clan_role.clan
 
-        # TODO sanitize inputs to prevent markdown
         super().__init__(
             title=f"{player.name}'s Partial Stats ({player.region.upper()})",
             description=(
@@ -136,7 +134,7 @@ class PartialPlayerEmbed(discord.Embed):
                 f"Wins: `{stats.wins_percentage:.2f}%`\n"
             ),
             url=player.profile_url,
-            timestamp=player.last_battle_time,
+            timestamp=list(player.statistics.values())[0].last_battle_time,
         )
 
         self.add_field(
@@ -163,7 +161,7 @@ class PartialPlayerEmbed(discord.Embed):
 
 
 class FullPlayerView(ui.View):
-    def __init__(self, user_id: int, player: vortex.FullPlayer):
+    def __init__(self, user_id: int, player: api.FullPlayer):
         super().__init__()
 
         self.message: Optional[discord.Message] = None
@@ -329,7 +327,7 @@ class StatisticsEmbedCommon(discord.Embed):
 
 class FullPlayerEmbed(StatisticsEmbedCommon):
     def __init__(
-        self, player: vortex.FullPlayer, battle_type: str = vortex.DEFAULT_BATTLE_TYPE
+        self, player: api.FullPlayer, battle_type: str = api.DEFAULT_BATTLE_TYPE
     ):
         super().__init__(
             statistics=player.statistics[battle_type],
@@ -361,7 +359,7 @@ class FullPlayerEmbed(StatisticsEmbedCommon):
 
 
 class HiddenEmbed(discord.Embed):
-    def __init__(self, player: vortex.Player):
+    def __init__(self, player: api.Player):
         clan = player.clan_role.clan
 
         super().__init__(
@@ -385,7 +383,7 @@ class ShipStatisticsView(ui.View):
     def __init__(
         self,
         user_id: int,
-        player: vortex.FullPlayer,
+        player: api.FullPlayer,
         ship_id: int,
         ship_name: str,
         **kwargs,
@@ -393,7 +391,7 @@ class ShipStatisticsView(ui.View):
         super().__init__(**kwargs)
 
         self.user_id: int = user_id
-        self.player: vortex.FullPlayer = player
+        self.player: api.FullPlayer = player
         self.ship_id: int = ship_id
         self.ship_name: str = ship_name
         self.message: Optional[discord.Message] = None
@@ -413,7 +411,7 @@ class ShipStatisticsView(ui.View):
     async def update_battle_type(self, battle_type: str):
         if battle_type not in self.statistics:
             if (
-                stats := await vortex.get_ship_statistics(
+                stats := await api.get_ship_statistics(
                     self.player.region,
                     self.player.id,
                     self.ship_id,
@@ -445,10 +443,10 @@ class ShipStatisticsView(ui.View):
 class ShipStatisticsEmbed(StatisticsEmbedCommon):
     def __init__(
         self,
-        player: vortex.FullPlayer,
+        player: api.FullPlayer,
         stats: dict[str, int],
         ship_name: str,
-        battle_type: str = vortex.DEFAULT_BATTLE_TYPE,
+        battle_type: str = api.DEFAULT_BATTLE_TYPE,
     ):
         super().__init__(
             statistics=stats,
@@ -475,12 +473,12 @@ class StatsCog(commands.Cog):
         logger.info("Loading Seasons...")
 
         try:
-            await wg_api.get_seasons()
+            await api.wg.get_seasons()
             logger.info("Seasons Loaded")
         except Exception as e:
             logger.warning("Failed to load Seasons", exc_info=e)
 
-            if not wg_api.seasons:
+            if not api.wg.seasons:
                 import sys
 
                 sys.exit(1)
@@ -494,16 +492,16 @@ class StatsCog(commands.Cog):
     @app_commands.describe(
         region="The WoWS region to search players in.",
         player="The username to search for.",
-        ship="The ship to search for."
+        ship="The ship to search for.",
     )
     async def stats(
         self,
         interaction: discord.Interaction,
         region: Optional[wows.Regions],
-        player: app_commands.Transform[vortex.Player, vortex.PlayerTransformer],
+        player: app_commands.Transform[api.Player, api.PlayerTransformer],
         ship: Optional[app_commands.Transform[wows.Ship, wows.ShipTransformer]],
     ):
-        if isinstance(player, vortex.PartialPlayer):
+        if isinstance(player, api.PartialPlayer):
             if ship:
                 await interaction.followup.send(
                     "Cannot fetch ship statistics for player with hidden profile."
@@ -512,7 +510,7 @@ class StatsCog(commands.Cog):
                 embed = PartialPlayerEmbed(player)
                 view = PartialPlayerView(interaction.user.id, player)
                 view.message = await interaction.followup.send(embed=embed, view=view)
-        elif isinstance(player, vortex.FullPlayer):
+        elif isinstance(player, api.FullPlayer):
             if player.last_battle_time == EPOCH:
                 await interaction.followup.send(
                     "This player has not played any battles."
@@ -521,8 +519,11 @@ class StatsCog(commands.Cog):
 
             if ship:
                 if not (
-                    stats := await vortex.get_ship_statistics(
-                        player.region, player.id, ship.id, access_code=player.used_access_code
+                    stats := await api.get_ship_statistics(
+                        player.region,
+                        player.id,
+                        ship.id,
+                        access_code=player.used_access_code,
                     )
                 ):
                     await interaction.followup.send(
@@ -541,7 +542,7 @@ class StatsCog(commands.Cog):
                 embed = FullPlayerEmbed(player)
                 view = FullPlayerView(interaction.user.id, player)
                 view.message = await interaction.followup.send(embed=embed, view=view)
-        elif isinstance(player, vortex.Player):
+        elif isinstance(player, api.Player):
             if ship:
                 await interaction.followup.send(
                     "Cannot fetch ship statistics for player with hidden profile."
@@ -560,14 +561,13 @@ class StatsCog(commands.Cog):
         description="Shortcut for linked users.",
         extras={"category": "wows"},
     )
-    @app_commands.describe(
-        ship="The ship to search for."
-    )
+    @app_commands.describe(ship="The ship to search for.")
     async def my_stats(
-            self,
-            interaction: discord.Interaction,
-            ship: Optional[app_commands.Transform[wows.Ship, wows.ShipTransformer]],
+        self,
+        interaction: discord.Interaction,
+        ship: Optional[app_commands.Transform[wows.Ship, wows.ShipTransformer]],
     ):
+        await interaction.response.defer()
         user = await db.User.get_or_create(id=interaction.user.id)
 
         if not user.wg_id:
@@ -576,40 +576,37 @@ class StatsCog(commands.Cog):
             )
             return
 
-        await interaction.response.defer()
-        player = await vortex.get_player(user.wg_region, user.wg_id, user.wg_ac)
+        player = await api.get_player(user.wg_region, user.wg_id, user.wg_ac)
 
-        if not isinstance(player, vortex.FullPlayer):
+        if not isinstance(player, api.FullPlayer):
             await interaction.followup.send(
                 "Failed to fetch your data. Check your profile visibility settings."
             )
+            return
 
         # Duplicated code
 
         if player.last_battle_time == EPOCH:
-            await interaction.followup.send(
-                "You have not played any battles."
-            )
+            await interaction.followup.send("You have not played any battles.")
             return
 
         if ship:
             if not (
-                    stats := await vortex.get_ship_statistics(
-                        player.region, player.id, ship.id, access_code=player.used_access_code
-                    )
-            ):
-                await interaction.followup.send(
-                    "You have no statistics for this ship."
+                stats := await api.get_ship_statistics(
+                    player.region,
+                    player.id,
+                    ship.id,
+                    access_code=player.used_access_code,
                 )
+            ):
+                await interaction.followup.send("You have no statistics for this ship.")
             else:
                 ship_name = ship.tl(interaction)["full"]
                 embed = ShipStatisticsEmbed(player, stats, ship_name)
                 view = ShipStatisticsView(
                     interaction.user.id, player, ship.id, ship_name
                 )
-                view.message = await interaction.followup.send(
-                    embed=embed, view=view
-                )
+                view.message = await interaction.followup.send(embed=embed, view=view)
         else:
             embed = FullPlayerEmbed(player)
             view = FullPlayerView(interaction.user.id, player)
