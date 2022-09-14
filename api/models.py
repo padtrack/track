@@ -52,7 +52,7 @@ class FullPlayer(Player):
     created_at: IT
     last_battle_time: IT
 
-    karma: int  # TODO: show this in full player embed
+    karma: int
     leveling_points: int
     leveling_tier: int
 

@@ -331,7 +331,7 @@ class FullPlayerEmbed(StatisticsEmbedCommon):
     ):
         super().__init__(
             statistics=player.statistics[battle_type],
-            title=f"{player.name}'s Stats ({player.region.upper()})",
+            title=f"[{player.karma}] {player.name}'s Stats ({player.region.upper()})",
             url=player.profile_url,
             timestamp=player.last_battle_time,
         )
