@@ -565,7 +565,7 @@ class StatsCog(commands.Cog):
 
     @app_commands.command(
         name="mystats",
-        description="Shortcut for linked users.",
+        description="Shortcut to /stats for linked users.",
         extras={"category": "wows"},
     )
     @app_commands.describe(ship="The ship to search for.")
