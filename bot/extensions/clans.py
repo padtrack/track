@@ -9,7 +9,7 @@ import tabulate
 import api
 from bot.extensions.stats import BattleTypeSelect
 from bot.track import Track
-from bot.utils import assets, wows
+from bot.utils import assets, db, wows
 from bot.utils.logs import logger
 
 
@@ -181,10 +181,7 @@ class ClanView(ui.View):
         if self.selected_battle_type == "cvc":
             if self.selected_season not in self.seasons_data:
                 if statistics := await api.get_clan_members(
-                    self.clan.region,
-                    self.clan.clan.id,
-                    "cvc",
-                    self.selected_season
+                    self.clan.region, self.clan.clan.id, "cvc", self.selected_season
                 ):
                     self.seasons_data[self.selected_season] = statistics
                 else:
@@ -413,6 +410,45 @@ class ClansCog(commands.Cog):
         if clan is None:
             await interaction.followup.send("No clans found.")
             return
+
+        if not (members := await api.get_clan_members(clan.region, clan.clan.id)):
+            await interaction.followup.send("Failed to fetch clan members.")
+            return
+
+        members_data = {api.DEFAULT_BATTLE_TYPE: members}
+        view = ClanView(interaction.user.id, clan, members_data)
+        view.message = await interaction.followup.send(
+            embed=ClanEmbed(clan, members_data), view=view
+        )
+
+    @app_commands.command(
+        name="myclan",
+        description="Shortcut to /clan for linked users.",
+        extras={"category": "wows"},
+    )
+    async def my_clan(self, interaction: discord.Interaction):
+        await interaction.response.defer()
+        user = await db.User.get_or_create(id=interaction.user.id)
+
+        if not user.wg_id:
+            await interaction.response.send_message(
+                "You must be linked to use this command! See `/link`."
+            )
+            return
+
+        player = await api.get_player(user.wg_region, user.wg_id, user.wg_ac)
+
+        if not player.clan_role:
+            await interaction.followup.send("You aren't in a clan.")
+            return
+
+        clan = await api.get_clan(player.region, player.clan_role.clan_id)
+
+        if clan is None:
+            await interaction.followup.send("Failed to fetch clan data.")
+            return
+
+        # Duplicated code
 
         if not (members := await api.get_clan_members(clan.region, clan.clan.id)):
             await interaction.followup.send("Failed to fetch clan members.")
