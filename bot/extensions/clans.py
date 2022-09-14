@@ -32,7 +32,7 @@ class ClanEmbed(discord.Embed):
         )
 
         members = list(members_data.values())[0]
-        names = sorted(member.name for member in members)
+        names = sorted((member.name for member in members), key=str.lower)
         self.add_field(
             name="Members",
             value=" • ".join(f"`{name}`" for name in names),
