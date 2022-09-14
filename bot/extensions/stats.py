@@ -579,7 +579,7 @@ class StatsCog(commands.Cog):
 
         if not user.wg_id:
             await interaction.response.send_message(
-                "You must be linked to use this command! See `/link`.", ephemeral=True
+                "You must be linked to use this command! See `/link`."
             )
             return
 
