@@ -155,7 +155,8 @@ class LinkCog(commands.Cog):
             + "\n".join(URLS.values())
             + "\n\n"
             'After you have done so, set your profile privacy to "Via Link" in the Summary tab.\n'
-            "Paste the profile link into the Modal prompted by pressing the button.",
+            "Paste the profile link into the Modal prompted by pressing the button.\n"
+            "After you have successfully linked, you may change your profile visibility.\n",
             view=view,
         )
         view.message = await interaction.original_response()
