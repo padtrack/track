@@ -300,7 +300,7 @@ class StatisticsEmbedCommon(discord.Embed):
         }
 
         self.add_field(
-            name="Armaments",
+            name="Armaments (Kills/Record/Accuracy)",
             value=self.format_armaments(armaments),
             inline=False,
         )
