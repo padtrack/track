@@ -134,7 +134,6 @@ class GuessView(ui.View):
 
     async def interaction_check(self, interaction: discord.Interaction) -> bool:
         if interaction.user.id != self.user_id:
-            # TODO: this sounds weird
             await interaction.response.send_message(
                 "You must be the command invoker to do that.", ephemeral=True
             )
