@@ -10,6 +10,7 @@ __all__ = [
     "get_partial_statistics",
     "get_clan_members",
     "get_clan",
+    "get_ladder_position",
 ]
 
 from typing import List, Optional, Union
@@ -32,6 +33,9 @@ BATTLE_TYPES = {
     "pve": {"default": 0, "sizes": {0: "pve"}},
     "rank": {"default": 1, "sizes": {1: "rank_solo"}},
     "rank_old": {"default": 1, "sizes": {1: "rank_old_solo", 2: "rank_old_div2"}},
+}
+REALMS = {
+    "ru": "ru", "eu": "eu", "na": "us", "asia": "sg"
 }
 
 vortex_limit = aiolimiter.AsyncLimiter(10, 1)
@@ -226,3 +230,29 @@ async def get_clan(region: str, clan_id: Union[int, str]):
 
     view["region"] = region
     return dacite.from_dict(FullClan, view, config)
+
+
+async def get_ladder_position(region: str, clan_id: Union[str, int], local: bool, season: Optional[int] = None) -> Optional[LadderPosition]:
+    if season is None:
+        season = wg.seasons[region].last_clan_season
+
+    realm = REALMS[region] if local else "global"
+
+    async with vortex_limit:
+        async with aiohttp.ClientSession() as session:
+            url = f"{CLANS_API[region]}/ladder/structure/"
+            params = {"clan_id": clan_id, "season": season, "realm": realm}
+
+            async with session.get(url, params=params) as response:
+                if response.status == 404:
+                    return None
+                elif response.status != 200:
+                    raise VortexError(response.status)
+
+                segment = await response.json()
+
+    for data in segment:
+        if data["id"] == clan_id:
+            return dacite.from_dict(LadderPosition, data, config)
+
+    return None

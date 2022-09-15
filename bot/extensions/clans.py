@@ -14,17 +14,15 @@ from bot.utils.logs import logger
 
 
 class ClanEmbedCommon(discord.Embed):
-    DEFAULT_COLOR = 0xFFFFFF
-
     def __init__(self, clan: api.FullClan, **kwargs):
-        color = self.DEFAULT_COLOR if not clan.wows_ladder else clan.wows_ladder.color
-        super().__init__(color=color, **kwargs)
+        super().__init__(color=int(clan.clan.color[1:], 16), **kwargs)
 
 
 class ClanModeButton(ui.Button):
     LABELS = {
         "overview": "Overview",
         "members": "Members",
+        "ratings": "Ratings",
     }
 
     def __init__(self, mode: str, is_active: bool, **kwargs):
@@ -108,13 +106,15 @@ class SeasonsSelect(ui.Select):
 
 
 class ClanView(ui.View):
-    MODES = ["overview", "members"]
+    MODES = ["overview", "members", "ratings"]
 
     def __init__(
         self,
         user_id: int,
         clan: api.FullClan,
         members_data: Dict[str, List[api.ClanMemberStatistics]],
+        global_position: Optional[api.LadderPosition],
+        local_position: Optional[api.LadderPosition],
     ):
         super().__init__(timeout=180)
 
@@ -123,6 +123,8 @@ class ClanView(ui.View):
         self.members_count = len(list(members_data.values())[0])
         self.members_data = members_data
         self.seasons_data: Dict[int, List[api.ClanMemberStatistics]] = {}
+        self.global_position: Optional[api.LadderPosition] = global_position
+        self.local_position: Optional[api.LadderPosition] = local_position
         self.message: Optional[discord.Message] = None
 
         self.mode_buttons = {
@@ -176,6 +178,11 @@ class ClanView(ui.View):
                 self.type_select = ExpandedSelect(row=2)
                 self.add_item(self.type_select)
                 await self.update_members_embed()
+            case "ratings":
+                embed = ClanRatingsEmbed(
+                    self.clan, self.global_position, self.local_position
+                )
+                await self.message.edit(embed=embed, view=self)
 
     async def update_members_embed(self):
         if self.selected_battle_type == "cvc":
@@ -356,8 +363,9 @@ class ClanMembersEmbed(ClanEmbedCommon):
             description=f"""```{self.get_table(members, page)}```""",
         )
 
-        clan_name = discord.utils.escape_markdown(f"[{clan.clan.tag}] {clan.clan.name}")
-        self.set_author(icon_url=assets.get("WG_LOGO"), name=clan_name)
+        self.set_author(
+            icon_url=assets.get("WG_LOGO"), name=f"[{clan.clan.tag}] {clan.clan.name}"
+        )
 
     def get_table(self, members: List[api.ClanMemberStatistics], page: int) -> str:
         start = page * self.PER_PAGE
@@ -370,6 +378,73 @@ class ClanMembersEmbed(ClanEmbedCommon):
         ]
 
         return tabulate.tabulate(data, headers=self.HEADERS, floatfmt=self.FLOAT_FMT)
+
+
+class ClanRatingsEmbed(ClanEmbedCommon):
+    RATING_NAMES = ["Alpha", "Bravo"]
+
+    def __init__(
+        self,
+        clan: api.FullClan,
+        global_position: api.LadderPosition,
+        local_position: api.LadderPosition,
+    ):
+        current_season = api.wg.seasons[clan.region].last_clan_season
+
+        if not global_position:
+            description = "Clan does not have a ladder position.\n"
+        else:
+            description = (
+                f"Global Position: `{global_position.rank}`\n"
+                f"Local Position: `{local_position.rank}`\n"
+            )
+
+        if last := clan.wows_ladder.last_battle_at:
+            description += f"Last Battle: <t:{int(last.timestamp())}:D>\n"
+
+        super().__init__(
+            clan,
+            title=f"Clan Ratings (Season {current_season})",
+            description=description,
+        )
+
+        self.set_author(
+            icon_url=assets.get("WG_LOGO"), name=f"[{clan.clan.tag}] {clan.clan.name}"
+        )
+
+        current = []
+
+        for rating in clan.wows_ladder.ratings:
+            if rating.season_number == current_season:
+                current.append(rating)
+
+        current = sorted(current, key=lambda x: x.team_number)
+
+        for rating in current:
+            wins, battles = rating.wins_count, rating.battles_count
+            wins_rate = wins / battles if rating.battles_count else 0
+
+            last_win = (
+                f"<t:{int(rating.last_win_at.timestamp())}:D>"
+                if rating.last_win_at
+                else "`None`"
+            )
+
+            self.insert_field_at(
+                index=rating.team_number,
+                name=self.RATING_NAMES[rating.team_number - 1],
+                value=(
+                    f"Battles: `{battles}`\n"
+                    f"Wins: `{wins}` "
+                    f"(`{wins_rate:.2f}%`)\n"
+                    f"Win Streak: `{rating.current_winning_streak}` "
+                    f"(Record: `{rating.longest_winning_streak}`)\n"
+                    f"Rating: `{rating.public_rating}` "
+                    f"(Record: `{rating.max_position.public_rating}`)\n"
+                    f"Last Win: {last_win}\n"
+                ),
+                inline=False,
+            )
 
 
 class ClansCog(commands.Cog):
@@ -393,6 +468,30 @@ class ClansCog(commands.Cog):
 
                 sys.exit(1)
 
+    @staticmethod
+    async def send_clan(interaction: discord.Interaction, clan: api.FullClan):
+        if clan is None:
+            await interaction.followup.send("No clans found.")
+            return
+
+        if not (members := await api.get_clan_members(clan.region, clan.clan.id)):
+            await interaction.followup.send("Failed to fetch clan members.")
+            return
+
+        members_data = {api.DEFAULT_BATTLE_TYPE: members}
+        global_position = await api.get_ladder_position(
+            clan.region, clan.clan.id, local=False
+        )
+        local_position = await api.get_ladder_position(
+            clan.region, clan.clan.id, local=True
+        )
+        view = ClanView(
+            interaction.user.id, clan, members_data, global_position, local_position
+        )
+        view.message = await interaction.followup.send(
+            embed=ClanEmbed(clan, members_data), view=view
+        )
+
     # noinspection PyUnusedLocal
     @app_commands.command(
         name="clan", description="Fetches clan statistics.", extras={"category": "wows"}
@@ -407,19 +506,7 @@ class ClansCog(commands.Cog):
         region: Optional[wows.Regions],
         clan: app_commands.Transform[api.FullClan, api.ClanTransformer],
     ):
-        if clan is None:
-            await interaction.followup.send("No clans found.")
-            return
-
-        if not (members := await api.get_clan_members(clan.region, clan.clan.id)):
-            await interaction.followup.send("Failed to fetch clan members.")
-            return
-
-        members_data = {api.DEFAULT_BATTLE_TYPE: members}
-        view = ClanView(interaction.user.id, clan, members_data)
-        view.message = await interaction.followup.send(
-            embed=ClanEmbed(clan, members_data), view=view
-        )
+        await self.send_clan(interaction, clan)
 
     @app_commands.command(
         name="myclan",
@@ -443,22 +530,7 @@ class ClansCog(commands.Cog):
             return
 
         clan = await api.get_clan(player.region, player.clan_role.clan_id)
-
-        if clan is None:
-            await interaction.followup.send("Failed to fetch clan data.")
-            return
-
-        # Duplicated code
-
-        if not (members := await api.get_clan_members(clan.region, clan.clan.id)):
-            await interaction.followup.send("Failed to fetch clan members.")
-            return
-
-        members_data = {api.DEFAULT_BATTLE_TYPE: members}
-        view = ClanView(interaction.user.id, clan, members_data)
-        view.message = await interaction.followup.send(
-            embed=ClanEmbed(clan, members_data), view=view
-        )
+        await self.send_clan(interaction, clan)
 
 
 async def setup(bot: Track):

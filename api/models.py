@@ -5,6 +5,7 @@ __all__ = [
     "PartialPlayer",
     "FullPlayer",
     "ClanRole",
+    "LadderPosition",
     "ClanMemberStatistics",
     "FullClan",
     "SeasonsData",
@@ -82,6 +83,15 @@ class PartialClan:
 
 
 @dataclass
+class LadderPosition:
+    id: int
+    name: str
+    tag: str
+    public_rating: int
+    rank: int
+
+
+@dataclass
 class ClanMemberStatistics:
     id: int
     name: str
@@ -101,7 +111,7 @@ class ClanMemberStatistics:
 class FullClan:
     region: str
 
-    wows_ladder: Optional[ClanLadder]
+    wows_ladder: MasterRating
     achievements: list[ClanAchievement]
     buildings: dict[str, ClanBuilding]
     clan: ClanInfo
@@ -112,22 +122,26 @@ class FullClan:
 
 
 @dataclass
-class ClanLadder:
+class ClanMaxPosition:
+    division_rating: int
+    public_rating: int
+    league: int  # i.e. Squall, Gale, etc.
+    division: int
+
+
+@dataclass
+class Rating:
     team_number: int  # i.e. Alpha, Bravo "ratings"
-    leading_team_number: int
     league: int
     division: int
     season_number: int
-    color: int
+
     status: str  # active, ?...
     is_qualified: bool
-
-    wins_count: int
     last_win_at: Optional[ST]
-    battles_count: int
-    total_battles_count: int
-    last_battle_at: Optional[ST]
 
+    battles_count: int
+    wins_count: int
     current_winning_streak: int
     longest_winning_streak: int
 
@@ -135,16 +149,16 @@ class ClanLadder:
     public_rating: int
     division_rating: int
     division_rating_max: int
-
     max_position: ClanMaxPosition
 
 
 @dataclass
-class ClanMaxPosition:
-    division_rating: int
-    public_rating: int
-    league: int  # i.e. Squall, Gale, etc.
-    division: int
+class MasterRating(Rating):
+    color: int
+    leading_team_number: int
+    total_battles_count: int
+    last_battle_at: Optional[ST]
+    ratings: List[Rating]
 
 
 @dataclass
@@ -166,6 +180,7 @@ class ClanInfo:
     id: int
     name: str
     tag: str
+    color: str
     description: str
     raw_description: str
     created_at: ST
