@@ -200,17 +200,13 @@ class ClanView(ui.View):
                     )
                     return
 
-            embed = ClanMembersEmbed(
-                self.clan,
-                self.seasons_data[self.selected_season],
-                self.selected_page,
-            )
+            data = self.seasons_data[self.selected_season]
         else:
-            embed = ClanMembersEmbed(
-                self.clan,
-                self.members_data[self.selected_battle_type],
-                self.selected_page,
-            )
+            data = self.members_data[self.selected_battle_type]
+
+        embed = ClanMembersEmbed(
+            self.clan, data, self.selected_page, self.members_pages
+        )
 
         await self.message.edit(embed=embed, view=self)
 
@@ -355,11 +351,15 @@ class ClanMembersEmbed(ClanEmbedCommon):
     FLOAT_FMT = ["", ".1f", ".0f", ".2f", ".0f"]
 
     def __init__(
-        self, clan: api.FullClan, members: List[api.ClanMemberStatistics], page: int
+        self,
+        clan: api.FullClan,
+        members: List[api.ClanMemberStatistics],
+        page: int,
+        max_pages: int,
     ):
         super().__init__(
             clan,
-            title=f"Clan Members (Page {page + 1})",
+            title=f"Clan Members ({page + 1}/{max_pages})",
             description=f"""```{self.get_table(members, page)}```""",
         )
 
