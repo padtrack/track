@@ -77,6 +77,7 @@ GROUPS = [
     "upgradeableExclusive",  # Other Free EXP ships (Nelson, Alaska, etc.)
     "upgradeableUltimate",  # Free EXP Tier 10 reward ships (Smaland, Hayate, etc.)
     "superShip",  # Superships
+    "earlyAccess",  # Early Access
 ]
 _CHARS_TABLE = {" ": "", "-": "", ".": "", "'": ""}
 
