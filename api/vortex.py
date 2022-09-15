@@ -34,9 +34,7 @@ BATTLE_TYPES = {
     "rank": {"default": 1, "sizes": {1: "rank_solo"}},
     "rank_old": {"default": 1, "sizes": {1: "rank_old_solo", 2: "rank_old_div2"}},
 }
-REALMS = {
-    "ru": "ru", "eu": "eu", "na": "us", "asia": "sg"
-}
+REALMS = {"ru": "ru", "eu": "eu", "na": "us", "asia": "sg"}
 
 vortex_limit = aiolimiter.AsyncLimiter(10, 1)
 
@@ -232,7 +230,9 @@ async def get_clan(region: str, clan_id: Union[int, str]):
     return dacite.from_dict(FullClan, view, config)
 
 
-async def get_ladder_position(region: str, clan_id: Union[str, int], local: bool, season: Optional[int] = None) -> Optional[LadderPosition]:
+async def get_ladder_position(
+    region: str, clan_id: Union[str, int], local: bool, season: Optional[int] = None
+) -> Optional[LadderPosition]:
     if season is None:
         season = wg.seasons[region].last_clan_season
 
