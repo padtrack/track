@@ -13,7 +13,7 @@ BUILDS_PATH = os.path.join(
 )
 
 builds = toml.load(BUILDS_PATH)
-bookmarks = set(build["id"] for build in builds.values())
+bookmarks = set(_id for _id in builds)
 
 with open("execution.log") as fp:
     lines: List[str] = fp.readlines()

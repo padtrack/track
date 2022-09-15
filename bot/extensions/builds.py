@@ -20,7 +20,7 @@ BUILDS_PATH = os.path.join(
 
 
 class BuildsEmbed(discord.Embed):
-    def __init__(self, builds: List[Tuple[str, Dict]], **kwargs):
+    def __init__(self, builds: List[Tuple[str, str, int]], **kwargs):
         super().__init__(
             title=f"Found {len(builds)} " f"build{'s' if len(builds) > 1 else ''}!",
             description="Document: [wo.ws/builds](https://wo.ws/builds)",
@@ -29,18 +29,25 @@ class BuildsEmbed(discord.Embed):
 
 
 class BuildsView(ui.View):
-    def __init__(self, builds: List[Tuple[str, Dict]], **kwargs):
+    def __init__(self, builds: List[Tuple[str, str, int]], **kwargs):
         super().__init__(**kwargs)
 
-        for name, build in builds:
-            self.add_item(ui.Button(label=name, url=DOCUMENT_URL.format(build["id"])))
+        for count, (bookmark_id, name, ships_length) in enumerate(builds):
+            row = count if len(builds) <= 5 else None
+
+            self.add_item(
+                ui.Button(label=name, url=DOCUMENT_URL.format(bookmark_id), row=row)
+            )
 
 
 class BuildsCog(commands.Cog):
     def __init__(self, bot: Track):
         self.bot: Track = bot
         with open(BUILDS_PATH) as fp:
-            self.builds = toml.load(fp)
+            data = toml.load(fp)
+            self.builds = {
+                k: v for k, v in sorted(data.items(), key=lambda i: len(i[1]["ships"]))
+            }
 
     @app_commands.command(
         name="build",
@@ -54,8 +61,8 @@ class BuildsCog(commands.Cog):
         ship: app_commands.Transform[wows.Ship, wows.ShipTransformer],
     ):
         results = [
-            (name, build)
-            for name, build in self.builds.items()
+            (bookmark_id, build["name"], len(build["ships"]))
+            for bookmark_id, build in self.builds.items()
             if ship.index in build["ships"]
         ]
         if not results:
