@@ -168,10 +168,11 @@ class ClanView(ui.View):
                 embed = ClanEmbed(self.clan, self.members_data)
                 await self.message.edit(embed=embed, view=self)
             case "members":
-                for num in range(self.members_pages):
-                    button = MembersPageButton(num, num == 0, row=1)
-                    self.page_buttons.append(button)
-                    self.add_item(button)
+                if self.members_pages > 1:
+                    for num in range(self.members_pages):
+                        button = MembersPageButton(num, num == 0, row=1)
+                        self.page_buttons.append(button)
+                        self.add_item(button)
 
                 self.selected_page = 0
                 self.selected_battle_type = api.DEFAULT_BATTLE_TYPE
@@ -357,10 +358,16 @@ class ClanMembersEmbed(ClanEmbedCommon):
         page: int,
         max_pages: int,
     ):
+        title = (
+            f"Clan Members ({page + 1}/{max_pages})"
+            if max_pages > 1
+            else "Clan Members"
+        )
+        description = f"""```{self.get_table(members, page)}```"""
         super().__init__(
             clan,
-            title=f"Clan Members ({page + 1}/{max_pages})",
-            description=f"""```{self.get_table(members, page)}```""",
+            title=title,
+            description=description,
         )
 
         self.set_author(
