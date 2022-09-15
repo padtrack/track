@@ -429,7 +429,7 @@ class ClanRatingsEmbed(ClanEmbedCommon):
 
         for rating in current:
             wins, battles = rating.wins_count, rating.battles_count
-            wins_rate = wins / battles if rating.battles_count else 0
+            wins_rate = 100 * wins / battles if rating.battles_count else 0
 
             last_win = (
                 f"<t:{int(rating.last_win_at.timestamp())}:D>"
