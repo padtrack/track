@@ -1,0 +1,27 @@
+PJSC610 Kitakami
+PWSD509 Velos
+PWSD111 Dalarna
+PBSA510 Malta
+PASC509 Vallejo
+PJSS518 I-56
+PGSS510 U-4501
+PRSS508 S-189
+PGSC111 Clausewitz
+PVSB505 Rio de Janeiro
+PUSD503 Vampire
+PRSD001 Gremyashchy
+PISD507 FR25
+PRSC515 Mikoyan
+PGSD516 Karl von Schönberg
+PBSD503 Campbeltown
+PVSC502 Almirante Abreu
+PGSC002 Dresden
+PZSC518 Wukong
+PJSC026 Iwaki Alpha
+PASC003 Albany
+PJSC503 Katori
+PJSD528 HSF Harekaze II
+PGSC103 Kolberg
+PUSD517 Huron
+PGSC104 Karlsruhe
+PRSC548 Bagration
