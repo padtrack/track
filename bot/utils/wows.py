@@ -8,6 +8,7 @@ import os
 import discord
 from discord import app_commands, Interaction
 from discord.app_commands import Choice
+import unidecode
 
 from bot.utils import errors
 
@@ -79,7 +80,12 @@ GROUPS = [
     "superShip",  # Superships
     "earlyAccess",  # Early Access
 ]
-_CHARS_TABLE = {" ": "", "-": "", ".": "", "'": ""}
+_CHARS_TABLE = {"-": "", ".": "", "'": "", ",": "", "·": ""}
+_ROMANIZATION_TABLES = {
+    "Japan": {"ō": "ou", "ū": "uu"},
+    "Germany": {"ä": "ae", "ü": "ue", "ö": "oe"},
+}
+
 
 _SHIPS_DATA_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "../assets/public/ships.json"
@@ -104,10 +110,12 @@ class Ship:
     species: str
     nation: str
     translations: dict[str, dict[str, str]]
+    romanizations: list[str]
 
     @staticmethod
     def clean(string: str):
         string = string.lower()
+        string = "".join(string.split())  # remove all whitespace
         trans = string.maketrans(_CHARS_TABLE)
         return string.translate(trans)
 
@@ -120,14 +128,29 @@ def get_ships():
     with open(_SHIPS_DATA_PATH, encoding="utf-8") as fp:
         ships_data = json.load(fp)
 
-    _ships = {
-        data["index"]: Ship(**data) for data in ships_data if data["group"] in GROUPS
-    }
+    _ships = {}
+    for data in ships_data:
+        if data["group"] in GROUPS:
+            for tl in data["translations"].values():
+                tl["clean_short"] = Ship.clean(tl["short"])
+                tl["clean_full"] = Ship.clean(tl["full"])
 
-    for ship in _ships.values():
-        for tl in ship.translations.values():
-            tl["clean_short"] = ship.clean(tl["short"])
-            tl["clean_full"] = ship.clean(tl["full"])
+            eng = data["translations"]["en"]
+            romanizations = [
+                unidecode.unidecode(eng["clean_short"]),
+                unidecode.unidecode(eng["clean_full"]),
+            ]
+            if table := _ROMANIZATION_TABLES.get(data["nation"], None):
+                trans = eng["clean_short"].maketrans(table)
+                romanizations.append(eng["clean_short"].translate(trans))
+                trans = eng["clean_full"].maketrans(table)
+                romanizations.append(eng["clean_full"].translate(trans))
+            romanizations = list(set(romanizations))
+
+            _ships[data["index"]] = Ship(**data, romanizations=romanizations)
+
+    # TODO: explore viability of "shortcuts"
+    _ships["PRSB110"].romanizations.append("kreml")
 
     return _ships
 
@@ -153,9 +176,16 @@ class ShipTransformer(app_commands.Transformer):
             tl = ship.tl(interaction)
             if clean in tl["clean_short"] or clean in tl["clean_full"]:
                 results.append(app_commands.Choice(name=tl["full"], value=ship.index))
+            else:
+                for romanized in ship.romanizations:
+                    if clean in romanized:
+                        results.append(
+                            app_commands.Choice(name=tl["full"], value=ship.index)
+                        )
+                        break
 
-                if len(results) == self.MAX_AC_RESULTS:
-                    break
+            if len(results) == self.MAX_AC_RESULTS:
+                break
 
         return results
 
@@ -173,12 +203,17 @@ class ShipTransformer(app_commands.Transformer):
                 return ship
 
             if clean in tl["clean_short"] or clean in tl["clean_full"]:
-                if len(results) == self.CUTOFF:
-                    raise errors.CustomError(
-                        f">5 ships returned by query `{value}`. Please refine your search."
-                    )
-
                 results.append(ship)
+            else:
+                for romanized in ship.romanizations:
+                    if clean in romanized:
+                        results.append(ship)
+                        break
+
+            if len(results) > self.CUTOFF:
+                raise errors.CustomError(
+                    f">5 ships returned by query `{value}`. Please refine your search."
+                )
 
         if not results:
             raise errors.CustomError(f"No ships returned by query `{value}`.")

@@ -49,22 +49,26 @@ class InspectEmbed(discord.Embed):
         self.set_author(name=f"{ship.name} ({ship.index})", icon_url=self.ICON)
         self.set_image(url="attachment://ship.png")
 
+        tl = ship.tl(interaction)
+        accepted = [tl["clean_short"], tl["clean_full"]]
+        accepted.extend(ship.romanizations)
+        accepted = list(dict.fromkeys(accepted))  # removes duplicates, preserves order
+
+        self.add_field(
+            name="Accepted Strings",
+            value="\n".join(f"- `{string}`" for string in accepted),
+            inline=True,
+        )
+
         allowed = cog.is_allowed(ship)
         guess_str = f"Allowed: `{allowed}`\n"
-        if allowed:
-            guess_str += (
-                "Cleaned Names:\n"
-                f"- `{wows.Ship.clean(unidecode(tl['full']))}`\n"
-                f"- `{wows.Ship.clean(unidecode(tl['short']))}`\n"
-            )
+        if allowed and (similar_ships := cog.get_similar(ship)):
+            guess_str += "Similar:\n"
+            for similar in similar_ships:
+                similar_tl = similar.tl(interaction)
+                guess_str += f"- {similar_tl['full']}\n"
 
-            if similar_ships := cog.get_similar(ship):
-                guess_str += "Similar:\n"
-                for similar in similar_ships:
-                    similar_tl = similar.tl(interaction)
-                    guess_str += f"- {similar_tl['full']}\n"
-
-        self.add_field(name="Guess", value=guess_str)
+        self.add_field(name="Guess", value=guess_str, inline=False)
 
 
 class InspectView(ui.View):
@@ -289,9 +293,10 @@ class GuessCog(commands.Cog):
         ship: wows.Ship,
     ):
         accepted = [
-            wows.Ship.clean(unidecode(ship.tl(interaction)["short"])),
-            wows.Ship.clean(unidecode(ship.tl(interaction)["full"])),
+            ship.tl(interaction)["clean_short"],
+            ship.tl(interaction)["clean_full"],
         ]
+        accepted.extend(ship.romanizations)
 
         if difficulty != "hard":
             for similar in self.get_similar(ship):
@@ -302,12 +307,9 @@ class GuessCog(commands.Cog):
                 ) or (historical and similar.isPaperShip):
                     continue
 
-                accepted.append(
-                    wows.Ship.clean(unidecode(similar.tl(interaction)["short"]))
-                )
-                accepted.append(
-                    wows.Ship.clean(unidecode(similar.tl(interaction)["full"]))
-                )
+                accepted.append(similar.tl(interaction)["clean_short"])
+                accepted.append(similar.tl(interaction)["clean_full"])
+                accepted.extend(similar.romanizations)
 
         return list(set(accepted))
 
