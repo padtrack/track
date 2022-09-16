@@ -77,4 +77,5 @@ This project is licensed under the GNU AGPLv3 License.
 
 - [@alpha#9432](https://github.com/0alpha) - Thank you for your invaluable insight and help with the OAuth 2.0 server!
 - [@TenguBlade#3158](https://www.reddit.com/user/TenguBlade/) - Thank you for your help with the guess similarity groups!
+- @dmc#3518 - Thank you for your help with the builds!
 - The Minimap Renderer's repository is available [here](https://github.com/WoWs-Builder-Team/minimap_renderer).
