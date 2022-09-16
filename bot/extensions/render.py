@@ -51,6 +51,7 @@ class BuildsButton(ui.Button):
         self.fp.seek(0)
 
     async def callback(self, interaction: discord.Interaction) -> None:
+        # noinspection PyTypeChecker
         file = discord.File(self.fp, filename="builds.txt")
         await functions.reply(interaction, file=file, ephemeral=True)
         self.fp.seek(0)
@@ -64,6 +65,7 @@ class ChatButton(ui.Button):
         self.fp.seek(0)
 
     async def callback(self, interaction: discord.Interaction) -> None:
+        # noinspection PyTypeChecker
         file = discord.File(self.fp, filename="chat.txt")
         await functions.reply(interaction, file=file, ephemeral=True)
         self.fp.seek(0)
