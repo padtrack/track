@@ -24,6 +24,8 @@ class GeneralCog(commands.Cog):
     def __init__(self, bot: Track):
         self.bot: Track = bot
 
+        self.permissions = discord.Permissions(412317248576)
+
     @app_commands.command(
         name="profile",
         description="Fetch profile for you or a specified user.",
@@ -42,6 +44,18 @@ class GeneralCog(commands.Cog):
             return
 
         await interaction.response.send_message(embed=UserDataEmbed(result[0][0]))
+
+    @app_commands.command(
+        name="invite",
+        description="Gives you a link to invite this bot.",
+        extras={"category": "general"},
+    )
+    async def invite(self, interaction: discord.Interaction):
+        url = discord.utils.oauth_url(self.bot.user.id, permissions=self.permissions)
+        await interaction.response.send_message(
+            f"You can invite me by opening my profile, or by using this url:\n{url}",
+            ephemeral=True,
+        )
 
 
 async def setup(bot: Track):
