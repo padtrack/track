@@ -158,6 +158,7 @@ class LinkCog(commands.Cog):
             "Paste the profile link into the Modal prompted by pressing the button.\n"
             "After you have successfully linked, you may change your profile visibility.\n",
             view=view,
+            ephemeral=True,
         )
         view.message = await interaction.original_response()
 
