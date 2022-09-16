@@ -59,7 +59,7 @@ class LinkModal(ui.Modal):
                         await interaction.followup.send(
                             "Profile is not on the correct visibility setting.\n"
                             'Please ensure that it is still on the "Via Link" setting '
-                            'and that you have saved your changes by refreshing the page.',
+                            "and that you have saved your changes by refreshing the page.",
                             ephemeral=True,
                         )
                         return

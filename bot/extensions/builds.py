@@ -51,9 +51,10 @@ class BuildsCog(commands.Cog):
 
     @app_commands.command(
         name="build",
-        description="Shortcut for the builds in wo.ws/builds",
+        description="Shortcut for the builds in wo.ws/builds.",
         extras={"category": "wows"},
     )
+    @app_commands.describe(ship="The ship to fetch builds for.")
     @app_commands.describe(ship="The ship to use.")
     async def build(
         self,

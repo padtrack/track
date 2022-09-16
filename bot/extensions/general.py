@@ -31,6 +31,7 @@ class GeneralCog(commands.Cog):
         description="Fetch profile for you or a specified user.",
         extras={"category": "general"},
     )
+    @app_commands.describe(user="The user to fetch a profile for.")
     async def user_data(
         self, interaction: discord.Interaction, user: Optional[discord.User] = None
     ):

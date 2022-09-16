@@ -29,7 +29,12 @@ class InspectEmbed(discord.Embed):
     ICON = assets.get("WG_LOGO")
 
     def __init__(
-        self, cog: GuessCog, interaction: discord.Interaction, ship: wows.Ship, tl: Dict[str, str], accepted: List[str]
+        self,
+        cog: GuessCog,
+        interaction: discord.Interaction,
+        ship: wows.Ship,
+        tl: Dict[str, str],
+        accepted: List[str],
     ):
         super().__init__(
             title=f'{tl["full"]} ({tl["short"]})',
@@ -54,7 +59,9 @@ class InspectEmbed(discord.Embed):
             inline=True,
         )
 
-    async def add_guess_information(self, cog: GuessCog, interaction: discord.Interaction, ship: wows.Ship):
+    async def add_guess_information(
+        self, cog: GuessCog, interaction: discord.Interaction, ship: wows.Ship
+    ):
         allowed = cog.is_allowed(ship)
         guess_str = f"Allowed: `{allowed}`\n"
         if allowed and (similar_ships := cog.get_similar(ship)):
@@ -185,14 +192,17 @@ class GuessGame:
         start = discord.utils.snowflake_time(sent_message.id)
 
         accepted = await self.cog.get_accepted(
-            self.interaction, self.difficulty, self.min_level, self.max_level, self.historical, self.ship
+            self.interaction,
+            self.difficulty,
+            self.min_level,
+            self.max_level,
+            self.historical,
+            self.ship,
         )
 
         def check(m: discord.Message):
             clean = wows.Ship.clean(unidecode(m.content))
-            return (
-                clean in accepted and m.channel.id == self.interaction.channel_id
-            )
+            return clean in accepted and m.channel.id == self.interaction.channel_id
 
         try:
             message: discord.Message = await self.interaction.client.wait_for(
@@ -327,6 +337,12 @@ class GuessCog(commands.Cog):
         name="guess",
         description='Silhouette guessing game based on "Who\'s that Pokemon?"',
         extras={"category": "wows"},
+    )
+    @app_commands.describe(
+        difficulty="How restrictive the bot should be in accepting answers.",
+        min_level="The minimum tier to use.",
+        max_level="The maximum tier to use.",
+        historical="Paper ships are excluded when this option is enabled.",
     )
     async def guess(
         self,

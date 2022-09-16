@@ -22,6 +22,7 @@ class SettingsCog(commands.Cog):
         description="Sets your preferred WoWS language.",
         extras={"category": "general"},
     )
+    @app_commands.describe(wows_locale="Your preferred language.")
     @app_commands.choices(wows_locale=wows_locale_choices)
     @app_commands.rename(wows_locale="language")
     async def set_user_language(
@@ -45,6 +46,7 @@ class SettingsCog(commands.Cog):
         description="Sets default WoWS region for this server.",
         extras={"category": "general"},
     )
+    @app_commands.describe(region="The region to set as the default in this server.")
     @app_commands.guild_only()
     @app_commands.default_permissions(manage_guild=True)
     @app_commands.checks.has_permissions(manage_guild=True)
