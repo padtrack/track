@@ -15,7 +15,8 @@ if __name__ == "__main__":
     parser.add_argument("--sync", action=argparse.BooleanOptionalAction)
     args = parser.parse_args()
     try:
+        logs.logger.info("Launching bot")
         bot = Track(args.sync)
         bot.run(cfg.discord.token, log_handler=logs.handler)
     except Exception as e:
-        logs.logger.log(logging.ERROR, "Exiting due to error", exc_info=e)
+        logs.logger.error("Exiting due to error", exc_info=e)
