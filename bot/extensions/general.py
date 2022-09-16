@@ -9,6 +9,17 @@ from bot.track import Track
 from bot.utils import db
 
 
+HELP_MESSAGE = """
+The wiki page for the bot is available at <https://github.com/padtrack/track/wiki>.
+For a commands reference, see <https://github.com/padtrack/track/wiki/Commands>.
+If you're looking to invite the bot, use `/invite`.
+If you're looking for help with WoWS gameplay, join Help Me <https://discord.gg/c4vK9rM>
+
+If you have further questions, or would like to follow development, you can join the support server:
+https://discord.gg/dU39sjq
+"""
+
+
 class UserDataEmbed(discord.Embed):
     def __init__(self, user_profile: db.User):
         super().__init__(title="User Profile")
@@ -25,6 +36,7 @@ class GeneralCog(commands.Cog):
         self.bot: Track = bot
 
         self.permissions = discord.Permissions(412317248576)
+        self.bot.remove_command("help")
 
     @app_commands.command(
         name="profile",
@@ -57,6 +69,14 @@ class GeneralCog(commands.Cog):
             f"You can invite me by opening my profile, or by using this url:\n{url}",
             ephemeral=True,
         )
+
+    @app_commands.command(
+        name="help",
+        description="Shows information about this bot.",
+        extras={"category": "general"},
+    )
+    async def help(self, interaction: discord.Interaction):
+        await interaction.response.send_message(HELP_MESSAGE, ephemeral=True)
 
 
 async def setup(bot: Track):
