@@ -13,15 +13,15 @@ from bot.utils import db
 
 
 URLS = {
-    "ru": "https://profile.worldofwarships.ru",
-    "eu": "https://profile.worldofwarships.eu",
-    "na": "https://profile.worldofwarships.com",
-    "asia": "https://profile.worldofwarships.asia",
+    "ru": "https://worldofwarships.ru/en/community/accounts/",
+    "eu": "https://worldofwarships.eu/en/community/accounts/",
+    "na": "https://worldofwarships.com/en/community/accounts/",
+    "asia": "https://worldofwarships.asia/en/community/accounts/",
 }
 
 
 class LinkModal(ui.Modal):
-    PATTERN = re.compile(r"/statistics/(\d+)/ac/([a-zA-Z0-9-_]+)/")
+    PATTERN = re.compile(r"(\d+)-[a-zA-Z0-9_]+/([a-zA-Z0-9-_]+)")
 
     def __init__(self):
         super().__init__(
@@ -59,7 +59,7 @@ class LinkModal(ui.Modal):
                         await interaction.followup.send(
                             "Profile is not on the correct visibility setting.\n"
                             'Please ensure that it is still on the "Via Link" setting '
-                            'and that you have pressed the "Save" button when you submit the URL.',
+                            'and that you have saved your changes by refreshing the page.',
                             ephemeral=True,
                         )
                         return
@@ -152,9 +152,9 @@ class LinkCog(commands.Cog):
             "**DISCLAIMER: THIS IS A TEST VERSION OF THE BOT. THE DATABASE MAY BE WIPED IN BETWEEN TESTS.**\n"
             "Click your region's link below to visit your profile. "
             "You may need to log in if you haven't already.\n"
-            + "\n".join(URLS.values())
+            + "\n".join(f"<{url}>" for url in URLS.values())
             + "\n\n"
-            'After you have done so, set your profile privacy to "Via Link" in the Summary tab.\n'
+            'After you have done so, set your profile privacy to "Via Link".\n'
             "Paste the profile link into the Modal prompted by pressing the button.\n"
             "After you have successfully linked, you may change your profile visibility.\n",
             view=view,
