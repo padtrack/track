@@ -578,7 +578,7 @@ class StatsCog(commands.Cog):
         user = await db.User.get_or_create(id=interaction.user.id)
 
         if not user.wg_id:
-            await interaction.response.send_message(
+            await interaction.followup.send(
                 "You must be linked to use this command! See `/link`."
             )
             return
