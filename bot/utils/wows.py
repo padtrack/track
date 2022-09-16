@@ -10,7 +10,7 @@ from discord import app_commands, Interaction
 from discord.app_commands import Choice
 import unidecode
 
-from bot.utils import errors
+from bot.utils import db, errors
 
 
 # NOTE: this is Player IDs order, they appear to be unique
@@ -119,7 +119,12 @@ class Ship:
         trans = string.maketrans(_CHARS_TABLE)
         return string.translate(trans)
 
-    def tl(self, interaction: discord.Interaction):
+    async def tl(self, interaction: discord.Interaction):
+        user = await db.User.get_or_create(id=interaction.user.id)
+
+        if user.locale:
+            return user.locale
+
         wows_locale = DISCORD_TO_WOWS.get(str(interaction.locale), "en")
         return self.translations[wows_locale]
 
@@ -173,7 +178,7 @@ class ShipTransformer(app_commands.Transformer):
             return results
 
         for ship in ships.values():
-            tl = ship.tl(interaction)
+            tl = await ship.tl(interaction)
             if clean in tl["clean_short"] or clean in tl["clean_full"]:
                 results.append(app_commands.Choice(name=tl["full"], value=ship.index))
             else:
@@ -197,7 +202,7 @@ class ShipTransformer(app_commands.Transformer):
         results = []
 
         for ship in ships.values():
-            tl = ship.tl(interaction)
+            tl = await ship.tl(interaction)
 
             if clean == tl["clean_short"] or clean == tl["clean_full"]:
                 return ship
@@ -221,7 +226,7 @@ class ShipTransformer(app_commands.Transformer):
             raise errors.CustomError(
                 f"Multiple ships returned by query `{value}`. "
                 "Please refine your search.\n"
-                + "\n".join(f"- {ship.tl(interaction)['full']}" for ship in results)
+                + "\n".join(f"- {(await ship.tl(interaction))['full']}" for ship in results)
             )
         else:
             return results.pop()

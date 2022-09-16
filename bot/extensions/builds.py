@@ -67,7 +67,7 @@ class BuildsCog(commands.Cog):
         ]
         if not results:
             await interaction.response.send_message(
-                f"No builds found for {ship.tl(interaction)['full']}."
+                f"No builds found for {(await ship.tl(interaction))['full']}."
             )
         else:
             await interaction.response.send_message(

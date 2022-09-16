@@ -25,10 +25,14 @@ async def get_region(interaction: discord.Interaction) -> str:
         and interaction.namespace.region is not None
     ):
         return interaction.namespace.region
-    else:
-        user = await db.User.get_or_create(id=interaction.user.id)
-        if user.wg_region:
-            return user.wg_region
+
+    user = await db.User.get_or_create(id=interaction.user.id)
+    if user.wg_region:
+        return user.wg_region
+
+    guild = await db.Guild.get_or_create(id=interaction.guild_id)
+    if guild.wg_region:
+        return guild.wg_region
 
     return wows.INFERRED_REGIONS.get(str(interaction.locale), "eu")
 

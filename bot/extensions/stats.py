@@ -537,7 +537,7 @@ class StatsCog(commands.Cog):
                         "Player has no statistics for this ship."
                     )
                 else:
-                    ship_name = ship.tl(interaction)["full"]
+                    ship_name = (await ship.tl(interaction))["full"]
                     embed = ShipStatisticsEmbed(player, stats, ship_name)
                     view = ShipStatisticsView(
                         interaction.user.id, player, ship.id, ship_name
@@ -608,7 +608,7 @@ class StatsCog(commands.Cog):
             ):
                 await interaction.followup.send("You have no statistics for this ship.")
             else:
-                ship_name = ship.tl(interaction)["full"]
+                ship_name = (await ship.tl(interaction))["full"]
                 embed = ShipStatisticsEmbed(player, stats, ship_name)
                 view = ShipStatisticsView(
                     interaction.user.id, player, ship.id, ship_name

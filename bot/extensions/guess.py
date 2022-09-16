@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import List, Literal, Optional
+from typing import Dict, List, Literal, Optional
 import asyncio
 import io
 import os
@@ -29,9 +29,8 @@ class InspectEmbed(discord.Embed):
     ICON = assets.get("WG_LOGO")
 
     def __init__(
-        self, cog: GuessCog, interaction: discord.Interaction, ship: wows.Ship
+        self, cog: GuessCog, interaction: discord.Interaction, ship: wows.Ship, tl: Dict[str, str], accepted: List[str]
     ):
-        tl = ship.tl(interaction)
         super().__init__(
             title=f'{tl["full"]} ({tl["short"]})',
         )
@@ -49,23 +48,19 @@ class InspectEmbed(discord.Embed):
         self.set_author(name=f"{ship.name} ({ship.index})", icon_url=self.ICON)
         self.set_image(url="attachment://ship.png")
 
-        tl = ship.tl(interaction)
-        accepted = [tl["clean_short"], tl["clean_full"]]
-        accepted.extend(ship.romanizations)
-        accepted = list(dict.fromkeys(accepted))  # removes duplicates, preserves order
-
         self.add_field(
             name="Accepted Strings",
             value="\n".join(f"- `{string}`" for string in accepted),
             inline=True,
         )
 
+    async def add_guess_information(self, cog: GuessCog, interaction: discord.Interaction, ship: wows.Ship):
         allowed = cog.is_allowed(ship)
         guess_str = f"Allowed: `{allowed}`\n"
         if allowed and (similar_ships := cog.get_similar(ship)):
             guess_str += "Similar:\n"
             for similar in similar_ships:
-                similar_tl = similar.tl(interaction)
+                similar_tl = await similar.tl(interaction)
                 guess_str += f"- {similar_tl['full']}\n"
 
         self.add_field(name="Guess", value=guess_str, inline=False)
@@ -122,7 +117,7 @@ class GuessCancelButton(ui.Button):
                 task.cancel()
                 await self.view.close()
                 await interaction.response.send_message(
-                    f"The answer was `{self.ship.tl(interaction)['full']}`."
+                    f"The answer was `{(await self.ship.tl(interaction))['full']}`."
                 )
                 break
 
@@ -163,15 +158,13 @@ class GuessGame:
         historical: bool,
         ship: wows.Ship,
     ):
+        self.cog = cog
         self.interaction = interaction
         self.difficulty = difficulty
         self.min_level = min_level
         self.max_level = max_level
         self.historical = historical
         self.ship = ship
-        self.accepted = cog.get_accepted(
-            interaction, difficulty, min_level, max_level, historical, ship
-        )
 
     def get_hint(self) -> str:
         if self.min_level != self.max_level:
@@ -191,10 +184,14 @@ class GuessGame:
         view.message = sent_message
         start = discord.utils.snowflake_time(sent_message.id)
 
+        accepted = await self.cog.get_accepted(
+            self.interaction, self.difficulty, self.min_level, self.max_level, self.historical, self.ship
+        )
+
         def check(m: discord.Message):
             clean = wows.Ship.clean(unidecode(m.content))
             return (
-                clean in self.accepted and m.channel.id == self.interaction.channel_id
+                clean in accepted and m.channel.id == self.interaction.channel_id
             )
 
         try:
@@ -211,7 +208,7 @@ class GuessGame:
             except asyncio.TimeoutError:
                 await view.close()
                 await self.interaction.followup.send(
-                    f"Time's up. The answer was `{self.ship.tl(self.interaction)['full']}`."
+                    f"Time's up. The answer was `{(await self.ship.tl(self.interaction))['full']}`."
                 )
                 return
 
@@ -283,7 +280,7 @@ class GuessCog(commands.Cog):
             if index != ship.index and ship.index in group
         ]
 
-    def get_accepted(
+    async def get_accepted(
         self,
         interaction: discord.Interaction,
         difficulty: str,
@@ -293,8 +290,8 @@ class GuessCog(commands.Cog):
         ship: wows.Ship,
     ):
         accepted = [
-            ship.tl(interaction)["clean_short"],
-            ship.tl(interaction)["clean_full"],
+            (await ship.tl(interaction))["clean_short"],
+            (await ship.tl(interaction))["clean_full"],
         ]
         accepted.extend(ship.romanizations)
 
@@ -307,8 +304,8 @@ class GuessCog(commands.Cog):
                 ) or (historical and similar.isPaperShip):
                     continue
 
-                accepted.append(similar.tl(interaction)["clean_short"])
-                accepted.append(similar.tl(interaction)["clean_full"])
+                accepted.append((await similar.tl(interaction))["clean_short"])
+                accepted.append((await similar.tl(interaction))["clean_full"])
                 accepted.extend(similar.romanizations)
 
         return list(set(accepted))
@@ -341,8 +338,9 @@ class GuessCog(commands.Cog):
     ):
         if min_level > max_level:
             await interaction.response.send_message(
-                "min_level must be less than or equal to max_level.", ephemeral=True
+                "`min_level` must be less than or equal to `max_level`.", ephemeral=True
             )
+            return
 
         for task in asyncio.all_tasks(loop=self.bot.loop):
             if task.get_name() == f"guess_{interaction.channel_id}" and not task.done():
@@ -377,8 +375,15 @@ class GuessCog(commands.Cog):
         interaction: discord.Interaction,
         ship: app_commands.Transform[wows.Ship, wows.ShipTransformer],
     ):
+        tl = await ship.tl(interaction)
+        accepted = [tl["clean_short"], tl["clean_full"]]
+        accepted.extend(ship.romanizations)
+        accepted = list(dict.fromkeys(accepted))  # removes duplicates, preserves order
+        embed = InspectEmbed(self, interaction, ship, tl, accepted)
+        await embed.add_guess_information(self, interaction, ship)
+
         await interaction.response.send_message(
-            embed=InspectEmbed(self, interaction, ship),
+            embed=embed,
             view=InspectView(ship),
             file=self.get_silhouette(ship),
         )
