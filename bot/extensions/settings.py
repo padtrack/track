@@ -89,12 +89,12 @@ class SettingsCog(commands.Cog):
                 )
             ).scalar_one()
 
-            guild.wg_region = region
+            guild.wg_region = region.value
             await session.commit()
         db.Guild.invalidate(id=interaction.guild_id)
 
         await interaction.response.send_message(
-            f"Server default region set to `{region}`."
+            f"Server default region set to `{region.value}`."
         )
 
     @staticmethod
