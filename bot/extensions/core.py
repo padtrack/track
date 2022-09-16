@@ -23,6 +23,15 @@ class Core(commands.Cog):
     async def on_resumed(self):
         logger.log(logging.INFO, "Reconnected")
 
+    @commands.Cog.listener()
+    async def on_command_error(self, ctx: commands.Context, error):
+        if isinstance(error, commands.CommandNotFound):
+            return
+        else:
+            logger.error(
+                f"Ignoring exception in command {ctx.command.name}", exc_info=error
+            )
+
 
 async def setup(bot: Track):
     await bot.add_cog(Core(bot))

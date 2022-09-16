@@ -45,7 +45,7 @@ class CustomTree(app_commands.CommandTree):
             return
 
         if isinstance(error, errors.SilentError):
-            pass
+            return
         elif isinstance(error, errors.CustomError):
             await functions.reply(interaction, error.message, ephemeral=error.ephemeral)
         else:
