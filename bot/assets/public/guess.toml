@@ -15,8 +15,16 @@ similar = [
         "PGSA518",  # Graf Zeppelin
     ],
     [
+        "PASA518",  # Enterprise
+        "PASA538",  # Hornet
+    ],
+    [
         "PASA110",  # Midway
         "PASA510",  # FDR
+    ],
+    [
+        "PBSA111",  # Eagle
+        "PBSA510",  # Malta
     ],
     [
         "PGSA110",  # Manfred
@@ -64,6 +72,10 @@ similar = [
         "PASB109",  # Minnesota
     ],
     [
+        "PBSB505",  # Agincourt
+        "PVSB505",  # Rio de Janerio
+    ],
+    [
         "PBSB107",  # K.G.V
         "PBSB527",  # Duke of York
         "PUSB507",  # Yukon
@@ -83,6 +95,10 @@ similar = [
         "PBSB509",  # Marlborough
         "PBSB110",  # Conqueror
         "PBSB510",  # Thunderer
+    ],
+    [
+        "PBSB209",  # Duncan
+        "PBSB210",  # St. Vincent
     ],
     [
         "PFSB108",  # Richelieu
@@ -117,10 +133,15 @@ similar = [
         "PGSB509",  # Pommern
         "PGSB110",  # G. Kurfurst
         "PGSB310",  # Preussen
+        "PGSB610",  # Mecklenburg
     ],
     [
         "PISB509",  # Marco Polo
         "PISB519",  # Giuseppe Verdi
+    ],
+    [
+        "PJSB529",  # Iwami
+        "PJSB519",  # Hizen
     ],
     [
         "PJSB509",  # Musashi
@@ -182,8 +203,15 @@ similar = [
         "PFSC106",  # La Galissonniere
     ],
     [
+        "PFSC507",  # Toulon
+        "PFSC209",  # Brest
+        "PFSC208",  # Cherbourg
+    ],
+    [
         "PZSC105",  # Chungking
         "PZSC506",  # Huanghe
+        "PBSC106",  # Leander
+        "PUSC506",  # Perth
     ],
     [
         "PUSC516",  # Mysore
@@ -213,6 +241,7 @@ similar = [
         "PASC006",  # Atlanta
         "PASC707",  # Flint
         "PZSC107",  # Chumphon
+        "PASC548",  # San Diego 
     ],
     [
         "PRSC107",  # Shchors
@@ -271,6 +300,7 @@ similar = [
         "PGSC518",  # Mainz
         "PRSC208",  # Tallinn
         "PGSC110",  # Hindenburg
+        "PGSC111",  # Clausewitz
     ],
     [
         "PHSC109",  # Johan de Witt
@@ -364,6 +394,7 @@ similar = [
         "PFSD106",  # Guepard
         "PFSD506",  # Aigle
         "PFSD107",  # Vauquelin
+        "PISD507",  # FR25
     ],
     [
         "PJSD106",  # Fubuki
@@ -386,6 +417,7 @@ similar = [
     [
         "PUSD507",  # Haida
         "PBSD517",  # Cossack
+        "PUSD517",  # Huron
     ],
     [
         "PFSD108",  # Le Fantasque
@@ -430,6 +462,7 @@ similar = [
         "PASD021",  # Fletcher
         "PASD709",  # Black
         "PZSD109",  # Chung Mu
+        "PWSD509",  # Velos
     ],
     [
         "PFSD109",  # Mogador
@@ -443,6 +476,8 @@ similar = [
     [
         "PRSD308",  # Kiev
         "PRSD410",  # Delny
+        "PISD109",  # Adriatico
+        "PRSD409",  # Tashkent
     ],
     [
         "PASD013",  # Gearing
@@ -455,6 +490,26 @@ similar = [
     [
         "PRSD110",  # Khabarovsk
         "PRSD111",  # Zorkiy
+    ],
+    [
+        "PBSD110",  # Daring
+        "PUSD510",  # Vampire II
+    ],
+    [
+        "PISD102",  # Curtatone
+        "PISD103",  # Nazario Sauro
+        "PISD104",  # Turbine
+    ],
+    [
+        "PISD105",  # Maestrale
+        "PISD106",  # Aviere
+        "PISD108",  # Vittorio Cuniberti
+        "PWSD107",  # Skane
+        "PWSD108",  # Oland
+    ],
+    [
+        "PASS108",  # Salmon
+        "PJSS518",  # I-56
     ],
 ]
 
@@ -500,6 +555,8 @@ forbidden = [
     "PJSC598",  # Atago B
     "PJSC708",  # ARP Takao
     "PJSC718",  # ARP Maya
+    "PJSC519",  # AL Azuma
+    "PRSC523",  # AL Avrora
     "PRSC548",  # Bagaration
     "PZSC518",  # Wukong
     "PASC599",  # Alaska B
