@@ -1,3 +1,4 @@
+import json
 import os
 import sys
 import traceback
@@ -28,6 +29,30 @@ class CustomTree(app_commands.CommandTree):
             guild = await db.Guild.get_or_create(id=interaction.guild.id)
             if guild.is_blacklisted:
                 return False
+
+            data = json.loads(guild.disabled)
+            if targets := data.get(interaction.command.name, None):
+                if 0 in targets:
+                    await interaction.response.send_message(
+                        "This command is disabled in this server.", ephemeral=True
+                    )
+                    return False
+                elif interaction.channel_id in targets:
+                    await interaction.response.send_message(
+                        "This command is disabled in this channel.", ephemeral=True
+                    )
+                    return False
+            elif targets := data.get(interaction.command.extras["category"], None):
+                if 0 in targets:
+                    await interaction.response.send_message(
+                        "This category is disabled in this server.", ephemeral=True
+                    )
+                    return False
+                elif interaction.channel_id in targets:
+                    await interaction.response.send_message(
+                        "This category is disabled in this channel.", ephemeral=True
+                    )
+                    return False
 
         return True
 

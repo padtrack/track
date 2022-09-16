@@ -80,7 +80,7 @@ class Guild(Base, CachedMixin):
     __tablename__ = "guilds"
 
     id = Column(Integer, primary_key=True)
-    disabled = Column(JSON, default="[]")
+    disabled = Column(JSON, default="{}")
     wg_region = Column(Integer, default=None)
     locale = Column(String, default=None)
     is_blacklisted = Column(Boolean, default=False)
