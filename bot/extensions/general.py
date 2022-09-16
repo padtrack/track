@@ -53,10 +53,14 @@ class GeneralCog(commands.Cog):
         result = await db.User.get(id=user.id)
 
         if not result:
-            await interaction.response.send_message("No profile found for this user.")
+            await interaction.response.send_message(
+                "No profile found for this user.", ephemeral=True
+            )
             return
 
-        await interaction.response.send_message(embed=UserDataEmbed(result[0][0]))
+        await interaction.response.send_message(
+            embed=UserDataEmbed(result[0][0]), ephemeral=True
+        )
 
     @app_commands.command(
         name="invite",
