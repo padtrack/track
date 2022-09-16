@@ -30,28 +30,29 @@ class CustomTree(app_commands.CommandTree):
             if guild.is_blacklisted:
                 return False
 
-            data = json.loads(guild.disabled)
-            if targets := data.get(interaction.command.name, None):
-                if 0 in targets:
-                    await interaction.response.send_message(
-                        "This command is disabled in this server.", ephemeral=True
-                    )
-                    return False
-                elif interaction.channel_id in targets:
-                    await interaction.response.send_message(
-                        "This command is disabled in this channel.", ephemeral=True
-                    )
-                    return False
-            elif targets := data.get(interaction.command.extras["category"], None):
-                if 0 in targets:
-                    await interaction.response.send_message(
-                        "This category is disabled in this server.", ephemeral=True
-                    )
-                    return False
-                elif interaction.channel_id in targets:
-                    await interaction.response.send_message(
-                        "This category is disabled in this channel.", ephemeral=True
-                    )
+            if interaction.type == discord.InteractionType.application_command:
+                data = json.loads(guild.disabled)
+                if targets := data.get(interaction.command.name, None):
+                    if 0 in targets:
+                        await interaction.response.send_message(
+                            "This command is disabled in this server.", ephemeral=True
+                        )
+                        return False
+                    elif interaction.channel_id in targets:
+                        await interaction.response.send_message(
+                            "This command is disabled in this channel.", ephemeral=True
+                        )
+                        return False
+                elif targets := data.get(interaction.command.extras["category"], None):
+                    if 0 in targets:
+                        await interaction.response.send_message(
+                            "This category is disabled in this server.", ephemeral=True
+                        )
+                        return False
+                    elif interaction.channel_id in targets:
+                        await interaction.response.send_message(
+                            "This category is disabled in this channel.", ephemeral=True
+                        )
                     return False
 
         return True
@@ -97,6 +98,7 @@ class Track(commands.AutoShardedBot):
             tree_cls=CustomTree,
             case_insensitive=True,
             owner_ids=cfg.discord.owner_ids,
+            activity=discord.Activity(type=discord.ActivityType.watching, name="/help"),
         )
 
         self.sync: bool = sync
