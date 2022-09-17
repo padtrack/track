@@ -20,9 +20,9 @@ BUILDS_PATH = os.path.join(
 
 
 class BuildsEmbed(discord.Embed):
-    def __init__(self, builds: List[Tuple[str, str, int]], **kwargs):
+    def __init__(self, builds: List[Tuple[str, str, int]], ship_name: str, **kwargs):
         super().__init__(
-            title=f"Found {len(builds)} " f"build{'s' if len(builds) > 1 else ''}!",
+            title=f"Found {len(builds)} build{'s' if len(builds) > 1 else ''} for {ship_name}!",
             description="Document: [wo.ws/builds](https://wo.ws/builds)",
             **kwargs,
         )
@@ -61,6 +61,7 @@ class BuildsCog(commands.Cog):
         interaction: discord.Interaction,
         ship: app_commands.Transform[wows.Ship, wows.ShipTransformer],
     ):
+        ship_name = (await ship.tl(interaction))['full']
         results = [
             (bookmark_id, build["name"], len(build["ships"]))
             for bookmark_id, build in self.builds.items()
@@ -68,11 +69,11 @@ class BuildsCog(commands.Cog):
         ]
         if not results:
             await interaction.response.send_message(
-                f"No builds found for {(await ship.tl(interaction))['full']}."
+                f"No builds found for {ship_name}."
             )
         else:
             await interaction.response.send_message(
-                embed=BuildsEmbed(results), view=BuildsView(results)
+                embed=BuildsEmbed(results, ship_name), view=BuildsView(results)
             )
 
 
