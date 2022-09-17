@@ -223,6 +223,9 @@ async def get_clan(region: str, clan_id: Union[int, str]):
 
                 view = (await response.json())["clanview"]
 
+    if "id" not in view["clan"]:  # bad id
+        return None
+
     if not view["wows_ladder"]:  # TODO: check behavior when CB season ends
         view["wows_ladder"] = None
 
