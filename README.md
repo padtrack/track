@@ -14,13 +14,13 @@ A virtual environment can be created with `python3.10 -m venv venv`.
 2. Clone the repository
 
 ```
-git clone -b rewrite git@github.com:padtrack/track.git
+git clone https://github.com/padtrack/track.git
 ```
 
 3. Install dependencies
 
 ```
-cd track-rewrite
+cd track
 pip install -U -r requirements.txt
 ```
 
@@ -38,11 +38,15 @@ For more information about creating a Discord applications, see [this article](h
 
 For more information, see [this article](https://redis.io/docs/getting-started/).
 
-7. Configure the project in `config.py`
+7. Install FFmpeg
+
+For more information, see [this website](https://ffmpeg.org/).
+
+8. Configure the project in `config.py`
 
 Most of these can be left unchanged, but it is highly advised to change the values at the bottom.
 
-8. You're set! For information about updating the bot between game updates, see [here](docs/UPDATING.md).
+9. You're set! For information about updating the bot between game updates, see [here](docs/UPDATING.md).
 
 ---
 
