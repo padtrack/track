@@ -59,7 +59,8 @@ class LinkModal(ui.Modal):
                         await interaction.followup.send(
                             "Profile is not on the correct visibility setting.\n"
                             'Please ensure that it is still on the "Via Link" setting '
-                            "and that you have saved your changes by refreshing the page.",
+                            "and that you have saved your changes by refreshing the page.\n"
+                            "Changes can sometimes take up to a few minutes to be reflected WG server-side.\n",
                             ephemeral=True,
                         )
                         return
@@ -118,7 +119,7 @@ class LinkButton(ui.Button):
 
 
 class LinkView(ui.View):
-    INFO_URL = "https://github.com/padtrack/track/blob/master/docs/LINKS.md"
+    INFO_URL = "https://github.com/padtrack/track/wiki/Links"
 
     def __init__(self):
         super().__init__(timeout=300)
