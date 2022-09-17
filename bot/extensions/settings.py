@@ -177,7 +177,7 @@ class SettingsCog(commands.Cog):
         db.Guild.invalidate(id=interaction.guild_id)
 
         await interaction.response.send_message(
-            f"{message}. New structure:\n{self.format_structure(data)}"
+            f"{message} New structure:\n{self.format_structure(data)}"
         )
 
 
