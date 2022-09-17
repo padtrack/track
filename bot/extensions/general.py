@@ -26,8 +26,8 @@ class UserDataEmbed(discord.Embed):
 
         self.add_field(
             name="Guess",
-            value=f"Guessed: {user_profile.guess_count}\n"
-            f"Record: {user_profile.guess_record}",
+            value=f"Guessed: `{user_profile.guess_count}`\n"
+            f"Record: `{user_profile.guess_record:.3f}s`",
         )
 
 
