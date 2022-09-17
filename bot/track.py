@@ -21,6 +21,17 @@ EXTENSIONS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "exte
 
 class CustomTree(app_commands.CommandTree):
     async def interaction_check(self, interaction: discord.Interaction, /) -> bool:
+        # noinspection PyUnresolvedReferences
+        if (
+            interaction.client.stopping
+            and interaction.type == discord.InteractionType.application_command
+        ):
+            await interaction.response.send_message(
+                "The bot is currently shutting down for maintenance.\n"
+                "During this time, new commands are not accepted outstanding commands are handled."
+            )
+            return False
+
         user = await db.User.get_or_create(id=interaction.user.id)
         if user.is_blacklisted:
             return False

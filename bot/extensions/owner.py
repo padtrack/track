@@ -11,6 +11,12 @@ class OwnerCog(commands.Cog):
         self.bot: Track = bot
 
     @commands.command()
+    @commands.is_owner()
+    async def shutdown(self, ctx: commands.Context):
+        self.bot.stopping = True
+        await ctx.send("Done.")
+
+    @commands.command()
     @commands.guild_only()
     @commands.is_owner()
     async def sync(
