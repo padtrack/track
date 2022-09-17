@@ -118,8 +118,7 @@ class LinkButton(ui.Button):
 
 
 class LinkView(ui.View):
-    # TODO: on release, change url to main branch
-    INFO_URL = "https://github.com/padtrack/track/blob/rewrite/docs/LINKS.md"
+    INFO_URL = "https://github.com/padtrack/track/blob/master/docs/LINKS.md"
 
     def __init__(self):
         super().__init__(timeout=300)
@@ -147,9 +146,7 @@ class LinkCog(commands.Cog):
     )
     async def link(self, interaction: discord.Interaction):
         view = LinkView()
-        # TODO: on release, remove disclaimer
         await interaction.response.send_message(
-            "**DISCLAIMER: THIS IS A TEST VERSION OF THE BOT. THE DATABASE MAY BE WIPED IN BETWEEN TESTS.**\n"
             "Click your region's link below to visit your profile. "
             "You may need to log in if you haven't already.\n"
             + "\n".join(f"<{url}>" for url in URLS.values())
