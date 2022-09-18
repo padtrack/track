@@ -8,6 +8,11 @@ If you think you have found an error in any of the commands, please open an Issu
 
 ### `#general`
 
+`/help`
+
+Shows the user an ephemeral message with basic information about the bot.
+
+
 `/invite`
 
 Shows the user an ephemeral message with the invite url for the bot.
@@ -25,7 +30,15 @@ Set a user's preferred language.
 
 `/setserverregion <region>`
 
-Set a server's default region. Requires the `manage_server` permission.
+Set a server's default region.
+
+Requires the `manage_server` permission.
+
+`/toggle <command_or_category> [channel]`
+
+Locally disables or enables a command or category from this bot. If a channel is not provided, this action is global.
+
+Requires the `manage_server` permission.
 
 ---
 
