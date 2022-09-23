@@ -2,7 +2,7 @@ import json
 import os
 import sys
 import traceback
-from datetime import datetime
+from datetime import datetime, timezone
 
 import discord
 from discord import app_commands
@@ -123,7 +123,7 @@ class Track(commands.AutoShardedBot):
 
         self.sync: bool = sync
         self.stopping: bool = False  # used for warm shutdowns
-        self.online_since: datetime = datetime.utcnow()
+        self.online_since: datetime = datetime.now(timezone.utc)
 
     async def setup_hook(self) -> None:
         try:
