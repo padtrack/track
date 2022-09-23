@@ -29,7 +29,7 @@ class CustomTree(app_commands.CommandTree):
             await functions.reply(
                 interaction,
                 "The bot is currently shutting down for maintenance.\n"
-                "During this time, new commands are not accepted outstanding commands are handled."
+                "During this time, new commands are not accepted as outstanding commands are handled."
             )
             return False
 
