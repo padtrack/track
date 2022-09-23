@@ -29,7 +29,7 @@ class CustomTree(app_commands.CommandTree):
             await functions.reply(
                 interaction,
                 "The bot is currently shutting down for maintenance.\n"
-                "During this time, new commands are not accepted as outstanding commands are handled."
+                "During this time, new commands are not accepted as outstanding commands are handled.",
             )
             return False
 
@@ -49,14 +49,14 @@ class CustomTree(app_commands.CommandTree):
                         await functions.reply(
                             interaction,
                             "This command is disabled in this server.",
-                            ephemeral=True
+                            ephemeral=True,
                         )
                         return False
                     elif interaction.channel_id in targets:
                         await functions.reply(
                             interaction,
                             "This command is disabled in this channel.",
-                            ephemeral=True
+                            ephemeral=True,
                         )
                         return False
                 elif targets := data.get(interaction.command.extras["category"], None):
@@ -64,14 +64,14 @@ class CustomTree(app_commands.CommandTree):
                         await functions.reply(
                             interaction,
                             "This category is disabled in this server.",
-                            ephemeral=True
+                            ephemeral=True,
                         )
                         return False
                     elif interaction.channel_id in targets:
                         await functions.reply(
                             interaction,
                             "This category is disabled in this channel.",
-                            ephemeral=True
+                            ephemeral=True,
                         )
                     return False
 

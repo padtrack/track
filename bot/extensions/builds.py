@@ -61,16 +61,14 @@ class BuildsCog(commands.Cog):
         interaction: discord.Interaction,
         ship: app_commands.Transform[wows.Ship, wows.ShipTransformer],
     ):
-        ship_name = (await ship.tl(interaction))['full']
+        ship_name = (await ship.tl(interaction))["full"]
         results = [
             (bookmark_id, build["name"], len(build["ships"]))
             for bookmark_id, build in self.builds.items()
             if ship.index in build["ships"]
         ]
         if not results:
-            await interaction.response.send_message(
-                f"No builds found for {ship_name}."
-            )
+            await interaction.response.send_message(f"No builds found for {ship_name}.")
         else:
             await interaction.response.send_message(
                 embed=BuildsEmbed(results, ship_name), view=BuildsView(results)
