@@ -227,7 +227,7 @@ class ShipTransformer(app_commands.Transformer):
                 f"Multiple ships returned by query `{value}`. "
                 "Please refine your search.\n"
                 + "\n".join(
-                    f"- {(await ship.tl(interaction))['full']}" for ship in results
+                    [f"- {(await ship.tl(interaction))['full']}" for ship in results]
                 )
             )
         else:
