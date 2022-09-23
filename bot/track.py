@@ -26,7 +26,8 @@ class CustomTree(app_commands.CommandTree):
             interaction.client.stopping
             and interaction.type == discord.InteractionType.application_command
         ):
-            await interaction.response.send_message(
+            await functions.reply(
+                interaction,
                 "The bot is currently shutting down for maintenance.\n"
                 "During this time, new commands are not accepted outstanding commands are handled."
             )
@@ -45,24 +46,32 @@ class CustomTree(app_commands.CommandTree):
                 data = json.loads(guild.disabled)
                 if targets := data.get(interaction.command.name, None):
                     if 0 in targets:
-                        await interaction.response.send_message(
-                            "This command is disabled in this server.", ephemeral=True
+                        await functions.reply(
+                            interaction,
+                            "This command is disabled in this server.",
+                            ephemeral=True
                         )
                         return False
                     elif interaction.channel_id in targets:
-                        await interaction.response.send_message(
-                            "This command is disabled in this channel.", ephemeral=True
+                        await functions.reply(
+                            interaction,
+                            "This command is disabled in this channel.",
+                            ephemeral=True
                         )
                         return False
                 elif targets := data.get(interaction.command.extras["category"], None):
                     if 0 in targets:
-                        await interaction.response.send_message(
-                            "This category is disabled in this server.", ephemeral=True
+                        await functions.reply(
+                            interaction,
+                            "This category is disabled in this server.",
+                            ephemeral=True
                         )
                         return False
                     elif interaction.channel_id in targets:
-                        await interaction.response.send_message(
-                            "This category is disabled in this channel.", ephemeral=True
+                        await functions.reply(
+                            interaction,
+                            "This category is disabled in this channel.",
+                            ephemeral=True
                         )
                     return False
 
