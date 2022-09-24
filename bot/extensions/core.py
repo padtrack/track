@@ -78,6 +78,7 @@ class Core(commands.Cog):
     async def status(self, interaction: discord.Interaction):
         await interaction.response.send_message(
             f"Online since: {discord.utils.format_dt(self.bot.online_since, style='R')}\n"
+            f"Servers: `{len(self.bot.guilds)}`\n"
             f"Commands (session): `{self.session['commands']}`\n"
             f"Commands (all time): `{self.persistent['commands']}`\n\n"
             "Popular commands:\n"
