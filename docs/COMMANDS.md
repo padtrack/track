@@ -12,14 +12,13 @@ If you think you have found an error in any of the commands, please open an Issu
 
 Shows the user an ephemeral message with basic information about the bot.
 
-
 `/invite`
 
 Shows the user an ephemeral message with the invite url for the bot.
 
 `/profile [user]`
 
-Shows the profile of the given user.
+Shows the profile of the given user ephemerally.
 If a user is not provided, shows the profile of the invoker.
 
 This is just `guess` count and record for now.
@@ -33,6 +32,10 @@ Set a user's preferred language.
 Set a server's default region.
 
 Requires the `manage_server` permission.
+
+`/status`
+
+Shows the user an ephemeral message with session and usage data for the bot.
 
 `/toggle <command_or_category> [channel]`
 
