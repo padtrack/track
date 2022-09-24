@@ -80,8 +80,11 @@ class Core(commands.Cog):
             f"Online since: {discord.utils.format_dt(self.bot.online_since, style='R')}\n"
             f"Commands (session): `{self.session['commands']}`\n"
             f"Commands (all time): `{self.persistent['commands']}`\n\n"
-            "Popular commands:\n" +
-            "\n".join(f"- {name}: `{count}`" for name, count in self.persistent.most_common(5)[1:]),
+            "Popular commands:\n"
+            + "\n".join(
+                f"- {name}: `{count}`"
+                for name, count in self.persistent.most_common(5)[1:]
+            ),
             ephemeral=True,
         )
 
