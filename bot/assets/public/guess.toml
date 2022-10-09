@@ -113,6 +113,7 @@ similar = [
         "PFSB538",  # Flandre
         "PFSB109",  # Alsace
         "PFSB510",  # Bourgogne
+        "PFSB111",  # Patrie
     ],
     [
         "PGSB002",  # Tirpitz
@@ -193,6 +194,7 @@ similar = [
     [
         "PGSC106",  # Nurnberg
         "PRSC606",  # Admiral Makarov
+        "PGSC516",  # Leipzig
     ],
     [
         "PBSC526",  # Dido
@@ -271,6 +273,8 @@ similar = [
     [
         "PJSC009",  # Mogami
         "PJSC012",  # Ibuki
+        "PJSC209",  # Takahashi
+        "PJSC208",  # Shimanto
     ],
     [
         "PZSC108",  # Harbin
@@ -317,6 +321,7 @@ similar = [
     [
         "PRSB110",  # Kremlin
         "PRSB510",  # Slava
+        "PRSB111",  # Admiral Ushakov
     ],
     [
         "PRSC110",  # Moskva
@@ -511,6 +516,26 @@ similar = [
         "PASS108",  # Salmon
         "PJSS518",  # I-56
     ],
+    [
+        "PBSB206",  # Renown
+        "PBSB547",  # Renown '44
+    ],
+    [
+        "PBSC210",  # Goliath
+        "PBSC710",  # Monmouth
+    ],
+    [
+        "PJSA110",  # Hakuryu
+        "PJSA111",  # Sekiryu
+    ],
+    [
+        "PJSC206",  # Gokase
+        "PJSC207",  # Omono
+    ],
+    [
+        "PJSC505",  # Yahagi
+        "PJSC205",  # Agano
+    ]
 ]
 
 forbidden = [
