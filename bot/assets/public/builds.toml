@@ -622,14 +622,6 @@ ships = [
 	"PGSC517",  # Weimar
 ]
 
-["id.x8foca204fuw"]
-name = "KM subs"
-ships = [
-	"PGSS106",  # U-69
-	"PGSS108",  # U-190
-	"PGSS110",  # U-2501
-]
-
 ["id.o7ezdtamp82f"]
 name = "Druid"
 ships = [
@@ -927,11 +919,15 @@ ships = [
 ]
 
 ["id.9klpenssnqn4"]
-name = "USN subs"
+name = "Standard submarine build"
 ships = [
+	"PJSS518",  # I-56
 	"PASS106",	# Cachalot
 	"PASS108",	# Salmon
 	"PASS110",	# Balao
+	"PGSS106",  # U-69
+	"PGSS108",  # U-190
+	"PGSS110",  # U-2501
 ]
 
 ["id.blqxm8hzmlqk"]
