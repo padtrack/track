@@ -922,12 +922,12 @@ ships = [
 name = "Standard submarine build"
 ships = [
 	"PJSS518",  # I-56
-	"PASS106",	# Cachalot
-	"PASS108",	# Salmon
-	"PASS110",	# Balao
-	"PGSS106",  # U-69
-	"PGSS108",  # U-190
-	"PGSS110",  # U-2501
+	"PASS206",	# Cachalot
+	"PASS208",	# Salmon
+	"PASS210",	# Balao
+	"PGSS206",  # U-69
+	"PGSS208",  # U-190
+	"PGSS210",  # U-2501
 ]
 
 ["id.blqxm8hzmlqk"]
