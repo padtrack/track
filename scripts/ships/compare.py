@@ -11,15 +11,24 @@ EXISTING_PATH = os.path.join(
 
 with (open(GENERATED_PATH) as fp1, open(EXISTING_PATH) as fp2):
     generated, existing = json.load(fp1), json.load(fp2)
-    generated_indexes = set(ship["index"] for ship in generated)
-    existing_indexes = set(ship["index"] for ship in existing)
-    print(
-        "\n".join(
-            next(
-                f'{index} {ship["translations"]["en"]["full"]}'
-                for ship in generated
-                if ship["index"] == index
-            )
-            for index in generated_indexes - existing_indexes
+    new, changed = [], []
+
+    for data in generated:
+        key = data["index"]
+
+        try:
+            ship = next(ship for ship in existing if ship["index"] == key)
+
+            if data["group"] != ship["group"]:
+                changed.append(ship)
+        except StopIteration:
+            new.append(data)
+
+    for data in new:
+        print(f"New Ship: {data['index']} {data['translations']['en']['full']}")
+
+    for data in changed:
+        print(
+            f"Changed Group: {data['index']} {data['translations']['en']['full']} "
+            f"{ship['group']} -> {data['group']}"
         )
-    )
