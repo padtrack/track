@@ -2,6 +2,8 @@
 
 Track is a Discord bot with World of Warships utilities.
 
+For a list of features, see the [commands reference](https://github.com/padtrack/track/wiki/Commands) in the wiki.
+
 ---
 
 ### Installation
