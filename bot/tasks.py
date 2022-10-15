@@ -186,4 +186,4 @@ def render_dual(
         pass
 
     _redis.set(f"cooldown_{requester_id}", "", ex=cooldown)
-    return video_data, f"render_{green_name}_{red_name}_{name}", time_taken, ""
+    return video_data, f"render_{green_name}_{red_name}_{name}", time_taken, "", ""
