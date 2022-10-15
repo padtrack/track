@@ -23,8 +23,13 @@ def scrape():
         result = {}
 
         for region, url in api.URLS.items():
+            if region == "ru":
+                route = url + "/ru/news"
+            else:
+                route = url + "/en/news"
+
             response = requests.get(
-                url + "/en/news",
+                route,
                 params={"category": "game-updates", "pjax": "1", "multi": "true"},
                 headers={"X-Requested-With": "XMLHttpRequest"},
             )
