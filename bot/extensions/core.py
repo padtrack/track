@@ -1,5 +1,6 @@
 from typing import Union
 import collections
+import datetime
 import os
 import pickle
 
@@ -9,11 +10,13 @@ import discord
 
 from bot.track import Track
 from bot.utils.logs import logger
+from config import cfg
 
 
 STATS_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "../assets/private/stats.pickle"
 )
+CREATED = datetime.datetime.fromtimestamp(cfg.created, datetime.timezone.utc)
 
 
 class Core(commands.Cog):
@@ -80,7 +83,7 @@ class Core(commands.Cog):
             f"Online since: {discord.utils.format_dt(self.bot.online_since, style='R')}\n"
             f"Servers: `{len(self.bot.guilds)}`\n"
             f"Commands (session): `{self.session['commands']}`\n"
-            f"Commands (all time): `{self.persistent['commands']}`\n\n"
+            f"Commands (since {discord.utils.format_dt(CREATED, 'd')}): `{self.persistent['commands']}`\n\n"
             "Popular commands:\n"
             + "\n".join(
                 f"- {name}: `{count}`"

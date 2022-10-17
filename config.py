@@ -9,6 +9,8 @@ ini_secrets = environ.secrets.INISecrets.from_path(SECRETS_PATH, ENVIRONMENT)
 
 @environ.config(prefix="")
 class TrackConfig:
+    created = environ.var(converter=int)
+
     @environ.config(prefix="DISCORD")
     class Discord:
         owner_ids = environ.var(converter=set)
@@ -40,6 +42,7 @@ class TrackConfig:
 
 cfg: TrackConfig = TrackConfig.from_environ(
     environ={
+        "CREATED": 1663989263,
         "DISCORD_OWNER_IDS": {212466672450142208, 113104128783159296},
         "CHANNELS_FAILED_RENDERS": 1010834704804614184,
     }
