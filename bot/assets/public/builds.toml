@@ -928,6 +928,7 @@ ships = [
 	"PGSS206",  # U-69
 	"PGSS208",  # U-190
 	"PGSS210",  # U-2501
+	"PRSS508",  # S-189
 ]
 
 ["id.blqxm8hzmlqk"]
@@ -1249,8 +1250,20 @@ ships = [
 	"PISA508",  # Aquila
 ]
 
-["Anhalt"]
+["id.y7lwbb5e8qj3"]
 name = "Anhalt"
 ships = [
 	"PGSB528",  # Anhalt
+]
+
+["id.9nmcduk573t2"]
+name = "Malta"
+ships = [
+	"PBSA510",  # Malta
+]
+
+["id.8opzu9g1fs9u"]
+name = "Vallejo"
+ships = [
+	"PASC509",  # Vallejo
 ]
