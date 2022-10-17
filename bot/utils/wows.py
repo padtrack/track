@@ -206,12 +206,13 @@ class ShipTransformer(app_commands.Transformer):
 
             if clean == tl["clean_short"] or clean == tl["clean_full"]:
                 return ship
-
-            if clean in tl["clean_short"] or clean in tl["clean_full"]:
+            elif clean in tl["clean_short"] or clean in tl["clean_full"]:
                 results.append(ship)
             else:
                 for romanized in ship.romanizations:
-                    if clean in romanized:
+                    if clean == romanized:
+                        return ship
+                    elif clean in romanized:
                         results.append(ship)
                         break
 
