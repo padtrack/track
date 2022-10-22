@@ -1,3 +1,4 @@
+import aiohttp
 import io
 import json
 import logging
@@ -5,6 +6,7 @@ import time
 from typing import Optional
 
 import aioredis
+import bs4
 import discord
 import redis
 import rq
@@ -342,7 +344,6 @@ class RenderDual(Render):
                 channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
                 # noinspection PyTypeChecker
                 await channel.send(
-                    f"Task Status: {task_status}\nTraceback:\n```\n{exc_info}\n```",
                     files=[
                         discord.File(report, filename="report.txt"),
                         discord.File(fp1, filename=self._attachment1.filename),
@@ -382,6 +383,76 @@ class RenderDual(Render):
             )
 
         self._bot.loop.create_task(self.poll_result(f"{args[2]} vs. {args[3]}"))
+
+
+class RenderKOTS(Render):
+    QUEUE = rq.Queue("dual", connection=_redis)
+
+    def __init__(
+        self,
+        bot: Track,
+        interaction: discord.Interaction,
+        url1: str,
+        url2: str,
+    ):
+        super().__init__(bot, interaction)
+
+        self._url1 = url1
+        self._url2 = url2
+
+    async def _reupload(
+        self, task_status: Optional[str], exc_info: Optional[str]
+    ) -> None:
+        try:
+            with (
+                io.StringIO(f"Task Status: {task_status}\n\n{exc_info}\n") as report,
+            ):
+
+                channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
+                # noinspection PyTypeChecker
+                await channel.send(
+                    f"KOTS URLs:\n{self._url1}\n{self._url2}",
+                    files=[
+                        discord.File(report, filename="report.txt"),
+                    ],
+                )
+        except (discord.HTTPException, discord.NotFound):
+            logger.error(
+                f"Failed to reupload render with interaction ID {self._interaction.id}"
+            )
+
+    async def start(self, *args) -> None:
+        if not await self._check():
+            return
+
+        await self._interaction.response.defer()
+
+        async with aiohttp.ClientSession() as session:
+            async with (
+                session.get(self._url1) as response1,
+                session.get(self._url2) as response2,
+            ):
+                with (
+                    io.BytesIO(await response1.read()) as fp1,
+                    io.BytesIO(await response2.read()) as fp2,
+                ):
+
+                    arguments = [
+                        self._interaction.user.id,
+                        self.COOLDOWN,
+                        fp1.read(),
+                        fp2.read(),
+                    ]
+                    arguments.extend(args)
+                    self._job = self.QUEUE.enqueue(
+                        tasks.render_dual,
+                        args=arguments,
+                        failure_ttl=self.FINISHED_TTL,
+                        result_ttl=self.FINISHED_TTL,
+                        ttl=self.job_ttl,
+                    )
+
+                self._bot.loop.create_task(self.poll_result(f"{args[2]} vs. {args[3]}"))
 
 
 class RenderEmbed(discord.Embed):
@@ -517,6 +588,59 @@ class RenderCog(commands.Cog):
     ):
         render = RenderDual(self.bot, interaction, replay_a, replay_b)
         await render.start(fps, quality, name_a, name_b, team_tracers)
+
+    @app_commands.command(
+        name="kotsrender",
+        description="Shortcut to dualrender that takes a game URL.",
+        extras={"category": "wows"},
+    )
+    @app_commands.describe(
+        url="URL that matches */matches/{match_id}/game/{game_id}",
+        fps="Can be a value from 15 to 30, and defaults to 20.",
+        quality="Can be a value from 1-9, and defaults to 7. Higher values may require Nitro boosts.",
+        team_tracers="Colors tracers by their relation to the replay creator, and defaults to off.",
+    )
+    async def kots_render(
+        self,
+        interaction: discord.Interaction,
+        url: str,
+        fps: app_commands.Range[int, 15, 30] = 20,
+        quality: app_commands.Range[int, 1, 9] = 7,
+        team_tracers: bool = False,
+    ):
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url) as response:
+                if response.status != 200:
+                    logger.error(
+                        f"Error code {response.status} while fetching KOTS match"
+                    )
+                    await interaction.response.send_message(
+                        "Failed to fetch match, please check URL."
+                    )
+                    return
+
+                soup = bs4.BeautifulSoup(await response.text(), "html.parser")
+                if len(replay_urls := soup.select("a[href*=replay]")) != 2:
+                    await interaction.response.send_message(
+                        "Couldn't find two replay URLs."
+                    )
+                    return
+
+                tag_a, tag_b = replay_urls
+
+                def get_team_name(tag):
+                    parent = next(
+                        parent for x, parent in enumerate(tag.parents) if x == 13
+                    )
+                    heading = parent.contents[0]
+                    return heading.text[10:-1]
+
+                name_a, name_b = get_team_name(tag_a), get_team_name(tag_b)
+
+                url_a = f"https://wows-tournaments.com{tag_a['href']}"
+                url_b = f"https://wows-tournaments.com{tag_b['href']}"
+                render = RenderKOTS(self.bot, interaction, url_a, url_b)
+                await render.start(fps, quality, name_a, name_b, team_tracers)
 
 
 async def setup(bot: Track):
