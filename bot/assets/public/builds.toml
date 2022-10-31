@@ -1267,3 +1267,21 @@ name = "Vallejo"
 ships = [
 	"PASC509",  # Vallejo
 ]
+
+["id.j4y7wmcvixgv"]
+name = "Yodo"
+ships = [
+	"PJSC205",  # Agano
+	"PJSC206",  # Gokase
+	"PJSC207",  # Omono
+	"PJSC208",  # Shimanto
+	"PJSC209",  # Takahashi
+	"PJSC210",  # Yodo
+]
+
+["id.3o8aun40m0pq"]
+name = "Yodo"
+ships = [
+	"PJSC209",  # Takahashi
+	"PJSC210",  # Yodo
+]
