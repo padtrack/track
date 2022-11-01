@@ -427,7 +427,9 @@ class RenderKOTS(Render):
 
         await self._interaction.response.defer()
 
-        async with aiohttp.ClientSession() as session:
+        async with aiohttp.ClientSession(
+            headers={"Connection": "keep-alive"}
+        ) as session:
             async with (
                 session.get(self._url1) as response1,
                 session.get(self._url2) as response2,
@@ -608,6 +610,7 @@ class RenderCog(commands.Cog):
         quality: app_commands.Range[int, 1, 9] = 7,
         team_tracers: bool = False,
     ):
+        # TODO: move interaction defer here, update docs
         async with aiohttp.ClientSession() as session:
             async with session.get(url) as response:
                 if response.status != 200:
