@@ -59,6 +59,9 @@ class Core(commands.Cog):
 
     @tasks.loop(minutes=1)
     async def save_stats(self):
+        if self.bot.stopping:
+            return
+
         with open(STATS_PATH, "wb") as fp:
             pickle.dump(self.persistent, fp)
 
