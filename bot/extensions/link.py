@@ -154,7 +154,7 @@ class LinkCog(commands.Cog):
             + "\n".join(f"<{url}>" for url in URLS.values())
             + "\n\n"
             'After you have done so, set your profile privacy to "Via Link".\n'
-            "Copy the link, and make sure to `save` your changes."
+            "Copy the link, and make sure to `save` your changes.\n"
             "Afterwards, paste the profile link into the Modal prompted by pressing the button below.\n"
             "After you have successfully linked, you may change your profile visibility.\n",
             view=view,
