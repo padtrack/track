@@ -13,15 +13,16 @@ from bot.utils import db
 
 
 URLS = {
-    "ru": "https://worldofwarships.ru/en/community/accounts/",
-    "eu": "https://worldofwarships.eu/en/community/accounts/",
-    "na": "https://worldofwarships.com/en/community/accounts/",
-    "asia": "https://worldofwarships.asia/en/community/accounts/",
+    "ru": "https://profile.korabli.su",
+    "eu": "https://profile.worldofwarships.eu",
+    "na": "https://profile.worldofwarships.com",
+    "asia": "https://profile.worldofwarships.asia",
 }
 
 
 class LinkModal(ui.Modal):
-    PATTERN = re.compile(r"(\d+)-[a-zA-Z0-9_]+/([a-zA-Z0-9-_]+)")
+    # PATTERN = re.compile(r"(\d+)-[a-zA-Z0-9_]+/([a-zA-Z0-9-_]+)")
+    PATTERN = re.compile(r"/statistics/(\d+)/ac/([a-zA-Z0-9-_]+)/")
 
     def __init__(self):
         super().__init__(
@@ -153,7 +154,8 @@ class LinkCog(commands.Cog):
             + "\n".join(f"<{url}>" for url in URLS.values())
             + "\n\n"
             'After you have done so, set your profile privacy to "Via Link".\n'
-            "Paste the profile link into the Modal prompted by pressing the button.\n"
+            "Copy the link, and make sure to `save` your changes."
+            "Afterwards, paste the profile link into the Modal prompted by pressing the button below.\n"
             "After you have successfully linked, you may change your profile visibility.\n",
             view=view,
             ephemeral=True,
