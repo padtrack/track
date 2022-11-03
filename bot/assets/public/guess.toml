@@ -599,6 +599,12 @@ forbidden = [
     "PZSD598",  # Loyang B
     "PZSD718",  # Ship Smasha
     "PRSC520",  # Stalingrad #2
+    "PASB599",  # Kearsarge B
+    "PGSC598",  # Mainz B
+    "PRSA598",  # Chkalov B
+    "PISC590",  # Napoli B
+    "PJSD596",  # Shinonome B
+    "PZSB529",  # Sun Yat-Sen
     "PRSD308",  # Kiev (Bad Silhouette)
     "PISC108",  # Amalfi (Bad Silhouette)
     "PISC105",  # Montecuccoli (Bad Silhouette)
