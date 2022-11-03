@@ -14,7 +14,7 @@ import subprocess
 OUTPUT_NAME = "res_extract"
 UNPACK_LIST = (
     "content/GameParams.data",
-    "gui/ship_silhouettes/*",
+    "gui/ships_silhouettes/*",
 )
 
 

@@ -27,23 +27,21 @@ python scripts/extract.py
 ```
 
 3. This will create `res_extract/` in the root directory. 
-Move `GameParams.data`, located in `res_extract/content`, to `resources/`. 
+Move `GameParams.data`, located in `res_extract/content`, to `resources/`.
+Move `texts`, located in `res_extract/`, to `resources/` as well.
 Move `ships_silhouettes`, located in `res_extract/gui`, to `bot/assets/public/`.
 
 
-4. Locate `texts` in `bin/<bin_number>/res/`, where `bin_number` is the game version (highest for latest). Move it to `resources/`.
-
-
-5. Run `scripts/ships/generate.py`.
+4. Run `scripts/ships/generate.py`.
 
 ```shell
 python scripts/ships/generate.py
 ```
 
-6. This will generate `ships.json` in `generated/`. Compare it the previous version by running `scripts/ships/compare.py`.
+5. This will generate `ships.json` in `generated/`. Compare it the previous version by running `scripts/ships/compare.py`.
 
 ```shell
 python scripts/ships/compare.py
 ```
 
-7. Update `bot/assets/public/guess.toml` as appropriate, and then move `ships.json` to `bot/assets/public/`.
+6. Update `bot/assets/public/guess.toml` as appropriate, and then move `ships.json` to `bot/assets/public/`.
