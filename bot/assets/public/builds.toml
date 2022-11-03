@@ -225,6 +225,7 @@ ships = [
 	"PJSD014",  # Tachibana Lima
 	"PJSD718",  # AL Yukiakaze
 	"PJSD507",  # Yudachi
+	"PWSD111",  # Dalarna
 ]
 
 ["id.ixgdmvl3rc7f"]
@@ -421,6 +422,7 @@ ships = [
 	"PWSD108",	# Öland
 	"PWSD109",	# Östergötland
 	"PWSD110",	# Halland
+	"PWSD111",  # Dalarna
 ]
 
 ["id.8x0ciu5s5sx3"]
@@ -1284,4 +1286,16 @@ name = "Yodo"
 ships = [
 	"PJSC209",  # Takahashi
 	"PJSC210",  # Yodo
+]
+
+["id.faiqx5okltg8"]
+name = "Velos"
+ships = [
+    "PWSD509",  # Velos
+]
+
+["id.4n5uank5szb6"]
+name = "Tokachi"
+ships = [
+    "PJSC507",  # Tokachi
 ]
