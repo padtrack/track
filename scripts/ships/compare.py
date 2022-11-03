@@ -20,7 +20,7 @@ with (open(GENERATED_PATH) as fp1, open(EXISTING_PATH) as fp2):
             ship = next(ship for ship in existing if ship["index"] == key)
 
             if data["group"] != ship["group"]:
-                changed.append(ship)
+                changed.append(data)
         except StopIteration:
             new.append(data)
 
@@ -28,7 +28,9 @@ with (open(GENERATED_PATH) as fp1, open(EXISTING_PATH) as fp2):
         print(f"New Ship: {data['index']} {data['translations']['en']['full']}")
 
     for data in changed:
+        ship = next(ship for ship in existing if ship["index"] == data["index"])
+
         print(
-            f"Changed Group: {data['index']} {data['translations']['en']['full']} "
-            f"{ship['group']} -> {data['group']}"
+            f"Changed Group: {data['index']} {data['translations']['en']['full']: <20} "
+            f"{ship['group']: <16} -> {data['group']: <16}"
         )
