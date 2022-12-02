@@ -59,21 +59,24 @@ class CustomTree(app_commands.CommandTree):
                             ephemeral=True,
                         )
                         return False
-                elif targets := data.get(interaction.command.extras["category"], None):
-                    if 0 in targets:
-                        await functions.reply(
-                            interaction,
-                            "This category is disabled in this server.",
-                            ephemeral=True,
-                        )
+                try:
+                    if targets := data.get(interaction.command.extras["category"], None):
+                        if 0 in targets:
+                            await functions.reply(
+                                interaction,
+                                "This category is disabled in this server.",
+                                ephemeral=True,
+                            )
+                            return False
+                        elif interaction.channel_id in targets:
+                            await functions.reply(
+                                interaction,
+                                "This category is disabled in this channel.",
+                                ephemeral=True,
+                            )
                         return False
-                    elif interaction.channel_id in targets:
-                        await functions.reply(
-                            interaction,
-                            "This category is disabled in this channel.",
-                            ephemeral=True,
-                        )
-                    return False
+                except KeyError:
+                    pass
 
         return True
 
