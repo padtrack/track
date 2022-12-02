@@ -1299,3 +1299,9 @@ name = "Tokachi"
 ships = [
     "PJSC507",  # Tokachi
 ]
+
+["id.7mefupsqagxn"]
+name = "Tromp"
+ships = [
+    "PHSD610",  # Tromp
+]
