@@ -83,6 +83,9 @@ class CustomTree(app_commands.CommandTree):
     async def on_error(
         self, interaction: discord.Interaction, error: app_commands.AppCommandError
     ) -> None:
+        if interaction.extras.get("ignore_error"):
+            return
+
         error = getattr(error, "original", error)  # normal commands
         if isinstance(error, app_commands.AppCommandError):
             error = error.__cause__ if error.__cause__ is not None else error
