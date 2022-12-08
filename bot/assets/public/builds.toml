@@ -379,6 +379,7 @@ ships = [
 	"PJSA518",  # Kaga
 	"PJSA110",  # Hakuryu
 	"PJSA598",  # Kaga B
+	"PJSA111",  # Sekiryu
 ]
 
 ["id.m7k8fzvnx0mp"]
@@ -597,6 +598,7 @@ ships = [
 	"PRSB709",	# AL Sovetskaya Rossiya
 	"PRSB528",  # Borodino
 	"PRSB001",  # Imperator Nikolai I
+	"PRSB111",  # Ushakov
 ]
 
 ["id.mynw49aoevnb"]
