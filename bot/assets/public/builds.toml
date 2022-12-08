@@ -767,6 +767,7 @@ ships = [
 	"PGSC508",	# Prinz Eugen
 	"PGSC106",  # Nurnberg
 	"PGSC105",  # Konigsberg
+	"PGSC111",  # Clausewitz
 ]
 
 ["id.jmwr902j7zlj"]
@@ -1201,6 +1202,7 @@ name = "Hindenburg, Roon"
 ships = [
 	"PGSC109",	# Roon
 	"PGSC110",	# Hindenburg
+	"PGSC111",  # Clausewitz
 ]
 
 ["id.w1og65wzzg6h"]
@@ -1240,6 +1242,7 @@ ships = [
 	"PBSB209",	# Duncan
 	"PBSB210",	# St. Vincent
 	"PBSB610",	# Incomparable
+	"PBSB547",  # Renown '44
 ]
 
 ["id.jc45b7fm6cs6"]
@@ -1306,4 +1309,10 @@ ships = [
 name = "Tromp"
 ships = [
     "PHSD610",  # Tromp
+]
+
+["id.hqqtqgqy7ywv"]
+name = "Admiral Schröder"
+ships = [
+	"PGSC529",  # Schröder
 ]
