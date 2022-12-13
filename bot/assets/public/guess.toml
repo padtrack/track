@@ -447,6 +447,7 @@ similar = [
         "PGSD108",  # Z-23
         "PGSD518",  # Z-35
         "PGSD519",  # Z-44
+        "PGSD610",  # Z-42
     ],
     [
         "PJSD208",  # Kagero
@@ -487,6 +488,7 @@ similar = [
     [
         "PASD013",  # Gearing
         "PZSD110",  # Yueyang
+        "PASD111",  # J. Humphreys
     ],
     [
         "PJSD012",  # Shimakaze
@@ -535,6 +537,14 @@ similar = [
     [
         "PJSC505",  # Yahagi
         "PJSC205",  # Agano
+    ],
+    [
+        "PASD510",  # Somers
+        "PZSD111",  # Kunming
+    ],
+    [
+        "PBSC110",  # Minotaur
+        "PUSC510",  # Brisbane
     ]
 ]
 
