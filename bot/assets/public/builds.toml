@@ -256,7 +256,6 @@ ships = [
 	"PASB528",	# Alabama VL
 	"PASB538",	# Constellation
 	"PASB509",	# Missouri
-	"PASB519",	# Kearsarge
 ]
 
 ["id.g810x27hzf17"]
@@ -1315,4 +1314,19 @@ ships = [
 name = "Admiral Schröder"
 ships = [
 	"PGSC529",  # Schröder
+]
+
+["id.horms1vo71ut"]
+name = "Hector"
+ships = [
+	"PUSC509",  # Hector
+]
+
+["id.xey6ouhvycc7"]
+name = "USN hybrid BBs"
+ships = [
+	"PASB208",  # Nebraska
+	"PASB209",  # Delaware
+	"PASB519",  # Kearsarge
+	"PASB210",  # Lousiana
 ]
