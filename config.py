@@ -39,6 +39,12 @@ class TrackConfig:
 
     wg = environ.group(Wargaming)
 
+    @environ.config(prefix="TWITTER")
+    class Twitter:
+        token = ini_secrets.secret(name="twitter_bearer_token", default=None)
+
+    twitter = environ.group(Twitter)
+
 
 cfg: TrackConfig = TrackConfig.from_environ(
     environ={
