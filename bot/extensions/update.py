@@ -67,7 +67,7 @@ def scrape():
 
         return result
     except Exception as e:
-        logger.warning("Unhandled exception while loading Updates", e)
+        logger.warning("Unhandled exception while loading Updates", exc_info=e)
         return
 
 
@@ -85,11 +85,11 @@ class UpdateCog(commands.Cog):
 
         if not result:
             logger.warning("Failed to load Updates")
-
-            if not self.update_data:
-                import sys
-
-                sys.exit(1)
+            #
+            # if not self.update_data:
+            #     import sys
+            #
+            #     sys.exit(1)
         else:
             self.update_data = result
             logger.info("Updates loaded")
