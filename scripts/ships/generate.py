@@ -22,7 +22,7 @@ GAMEPARAMS_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "../../resources/GameParams.data"
 )
 OUTPUT_PATH = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "../../generated/ships.json"
+    os.path.dirname(os.path.abspath(__file__)), "../../bot/assets/public/ships.json"
 )
 TEXTS_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "../../resources/texts"

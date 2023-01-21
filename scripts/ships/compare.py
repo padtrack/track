@@ -3,7 +3,7 @@ import os
 
 
 GENERATED_PATH = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "../../generated/ships.json"
+    os.path.dirname(os.path.abspath(__file__)), "../../bot/assets/public/ships.json"
 )
 EXISTING_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "../../bot/assets/public/ships.json"

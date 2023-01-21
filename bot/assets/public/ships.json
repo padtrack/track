@@ -555,7 +555,7 @@
         "id": 4074715120,
         "index": "PASB210",
         "isPaperShip": true,
-        "group": "demoWithoutStats",
+        "group": "earlyAccess",
         "level": 10,
         "name": "PASB210_Louisiana",
         "species": "Battleship",
@@ -1199,7 +1199,7 @@
         "id": 3740218576,
         "index": "PZSB529",
         "isPaperShip": true,
-        "group": "demoWithoutStats",
+        "group": "special",
         "level": 9,
         "name": "PZSB529_Sun_Yat_Sen",
         "species": "Battleship",
@@ -1250,12 +1250,12 @@
                 "full": "Sun Yat-Sen"
             },
             "pt": {
-                "short": "Sun Yat-sen",
-                "full": "Sun Yat-sen"
+                "short": "Sun Yat-Sen",
+                "full": "Sun Yat-Sen"
             },
             "pt_br": {
-                "short": "Sun Yat-sen",
-                "full": "Sun Yat-sen"
+                "short": "Sun Yat-Sen",
+                "full": "Sun Yat-Sen"
             },
             "ru": {
                 "short": "Sun Yat-Sen",
@@ -2947,7 +2947,7 @@
         "id": 4077827792,
         "index": "PJSC207",
         "isPaperShip": true,
-        "group": "earlyAccess",
+        "group": "upgradeable",
         "level": 7,
         "name": "PJSC207_Omono",
         "species": "Cruiser",
@@ -3315,7 +3315,7 @@
         "id": 3753817936,
         "index": "PFSC516",
         "isPaperShip": false,
-        "group": "demoWithoutStats",
+        "group": "demoWithoutStatsPrem",
         "level": 6,
         "name": "PFSC516_Dupleix",
         "species": "Cruiser",
@@ -3407,7 +3407,7 @@
         "id": 4074682064,
         "index": "PJSC210",
         "isPaperShip": true,
-        "group": "earlyAccess",
+        "group": "upgradeable",
         "level": 10,
         "name": "PJSC210_Yodo",
         "species": "Cruiser",
@@ -8099,7 +8099,7 @@
         "id": 4075763696,
         "index": "PASB209",
         "isPaperShip": true,
-        "group": "demoWithoutStats",
+        "group": "earlyAccess",
         "level": 9,
         "name": "PASB209_Delaware",
         "species": "Battleship",
@@ -10767,7 +10767,7 @@
         "id": 3761157488,
         "index": "PUSC509",
         "isPaperShip": true,
-        "group": "demoWithoutStats",
+        "group": "special",
         "level": 9,
         "name": "PUSC509_Hector",
         "species": "Cruiser",
@@ -11680,6 +11680,98 @@
             "zh_tw": {
                 "short": "Taranto",
                 "full": "Taranto"
+            }
+        }
+    },
+    {
+        "id": 4187927888,
+        "index": "PVSC102",
+        "isPaperShip": false,
+        "group": "demoWithoutStats",
+        "level": 2,
+        "name": "PVSC102_Almirante_Barroso",
+        "species": "Cruiser",
+        "nation": "Pan_America",
+        "translations": {
+            "cs": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
+            },
+            "de": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
+            },
+            "en": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
+            },
+            "es": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
+            },
+            "es_mx": {
+                "short": "Alte\u00a0Barroso",
+                "full": "Almirante\u00a0Barroso"
+            },
+            "fr": {
+                "short": "Alte\u00a0Barroso",
+                "full": "Almirante\u00a0Barroso"
+            },
+            "it": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
+            },
+            "ja": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
+            },
+            "ko": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
+            },
+            "nl": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
+            },
+            "pl": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
+            },
+            "pt": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
+            },
+            "pt_br": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
+            },
+            "ru": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
+            },
+            "th": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
+            },
+            "tr": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
+            },
+            "uk": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
+            },
+            "zh": {
+                "short": "\u5df4\u7f57\u4f50\u6d77\u519b\u4e0a\u5c06",
+                "full": "\u5df4\u7f57\u4f50\u6d77\u519b\u4e0a\u5c06"
+            },
+            "zh_sg": {
+                "short": "\u5df4\u7f57\u7d22\u6d77\u519b\u4e0a\u5c06",
+                "full": "\u5df4\u7f57\u7d22\u6d77\u519b\u4e0a\u5c06"
+            },
+            "zh_tw": {
+                "short": "Alte Barroso",
+                "full": "Almirante Barroso"
             }
         }
     },
@@ -14904,6 +14996,98 @@
         }
     },
     {
+        "id": 4185830736,
+        "index": "PVSC104",
+        "isPaperShip": false,
+        "group": "demoWithoutStats",
+        "level": 4,
+        "name": "PVSC104_Cordoba",
+        "species": "Cruiser",
+        "nation": "Pan_America",
+        "translations": {
+            "cs": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "de": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "en": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "es": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "es_mx": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "fr": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "it": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "ja": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "ko": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "nl": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "pl": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "pt": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "pt_br": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "ru": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "th": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "tr": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "uk": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            },
+            "zh": {
+                "short": "\u79d1\u5c14\u591a\u74e6",
+                "full": "\u79d1\u5c14\u591a\u74e6"
+            },
+            "zh_sg": {
+                "short": "\u79d1\u5c14\u591a\u74e6",
+                "full": "\u79d1\u5c14\u591a\u74e6"
+            },
+            "zh_tw": {
+                "short": "C\u00f3rdoba",
+                "full": "C\u00f3rdoba"
+            }
+        }
+    },
+    {
         "id": 4184782640,
         "index": "PGSC105",
         "isPaperShip": false,
@@ -15084,98 +15268,6 @@
             "zh_tw": {
                 "short": "Kiev",
                 "full": "Kiev"
-            }
-        }
-    },
-    {
-        "id": 4271781136,
-        "index": "PXSD022",
-        "isPaperShip": false,
-        "group": "disabled",
-        "level": 10,
-        "name": "PXSD022_Shimakaze_H2019",
-        "species": "Destroyer",
-        "nation": "Events",
-        "translations": {
-            "cs": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "de": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "en": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "es": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "es_mx": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "fr": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "it": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "ja": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "ko": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "nl": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "pl": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "pt": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "pt_br": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "ru": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "th": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "tr": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "uk": {
-                "short": "Angler",
-                "full": "Angler"
-            },
-            "zh": {
-                "short": "\u9b9f\u9c47\u9c7c",
-                "full": "\u9b9f\u9c47\u9c7c"
-            },
-            "zh_sg": {
-                "short": "\u5782\u9493\u8005",
-                "full": "\u5782\u9493\u8005"
-            },
-            "zh_tw": {
-                "short": "Angler",
-                "full": "Angler"
             }
         }
     },
@@ -15643,7 +15735,7 @@
         "id": 4076812272,
         "index": "PASB208",
         "isPaperShip": true,
-        "group": "demoWithoutStats",
+        "group": "earlyAccess",
         "level": 8,
         "name": "PASB208_Nebraska",
         "species": "Battleship",
@@ -16004,98 +16096,6 @@
             "zh_tw": {
                 "short": "Zuih\u014d (old)",
                 "full": "Zuih\u014d (< 23.01.2019)"
-            }
-        }
-    },
-    {
-        "id": 3761190640,
-        "index": "PISB509",
-        "isPaperShip": true,
-        "group": "special",
-        "level": 9,
-        "name": "PISB509_Marco_Polo",
-        "species": "Battleship",
-        "nation": "Italy",
-        "translations": {
-            "cs": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "de": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "en": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "es": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "es_mx": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "fr": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "it": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "ja": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "ko": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "nl": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "pl": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "pt": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "pt_br": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "ru": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "th": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "tr": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "uk": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
-            },
-            "zh": {
-                "short": "\u9a6c\u53ef\u00b7\u6ce2\u7f57",
-                "full": "\u9a6c\u53ef\u00b7\u6ce2\u7f57"
-            },
-            "zh_sg": {
-                "short": "\u9a6c\u53ef\u6ce2\u7f57",
-                "full": "\u9a6c\u53ef\u6ce2\u7f57"
-            },
-            "zh_tw": {
-                "short": "Marco Polo",
-                "full": "Marco Polo"
             }
         }
     },
@@ -16924,6 +16924,98 @@
             "zh_tw": {
                 "short": "Mikoyan",
                 "full": "Mikoyan"
+            }
+        }
+    },
+    {
+        "id": 4182685008,
+        "index": "PVSC107",
+        "isPaperShip": false,
+        "group": "demoWithoutStats",
+        "level": 7,
+        "name": "PVSC107_Coronel_Bolognesi",
+        "species": "Cruiser",
+        "nation": "Pan_America",
+        "translations": {
+            "cs": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
+            },
+            "de": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
+            },
+            "en": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
+            },
+            "es": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
+            },
+            "es_mx": {
+                "short": "Cor.\u00a0Bolognesi",
+                "full": "Coronel\u00a0Bolognesi"
+            },
+            "fr": {
+                "short": "Cor.\u00a0Bolognesi",
+                "full": "Coronel\u00a0Bolognesi"
+            },
+            "it": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
+            },
+            "ja": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
+            },
+            "ko": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
+            },
+            "nl": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
+            },
+            "pl": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
+            },
+            "pt": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
+            },
+            "pt_br": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
+            },
+            "ru": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
+            },
+            "th": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
+            },
+            "tr": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
+            },
+            "uk": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
+            },
+            "zh": {
+                "short": "\u535a\u6d1b\u5c3c\u4e9a\u4e0a\u6821",
+                "full": "\u535a\u6d1b\u5c3c\u4e9a\u4e0a\u6821"
+            },
+            "zh_sg": {
+                "short": "\u535a\u6d1b\u6d85\u897f\u4e0a\u6821",
+                "full": "\u535a\u6d1b\u6d85\u897f\u4e0a\u6821"
+            },
+            "zh_tw": {
+                "short": "Cor. Bolognesi",
+                "full": "Coronel Bolognesi"
             }
         }
     },
@@ -18054,8 +18146,8 @@
                 "full": "Marseille"
             },
             "es": {
-                "short": "Marsella",
-                "full": "Marsella"
+                "short": "Marseille",
+                "full": "Marseille"
             },
             "es_mx": {
                 "short": "Marseille",
@@ -20424,6 +20516,98 @@
         }
     },
     {
+        "id": 4183733584,
+        "index": "PVSC106",
+        "isPaperShip": false,
+        "group": "demoWithoutStats",
+        "level": 6,
+        "name": "PVSC106_Almirante_Cochrane",
+        "species": "Cruiser",
+        "nation": "Pan_America",
+        "translations": {
+            "cs": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            },
+            "de": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            },
+            "en": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            },
+            "es": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            },
+            "es_mx": {
+                "short": "Alte\u00a0Cochrane",
+                "full": "Almirante\u00a0Cochrane"
+            },
+            "fr": {
+                "short": "Alte\u00a0Cochrane",
+                "full": "Almirante\u00a0Cochrane"
+            },
+            "it": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            },
+            "ja": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            },
+            "ko": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            },
+            "nl": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            },
+            "pl": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            },
+            "pt": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            },
+            "pt_br": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            },
+            "ru": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            },
+            "th": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            },
+            "tr": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            },
+            "uk": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            },
+            "zh": {
+                "short": "\u79d1\u514b\u4f26\u6d77\u519b\u4e0a\u5c06",
+                "full": "\u79d1\u514b\u4f26\u6d77\u519b\u4e0a\u5c06"
+            },
+            "zh_sg": {
+                "short": "\u79d1\u514b\u4f26\u6d77\u519b\u4e0a\u5c06",
+                "full": "\u79d1\u514b\u4f26\u6d77\u519b\u4e0a\u5c06"
+            },
+            "zh_tw": {
+                "short": "Alte Cochrane",
+                "full": "Almirante Cochrane"
+            }
+        }
+    },
+    {
         "id": 3764270416,
         "index": "PVSD506",
         "isPaperShip": false,
@@ -21988,6 +22172,98 @@
         }
     },
     {
+        "id": 3729733616,
+        "index": "PASB539",
+        "isPaperShip": true,
+        "group": "demoWithoutStats",
+        "level": 9,
+        "name": "PASB539_Illinois",
+        "species": "Battleship",
+        "nation": "USA",
+        "translations": {
+            "cs": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "de": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "en": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "es": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "es_mx": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "fr": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "it": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "ja": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "ko": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "nl": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "pl": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "pt": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "pt_br": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "ru": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "th": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "tr": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "uk": {
+                "short": "Illinois",
+                "full": "Illinois"
+            },
+            "zh": {
+                "short": "\u4f0a\u5229\u8bfa\u4f0a",
+                "full": "\u4f0a\u5229\u8bfa\u4f0a"
+            },
+            "zh_sg": {
+                "short": "\u4f0a\u5229\u8bfa\u4f0a",
+                "full": "\u4f0a\u5229\u8bfa\u4f0a"
+            },
+            "zh_tw": {
+                "short": "Illinois",
+                "full": "Illinois"
+            }
+        }
+    },
+    {
         "id": 4181702096,
         "index": "PRSA108",
         "isPaperShip": true,
@@ -22356,10 +22632,102 @@
         }
     },
     {
+        "id": 4186879312,
+        "index": "PVSC103",
+        "isPaperShip": false,
+        "group": "demoWithoutStats",
+        "level": 3,
+        "name": "PVSC103_Vicente_Guerrero",
+        "species": "Cruiser",
+        "nation": "Pan_America",
+        "translations": {
+            "cs": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            },
+            "de": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            },
+            "en": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            },
+            "es": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            },
+            "es_mx": {
+                "short": "Vicente\u00a0Guerrero",
+                "full": "Vicente\u00a0Guerrero"
+            },
+            "fr": {
+                "short": "Vicente\u00a0Guerrero",
+                "full": "Vicente\u00a0Guerrero"
+            },
+            "it": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            },
+            "ja": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            },
+            "ko": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            },
+            "nl": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            },
+            "pl": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            },
+            "pt": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            },
+            "pt_br": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            },
+            "ru": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            },
+            "th": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            },
+            "tr": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            },
+            "uk": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            },
+            "zh": {
+                "short": "\u6bd4\u68ee\u7279\u00b7\u683c\u96f7\u7f57",
+                "full": "\u6bd4\u68ee\u7279\u00b7\u683c\u96f7\u7f57"
+            },
+            "zh_sg": {
+                "short": "\u7ef4\u68ee\u7279\u00b7\u683c\u96f7\u7f57",
+                "full": "\u7ef4\u68ee\u7279\u00b7\u683c\u96f7\u7f57"
+            },
+            "zh_tw": {
+                "short": "Vicente Guerrero",
+                "full": "Vicente Guerrero"
+            }
+        }
+    },
+    {
         "id": 3761682384,
         "index": "PBSS508",
         "isPaperShip": false,
-        "group": "demoWithoutStats",
+        "group": "demoWithoutStatsPrem",
         "level": 8,
         "name": "PBSS508_Alliance",
         "species": "Submarine",
@@ -23916,6 +24284,98 @@
             "zh_tw": {
                 "short": "ARP Hiei",
                 "full": "ARP Hiei"
+            }
+        }
+    },
+    {
+        "id": 4271781136,
+        "index": "PXSD022",
+        "isPaperShip": false,
+        "group": "disabled",
+        "level": 10,
+        "name": "PXSD022_Shimakaze_H2019",
+        "species": "Destroyer",
+        "nation": "Events",
+        "translations": {
+            "cs": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "de": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "en": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "es": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "es_mx": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "fr": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "it": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "ja": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "ko": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "nl": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "pl": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "pt": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "pt_br": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "ru": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "th": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "tr": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "uk": {
+                "short": "Angler",
+                "full": "Angler"
+            },
+            "zh": {
+                "short": "\u9b9f\u9c47\u9c7c",
+                "full": "\u9b9f\u9c47\u9c7c"
+            },
+            "zh_sg": {
+                "short": "\u5782\u9493\u8005",
+                "full": "\u5782\u9493\u8005"
+            },
+            "zh_tw": {
+                "short": "Angler",
+                "full": "Angler"
             }
         }
     },
@@ -26407,7 +26867,7 @@
         "id": 3655218992,
         "index": "PGSD610",
         "isPaperShip": true,
-        "group": "demoWithoutStats",
+        "group": "demoWithoutStatsPrem",
         "level": 10,
         "name": "PGSD610_Z_42",
         "species": "Destroyer",
@@ -28888,98 +29348,6 @@
         }
     },
     {
-        "id": 4282365936,
-        "index": "PASA012",
-        "isPaperShip": false,
-        "group": "preserved",
-        "level": 8,
-        "name": "PASA012_Lexington_1944",
-        "species": "AirCarrier",
-        "nation": "USA",
-        "translations": {
-            "cs": {
-                "short": "Lexington (old)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "de": {
-                "short": "Lexington (alt)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "en": {
-                "short": "Lexington (old)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "es": {
-                "short": "Lexington (old)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "es_mx": {
-                "short": "Lexington (old)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "fr": {
-                "short": "Lexington (old)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "it": {
-                "short": "Lexington (old)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "ja": {
-                "short": "Lexington (old)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "ko": {
-                "short": "Lexington (old)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "nl": {
-                "short": "Lexington (oud)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "pl": {
-                "short": "Lexington (stary)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "pt": {
-                "short": "Lexington (old)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "pt_br": {
-                "short": "Lexington (old)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "ru": {
-                "short": "Lexington (old)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "th": {
-                "short": "Lexington (old)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "tr": {
-                "short": "Lexington (eski)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "uk": {
-                "short": "Lexington (old)",
-                "full": "Lexington (< 23.01.2019)"
-            },
-            "zh": {
-                "short": "\u5217\u514b\u661f\u6566",
-                "full": "\u5217\u514b\u661f\u6566 (< 23.01.2019)"
-            },
-            "zh_sg": {
-                "short": "\u5217\u514b\u661f\u6566\uff08\u65e7\uff09",
-                "full": "\u5217\u514b\u661f\u6566(< 23.01.2019)"
-            },
-            "zh_tw": {
-                "short": "Lexington (old)",
-                "full": "Lexington (< 23.01.2019)"
-            }
-        }
-    },
-    {
         "id": 3767448848,
         "index": "PXSC503",
         "isPaperShip": false,
@@ -29306,8 +29674,8 @@
                 "full": "Californi\u00eb"
             },
             "pl": {
-                "short": "Kalifornia",
-                "full": "Kalifornia"
+                "short": "California",
+                "full": "California"
             },
             "pt": {
                 "short": "California",
@@ -36067,7 +36435,7 @@
         "id": 4075730640,
         "index": "PJSC209",
         "isPaperShip": true,
-        "group": "earlyAccess",
+        "group": "upgradeable",
         "level": 9,
         "name": "PJSC209_Takahashi",
         "species": "Cruiser",
@@ -36524,98 +36892,6 @@
         }
     },
     {
-        "id": 4252251408,
-        "index": "PXSX040",
-        "isPaperShip": false,
-        "group": "disabled",
-        "level": 2,
-        "name": "PXSX040_Escort_8",
-        "species": "Auxiliary",
-        "nation": "Events",
-        "translations": {
-            "cs": {
-                "short": "Eskorta 8",
-                "full": null
-            },
-            "de": {
-                "short": "Eskorte 8",
-                "full": null
-            },
-            "en": {
-                "short": "Escort 8",
-                "full": null
-            },
-            "es": {
-                "short": "Escolta 8",
-                "full": null
-            },
-            "es_mx": {
-                "short": "Escolta 8",
-                "full": null
-            },
-            "fr": {
-                "short": "Escorteur 8",
-                "full": null
-            },
-            "it": {
-                "short": "Escort 8",
-                "full": null
-            },
-            "ja": {
-                "short": "Escort 8",
-                "full": null
-            },
-            "ko": {
-                "short": "Escort 8",
-                "full": null
-            },
-            "nl": {
-                "short": "Escort 8",
-                "full": null
-            },
-            "pl": {
-                "short": "Eskorta 8",
-                "full": null
-            },
-            "pt": {
-                "short": "Escolta 8",
-                "full": null
-            },
-            "pt_br": {
-                "short": "Escolta 8",
-                "full": null
-            },
-            "ru": {
-                "short": "Escort 8",
-                "full": null
-            },
-            "th": {
-                "short": "\u0e04\u0e38\u0e49\u0e21\u0e01\u0e31\u0e19 8",
-                "full": null
-            },
-            "tr": {
-                "short": "Refakat 8",
-                "full": null
-            },
-            "uk": {
-                "short": "Escort 8",
-                "full": null
-            },
-            "zh": {
-                "short": "\u62a4\u536b 8",
-                "full": null
-            },
-            "zh_sg": {
-                "short": "\u62a4\u536b 8",
-                "full": null
-            },
-            "zh_tw": {
-                "short": "\u8b77\u885b 8",
-                "full": null
-            }
-        }
-    },
-    {
         "id": 4181636848,
         "index": "PISC108",
         "isPaperShip": true,
@@ -36888,6 +37164,98 @@
             "zh_tw": {
                 "short": "Scorpioid",
                 "full": "Scorpioid"
+            }
+        }
+    },
+    {
+        "id": 4180587856,
+        "index": "PVSC109",
+        "isPaperShip": true,
+        "group": "demoWithoutStats",
+        "level": 9,
+        "name": "PVSC109_Santander",
+        "species": "Cruiser",
+        "nation": "Pan_America",
+        "translations": {
+            "cs": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "de": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "en": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "es": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "es_mx": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "fr": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "it": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "ja": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "ko": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "nl": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "pl": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "pt": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "pt_br": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "ru": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "th": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "tr": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "uk": {
+                "short": "Santander",
+                "full": "Santander"
+            },
+            "zh": {
+                "short": "\u6851\u5766\u5fb7",
+                "full": "\u6851\u5766\u5fb7"
+            },
+            "zh_sg": {
+                "short": "\u6851\u5766\u5fb7",
+                "full": "\u6851\u5766\u5fb7"
+            },
+            "zh_tw": {
+                "short": "Santander",
+                "full": "Santander"
             }
         }
     },
@@ -37440,6 +37808,98 @@
             "zh_tw": {
                 "short": "Chapayev",
                 "full": "Chapayev"
+            }
+        }
+    },
+    {
+        "id": 4181636432,
+        "index": "PVSC108",
+        "isPaperShip": true,
+        "group": "demoWithoutStats",
+        "level": 8,
+        "name": "PVSC108_Ignacio_Allende",
+        "species": "Cruiser",
+        "nation": "Pan_America",
+        "translations": {
+            "cs": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
+            },
+            "de": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
+            },
+            "en": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
+            },
+            "es": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
+            },
+            "es_mx": {
+                "short": "Ignacio\u00a0Allende",
+                "full": "Ignacio\u00a0Allende"
+            },
+            "fr": {
+                "short": "Ignacio\u00a0Allende",
+                "full": "Ignacio\u00a0Allende"
+            },
+            "it": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
+            },
+            "ja": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
+            },
+            "ko": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
+            },
+            "nl": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
+            },
+            "pl": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
+            },
+            "pt": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
+            },
+            "pt_br": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
+            },
+            "ru": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
+            },
+            "th": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
+            },
+            "tr": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
+            },
+            "uk": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
+            },
+            "zh": {
+                "short": "\u4f0a\u683c\u7eb3\u897f\u5965\u00b7\u963f\u8fde\u5fb7",
+                "full": "\u4f0a\u683c\u7eb3\u897f\u5965\u00b7\u963f\u8fde\u5fb7"
+            },
+            "zh_sg": {
+                "short": "\u4f0a\u683c\u7eb3\u897f\u5965\u00b7\u963f\u8fde\u5fb7",
+                "full": "\u4f0a\u683c\u7eb3\u897f\u5965\u00b7\u963f\u8fde\u5fb7"
+            },
+            "zh_tw": {
+                "short": "Ignacio Allende",
+                "full": "Ignacio Allende"
             }
         }
     },
@@ -42599,7 +43059,7 @@
         "id": 4078876368,
         "index": "PJSC206",
         "isPaperShip": true,
-        "group": "earlyAccess",
+        "group": "upgradeable",
         "level": 6,
         "name": "PJSC206_Gokase",
         "species": "Cruiser",
@@ -42776,6 +43236,98 @@
             "zh_tw": {
                 "short": "Albemarle",
                 "full": "Albemarle"
+            }
+        }
+    },
+    {
+        "id": 3247388464,
+        "index": "PGSB999",
+        "isPaperShip": true,
+        "group": "disabled",
+        "level": 11,
+        "name": "PGSB999_Hannover",
+        "species": "Battleship",
+        "nation": "Germany",
+        "translations": {
+            "cs": {
+                "short": "Hannover (old)",
+                "full": "Hannover (< 22. 09. 2021)"
+            },
+            "de": {
+                "short": "Hannover (alt)",
+                "full": "Hannover (< 22.09.2021)"
+            },
+            "en": {
+                "short": "Hannover (old)",
+                "full": "Hannover (< 22.09.2021)"
+            },
+            "es": {
+                "short": "Hannover (old)",
+                "full": "Hannover (< 22/09/2021)"
+            },
+            "es_mx": {
+                "short": "Hannover (old)",
+                "full": "Hannover (< 22.09.2021)"
+            },
+            "fr": {
+                "short": "Hannover (old)",
+                "full": "Hannover (< 22.09.2021)"
+            },
+            "it": {
+                "short": "Hannover (vecchia)",
+                "full": "Hannover (< 22.09.2021)"
+            },
+            "ja": {
+                "short": "Hannover (old)",
+                "full": "Hannover (< 22.09.2021)"
+            },
+            "ko": {
+                "short": "Hannover (old)",
+                "full": "Hannover (< 22.09.2021)"
+            },
+            "nl": {
+                "short": "Hannover (oud)",
+                "full": "Hannover (< 22.09.2021)"
+            },
+            "pl": {
+                "short": "Hannover (stary)",
+                "full": "Hannover (< 22.09.2021)"
+            },
+            "pt": {
+                "short": "Hannover (old)",
+                "full": "Hannover (< 22.09.2021)"
+            },
+            "pt_br": {
+                "short": "Hannover (old)",
+                "full": "Hannover (< 22.09.2021)"
+            },
+            "ru": {
+                "short": "Hannover (old)",
+                "full": "Hannover (< 22.09.2021)"
+            },
+            "th": {
+                "short": "Hannover (old)",
+                "full": "Hannover (< 22.09.2021)"
+            },
+            "tr": {
+                "short": "Hannover (eski)",
+                "full": "Hannover (< 22.09.2021)"
+            },
+            "uk": {
+                "short": "Hannover (old)",
+                "full": "Hannover (< 22.09.2021)"
+            },
+            "zh": {
+                "short": "\u6c49\u8bfa\u5a01",
+                "full": "\u6c49\u8bfa\u5a01"
+            },
+            "zh_sg": {
+                "short": "\u6c49\u8bfa\u5a01\uff08\u65e7\uff09",
+                "full": "\u6c49\u8bfa\u5a01\uff08< 22.09.2021\uff09"
+            },
+            "zh_tw": {
+                "short": "Hannover (old)",
+                "full": "Hannover\uff08< 22.09.2021\uff09"
             }
         }
     },
@@ -43052,98 +43604,6 @@
             "zh_tw": {
                 "short": "Octodroid",
                 "full": "Octodroid"
-            }
-        }
-    },
-    {
-        "id": 4185798096,
-        "index": "PRSD104",
-        "isPaperShip": false,
-        "group": "upgradeable",
-        "level": 4,
-        "name": "PRSD104_Izyaslav",
-        "species": "Destroyer",
-        "nation": "Russia",
-        "translations": {
-            "cs": {
-                "short": "Izyaslav",
-                "full": "Izyaslav"
-            },
-            "de": {
-                "short": "Isjaslaw",
-                "full": "Isjaslaw"
-            },
-            "en": {
-                "short": "Izyaslav",
-                "full": "Izyaslav"
-            },
-            "es": {
-                "short": "Izyaslav",
-                "full": "Izyaslav"
-            },
-            "es_mx": {
-                "short": "Izyaslav",
-                "full": "Izyaslav"
-            },
-            "fr": {
-                "short": "Izyaslav",
-                "full": "Izyaslav"
-            },
-            "it": {
-                "short": "Izyaslav",
-                "full": "Izyaslav"
-            },
-            "ja": {
-                "short": "Izyaslav",
-                "full": "Izyaslav"
-            },
-            "ko": {
-                "short": "Izyaslav",
-                "full": "Izyaslav"
-            },
-            "nl": {
-                "short": "Izyaslav",
-                "full": "Izyaslav"
-            },
-            "pl": {
-                "short": "Izias\u0142aw",
-                "full": "Izias\u0142aw"
-            },
-            "pt": {
-                "short": "Izyaslav",
-                "full": "Izyaslav"
-            },
-            "pt_br": {
-                "short": "Izyaslav",
-                "full": "Izyaslav"
-            },
-            "ru": {
-                "short": "\u0418\u0437\u044f\u0441\u043b\u0430\u0432",
-                "full": "\u0418\u0437\u044f\u0441\u043b\u0430\u0432"
-            },
-            "th": {
-                "short": "Izyaslav",
-                "full": "Izyaslav"
-            },
-            "tr": {
-                "short": "Izyaslav",
-                "full": "Izyaslav"
-            },
-            "uk": {
-                "short": "\u0406\u0437\u044f\u0441\u043b\u0430\u0432",
-                "full": "\u0406\u0437\u044f\u0441\u043b\u0430\u0432"
-            },
-            "zh": {
-                "short": "\u4f0a\u8d3e\u65af\u62c9\u592b",
-                "full": "\u4f0a\u8d3e\u65af\u62c9\u592b"
-            },
-            "zh_sg": {
-                "short": "\u4f0a\u8d3e\u65af\u62c9\u592b",
-                "full": "\u4f0a\u8d3e\u65af\u62c9\u592b"
-            },
-            "zh_tw": {
-                "short": "Izyaslav",
-                "full": "Izyaslav"
             }
         }
     },
@@ -43880,6 +44340,98 @@
             "zh_tw": {
                 "short": "Sims B",
                 "full": "Sims B"
+            }
+        }
+    },
+    {
+        "id": 4179539280,
+        "index": "PVSC110",
+        "isPaperShip": true,
+        "group": "demoWithoutStats",
+        "level": 10,
+        "name": "PVSC110_San_Martin",
+        "species": "Cruiser",
+        "nation": "Pan_America",
+        "translations": {
+            "cs": {
+                "short": "San Martin",
+                "full": "San Martin"
+            },
+            "de": {
+                "short": "San Martin",
+                "full": "San Martin"
+            },
+            "en": {
+                "short": "San Martin",
+                "full": "San Martin"
+            },
+            "es": {
+                "short": "San\u00a0Martin",
+                "full": "San\u00a0Martin"
+            },
+            "es_mx": {
+                "short": "San\u00a0Martin",
+                "full": "San\u00a0Martin"
+            },
+            "fr": {
+                "short": "San\u00a0Martin",
+                "full": "San\u00a0Martin"
+            },
+            "it": {
+                "short": "San Martin",
+                "full": "San Martin"
+            },
+            "ja": {
+                "short": "San Martin",
+                "full": "San Martin"
+            },
+            "ko": {
+                "short": "San Martin",
+                "full": "San Martin"
+            },
+            "nl": {
+                "short": "San Martin",
+                "full": "San Martin"
+            },
+            "pl": {
+                "short": "San Martin",
+                "full": "San Martin"
+            },
+            "pt": {
+                "short": "San Martin",
+                "full": "San Martin"
+            },
+            "pt_br": {
+                "short": "San Martin",
+                "full": "San Martin"
+            },
+            "ru": {
+                "short": "San Martin",
+                "full": "San Martin"
+            },
+            "th": {
+                "short": "San Martin",
+                "full": "San Martin"
+            },
+            "tr": {
+                "short": "San Martin",
+                "full": "San Martin"
+            },
+            "uk": {
+                "short": "San Martin",
+                "full": "San Martin"
+            },
+            "zh": {
+                "short": "\u5723\u9a6c\u4e01",
+                "full": "\u5723\u9a6c\u4e01"
+            },
+            "zh_sg": {
+                "short": "\u5723\u9a6c\u4e01",
+                "full": "\u5723\u9a6c\u4e01"
+            },
+            "zh_tw": {
+                "short": "San Martin",
+                "full": "San Martin"
             }
         }
     },
@@ -45802,8 +46354,8 @@
                 "full": "Charles Martel"
             },
             "zh": {
-                "short": "\u67e5\u7406-\u9a6c\u7279",
-                "full": "\u67e5\u7406-\u9a6c\u7279"
+                "short": "\u67e5\u7406\u00b7\u9a6c\u7279",
+                "full": "\u67e5\u7406\u00b7\u9a6c\u7279"
             },
             "zh_sg": {
                 "short": "\u67e5\u7406-\u9a6c\u7279",
@@ -49315,7 +49867,7 @@
         "id": 4076779216,
         "index": "PJSC208",
         "isPaperShip": true,
-        "group": "earlyAccess",
+        "group": "upgradeable",
         "level": 8,
         "name": "PJSC208_Shimanto",
         "species": "Cruiser",
@@ -50692,6 +51244,98 @@
         }
     },
     {
+        "id": 3741300688,
+        "index": "PBSA528",
+        "isPaperShip": false,
+        "group": "demoWithoutStats",
+        "level": 8,
+        "name": "PBSA528_Colossus",
+        "species": "AirCarrier",
+        "nation": "United_Kingdom",
+        "translations": {
+            "cs": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "de": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "en": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "es": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "es_mx": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "fr": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "it": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "ja": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "ko": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "nl": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "pl": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "pt": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "pt_br": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "ru": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "th": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "tr": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "uk": {
+                "short": "Colossus",
+                "full": "Colossus"
+            },
+            "zh": {
+                "short": "\u5de8\u50cf",
+                "full": "\u5de8\u50cf"
+            },
+            "zh_sg": {
+                "short": "\u5de8\u50cf",
+                "full": "\u5de8\u50cf"
+            },
+            "zh_tw": {
+                "short": "Colossus",
+                "full": "Colossus"
+            }
+        }
+    },
+    {
         "id": 4185798608,
         "index": "PBSD104",
         "isPaperShip": false,
@@ -51983,7 +52627,7 @@
         "id": 3767448784,
         "index": "PZSC503",
         "isPaperShip": false,
-        "group": "demoWithoutStats",
+        "group": "special",
         "level": 3,
         "name": "PZSC503_Ning_Hai",
         "species": "Cruiser",
@@ -52252,6 +52896,98 @@
             "zh_tw": {
                 "short": "Za\u014d P",
                 "full": "Za\u014d P"
+            }
+        }
+    },
+    {
+        "id": 3729733328,
+        "index": "PJSB539",
+        "isPaperShip": true,
+        "group": "demoWithoutStats",
+        "level": 9,
+        "name": "PJSB539_Daisen",
+        "species": "Battleship",
+        "nation": "Japan",
+        "translations": {
+            "cs": {
+                "short": "Daisen",
+                "full": "Daisen"
+            },
+            "de": {
+                "short": "Daisen",
+                "full": "Daisen"
+            },
+            "en": {
+                "short": "Daisen",
+                "full": "Daisen"
+            },
+            "es": {
+                "short": "Daisen",
+                "full": "Daisen"
+            },
+            "es_mx": {
+                "short": "Daisen",
+                "full": "Daisen"
+            },
+            "fr": {
+                "short": "Daisen",
+                "full": "Daisen"
+            },
+            "it": {
+                "short": "Daisen",
+                "full": "Daisen"
+            },
+            "ja": {
+                "short": "\u5927\u5c71",
+                "full": "\u5927\u5c71"
+            },
+            "ko": {
+                "short": "Daisen",
+                "full": "Daisen"
+            },
+            "nl": {
+                "short": "Daisen",
+                "full": "Daisen"
+            },
+            "pl": {
+                "short": "Daisen",
+                "full": "Daisen"
+            },
+            "pt": {
+                "short": "Daisen",
+                "full": "Daisen"
+            },
+            "pt_br": {
+                "short": "Daisen",
+                "full": "Daisen"
+            },
+            "ru": {
+                "short": "Daisen",
+                "full": "Daisen"
+            },
+            "th": {
+                "short": "\u0e44\u0e14\u0e40\u0e0b\u0e47\u0e19",
+                "full": "\u0e44\u0e14\u0e40\u0e0b\u0e47\u0e19"
+            },
+            "tr": {
+                "short": "Daisen",
+                "full": "Daisen"
+            },
+            "uk": {
+                "short": "Daisen",
+                "full": "Daisen"
+            },
+            "zh": {
+                "short": "\u9cc7",
+                "full": "\u9cc7"
+            },
+            "zh_sg": {
+                "short": "\u5927\u5c71",
+                "full": "\u5927\u5c71"
+            },
+            "zh_tw": {
+                "short": "Daisen",
+                "full": "Daisen"
             }
         }
     },
@@ -53452,6 +54188,98 @@
         }
     },
     {
+        "id": 4188976464,
+        "index": "PVSC101",
+        "isPaperShip": false,
+        "group": "demoWithoutStats",
+        "level": 1,
+        "name": "PVSC101_Hercules",
+        "species": "Cruiser",
+        "nation": "Pan_America",
+        "translations": {
+            "cs": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "de": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "en": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "es": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "es_mx": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "fr": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "it": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "ja": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "ko": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "nl": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "pl": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "pt": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "pt_br": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "ru": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "th": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "tr": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "uk": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            },
+            "zh": {
+                "short": "\u6d77\u683c\u529b\u65af",
+                "full": "\u6d77\u683c\u529b\u65af"
+            },
+            "zh_sg": {
+                "short": "\u8d6b\u4e18\u5229",
+                "full": "\u8d6b\u4e18\u5229"
+            },
+            "zh_tw": {
+                "short": "H\u00e9rcules",
+                "full": "H\u00e9rcules"
+            }
+        }
+    },
+    {
         "id": 4184815408,
         "index": "PGSB105",
         "isPaperShip": false,
@@ -54280,6 +55108,98 @@
         }
     },
     {
+        "id": 4252251408,
+        "index": "PXSX040",
+        "isPaperShip": false,
+        "group": "disabled",
+        "level": 2,
+        "name": "PXSX040_Escort_8",
+        "species": "Auxiliary",
+        "nation": "Events",
+        "translations": {
+            "cs": {
+                "short": "Eskorta 8",
+                "full": null
+            },
+            "de": {
+                "short": "Eskorte 8",
+                "full": null
+            },
+            "en": {
+                "short": "Escort 8",
+                "full": null
+            },
+            "es": {
+                "short": "Escolta 8",
+                "full": null
+            },
+            "es_mx": {
+                "short": "Escolta 8",
+                "full": null
+            },
+            "fr": {
+                "short": "Escorteur 8",
+                "full": null
+            },
+            "it": {
+                "short": "Escort 8",
+                "full": null
+            },
+            "ja": {
+                "short": "Escort 8",
+                "full": null
+            },
+            "ko": {
+                "short": "Escort 8",
+                "full": null
+            },
+            "nl": {
+                "short": "Escort 8",
+                "full": null
+            },
+            "pl": {
+                "short": "Eskorta 8",
+                "full": null
+            },
+            "pt": {
+                "short": "Escolta 8",
+                "full": null
+            },
+            "pt_br": {
+                "short": "Escolta 8",
+                "full": null
+            },
+            "ru": {
+                "short": "Escort 8",
+                "full": null
+            },
+            "th": {
+                "short": "\u0e04\u0e38\u0e49\u0e21\u0e01\u0e31\u0e19 8",
+                "full": null
+            },
+            "tr": {
+                "short": "Refakat 8",
+                "full": null
+            },
+            "uk": {
+                "short": "Escort 8",
+                "full": null
+            },
+            "zh": {
+                "short": "\u62a4\u536b 8",
+                "full": null
+            },
+            "zh_sg": {
+                "short": "\u62a4\u536b 8",
+                "full": null
+            },
+            "zh_tw": {
+                "short": "\u8b77\u885b 8",
+                "full": null
+            }
+        }
+    },
+    {
         "id": 4075730896,
         "index": "PBSC209",
         "isPaperShip": true,
@@ -54828,6 +55748,98 @@
             "zh_tw": {
                 "short": "Thunderer",
                 "full": "Thunderer"
+            }
+        }
+    },
+    {
+        "id": 4185798096,
+        "index": "PRSD104",
+        "isPaperShip": false,
+        "group": "upgradeable",
+        "level": 4,
+        "name": "PRSD104_Izyaslav",
+        "species": "Destroyer",
+        "nation": "Russia",
+        "translations": {
+            "cs": {
+                "short": "Izyaslav",
+                "full": "Izyaslav"
+            },
+            "de": {
+                "short": "Isjaslaw",
+                "full": "Isjaslaw"
+            },
+            "en": {
+                "short": "Izyaslav",
+                "full": "Izyaslav"
+            },
+            "es": {
+                "short": "Izyaslav",
+                "full": "Izyaslav"
+            },
+            "es_mx": {
+                "short": "Izyaslav",
+                "full": "Izyaslav"
+            },
+            "fr": {
+                "short": "Izyaslav",
+                "full": "Izyaslav"
+            },
+            "it": {
+                "short": "Izyaslav",
+                "full": "Izyaslav"
+            },
+            "ja": {
+                "short": "Izyaslav",
+                "full": "Izyaslav"
+            },
+            "ko": {
+                "short": "Izyaslav",
+                "full": "Izyaslav"
+            },
+            "nl": {
+                "short": "Izyaslav",
+                "full": "Izyaslav"
+            },
+            "pl": {
+                "short": "Izias\u0142aw",
+                "full": "Izias\u0142aw"
+            },
+            "pt": {
+                "short": "Izyaslav",
+                "full": "Izyaslav"
+            },
+            "pt_br": {
+                "short": "Izyaslav",
+                "full": "Izyaslav"
+            },
+            "ru": {
+                "short": "\u0418\u0437\u044f\u0441\u043b\u0430\u0432",
+                "full": "\u0418\u0437\u044f\u0441\u043b\u0430\u0432"
+            },
+            "th": {
+                "short": "Izyaslav",
+                "full": "Izyaslav"
+            },
+            "tr": {
+                "short": "Izyaslav",
+                "full": "Izyaslav"
+            },
+            "uk": {
+                "short": "\u0406\u0437\u044f\u0441\u043b\u0430\u0432",
+                "full": "\u0406\u0437\u044f\u0441\u043b\u0430\u0432"
+            },
+            "zh": {
+                "short": "\u4f0a\u8d3e\u65af\u62c9\u592b",
+                "full": "\u4f0a\u8d3e\u65af\u62c9\u592b"
+            },
+            "zh_sg": {
+                "short": "\u4f0a\u8d3e\u65af\u62c9\u592b",
+                "full": "\u4f0a\u8d3e\u65af\u62c9\u592b"
+            },
+            "zh_tw": {
+                "short": "Izyaslav",
+                "full": "Izyaslav"
             }
         }
     },
@@ -56208,6 +57220,98 @@
             "zh_tw": {
                 "short": "Tiger '59",
                 "full": "Tiger '59"
+            }
+        }
+    },
+    {
+        "id": 3751753168,
+        "index": "PRSB518",
+        "isPaperShip": true,
+        "group": "special",
+        "level": 8,
+        "name": "PRSB518_Lenin",
+        "species": "Battleship",
+        "nation": "Russia",
+        "translations": {
+            "cs": {
+                "short": "Lenin",
+                "full": "Lenin"
+            },
+            "de": {
+                "short": "Lenin",
+                "full": "Lenin"
+            },
+            "en": {
+                "short": "Lenin",
+                "full": "Lenin"
+            },
+            "es": {
+                "short": "Lenin",
+                "full": "Lenin"
+            },
+            "es_mx": {
+                "short": "Lenin",
+                "full": "Lenin"
+            },
+            "fr": {
+                "short": "Lenin",
+                "full": "Lenin"
+            },
+            "it": {
+                "short": "Lenin",
+                "full": "Lenin"
+            },
+            "ja": {
+                "short": "Lenin",
+                "full": "Lenin"
+            },
+            "ko": {
+                "short": "Lenin",
+                "full": "Lenin"
+            },
+            "nl": {
+                "short": "Lenin",
+                "full": "Lenin"
+            },
+            "pl": {
+                "short": "Lenin",
+                "full": "Lenin"
+            },
+            "pt": {
+                "short": "Lenin",
+                "full": "Lenin"
+            },
+            "pt_br": {
+                "short": "Lenin",
+                "full": "Lenin"
+            },
+            "ru": {
+                "short": "\u041b\u0435\u043d\u0438\u043d",
+                "full": "\u041b\u0435\u043d\u0438\u043d"
+            },
+            "th": {
+                "short": "Lenin",
+                "full": "Lenin"
+            },
+            "tr": {
+                "short": "Lenin",
+                "full": "Lenin"
+            },
+            "uk": {
+                "short": "\u041b\u0435\u043d\u0456\u043d",
+                "full": "\u041b\u0435\u043d\u0456\u043d"
+            },
+            "zh": {
+                "short": "\u5217\u5b81",
+                "full": "\u5217\u5b81"
+            },
+            "zh_sg": {
+                "short": "\u5217\u5b81",
+                "full": "\u5217\u5b81"
+            },
+            "zh_tw": {
+                "short": "Lenin",
+                "full": "Lenin"
             }
         }
     },
@@ -58883,7 +59987,7 @@
         "id": 4079924944,
         "index": "PJSC205",
         "isPaperShip": false,
-        "group": "earlyAccess",
+        "group": "upgradeable",
         "level": 5,
         "name": "PJSC205_Agano",
         "species": "Cruiser",
@@ -61459,7 +62563,7 @@
         "id": 3720263120,
         "index": "PRSC548",
         "isPaperShip": true,
-        "group": "demoWithoutStats",
+        "group": "demoWithoutStatsPrem",
         "level": 8,
         "name": "PRSC548_Bagration",
         "species": "Cruiser",
@@ -64127,7 +65231,7 @@
         "id": 3655251664,
         "index": "PJSC610",
         "isPaperShip": false,
-        "group": "demoWithoutStats",
+        "group": "demoWithoutStatsPrem",
         "level": 10,
         "name": "PJSC610_Kitakami",
         "species": "Cruiser",
@@ -67896,6 +69000,98 @@
         }
     },
     {
+        "id": 4184782160,
+        "index": "PVSC105",
+        "isPaperShip": false,
+        "group": "demoWithoutStats",
+        "level": 5,
+        "name": "PVSC105_La_Argentina",
+        "species": "Cruiser",
+        "nation": "Pan_America",
+        "translations": {
+            "cs": {
+                "short": "La\u00a0Argentina",
+                "full": "La\u00a0Argentina"
+            },
+            "de": {
+                "short": "La Argentina",
+                "full": "La Argentina"
+            },
+            "en": {
+                "short": "La\u00a0Argentina",
+                "full": "La\u00a0Argentina"
+            },
+            "es": {
+                "short": "La\u00a0Argentina",
+                "full": "La\u00a0Argentina"
+            },
+            "es_mx": {
+                "short": "La\u00a0Argentina",
+                "full": "La\u00a0Argentina"
+            },
+            "fr": {
+                "short": "La\u00a0Argentina",
+                "full": "La\u00a0Argentina"
+            },
+            "it": {
+                "short": "La Argentina",
+                "full": "La Argentina"
+            },
+            "ja": {
+                "short": "La Argentina",
+                "full": "La Argentina"
+            },
+            "ko": {
+                "short": "La\u00a0Argentina",
+                "full": "La\u00a0Argentina"
+            },
+            "nl": {
+                "short": "La Argentina",
+                "full": "La Argentina"
+            },
+            "pl": {
+                "short": "La Argentina",
+                "full": "La Argentina"
+            },
+            "pt": {
+                "short": "La Argentina",
+                "full": "La Argentina"
+            },
+            "pt_br": {
+                "short": "La Argentina",
+                "full": "La Argentina"
+            },
+            "ru": {
+                "short": "La Argentina",
+                "full": "La Argentina"
+            },
+            "th": {
+                "short": "La Argentina",
+                "full": "La Argentina"
+            },
+            "tr": {
+                "short": "La Argentina",
+                "full": "La Argentina"
+            },
+            "uk": {
+                "short": "La Argentina",
+                "full": "La Argentina"
+            },
+            "zh": {
+                "short": "\u963f\u6839\u5ef7",
+                "full": "\u963f\u6839\u5ef7"
+            },
+            "zh_sg": {
+                "short": "\u963f\u6839\u5ef7",
+                "full": "\u963f\u6839\u5ef7"
+            },
+            "zh_tw": {
+                "short": "La Argentina",
+                "full": "La Argentina"
+            }
+        }
+    },
+    {
         "id": 3246831056,
         "index": "PRSS999",
         "isPaperShip": true,
@@ -68168,6 +69364,98 @@
             "zh_tw": {
                 "short": "Izumo",
                 "full": "Izumo"
+            }
+        }
+    },
+    {
+        "id": 4282365936,
+        "index": "PASA012",
+        "isPaperShip": false,
+        "group": "preserved",
+        "level": 8,
+        "name": "PASA012_Lexington_1944",
+        "species": "AirCarrier",
+        "nation": "USA",
+        "translations": {
+            "cs": {
+                "short": "Lexington (old)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "de": {
+                "short": "Lexington (alt)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "en": {
+                "short": "Lexington (old)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "es": {
+                "short": "Lexington (old)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "es_mx": {
+                "short": "Lexington (old)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "fr": {
+                "short": "Lexington (old)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "it": {
+                "short": "Lexington (old)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "ja": {
+                "short": "Lexington (old)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "ko": {
+                "short": "Lexington (old)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "nl": {
+                "short": "Lexington (oud)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "pl": {
+                "short": "Lexington (stary)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "pt": {
+                "short": "Lexington (old)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "pt_br": {
+                "short": "Lexington (old)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "ru": {
+                "short": "Lexington (old)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "th": {
+                "short": "Lexington (old)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "tr": {
+                "short": "Lexington (eski)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "uk": {
+                "short": "Lexington (old)",
+                "full": "Lexington (< 23.01.2019)"
+            },
+            "zh": {
+                "short": "\u5217\u514b\u661f\u6566",
+                "full": "\u5217\u514b\u661f\u6566 (< 23.01.2019)"
+            },
+            "zh_sg": {
+                "short": "\u5217\u514b\u661f\u6566\uff08\u65e7\uff09",
+                "full": "\u5217\u514b\u661f\u6566(< 23.01.2019)"
+            },
+            "zh_tw": {
+                "short": "Lexington (old)",
+                "full": "Lexington (< 23.01.2019)"
             }
         }
     },
@@ -68536,98 +69824,6 @@
             "zh_tw": {
                 "short": "Huanghe",
                 "full": "Huanghe"
-            }
-        }
-    },
-    {
-        "id": 3751753168,
-        "index": "PRSB518",
-        "isPaperShip": true,
-        "group": "special",
-        "level": 8,
-        "name": "PRSB518_Lenin",
-        "species": "Battleship",
-        "nation": "Russia",
-        "translations": {
-            "cs": {
-                "short": "Lenin",
-                "full": "Lenin"
-            },
-            "de": {
-                "short": "Lenin",
-                "full": "Lenin"
-            },
-            "en": {
-                "short": "Lenin",
-                "full": "Lenin"
-            },
-            "es": {
-                "short": "Lenin",
-                "full": "Lenin"
-            },
-            "es_mx": {
-                "short": "Lenin",
-                "full": "Lenin"
-            },
-            "fr": {
-                "short": "Lenin",
-                "full": "Lenin"
-            },
-            "it": {
-                "short": "Lenin",
-                "full": "Lenin"
-            },
-            "ja": {
-                "short": "Lenin",
-                "full": "Lenin"
-            },
-            "ko": {
-                "short": "Lenin",
-                "full": "Lenin"
-            },
-            "nl": {
-                "short": "Lenin",
-                "full": "Lenin"
-            },
-            "pl": {
-                "short": "Lenin",
-                "full": "Lenin"
-            },
-            "pt": {
-                "short": "Lenin",
-                "full": "Lenin"
-            },
-            "pt_br": {
-                "short": "Lenin",
-                "full": "Lenin"
-            },
-            "ru": {
-                "short": "\u041b\u0435\u043d\u0438\u043d",
-                "full": "\u041b\u0435\u043d\u0438\u043d"
-            },
-            "th": {
-                "short": "Lenin",
-                "full": "Lenin"
-            },
-            "tr": {
-                "short": "Lenin",
-                "full": "Lenin"
-            },
-            "uk": {
-                "short": "\u041b\u0435\u043d\u0456\u043d",
-                "full": "\u041b\u0435\u043d\u0456\u043d"
-            },
-            "zh": {
-                "short": "\u5217\u5b81",
-                "full": "\u5217\u5b81"
-            },
-            "zh_sg": {
-                "short": "\u5217\u5b81",
-                "full": "\u5217\u5b81"
-            },
-            "zh_tw": {
-                "short": "Lenin",
-                "full": "Lenin"
             }
         }
     },
@@ -69463,7 +70659,7 @@
         "id": 3760108912,
         "index": "PUSC510",
         "isPaperShip": true,
-        "group": "demoWithoutStats",
+        "group": "demoWithoutStatsPrem",
         "level": 10,
         "name": "PUSC510_Brisbane",
         "species": "Cruiser",
@@ -70192,98 +71388,6 @@
             "zh_tw": {
                 "short": "Leone",
                 "full": "Leone"
-            }
-        }
-    },
-    {
-        "id": 3247388464,
-        "index": "PGSB999",
-        "isPaperShip": true,
-        "group": "disabled",
-        "level": 11,
-        "name": "PGSB999_Hannover",
-        "species": "Battleship",
-        "nation": "Germany",
-        "translations": {
-            "cs": {
-                "short": "Hannover (old)",
-                "full": "Hannover (< 22. 09. 2021)"
-            },
-            "de": {
-                "short": "Hannover (alt)",
-                "full": "Hannover (< 22.09.2021)"
-            },
-            "en": {
-                "short": "Hannover (old)",
-                "full": "Hannover (< 22.09.2021)"
-            },
-            "es": {
-                "short": "Hannover (old)",
-                "full": "Hannover (< 22/09/2021)"
-            },
-            "es_mx": {
-                "short": "Hannover (old)",
-                "full": "Hannover (< 22.09.2021)"
-            },
-            "fr": {
-                "short": "Hannover (old)",
-                "full": "Hannover (< 22.09.2021)"
-            },
-            "it": {
-                "short": "Hannover (vecchia)",
-                "full": "Hannover (< 22.09.2021)"
-            },
-            "ja": {
-                "short": "Hannover (old)",
-                "full": "Hannover (< 22.09.2021)"
-            },
-            "ko": {
-                "short": "Hannover (old)",
-                "full": "Hannover (< 22.09.2021)"
-            },
-            "nl": {
-                "short": "Hannover (oud)",
-                "full": "Hannover (< 22.09.2021)"
-            },
-            "pl": {
-                "short": "Hannover (stary)",
-                "full": "Hannover (< 22.09.2021)"
-            },
-            "pt": {
-                "short": "Hannover (old)",
-                "full": "Hannover (< 22.09.2021)"
-            },
-            "pt_br": {
-                "short": "Hannover (old)",
-                "full": "Hannover (< 22.09.2021)"
-            },
-            "ru": {
-                "short": "Hannover (old)",
-                "full": "Hannover (< 22.09.2021)"
-            },
-            "th": {
-                "short": "Hannover (old)",
-                "full": "Hannover (< 22.09.2021)"
-            },
-            "tr": {
-                "short": "Hannover (eski)",
-                "full": "Hannover (< 22.09.2021)"
-            },
-            "uk": {
-                "short": "Hannover (old)",
-                "full": "Hannover (< 22.09.2021)"
-            },
-            "zh": {
-                "short": "\u6c49\u8bfa\u5a01",
-                "full": "\u6c49\u8bfa\u5a01"
-            },
-            "zh_sg": {
-                "short": "\u6c49\u8bfa\u5a01\uff08\u65e7\uff09",
-                "full": "\u6c49\u8bfa\u5a01\uff08< 22.09.2021\uff09"
-            },
-            "zh_tw": {
-                "short": "Hannover (old)",
-                "full": "Hannover\uff08< 22.09.2021\uff09"
             }
         }
     },
@@ -73964,6 +75068,98 @@
             "zh_tw": {
                 "short": "Paris",
                 "full": "Paris"
+            }
+        }
+    },
+    {
+        "id": 3761190640,
+        "index": "PISB509",
+        "isPaperShip": true,
+        "group": "special",
+        "level": 9,
+        "name": "PISB509_Marco_Polo",
+        "species": "Battleship",
+        "nation": "Italy",
+        "translations": {
+            "cs": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "de": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "en": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "es": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "es_mx": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "fr": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "it": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "ja": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "ko": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "nl": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "pl": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "pt": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "pt_br": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "ru": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "th": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "tr": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "uk": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
+            },
+            "zh": {
+                "short": "\u9a6c\u53ef\u00b7\u6ce2\u7f57",
+                "full": "\u9a6c\u53ef\u00b7\u6ce2\u7f57"
+            },
+            "zh_sg": {
+                "short": "\u9a6c\u53ef\u6ce2\u7f57",
+                "full": "\u9a6c\u53ef\u6ce2\u7f57"
+            },
+            "zh_tw": {
+                "short": "Marco Polo",
+                "full": "Marco Polo"
             }
         }
     },
