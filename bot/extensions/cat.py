@@ -13,11 +13,12 @@ from config import cfg
 TWITTER_USERNAME = "unicouniuni3"
 PER_FETCH = 25
 GUILD_IDS = [
+    339499487049547776,
     348633192972156928,
     430696180654014475,
     590412879119777799,
     718826317608517692,
-    990805648927240192
+    990805648927240192,
 ]
 
 
@@ -81,9 +82,7 @@ class CatCog(commands.Cog):
         await self.bot.loop.run_in_executor(executor, scrape)
         logger.info("Cats loaded")
 
-    @app_commands.command(
-        name="cat", description="cat", extras={"category": "fun"}
-    )
+    @app_commands.command(name="cat", description="cat", extras={"category": "fun"})
     @app_commands.guilds(*GUILD_IDS)
     async def cat(self, interaction: discord.Interaction):
         global images
