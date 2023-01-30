@@ -128,6 +128,7 @@ similar = [
     [
         "PASB018",  # Iowa
         "PASB509",  # Missouri
+        "PASB539",  # Illinois
     ],
     [
         "PGSB109",  # F.D.G.
@@ -156,6 +157,7 @@ similar = [
     [
         "PASC003",  # Albany
         "PVSC502",  # Almirante Abreu
+        "PVSC102",  # Almirante Barros
     ],
     [
         "PASC004",  # St. Louis
@@ -172,6 +174,7 @@ similar = [
     [
         "PBSC103",  # Caledon
         "PBSC104",  # Danae
+        "PVSC104",  # Cordoba
     ],
     [
         "PGSC002",  # Dresden
@@ -218,6 +221,7 @@ similar = [
     [
         "PUSC516",  # Mysore
         "PBSC107",  # Fiji
+        "PVSC107",  # Cor. Bolognesi
     ],
     [
         "PGSC107",  # Yorck
@@ -545,7 +549,16 @@ similar = [
     [
         "PBSC110",  # Minotaur
         "PUSC510",  # Brisbane
-    ]
+    ],
+    [
+        "PVSC106",  # Alte Cochrane
+        "PISC507",  # Abruzzi
+    ],
+    [
+        "PBSA108",  # Implacable
+        "PBSA508",  # Indomitable
+        "PBSA528",  # Colossus
+    ],
 ]
 
 forbidden = [
