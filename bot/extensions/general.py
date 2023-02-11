@@ -24,11 +24,17 @@ class UserDataEmbed(discord.Embed):
     def __init__(self, user_profile: db.User):
         super().__init__(title="User Profile")
 
-        self.add_field(
-            name="Guess",
-            value=f"Guessed: `{user_profile.guess_count}`\n"
-            f"Record: `{user_profile.guess_record:.3f}s`",
-        )
+        try:
+            self.add_field(
+                name="Guess",
+                value=f"Guessed: `{user_profile.guess_count}`\n"
+                f"Record: `{user_profile.guess_record:.3f}s`",
+            )
+        except TypeError:
+            self.add_field(
+                name="Guess",
+                value="No statistics",
+            )
 
 
 class GeneralCog(commands.Cog):
