@@ -71,6 +71,7 @@ GROUPS = [
     "start",  # Tier 1
     "demoWithStats",  # Public test
     "demoWithoutStats",  # Closed test
+    "demoWithoutStatsPrem",  # Closed test, premium
     "special",  # Premium
     "specialUnsellable",  # Unsellable premiums (Flint, Missouri, etc.)
     "ultimate",  # Tier 10 reward ships
