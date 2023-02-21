@@ -598,6 +598,7 @@ ships = [
 	"PRSB528",  # Borodino
 	"PRSB001",  # Imperator Nikolai I
 	"PRSB111",  # Ushakov
+	"PZSB529",  # Sun Yat-Sen
 ]
 
 ["id.mynw49aoevnb"]
@@ -1329,4 +1330,16 @@ ships = [
 	"PASB209",  # Delaware
 	"PASB519",  # Kearsarge
 	"PASB210",  # Lousiana
+]
+
+["id.ihmt1osth9i5"]
+name = "Z-42 Range build"
+ships = [
+    "PGSD610",  # Z-42
+]
+
+["id.7ilkk6ic1mmy"]
+name = "Z-42 DPM + fire build"
+ships = [
+    "PASB208",  # Z-42
 ]
