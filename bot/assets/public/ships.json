@@ -3118,8 +3118,8 @@
                 "full": "\u63d0\u5c14\u76ae\u8328 (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u63d0\u5c14\u76ae\u8328 B",
-                "full": "\u63d0\u5c14\u76ae\u8328 B"
+                "short": "\u63d0\u5c14\u76ae\u8328B",
+                "full": "\u63d0\u5c14\u76ae\u8328B"
             },
             "zh_tw": {
                 "short": "Tirpitz B",
@@ -3315,7 +3315,7 @@
         "id": 3753817936,
         "index": "PFSC516",
         "isPaperShip": false,
-        "group": "demoWithoutStatsPrem",
+        "group": "special",
         "level": 6,
         "name": "PFSC516_Dupleix",
         "species": "Cruiser",
@@ -6706,8 +6706,8 @@
                 "full": "\u54e5\u8428\u514b (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u54e5\u8428\u514b\u4eba B",
-                "full": "\u54e5\u8428\u514b\u4eba B"
+                "short": "\u54e5\u8428\u514b\u4ebaB",
+                "full": "\u54e5\u8428\u514b\u4ebaB"
             },
             "zh_tw": {
                 "short": "Cossack B",
@@ -11762,8 +11762,8 @@
                 "full": "Almirante Barroso"
             },
             "zh": {
-                "short": "\u5df4\u7f57\u4f50\u6d77\u519b\u4e0a\u5c06",
-                "full": "\u5df4\u7f57\u4f50\u6d77\u519b\u4e0a\u5c06"
+                "short": "\u5df4\u7f57\u7d22\u6d77\u519b\u4e0a\u5c06",
+                "full": "\u5df4\u7f57\u7d22\u6d77\u519b\u4e0a\u5c06"
             },
             "zh_sg": {
                 "short": "\u5df4\u7f57\u7d22\u6d77\u519b\u4e0a\u5c06",
@@ -12410,8 +12410,8 @@
                 "full": "AL \u963f\u8299\u4e50\u5c14"
             },
             "zh_sg": {
-                "short": "AL \u963f\u8299\u4e50\u5c14",
-                "full": "AL \u963f\u8299\u4e50\u5c14"
+                "short": "AL\u963f\u8299\u4e50\u5c14",
+                "full": "AL\u963f\u8299\u4e50\u5c14"
             },
             "zh_tw": {
                 "short": "AL Avrora",
@@ -12975,7 +12975,7 @@
         "id": 4178458608,
         "index": "PASD111",
         "isPaperShip": true,
-        "group": "demoWithoutStats",
+        "group": "earlyAccess",
         "level": 11,
         "name": "PASD111_Joshua_Humphreys",
         "species": "Destroyer",
@@ -14618,8 +14618,8 @@
                 "full": "\u963f\u80af\u8272"
             },
             "zh_sg": {
-                "short": "\u963f\u80af\u8272 B",
-                "full": "\u963f\u80af\u8272 B"
+                "short": "\u963f\u80af\u8272B",
+                "full": "\u963f\u80af\u8272B"
             },
             "zh_tw": {
                 "short": "Arkansas B",
@@ -14999,7 +14999,7 @@
         "id": 4185830736,
         "index": "PVSC104",
         "isPaperShip": false,
-        "group": "demoWithoutStats",
+        "group": "earlyAccess",
         "level": 4,
         "name": "PVSC104_Cordoba",
         "species": "Cruiser",
@@ -15538,8 +15538,8 @@
                 "full": "\u72c4\u5b89\u5a1c\uff08L\uff09"
             },
             "zh_sg": {
-                "short": "\u72c4\u5b89\u5a1c L",
-                "full": "\u72c4\u5b89\u5a1c L"
+                "short": "\u72c4\u5b89\u5a1cL",
+                "full": "\u72c4\u5b89\u5a1cL"
             },
             "zh_tw": {
                 "short": "Diana L",
@@ -17102,8 +17102,8 @@
                 "full": "\u96d2\u5b89 (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u6d1b\u9633 B",
-                "full": "\u6d1b\u9633 B"
+                "short": "\u6d1b\u9633B",
+                "full": "\u6d1b\u9633B"
             },
             "zh_tw": {
                 "short": "\u6d1b\u967d B",
@@ -17752,6 +17752,98 @@
             "zh_tw": {
                 "short": "Alaska",
                 "full": "Alaska"
+            }
+        }
+    },
+    {
+        "id": 3752736208,
+        "index": "PRSD517",
+        "isPaperShip": false,
+        "group": "demoWithoutStatsPrem",
+        "level": 7,
+        "name": "PRSD517_Tashkent_1941",
+        "species": "Destroyer",
+        "nation": "Russia",
+        "translations": {
+            "cs": {
+                "short": "Tashkent\u00a0'41",
+                "full": "Tashkent\u00a0'41"
+            },
+            "de": {
+                "short": "Taschkent\u00a0\u201941",
+                "full": "Taschkent\u00a0\u201941"
+            },
+            "en": {
+                "short": "Tashkent\u00a0'41",
+                "full": "Tashkent\u00a0'41"
+            },
+            "es": {
+                "short": "Tashkent\u00a0'41",
+                "full": "Tashkent\u00a0'41"
+            },
+            "es_mx": {
+                "short": "Tashkent\u00a0'41",
+                "full": "Tashkent\u00a0'41"
+            },
+            "fr": {
+                "short": "Tashkent\u00a0'41",
+                "full": "Tashkent\u00a0'41"
+            },
+            "it": {
+                "short": "Tashkent\u00a0'41",
+                "full": "Tashkent\u00a0'41"
+            },
+            "ja": {
+                "short": "Tashkent\u00a0'41",
+                "full": "Tashkent\u00a0'41"
+            },
+            "ko": {
+                "short": "Tashkent\u00a0'41",
+                "full": "Tashkent\u00a0'41"
+            },
+            "nl": {
+                "short": "Tashkent\u00a0'41",
+                "full": "Tashkent\u00a0'41"
+            },
+            "pl": {
+                "short": "Taszkient\u00a0\u201941",
+                "full": "Taszkient\u00a0\u201941"
+            },
+            "pt": {
+                "short": "Tashkent\u00a0'41",
+                "full": "Tashkent\u00a0'41"
+            },
+            "pt_br": {
+                "short": "Tashkent\u00a0'41",
+                "full": "Tashkent\u00a0'41"
+            },
+            "ru": {
+                "short": "\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u00a0'41",
+                "full": "\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u00a0'41"
+            },
+            "th": {
+                "short": "Tashkent\u00a0'41",
+                "full": "Tashkent\u00a0'41"
+            },
+            "tr": {
+                "short": "Tashkent\u00a0'41",
+                "full": "Tashkent\u00a0'41"
+            },
+            "uk": {
+                "short": "\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u00a0'41",
+                "full": "\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u00a0'41"
+            },
+            "zh": {
+                "short": "\u5854\u4ec0\u5e72 '41",
+                "full": "\u5854\u4ec0\u5e72 '41"
+            },
+            "zh_sg": {
+                "short": "\u5854\u4ec0\u5e7241",
+                "full": "\u5854\u4ec0\u5e7241"
+            },
+            "zh_tw": {
+                "short": "Tashkent\u00a0'41",
+                "full": "Tashkent\u00a0'41"
             }
         }
     },
@@ -18863,7 +18955,7 @@
         "id": 4178523600,
         "index": "PRSB111",
         "isPaperShip": true,
-        "group": "earlyAccess",
+        "group": "superShip",
         "level": 11,
         "name": "PRSB111_Admiral_Ushakov",
         "species": "Battleship",
@@ -20230,8 +20322,8 @@
                 "full": "AL \u8499\u5f7c\u5229\u57c3"
             },
             "zh_sg": {
-                "short": "AL \u8499\u5f7c\u5229\u57c3",
-                "full": "AL \u8499\u5f7c\u5229\u57c3"
+                "short": "AL\u8499\u5f7c\u5229\u57c3",
+                "full": "AL\u8499\u5f7c\u5229\u57c3"
             },
             "zh_tw": {
                 "short": "AL Montpelier",
@@ -20874,8 +20966,8 @@
                 "full": "\u67ab\uff08R\uff09"
             },
             "zh_sg": {
-                "short": "\u795e\u98ce R",
-                "full": "\u795e\u98ce R"
+                "short": "\u795e\u98ceR",
+                "full": "\u795e\u98ceR"
             },
             "zh_tw": {
                 "short": "Kamikaze R",
@@ -21518,8 +21610,8 @@
                 "full": "\u4e9a\u7279\u5170\u5927 (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u4e9a\u7279\u5170\u5927 B",
-                "full": "\u4e9a\u7279\u5170\u5927 B"
+                "short": "\u4e9a\u7279\u5170\u5927B",
+                "full": "\u4e9a\u7279\u5170\u5927B"
             },
             "zh_tw": {
                 "short": "Atlanta B",
@@ -22622,8 +22714,8 @@
                 "full": "\u9f50\u67cf\u6797\u4f2f\u7235 (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u9f50\u67cf\u6797\u4f2f\u7235 B",
-                "full": "\u9f50\u67cf\u6797\u4f2f\u7235 B"
+                "short": "\u9f50\u67cf\u6797\u4f2f\u7235B",
+                "full": "\u9f50\u67cf\u6797\u4f2f\u7235B"
             },
             "zh_tw": {
                 "short": "Graf Zeppelin B",
@@ -22727,7 +22819,7 @@
         "id": 3761682384,
         "index": "PBSS508",
         "isPaperShip": false,
-        "group": "demoWithoutStatsPrem",
+        "group": "special",
         "level": 8,
         "name": "PBSS508_Alliance",
         "species": "Submarine",
@@ -23358,8 +23450,8 @@
                 "full": "\u6ce2\u7f8e\u62c9\u5c3c\u4e9a (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u6ce2\u7f8e\u62c9\u5c3c\u4e9a B",
-                "full": "\u6ce2\u7f8e\u62c9\u5c3c\u4e9a B"
+                "short": "\u6ce2\u7f8e\u62c9\u5c3c\u4e9aB",
+                "full": "\u6ce2\u7f8e\u62c9\u5c3c\u4e9aB"
             },
             "zh_tw": {
                 "short": "Pommern B",
@@ -24751,7 +24843,7 @@
         "id": 4179015632,
         "index": "PBSS110",
         "isPaperShip": false,
-        "group": "demoWithoutStats",
+        "group": "earlyAccess",
         "level": 10,
         "name": "PBSS110_Thrasher",
         "species": "Submarine",
@@ -24922,12 +25014,104 @@
                 "full": "\u9e3e (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u52a0\u8d3a B",
-                "full": "\u52a0\u8d3a B"
+                "short": "\u52a0\u8d3aB",
+                "full": "\u52a0\u8d3aB"
             },
             "zh_tw": {
                 "short": "Kaga B",
                 "full": "Kaga B"
+            }
+        }
+    },
+    {
+        "id": 3445569488,
+        "index": "PBSB810",
+        "isPaperShip": true,
+        "group": "demoWithoutStats",
+        "level": 10,
+        "name": "PBSB810_Cumberland",
+        "species": "Battleship",
+        "nation": "United_Kingdom",
+        "translations": {
+            "cs": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "de": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "en": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "es": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "es_mx": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "fr": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "it": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "ja": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "ko": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "nl": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "pl": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "pt": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "pt_br": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "ru": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "th": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "tr": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "uk": {
+                "short": "Cumberland",
+                "full": "Cumberland"
+            },
+            "zh": {
+                "short": "\u574e\u4f2f\u5170",
+                "full": "\u574e\u4f2f\u5170"
+            },
+            "zh_sg": {
+                "short": "\u574e\u4f2f\u5170",
+                "full": "\u574e\u4f2f\u5170"
+            },
+            "zh_tw": {
+                "short": "Cumberland",
+                "full": "Cumberland"
             }
         }
     },
@@ -26867,7 +27051,7 @@
         "id": 3655218992,
         "index": "PGSD610",
         "isPaperShip": true,
-        "group": "demoWithoutStatsPrem",
+        "group": "ultimate",
         "level": 10,
         "name": "PGSD610_Z_42",
         "species": "Destroyer",
@@ -27038,8 +27222,8 @@
                 "full": "\u585e\u73ed (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u585e\u73ed B",
-                "full": "\u585e\u73ed B"
+                "short": "\u585e\u73edB",
+                "full": "\u585e\u73edB"
             },
             "zh_tw": {
                 "short": "Saipan B",
@@ -27314,8 +27498,8 @@
                 "full": "AL \u82cf\u7ef4\u57c3\u7f57\u897f\u4e9a"
             },
             "zh_sg": {
-                "short": "AL \u82cf\u7ef4\u57c3\u7f57\u897f\u4e9a",
-                "full": "AL \u82cf\u7ef4\u57c3\u7f57\u897f\u4e9a"
+                "short": "AL\u82cf\u7ef4\u57c3\u7f57\u897f\u4e9a",
+                "full": "AL\u82cf\u7ef4\u57c3\u7f57\u897f\u4e9a"
             },
             "zh_tw": {
                 "short": "AL Sov. Rossiya",
@@ -28326,8 +28510,8 @@
                 "full": "AL \u5229\u6258\u91cc\u5965"
             },
             "zh_sg": {
-                "short": "AL \u5229\u6258\u91cc\u5965",
-                "full": "AL \u5229\u6258\u91cc\u5965"
+                "short": "AL\u5229\u6258\u91cc\u5965",
+                "full": "AL\u5229\u6258\u91cc\u5965"
             },
             "zh_tw": {
                 "short": "AL Littorio",
@@ -29982,8 +30166,8 @@
                 "full": "\u57fa\u6797P"
             },
             "zh_sg": {
-                "short": "\u57fa\u6797 P",
-                "full": "\u57fa\u6797 P"
+                "short": "\u57fa\u6797P",
+                "full": "\u57fa\u6797P"
             },
             "zh_tw": {
                 "short": "Gearing P",
@@ -33304,6 +33488,98 @@
         }
     },
     {
+        "id": 3762206032,
+        "index": "PVSC508",
+        "isPaperShip": false,
+        "group": "demoWithoutStatsPrem",
+        "level": 8,
+        "name": "PVSC508_Almirante_Grau",
+        "species": "Cruiser",
+        "nation": "Pan_America",
+        "translations": {
+            "cs": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "de": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "en": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "es": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "es_mx": {
+                "short": "Alte\u00a0Grau",
+                "full": "Almirante\u00a0Grau"
+            },
+            "fr": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "it": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "ja": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "ko": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "nl": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "pl": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "pt": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "pt_br": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "ru": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "th": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "tr": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "uk": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            },
+            "zh": {
+                "short": "\u683c\u52b3\u6d77\u519b\u4e0a\u5c06",
+                "full": "\u683c\u52b3\u6d77\u519b\u4e0a\u5c06"
+            },
+            "zh_sg": {
+                "short": "\u683c\u52b3\u6d77\u519b\u4e0a\u5c06",
+                "full": "\u683c\u52b3\u6d77\u519b\u4e0a\u5c06"
+            },
+            "zh_tw": {
+                "short": "Alte Grau",
+                "full": "Almirante Grau"
+            }
+        }
+    },
+    {
         "id": 4180588496,
         "index": "PBSC109",
         "isPaperShip": true,
@@ -34503,7 +34779,7 @@
         "id": 4178556624,
         "index": "PJSA111",
         "isPaperShip": true,
-        "group": "earlyAccess",
+        "group": "superShip",
         "level": 11,
         "name": "PJSA111_Sekiryu",
         "species": "AirCarrier",
@@ -36330,8 +36606,8 @@
                 "full": "\u897f\u5f17\u5409\u5c3c\u4e9a"
             },
             "zh_sg": {
-                "short": "\u897f\u5f17\u5409\u5c3c\u4e9a 1941",
-                "full": "\u897f\u5f17\u5409\u5c3c\u4e9a 1941"
+                "short": "\u897f\u5f17\u5409\u5c3c\u4e9a1941",
+                "full": "\u897f\u5f17\u5409\u5c3c\u4e9a1941"
             },
             "zh_tw": {
                 "short": "W. Virginia 1941",
@@ -36882,8 +37158,8 @@
                 "full": "\u67ca (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u671d\u6f6e B",
-                "full": "\u671d\u6f6e B"
+                "short": "\u671d\u6f6eB",
+                "full": "\u671d\u6f6eB"
             },
             "zh_tw": {
                 "short": "Asashio B",
@@ -37434,8 +37710,8 @@
                 "full": "AL \u7309"
             },
             "zh_sg": {
-                "short": "AL \u543e\u59bb",
-                "full": "AL \u543e\u59bb"
+                "short": "AL\u543e\u59bb",
+                "full": "AL\u543e\u59bb"
             },
             "zh_tw": {
                 "short": "AL Azuma",
@@ -40562,7 +40838,7 @@
                 "full": null
             },
             "zh_sg": {
-                "short": "\u767b\u9646\u8230 1",
+                "short": "\u767b\u9646\u82301",
                 "full": null
             },
             "zh_tw": {
@@ -41482,8 +41758,8 @@
                 "full": "\u9a6c\u8428\u8bf8\u585e (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u9a6c\u8428\u8bf8\u585e B",
-                "full": "\u9a6c\u8428\u8bf8\u585e B"
+                "short": "\u9a6c\u8428\u8bf8\u585eB",
+                "full": "\u9a6c\u8428\u8bf8\u585eB"
             },
             "zh_tw": {
                 "short": "Massachusetts B",
@@ -44334,8 +44610,8 @@
                 "full": "\u897f\u59c6\u65af (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u897f\u59c6\u65af B",
-                "full": "\u897f\u59c6\u65af B"
+                "short": "\u897f\u59c6\u65afB",
+                "full": "\u897f\u59c6\u65afB"
             },
             "zh_tw": {
                 "short": "Sims B",
@@ -45083,7 +45359,7 @@
         "id": 4183209936,
         "index": "PBSS106",
         "isPaperShip": false,
-        "group": "demoWithoutStats",
+        "group": "earlyAccess",
         "level": 6,
         "name": "PBSS106_Undine",
         "species": "Submarine",
@@ -46450,8 +46726,8 @@
                 "full": "\u8c86"
             },
             "zh_sg": {
-                "short": "\u5ca9\u57ce Alpha",
-                "full": "\u5ca9\u57ce Alpha"
+                "short": "\u5ca9\u57ceAlpha",
+                "full": "\u5ca9\u57ceAlpha"
             },
             "zh_tw": {
                 "short": "Iwaki A",
@@ -47462,8 +47738,8 @@
                 "full": "\u65af\u5927\u6797\u683c\u52d2 #2"
             },
             "zh_sg": {
-                "short": "\u65af\u5927\u6797\u683c\u52d2 #2",
-                "full": "\u65af\u5927\u6797\u683c\u52d2 #2"
+                "short": "\u65af\u5927\u6797\u683c\u52d2#2",
+                "full": "\u65af\u5927\u6797\u683c\u52d2#2"
             },
             "zh_tw": {
                 "short": "STALINGRAD #2",
@@ -49854,8 +50130,8 @@
                 "full": "\u72e4 (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u5409\u91ce B",
-                "full": "\u5409\u91ce B"
+                "short": "\u5409\u91ceB",
+                "full": "\u5409\u91ceB"
             },
             "zh_tw": {
                 "short": "Yoshino B",
@@ -50235,7 +50511,7 @@
         "id": 4178457808,
         "index": "PZSD111",
         "isPaperShip": true,
-        "group": "demoWithoutStats",
+        "group": "earlyAccess",
         "level": 11,
         "name": "PZSD111_Kunming",
         "species": "Destroyer",
@@ -52890,8 +53166,8 @@
                 "full": "\u8c61 P"
             },
             "zh_sg": {
-                "short": "\u85cf\u738b P",
-                "full": "\u85cf\u738b P"
+                "short": "\u85cf\u738bP",
+                "full": "\u85cf\u738bP"
             },
             "zh_tw": {
                 "short": "Za\u014d P",
@@ -53626,8 +53902,8 @@
                 "full": "\u67b3\uff08L\uff09"
             },
             "zh_sg": {
-                "short": "\u6a58 Lima",
-                "full": "\u6a58 Lima"
+                "short": "\u6a58Lima",
+                "full": "\u6a58Lima"
             },
             "zh_tw": {
                 "short": "Tachibana L",
@@ -54266,8 +54542,8 @@
                 "full": "H\u00e9rcules"
             },
             "zh": {
-                "short": "\u6d77\u683c\u529b\u65af",
-                "full": "\u6d77\u683c\u529b\u65af"
+                "short": "\u5927\u529b\u795e",
+                "full": "\u5927\u529b\u795e"
             },
             "zh_sg": {
                 "short": "\u8d6b\u4e18\u5229",
@@ -55190,7 +55466,7 @@
                 "full": null
             },
             "zh_sg": {
-                "short": "\u62a4\u536b 8",
+                "short": "\u62a4\u536b8",
                 "full": null
             },
             "zh_tw": {
@@ -55650,8 +55926,8 @@
                 "full": "\u9a6c\u5e03\u5c14\u9ed1\u5fb7\uff08L\uff09"
             },
             "zh_sg": {
-                "short": "\u9a6c\u5e03\u5c14\u9ed1\u5fb7 L",
-                "full": "\u9a6c\u5e03\u5c14\u9ed1\u5fb7 L"
+                "short": "\u9a6c\u5e03\u5c14\u9ed1\u5fb7L",
+                "full": "\u9a6c\u5e03\u5c14\u9ed1\u5fb7L"
             },
             "zh_tw": {
                 "short": "Marblehead L",
@@ -56846,8 +57122,8 @@
                 "full": "\u72ac (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u7231\u5b95 B",
-                "full": "\u7231\u5b95 B"
+                "short": "\u7231\u5b95B",
+                "full": "\u7231\u5b95B"
             },
             "zh_tw": {
                 "short": "Atago B",
@@ -57858,8 +58134,8 @@
                 "full": "AL \u83b2"
             },
             "zh_sg": {
-                "short": "AL \u96ea\u98ce",
-                "full": "AL \u96ea\u98ce"
+                "short": "AL\u96ea\u98ce",
+                "full": "AL\u96ea\u98ce"
             },
             "zh_tw": {
                 "short": "AL Yukikaze",
@@ -59146,8 +59422,8 @@
                 "full": "\u6566\u523b\u5c14\u514b (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u6566\u523b\u5c14\u514b B",
-                "full": "\u6566\u523b\u5c14\u514b B"
+                "short": "\u6566\u523b\u5c14\u514bB",
+                "full": "\u6566\u523b\u5c14\u514bB"
             },
             "zh_tw": {
                 "short": "Dunkerque\u00a0B",
@@ -59330,8 +59606,8 @@
                 "full": "\u8499\u5927\u62ffP"
             },
             "zh_sg": {
-                "short": "\u8499\u5927\u62ff P",
-                "full": "\u8499\u5927\u62ff P"
+                "short": "\u8499\u5927\u62ffP",
+                "full": "\u8499\u5927\u62ffP"
             },
             "zh_tw": {
                 "short": "Montana P",
@@ -59895,7 +60171,7 @@
         "id": 4181112784,
         "index": "PBSS108",
         "isPaperShip": false,
-        "group": "demoWithoutStats",
+        "group": "earlyAccess",
         "level": 8,
         "name": "PBSS108_Sturdy",
         "species": "Submarine",
@@ -69726,8 +70002,8 @@
                 "full": "\u963f\u62c9\u5df4\u9a6c VL"
             },
             "zh_sg": {
-                "short": "\u963f\u62c9\u5df4\u9a6c VL",
-                "full": "\u963f\u62c9\u5df4\u9a6c VL"
+                "short": "\u963f\u62c9\u5df4\u9a6cVL",
+                "full": "\u963f\u62c9\u5df4\u9a6cVL"
             },
             "zh_tw": {
                 "short": "Alabama VL",
@@ -70659,7 +70935,7 @@
         "id": 3760108912,
         "index": "PUSC510",
         "isPaperShip": true,
-        "group": "demoWithoutStatsPrem",
+        "group": "ultimate",
         "level": 10,
         "name": "PUSC510_Brisbane",
         "species": "Cruiser",
@@ -71290,8 +71566,8 @@
                 "full": "\u8ba9\u00b7\u5df4\u5c14 (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u8ba9\u00b7\u5df4\u5c14 B",
-                "full": "\u8ba9\u00b7\u5df4\u5c14 B"
+                "short": "\u8ba9\u00b7\u5df4\u5c14B",
+                "full": "\u8ba9\u00b7\u5df4\u5c14B"
             },
             "zh_tw": {
                 "short": "Jean Bart B",
@@ -71842,8 +72118,8 @@
                 "full": "\u6c99\u6069\u970d\u65af\u7279 (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u6c99\u6069\u970d\u65af\u7279 B",
-                "full": "\u6c99\u6069\u970d\u65af\u7279 B"
+                "short": "\u6c99\u6069\u970d\u65af\u7279B",
+                "full": "\u6c99\u6069\u970d\u65af\u7279B"
             },
             "zh_tw": {
                 "short": "Scharnhorst B",
@@ -72642,12 +72918,12 @@
                 "full": "Canarias"
             },
             "pt": {
-                "short": "Can\u00e1rias",
-                "full": "Can\u00e1rias"
+                "short": "Canarias",
+                "full": "Canarias"
             },
             "pt_br": {
-                "short": "Can\u00e1rias",
-                "full": "Can\u00e1rias"
+                "short": "Canarias",
+                "full": "Canarias"
             },
             "ru": {
                 "short": "Canarias",
@@ -73498,8 +73774,8 @@
                 "full": "\u963f\u62c9\u65af\u52a0 (\u9ed1)"
             },
             "zh_sg": {
-                "short": "\u963f\u62c9\u65af\u52a0 B",
-                "full": "\u963f\u62c9\u65af\u52a0 B"
+                "short": "\u963f\u62c9\u65af\u52a0B",
+                "full": "\u963f\u62c9\u65af\u52a0B"
             },
             "zh_tw": {
                 "short": "Alaska B",
@@ -74786,8 +75062,8 @@
                 "full": "\u963f\u62c9\u5df4\u9a6c"
             },
             "zh_sg": {
-                "short": "\u963f\u62c9\u5df4\u9a6c ST",
-                "full": "\u963f\u62c9\u5df4\u9a6c ST"
+                "short": "\u963f\u62c9\u5df4\u9a6cST",
+                "full": "\u963f\u62c9\u5df4\u9a6cST"
             },
             "zh_tw": {
                 "short": "Alabama ST",
