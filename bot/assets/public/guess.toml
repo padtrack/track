@@ -488,6 +488,7 @@ similar = [
         "PRSD410",  # Delny
         "PISD109",  # Adriatico
         "PRSD409",  # Tashkent
+        "PRSD517",  # Tashkent '41
     ],
     [
         "PASD013",  # Gearing
@@ -559,6 +560,10 @@ similar = [
         "PBSA508",  # Indomitable
         "PBSA528",  # Colossus
     ],
+    [
+        "PHSC508",  # De 7 Provincien
+        "PVSC508",  # Alte Grau
+    ]
 ]
 
 forbidden = [
