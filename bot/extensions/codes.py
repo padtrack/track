@@ -17,7 +17,7 @@ import discord
 DATA_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "../assets/private/cc_data.json"
 )
-CODES_PATTERN = re.compile("(CC[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5})")
+CODES_PATTERN = re.compile("(CC[A-Z0-9]{5,6}-[A-Z0-9]{5,6}-[A-Z0-9]{5,6})")
 GUILD_ID = 395502204695609345
 
 
@@ -191,6 +191,7 @@ class CodesCog(commands.GroupCog, name="codes"):
             180431943664402432,  # Gaishu
             362357860530651137,  # Ahskance
             376545699833184268,  # Boggzy
+            212466672450142208,  # Trackpad
         ]:
             interaction.extras["ignore_error"] = True
             await interaction.response.send_message("You can't use this command.")
@@ -360,6 +361,26 @@ class CodesCog(commands.GroupCog, name="codes"):
         ) as fp:
             file = discord.File(fp, filename="export.json")
             await interaction.response.send_message(file=file)
+
+    @app_commands.command(description="Exports unused codes in pool as csv.")
+    async def unused(self, interaction: discord.Interaction):
+        files = []
+
+        for t, pool in self.pools.items():
+            fp = io.StringIO()
+            writer = csv.writer(fp)
+
+            for code in pool:
+                writer.writerow((code,))
+
+            files.append(
+                discord.File(
+                    io.BytesIO(fp.getvalue().encode("utf-8")),
+                    filename=f"CODES_{t}_{interaction.id}.csv",
+                )
+            )
+
+        await interaction.response.send_message(files=files)
 
     @app_commands.command(description="Clear all codes from a pool.")
     @app_commands.choices(category=CODE_TYPES_CHOICES)
