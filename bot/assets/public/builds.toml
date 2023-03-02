@@ -728,7 +728,7 @@ ships = [
 ]
 
 ["id.uny55pwq7wv"]
-name = "KM BBs"
+name = "KM BBs tank build"
 ships = [
 	"PGSB103",	# Nassau
 	"PGSB104",	# Kaiser
@@ -749,6 +749,30 @@ ships = [
 	"PGSB599",	# Pommern B
 	"PGSB110",	# Grosser Kurfürst
 ]
+
+["id.h0fk7ae2jqg1"]
+name = "KM BBs secondary build"
+ships = [
+	"PGSB103",	# Nassau
+	"PGSB104",	# Kaiser
+	"PGSB105",	# König
+	"PGSB106",	# Bayern
+	"PGSB107",	# Gneisenau
+	"PGSB108",	# Bismarck
+	"PGSB109",	# Friedrich der Grosse
+	"PGSB310",	# Preussen
+	"PGSB111",	# Hannover
+	"PGSB503",	# König Albert
+	"PGSB506",	# Prinz Eitel Friedrich
+	"PGSB507",	# Scharnhorst
+	"PGSB597",	# Scharnhorst B
+	"PGSB002",	# Tirpitz
+	"PGSB598",	# Tirpitz B
+	"PGSB509",	# Pommern
+	"PGSB599",	# Pommern B
+	"PGSB110",	# Grosser Kurfürst
+]
+
 
 ["id.9hf91bph8i31"]
 name = "Marceau"
@@ -1342,4 +1366,13 @@ ships = [
 name = "Z-42 DPM + fire build"
 ships = [
     "PASB208",  # Z-42
+]
+
+["id.js55tsiznta8"]
+name = "RN submarine build"
+ships = [
+    "PBSS110",  # Thrasher
+    "PBSS508",  # Alliance
+    "PBSS108",  # Sturdy
+    "PBSS106",  # Undine
 ]
