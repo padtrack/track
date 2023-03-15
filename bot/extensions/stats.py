@@ -513,6 +513,10 @@ class StatsCog(commands.Cog):
                 await interaction.followup.send(
                     "Cannot fetch ship statistics for player with hidden profile."
                 )
+            elif not player.statistics[api.DEFAULT_BATTLE_TYPE].last_battle_time:
+                await interaction.followup.send(
+                    "No cached data found for player with hidden profile."
+                )
             else:
                 embed = PartialPlayerEmbed(player)
                 view = PartialPlayerView(interaction.user.id, player)

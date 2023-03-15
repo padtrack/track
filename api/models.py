@@ -95,16 +95,16 @@ class LadderPosition:
 class ClanMemberStatistics:
     id: int
     name: str
-    last_battle_time: IT
+    last_battle_time: Optional[IT]
 
     days_in_clan: int
-    battles_count: int
-    battles_per_day: float
+    battles_count: Optional[int]
+    battles_per_day: Optional[float]
 
-    damage_per_battle: float
-    frags_per_battle: float
-    exp_per_battle: float
-    wins_percentage: float
+    damage_per_battle: Optional[float]
+    frags_per_battle: Optional[float]
+    exp_per_battle: Optional[float]
+    wins_percentage: Optional[float]
 
 
 @dataclass
