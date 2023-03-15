@@ -1365,7 +1365,7 @@ ships = [
 ["id.7ilkk6ic1mmy"]
 name = "Z-42 DPM + fire build"
 ships = [
-    "PASB208",  # Z-42
+    "PGSD610",  # Z-42
 ]
 
 ["id.js55tsiznta8"]
@@ -1375,4 +1375,10 @@ ships = [
     "PBSS508",  # Alliance
     "PBSS108",  # Sturdy
     "PBSS106",  # Undine
+]
+
+["id.7zqumj79f19k"]
+name = "Brisbane"
+ships = [
+	"PUSC510",  # Brisbane
 ]
