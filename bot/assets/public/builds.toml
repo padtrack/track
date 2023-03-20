@@ -226,6 +226,8 @@ ships = [
 	"PJSD718",  # AL Yukiakaze
 	"PJSD507",  # Yudachi
 	"PWSD111",  # Dalarna
+	"PASD111",  # J. Humphreys
+	"PZSD111",  # Kunming
 ]
 
 ["id.ixgdmvl3rc7f"]
@@ -710,6 +712,7 @@ ships = [
 	"PVSD506",	# Juruá
 	"PBSD506",	# Gallant
 	"PASD502",  # Smith
+	"PASD111",  # J. Humphreys
 ]
 
 ["id.y2ca90mt5psb"]
@@ -1381,4 +1384,10 @@ ships = [
 name = "Brisbane"
 ships = [
 	"PUSC510",  # Brisbane
+]
+
+["id.8pvmv1kyilvx"]
+name = "Illinois"
+ships = [
+	"PASB539",  # Illinois
 ]
