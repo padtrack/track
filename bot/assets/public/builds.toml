@@ -1391,3 +1391,10 @@ name = "Illinois"
 ships = [
 	"PASB539",  # Illinois
 ]
+
+["id.iqyqlkiq81qx"]
+name = "Pan-American CLs"
+ships = [
+	"PVSC102",  # Almirante Barroso
+	"PVSC108",  # Ignacio Allende
+]
