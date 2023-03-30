@@ -1396,5 +1396,12 @@ ships = [
 name = "Pan-American CLs"
 ships = [
 	"PVSC102",  # Almirante Barroso
+	"PVSC103",  # Vicente Guerrero
+	"PVSC104",  # Córdoba
+	"PVSC105",  # La Argentina
+	"PVSC106",  # Alte Cochrane
+	"PVSC107",  # Cor. Bolognesi
 	"PVSC108",  # Ignacio Allende
+	"PVSC109",  # Santander
+	"PVSC110",  # San Martin
 ]
