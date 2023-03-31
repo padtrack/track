@@ -1405,3 +1405,9 @@ ships = [
 	"PVSC109",  # Santander
 	"PVSC110",  # San Martin
 ]
+
+["id.z7tegqxyz7ob"]
+name = "Huron"
+ships = [
+	"PUSD517",  # Huron
+]
