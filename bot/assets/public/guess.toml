@@ -388,6 +388,7 @@ similar = [
         "PBSD106",  # Icarus
         "PBSD506",  # Gallant
         "PVSD506",  # Jurua
+        "PWSD205",  # Muavenet
     ],
     [
         "PGSD106",  # Ernst Gaede
@@ -478,6 +479,7 @@ similar = [
         "PFSD109",  # Mogador
         "PFSD110",  # Kleber
         "PFSD210",  # Marceau
+        "PWSD210",  # Gdansk
     ],
     [
         "PWSD110",  # Halland
@@ -522,6 +524,7 @@ similar = [
     [
         "PASS208",  # Salmon
         "PJSS518",  # I-56
+        "PASS510",  # Gato
     ],
     [
         "PBSB206",  # Renown
@@ -563,7 +566,15 @@ similar = [
     [
         "PHSC508",  # De 7 Provincien
         "PVSC508",  # Alte Grau
-    ]
+    ],
+    [
+        "PWSD501",  # Blyskawica
+        "PWSD207",  # Grom
+    ],
+    [
+        "PISC506",  # Duca d'Aosta
+        "PWSC506",  # Elli
+    ],
 ]
 
 forbidden = [
@@ -633,6 +644,8 @@ forbidden = [
     "PISC590",  # Napoli B
     "PJSD596",  # Shinonome B
     "PZSB529",  # Sun Yat-Sen
+    "PJSD889",  # STAR Kitakaze
+    "PBSC888",  # STAR Edinburgh
     "PRSD308",  # Kiev (Bad Silhouette)
     "PISC108",  # Amalfi (Bad Silhouette)
     "PISC105",  # Montecuccoli (Bad Silhouette)
