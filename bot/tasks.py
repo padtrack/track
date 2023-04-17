@@ -120,7 +120,8 @@ def render_single(
 
             chat += f"[{battle_time // 60:02}:{battle_time % 60:02}] {clan_tag}{name}: {message.message}\n"
 
-    _redis.set(f"cooldown_{requester_id}", "", ex=cooldown)
+    if requester_id:
+        _redis.set(f"cooldown_{requester_id}", "", ex=cooldown)
     return (
         video_data,
         f"render_{file_name}",
@@ -185,5 +186,6 @@ def render_dual(
     except IndexError:
         pass
 
-    _redis.set(f"cooldown_{requester_id}", "", ex=cooldown)
+    if requester_id:
+        _redis.set(f"cooldown_{requester_id}", "", ex=cooldown)
     return video_data, f"render_{green_name}_{red_name}_{name}", time_taken, "", ""
