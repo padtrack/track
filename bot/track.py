@@ -74,7 +74,7 @@ class CustomTree(app_commands.CommandTree):
                                 "This category is disabled in this channel.",
                                 ephemeral=True,
                             )
-                        return False
+                            return False
                 except KeyError:
                     pass
 
