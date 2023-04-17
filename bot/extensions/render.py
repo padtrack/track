@@ -1,4 +1,5 @@
 import aiohttp
+import asyncio
 import io
 import json
 import logging
@@ -6,7 +7,6 @@ import time
 from typing import Optional
 
 import aioredis
-import bs4
 import discord
 import redis
 import rq
@@ -25,18 +25,33 @@ _url = f"redis://:{cfg.redis.password}@localhost:{cfg.redis.port}/"
 _redis: redis.Redis = redis.from_url(_url)
 _async_redis: aioredis.Redis = aioredis.from_url(_url)
 
+UNKNOWN_JOB_STATUS_RETRY = 5
 URL_MAX_LENGTH = 512
+WOWS_TOURNAMENTS_CHANNELS = [
+    1095389506200420483,  # website-replay-api
+    1096583194284916886,  # sekrit-bot-stuff
+]
+WOWS_TOURNAMENTS_USERS = [
+    197139421290561536,  # Stewie
+    212466672450142208,  # Trackpad
+    439350471015268356,  # Test Bot
+    1004877222760415292,  # Live Bot
+]
 
 
 def track_task_request(f):
     async def wrapped(self, *args, **kwargs):
-        await _async_redis.set(f"task_request_{self._interaction.user.id}", "", ex=600)
+        if self._interaction:
+            await _async_redis.set(
+                f"task_request_{self._interaction.user.id}", "", ex=600
+            )
         try:
             return await f(self, *args, **kwargs)
         except Exception as e:
             logger.error("Render tracking failed", exc_info=e)
         finally:
-            await _async_redis.delete(f"task_request_{self._interaction.user.id}")
+            if self._interaction:
+                await _async_redis.delete(f"task_request_{self._interaction.user.id}")
 
     return wrapped
 
@@ -109,7 +124,7 @@ class Render:
 
     QUEUE: rq.Queue
 
-    def __init__(self, bot: Track, interaction: discord.Interaction):
+    def __init__(self, bot: Track, interaction: Optional[discord.Interaction]):
         self._bot = bot
         self._interaction = interaction
         self._job: Optional[rq.job.Job] = None
@@ -150,10 +165,16 @@ class Render:
             await functions.reply(self._interaction, str(e), ephemeral=True)
             return False
 
+    async def message(self, **kwargs) -> discord.Message:
+        return await functions.reply(self._interaction, **kwargs)
+
+    async def on_success(self, data: bytes, message: discord.Message) -> None:
+        return
+
     @track_task_request
     async def poll_result(self, input_name: str) -> None:
         embed = RenderWaitingEmbed(input_name, self.job_position)
-        message = await functions.reply(self._interaction, embed=embed)
+        message = await self.message(embed=embed)
         last_position: Optional[int] = None
         last_progress: Optional[float] = None
 
@@ -194,17 +215,17 @@ class Render:
                             file = discord.File(io.BytesIO(data), f"{filename}.mp4")
                             if builds_str:
                                 view = RenderView(json.loads(builds_str), chat)
-                                sent_message = await functions.reply(
-                                    self._interaction,
+                                sent_message = await self.message(
                                     content=None,
                                     file=file,
                                     view=view,
                                 )
                                 view.message = sent_message
                             else:
-                                sent_message = await functions.reply(
-                                    self._interaction, content=None, file=file
+                                sent_message = await self.message(
+                                    content=None, file=file
                                 )
+                                await self.on_success(data, sent_message)
                             embed = RenderSuccessEmbed(
                                 input_name, sent_message, time_taken
                             )
@@ -246,6 +267,12 @@ class Render:
                     await message.edit(embed=embed)
                     break
                 case _base:
+                    if status is None:
+                        await asyncio.sleep(UNKNOWN_JOB_STATUS_RETRY)
+                        status = self._job.get_status(refresh=True)
+                        if status is not None:
+                            continue
+
                     logger.warning(f"Unknown job status {status}")
                     embed = RenderFailureEmbed(input_name, "Render job expired.")
                     await message.edit(embed=embed)
@@ -361,7 +388,7 @@ class RenderDual(Render):
 
         await self._interaction.response.defer()
 
-        with (io.BytesIO() as fp1, io.BytesIO() as fp2):
+        with io.BytesIO() as fp1, io.BytesIO() as fp2:
             await self._attachment1.save(fp1)
             fp1.seek(0)
             await self._attachment2.save(fp2)
@@ -385,20 +412,23 @@ class RenderDual(Render):
         self._bot.loop.create_task(self.poll_result(f"{args[2]} vs. {args[3]}"))
 
 
-class RenderKOTS(Render):
+class RenderWT(Render):
     QUEUE = rq.Queue("dual", connection=_redis)
 
     def __init__(
         self,
         bot: Track,
-        interaction: discord.Interaction,
-        url1: str,
-        url2: str,
+        data1: bytes,
+        data2: bytes,
+        output_channel: int,
+        callback_url: Optional[str],
     ):
-        super().__init__(bot, interaction)
+        super().__init__(bot, None)
 
-        self._url1 = url1
-        self._url2 = url2
+        self._data1 = data1
+        self._data2 = data2
+        self.output_channel = output_channel
+        self.callback_url = callback_url
 
     async def _reupload(
         self, task_status: Optional[str], exc_info: Optional[str]
@@ -407,54 +437,52 @@ class RenderKOTS(Render):
             with (
                 io.StringIO(f"Task Status: {task_status}\n\n{exc_info}\n") as report,
             ):
-
                 channel = await self._bot.fetch_channel(cfg.channels.failed_renders)
                 # noinspection PyTypeChecker
                 await channel.send(
-                    f"KOTS URLs:\n{self._url1}\n{self._url2}",
                     files=[
                         discord.File(report, filename="report.txt"),
                     ],
                 )
         except (discord.HTTPException, discord.NotFound):
             logger.error(
-                f"Failed to reupload render with interaction ID {self._interaction.id}"
+                f"Failed to reupload wows-tournaments render with interaction ID {self._interaction.id}"
             )
 
-    async def start(self, *args) -> None:
+    async def _check(self) -> bool:
+        return True
+
+    async def message(self, **kwargs) -> discord.Message:
+        channel = await self._bot.fetch_channel(self.output_channel)
+        return await channel.send(**kwargs)
+
+    async def on_success(self, data: bytes, message: discord.Message) -> None:
+        if self.callback_url:
+            async with aiohttp.ClientSession() as session:
+                await session.post(
+                    f"{self.callback_url}&messageId={message.id}",
+                )
+
+    async def start(self, name_a: str, name_b: str) -> None:
         if not await self._check():
             return
 
-        await self._interaction.response.defer()
+        arguments = [
+            0,
+            self.COOLDOWN,
+            self._data1,
+            self._data2,
+        ]
+        arguments.extend((20, 9, name_a, name_b, False))
+        self._job = self.QUEUE.enqueue(
+            tasks.render_dual,
+            args=arguments,
+            failure_ttl=self.FINISHED_TTL,
+            result_ttl=self.FINISHED_TTL,
+            ttl=self.job_ttl,
+        )
 
-        async with aiohttp.ClientSession(
-            headers={"Connection": "keep-alive"}
-        ) as session:
-            async with (
-                session.get(self._url1) as response1,
-                session.get(self._url2) as response2,
-            ):
-                with (
-                    io.BytesIO(await response1.read()) as fp1,
-                    io.BytesIO(await response2.read()) as fp2,
-                ):
-
-                    arguments = [
-                        self._interaction.user.id,
-                        self.COOLDOWN,
-                        fp1.read(),
-                        fp2.read(),
-                    ]
-                    arguments.extend(args)
-                    self._job = self.QUEUE.enqueue(
-                        tasks.render_dual,
-                        args=arguments,
-                        failure_ttl=self.FINISHED_TTL,
-                        result_ttl=self.FINISHED_TTL,
-                        ttl=self.job_ttl,
-                    )
-
-                self._bot.loop.create_task(self.poll_result(f"{args[2]} vs. {args[3]}"))
+        self._bot.loop.create_task(self.poll_result(f"{name_a} vs. {name_b}"))
 
 
 class RenderEmbed(discord.Embed):
@@ -591,59 +619,36 @@ class RenderCog(commands.Cog):
         render = RenderDual(self.bot, interaction, replay_a, replay_b)
         await render.start(fps, quality, name_a, name_b, team_tracers)
 
-    @app_commands.command(
-        name="kotsrender",
-        description="Shortcut to dualrender that takes a game URL.",
-        extras={"category": "wows"},
-    )
-    @app_commands.describe(
-        url="URL that matches */matches/{match_id}/game/{game_id}",
-        fps="Can be a value from 15 to 30, and defaults to 20.",
-        quality="Can be a value from 1-9, and defaults to 7. Higher values may require Nitro boosts.",
-        team_tracers="Colors tracers by their relation to the replay creator, and defaults to off.",
-    )
-    async def kots_render(
-        self,
-        interaction: discord.Interaction,
-        url: str,
-        fps: app_commands.Range[int, 15, 30] = 20,
-        quality: app_commands.Range[int, 1, 9] = 7,
-        team_tracers: bool = False,
-    ):
-        # TODO: move interaction defer here, update docs
+    @commands.Cog.listener()
+    async def on_message(self, message: discord.Message):
+        if (
+            message.channel.id not in WOWS_TOURNAMENTS_CHANNELS
+            or message.author.id not in WOWS_TOURNAMENTS_USERS
+        ):
+            return
+
+        await message.add_reaction("✅")
+
+        try:
+            data = json.loads(message.content[1:-1])
+        except json.JSONDecodeError:
+            return
+
+        files = []
+
         async with aiohttp.ClientSession() as session:
-            async with session.get(url) as response:
-                if response.status != 200:
-                    logger.error(
-                        f"Error code {response.status} while fetching KOTS match"
-                    )
-                    await interaction.response.send_message(
-                        "Failed to fetch match, please check URL."
-                    )
-                    return
+            for replay in data["replays"]:
+                async with session.get(replay["replay"]) as response:
+                    files.append(await response.read())
 
-                soup = bs4.BeautifulSoup(await response.text(), "html.parser")
-                if len(replay_urls := soup.select("a[href*=replay]")) != 2:
-                    await interaction.response.send_message(
-                        "Couldn't find two replay URLs."
-                    )
-                    return
-
-                tag_a, tag_b = replay_urls
-
-                def get_team_name(tag):
-                    parent = next(
-                        parent for x, parent in enumerate(tag.parents) if x == 13
-                    )
-                    heading = parent.contents[0]
-                    return heading.text[10:-1]
-
-                name_a, name_b = get_team_name(tag_a), get_team_name(tag_b)
-
-                url_a = f"https://wows-tournaments.com{tag_a['href']}"
-                url_b = f"https://wows-tournaments.com{tag_b['href']}"
-                render = RenderKOTS(self.bot, interaction, url_a, url_b)
-                await render.start(fps, quality, name_a, name_b, team_tracers)
+        render = RenderWT(
+            self.bot,
+            files[0],
+            files[1],
+            data["targetChannelId"],
+            f"{data['callbackUrl']}",
+        )
+        await render.start(*[replay["tag"].upper() for replay in data["replays"]])
 
 
 async def setup(bot: Track):
