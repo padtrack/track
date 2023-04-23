@@ -722,8 +722,8 @@
                 "full": "Ignis Purgatio"
             },
             "zh": {
-                "short": "\u5723\u6d01\u4e4b\u706b",
-                "full": "\u5723\u6d01\u4e4b\u706b"
+                "short": "\u70bc\u72f1\u70c8\u7130",
+                "full": "\u70bc\u72f1\u70c8\u7130"
             },
             "zh_sg": {
                 "short": "Ignis Purgatio",
@@ -4692,6 +4692,98 @@
         }
     },
     {
+        "id": 4178490832,
+        "index": "PRSC111",
+        "isPaperShip": true,
+        "group": "demoWithoutStats",
+        "level": 11,
+        "name": "PRSC111_Novosibirsk",
+        "species": "Cruiser",
+        "nation": "Russia",
+        "translations": {
+            "cs": {
+                "short": "Novosibirsk",
+                "full": "Novosibirsk"
+            },
+            "de": {
+                "short": "Nowosibirsk",
+                "full": "Nowosibirsk"
+            },
+            "en": {
+                "short": "Novosibirsk",
+                "full": "Novosibirsk"
+            },
+            "es": {
+                "short": "Novosibirsk",
+                "full": "Novosibirsk"
+            },
+            "es_mx": {
+                "short": "Novosibirsk",
+                "full": "Novosibirsk"
+            },
+            "fr": {
+                "short": "Novosibirsk",
+                "full": "Novosibirsk"
+            },
+            "it": {
+                "short": "Novosibirsk",
+                "full": "Novosibirsk"
+            },
+            "ja": {
+                "short": "Novosibirsk",
+                "full": "Novosibirsk"
+            },
+            "ko": {
+                "short": "Novosibirsk",
+                "full": "Novosibirsk"
+            },
+            "nl": {
+                "short": "Novosibirsk",
+                "full": "Novosibirsk"
+            },
+            "pl": {
+                "short": "Nowosybirsk",
+                "full": "Nowosybirsk"
+            },
+            "pt": {
+                "short": "Novosibirsk",
+                "full": "Novosibirsk"
+            },
+            "pt_br": {
+                "short": "Novosibirsk",
+                "full": "Novosibirsk"
+            },
+            "ru": {
+                "short": "\u041d\u043e\u0432\u043e\u0441\u0438\u0431\u0438\u0440\u0441\u043a",
+                "full": "\u041d\u043e\u0432\u043e\u0441\u0438\u0431\u0438\u0440\u0441\u043a"
+            },
+            "th": {
+                "short": "Novosibirsk",
+                "full": "Novosibirsk"
+            },
+            "tr": {
+                "short": "Novosibirsk",
+                "full": "Novosibirsk"
+            },
+            "uk": {
+                "short": "\u041d\u043e\u0432\u043e\u0441\u0438\u0431\u0456\u0440\u0441\u044c\u043a",
+                "full": "\u041d\u043e\u0432\u043e\u0441\u0438\u0431\u0456\u0440\u0441\u044c\u043a"
+            },
+            "zh": {
+                "short": "\u65b0\u897f\u4f2f\u5229\u4e9a",
+                "full": "\u65b0\u897f\u4f2f\u5229\u4e9a"
+            },
+            "zh_sg": {
+                "short": "\u65b0\u897f\u4f2f\u5229\u4e9a",
+                "full": "\u65b0\u897f\u4f2f\u5229\u4e9a"
+            },
+            "zh_tw": {
+                "short": "Novosibirsk",
+                "full": "Novosibirsk"
+            }
+        }
+    },
+    {
         "id": 4188977104,
         "index": "PBSC101",
         "isPaperShip": false,
@@ -4964,6 +5056,98 @@
             "zh_tw": {
                 "short": "\u6210\u5b89",
                 "full": "\u6210\u5b89"
+            }
+        }
+    },
+    {
+        "id": 4187928016,
+        "index": "PRSC102",
+        "isPaperShip": false,
+        "group": "upgradeable",
+        "level": 2,
+        "name": "PRSC102_Novik",
+        "species": "Cruiser",
+        "nation": "Russia",
+        "translations": {
+            "cs": {
+                "short": "Novik",
+                "full": "Novik"
+            },
+            "de": {
+                "short": "Nowik",
+                "full": "Nowik"
+            },
+            "en": {
+                "short": "Novik",
+                "full": "Novik"
+            },
+            "es": {
+                "short": "Novik",
+                "full": "Novik"
+            },
+            "es_mx": {
+                "short": "Novik",
+                "full": "Novik"
+            },
+            "fr": {
+                "short": "Novik",
+                "full": "Novik"
+            },
+            "it": {
+                "short": "Novik",
+                "full": "Novik"
+            },
+            "ja": {
+                "short": "Novik",
+                "full": "Novik"
+            },
+            "ko": {
+                "short": "Novik",
+                "full": "Novik"
+            },
+            "nl": {
+                "short": "Novik",
+                "full": "Novik"
+            },
+            "pl": {
+                "short": "Nowik",
+                "full": "Nowik"
+            },
+            "pt": {
+                "short": "Novik",
+                "full": "Novik"
+            },
+            "pt_br": {
+                "short": "Novik",
+                "full": "Novik"
+            },
+            "ru": {
+                "short": "\u041d\u043e\u0432\u0438\u043a",
+                "full": "\u041d\u043e\u0432\u0438\u043a"
+            },
+            "th": {
+                "short": "Novik",
+                "full": "Novik"
+            },
+            "tr": {
+                "short": "Novik",
+                "full": "Novik"
+            },
+            "uk": {
+                "short": "\u041d\u043e\u0432\u0456\u043a",
+                "full": "\u041d\u043e\u0432\u0456\u043a"
+            },
+            "zh": {
+                "short": "\u8bfa\u7ef4\u514b",
+                "full": "\u8bfa\u7ef4\u514b"
+            },
+            "zh_sg": {
+                "short": "\u8bfa\u7ef4\u514b",
+                "full": "\u8bfa\u7ef4\u514b"
+            },
+            "zh_tw": {
+                "short": "Novik",
+                "full": "Novik"
             }
         }
     },
@@ -5874,8 +6058,8 @@
                 "full": "Jaguar"
             },
             "zh": {
-                "short": "\u730e\u5175",
-                "full": "\u730e\u5175"
+                "short": "\u7f8e\u6d32\u8c79",
+                "full": "\u7f8e\u6d32\u8c79"
             },
             "zh_sg": {
                 "short": "\u7f8e\u6d32\u8c79",
@@ -8556,98 +8740,6 @@
         }
     },
     {
-        "id": 4181702448,
-        "index": "PGSA108",
-        "isPaperShip": true,
-        "group": "upgradeable",
-        "level": 8,
-        "name": "PGSA108_Parseval",
-        "species": "AirCarrier",
-        "nation": "Germany",
-        "translations": {
-            "cs": {
-                "short": "A. Parseval",
-                "full": "August von Parseval"
-            },
-            "de": {
-                "short": "A. Parseval",
-                "full": "August von Parseval"
-            },
-            "en": {
-                "short": "A.\u00a0Parseval",
-                "full": "August von Parseval"
-            },
-            "es": {
-                "short": "A.\u00a0Parseval",
-                "full": "August von Parseval"
-            },
-            "es_mx": {
-                "short": "A. Parseval",
-                "full": "August von Parseval"
-            },
-            "fr": {
-                "short": "A. Parseval",
-                "full": "August von Parseval"
-            },
-            "it": {
-                "short": "A. Parseval",
-                "full": "August von Parseval"
-            },
-            "ja": {
-                "short": "A. Parseval",
-                "full": "August von Parseval"
-            },
-            "ko": {
-                "short": "A. Parseval",
-                "full": "August von Parseval"
-            },
-            "nl": {
-                "short": "A. Parseval",
-                "full": "August von Parseval"
-            },
-            "pl": {
-                "short": "A. Parseval",
-                "full": "August von Parseval"
-            },
-            "pt": {
-                "short": "A. Parseval",
-                "full": "August von Parseval"
-            },
-            "pt_br": {
-                "short": "A. Parseval",
-                "full": "August von Parseval"
-            },
-            "ru": {
-                "short": "A.\u00a0Parseval",
-                "full": "August von Parseval"
-            },
-            "th": {
-                "short": "A. Parseval",
-                "full": "August von Parseval"
-            },
-            "tr": {
-                "short": "A. Parseval",
-                "full": "August von Parseval"
-            },
-            "uk": {
-                "short": "A.\u00a0Parseval",
-                "full": "August von Parseval"
-            },
-            "zh": {
-                "short": "A.\u5e15\u585e\u74e6\u5c14",
-                "full": "\u5965\u53e4\u65af\u7279\u00b7\u51af\u00b7\u5e15\u585e\u74e6\u5c14"
-            },
-            "zh_sg": {
-                "short": "\u5965\u53e4\u65af\u7279\u00b7\u51af\u00b7\u5e15\u585e\u74e6\u5c14",
-                "full": "\u5965\u53e4\u65af\u7279\u00b7\u51af\u00b7\u5e15\u585e\u74e6\u5c14"
-            },
-            "zh_tw": {
-                "short": "A. Parseval",
-                "full": "August von Parseval"
-            }
-        }
-    },
-    {
         "id": 4287510224,
         "index": "PJSD007",
         "isPaperShip": false,
@@ -10028,6 +10120,98 @@
         }
     },
     {
+        "id": 3730782032,
+        "index": "PFSB538",
+        "isPaperShip": true,
+        "group": "special",
+        "level": 8,
+        "name": "PFSB538_Flandre",
+        "species": "Battleship",
+        "nation": "France",
+        "translations": {
+            "cs": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "de": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "en": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "es": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "es_mx": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "fr": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "it": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "ja": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "ko": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "nl": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "pl": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "pt": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "pt_br": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "ru": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "th": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "tr": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "uk": {
+                "short": "Flandre",
+                "full": "Flandre"
+            },
+            "zh": {
+                "short": "\u4f5b\u5170\u5fb7",
+                "full": "\u4f5b\u5170\u5fb7"
+            },
+            "zh_sg": {
+                "short": "\u5f17\u5170\u5fb7\u5c14",
+                "full": "\u5f17\u5170\u5fb7\u5c14"
+            },
+            "zh_tw": {
+                "short": "Flandre",
+                "full": "Flandre"
+            }
+        }
+    },
+    {
         "id": 3762206544,
         "index": "PFSC508",
         "isPaperShip": true,
@@ -10307,7 +10491,7 @@
         "id": 3766433040,
         "index": "PXSB504",
         "isPaperShip": false,
-        "group": "event",
+        "group": "disabled",
         "level": 10,
         "name": "PXSB504_Battleship_Duck_FA2023",
         "species": "Battleship",
@@ -10948,6 +11132,98 @@
         }
     },
     {
+        "id": 3750638896,
+        "index": "PWSD519",
+        "isPaperShip": true,
+        "group": "demoWithoutStatsPrem",
+        "level": 9,
+        "name": "PWSD519_Jager",
+        "species": "Destroyer",
+        "nation": "Europe",
+        "translations": {
+            "cs": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "de": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "en": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "es": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "es_mx": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "fr": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "it": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "ja": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "ko": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "nl": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "pl": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "pt": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "pt_br": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "ru": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "th": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "tr": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "uk": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            },
+            "zh": {
+                "short": "\u730e\u5175",
+                "full": "\u730e\u5175"
+            },
+            "zh_sg": {
+                "short": "\u8036\u683c\u5c14",
+                "full": "\u8036\u683c\u5c14"
+            },
+            "zh_tw": {
+                "short": "J\u00e4ger",
+                "full": "J\u00e4ger"
+            }
+        }
+    },
+    {
         "id": 3761157488,
         "index": "PUSC509",
         "isPaperShip": true,
@@ -11128,6 +11404,98 @@
             "zh_tw": {
                 "short": "Y\u016bbari",
                 "full": "Y\u016bbari"
+            }
+        }
+    },
+    {
+        "id": 4178524112,
+        "index": "PBSB111",
+        "isPaperShip": true,
+        "group": "demoWithoutStats",
+        "level": 11,
+        "name": "PBSB111_Devastation",
+        "species": "Battleship",
+        "nation": "United_Kingdom",
+        "translations": {
+            "cs": {
+                "short": "Devastation",
+                "full": "Devastation"
+            },
+            "de": {
+                "short": "Devastation",
+                "full": "Devastation"
+            },
+            "en": {
+                "short": "Devastation",
+                "full": "Devastation"
+            },
+            "es": {
+                "short": "Devastation",
+                "full": "Devastation"
+            },
+            "es_mx": {
+                "short": "Devastation",
+                "full": "Devastation"
+            },
+            "fr": {
+                "short": "Devastation",
+                "full": "Devastation"
+            },
+            "it": {
+                "short": "Devastation",
+                "full": "Devastation"
+            },
+            "ja": {
+                "short": "Devastation",
+                "full": "Devastation"
+            },
+            "ko": {
+                "short": "Devastation",
+                "full": "Devastation"
+            },
+            "nl": {
+                "short": "Devastation",
+                "full": "Devastation"
+            },
+            "pl": {
+                "short": "Devastation",
+                "full": "Devastation"
+            },
+            "pt": {
+                "short": "Devasta\u00e7\u00e3o",
+                "full": "Devasta\u00e7\u00e3o"
+            },
+            "pt_br": {
+                "short": "Devasta\u00e7\u00e3o",
+                "full": "Devasta\u00e7\u00e3o"
+            },
+            "ru": {
+                "short": "Devastation",
+                "full": "Devastation"
+            },
+            "th": {
+                "short": "Devastation",
+                "full": "Devastation"
+            },
+            "tr": {
+                "short": "Devastation",
+                "full": "Devastation"
+            },
+            "uk": {
+                "short": "Devastation",
+                "full": "Devastation"
+            },
+            "zh": {
+                "short": "\u8e42\u8e8f",
+                "full": "\u8e42\u8e8f"
+            },
+            "zh_sg": {
+                "short": "\u6bc1\u706d",
+                "full": "\u6bc1\u706d"
+            },
+            "zh_tw": {
+                "short": "Devastation",
+                "full": "Devastation"
             }
         }
     },
@@ -13251,7 +13619,7 @@
         "id": 4178458608,
         "index": "PASD111",
         "isPaperShip": true,
-        "group": "earlyAccess",
+        "group": "superShip",
         "level": 11,
         "name": "PASD111_Joshua_Humphreys",
         "species": "Destroyer",
@@ -13428,6 +13796,98 @@
             "zh_tw": {
                 "short": "Zipper Sub",
                 "full": "Zipper Sub"
+            }
+        }
+    },
+    {
+        "id": 3742316528,
+        "index": "PASB527",
+        "isPaperShip": false,
+        "group": "demoWithoutStatsPrem",
+        "level": 7,
+        "name": "PASB527_West_Virginia_1944",
+        "species": "Battleship",
+        "nation": "USA",
+        "translations": {
+            "cs": {
+                "short": "W.\u00a0Virginia\u00a0'44",
+                "full": "West Virginia\u00a0'44"
+            },
+            "de": {
+                "short": "W.\u00a0Virginia\u00a0\u201944",
+                "full": "West Virginia\u00a0\u201944"
+            },
+            "en": {
+                "short": "W. Virginia '44",
+                "full": "West Virginia '44"
+            },
+            "es": {
+                "short": "W. Virginia\u00a0'44",
+                "full": "West Virginia\u00a0'44"
+            },
+            "es_mx": {
+                "short": "W.\u00a0Virginia\u00a0'44",
+                "full": "West\u00a0Virginia\u00a0'44"
+            },
+            "fr": {
+                "short": "W. Virginia '44",
+                "full": "West Virginia '44"
+            },
+            "it": {
+                "short": "W. Virginia '44",
+                "full": "West Virginia '44"
+            },
+            "ja": {
+                "short": "W. Virginia '44",
+                "full": "West Virginia '44"
+            },
+            "ko": {
+                "short": "W. Virginia '44",
+                "full": "West Virginia '44"
+            },
+            "nl": {
+                "short": "W. Virginia '44",
+                "full": "West Virginia '44"
+            },
+            "pl": {
+                "short": "W. Virginia '44",
+                "full": "West Virginia '44"
+            },
+            "pt": {
+                "short": "W. Virginia '44",
+                "full": "West Virginia '44"
+            },
+            "pt_br": {
+                "short": "W. Virginia '44",
+                "full": "West Virginia '44"
+            },
+            "ru": {
+                "short": "W. Virginia '44",
+                "full": "West Virginia '44"
+            },
+            "th": {
+                "short": "W. Virginia '44",
+                "full": "West Virginia '44"
+            },
+            "tr": {
+                "short": "W. Virginia '44",
+                "full": "West Virginia '44"
+            },
+            "uk": {
+                "short": "W. Virginia '44",
+                "full": "West Virginia '44"
+            },
+            "zh": {
+                "short": "\u897f\u5f17\u5409\u5c3c\u4e9a '44",
+                "full": "\u897f\u5f17\u5409\u5c3c\u4e9a '44"
+            },
+            "zh_sg": {
+                "short": "\u897f\u5f17\u5409\u5c3c\u4e9a44",
+                "full": "\u897f\u5f17\u5409\u5c3c\u4e9a44"
+            },
+            "zh_tw": {
+                "short": "W. Virginia '44",
+                "full": "West Virginia '44"
             }
         }
     },
@@ -18124,98 +18584,6 @@
         }
     },
     {
-        "id": 3752736208,
-        "index": "PRSD517",
-        "isPaperShip": false,
-        "group": "demoWithoutStatsPrem",
-        "level": 7,
-        "name": "PRSD517_Tashkent_1941",
-        "species": "Destroyer",
-        "nation": "Russia",
-        "translations": {
-            "cs": {
-                "short": "Tashkent\u00a0'41",
-                "full": "Tashkent\u00a0'41"
-            },
-            "de": {
-                "short": "Taschkent\u00a0\u201941",
-                "full": "Taschkent\u00a0\u201941"
-            },
-            "en": {
-                "short": "Tashkent\u00a0'41",
-                "full": "Tashkent\u00a0'41"
-            },
-            "es": {
-                "short": "Tashkent\u00a0'41",
-                "full": "Tashkent\u00a0'41"
-            },
-            "es_mx": {
-                "short": "Tashkent\u00a0'41",
-                "full": "Tashkent\u00a0'41"
-            },
-            "fr": {
-                "short": "Tashkent\u00a0'41",
-                "full": "Tashkent\u00a0'41"
-            },
-            "it": {
-                "short": "Tashkent\u00a0'41",
-                "full": "Tashkent\u00a0'41"
-            },
-            "ja": {
-                "short": "Tashkent\u00a0'41",
-                "full": "Tashkent\u00a0'41"
-            },
-            "ko": {
-                "short": "Tashkent\u00a0'41",
-                "full": "Tashkent\u00a0'41"
-            },
-            "nl": {
-                "short": "Tashkent\u00a0'41",
-                "full": "Tashkent\u00a0'41"
-            },
-            "pl": {
-                "short": "Taszkient\u00a0\u201941",
-                "full": "Taszkient\u00a0\u201941"
-            },
-            "pt": {
-                "short": "Tashkent\u00a0'41",
-                "full": "Tashkent\u00a0'41"
-            },
-            "pt_br": {
-                "short": "Tashkent\u00a0'41",
-                "full": "Tashkent\u00a0'41"
-            },
-            "ru": {
-                "short": "\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u00a0'41",
-                "full": "\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u00a0'41"
-            },
-            "th": {
-                "short": "Tashkent\u00a0'41",
-                "full": "Tashkent\u00a0'41"
-            },
-            "tr": {
-                "short": "Tashkent\u00a0'41",
-                "full": "Tashkent\u00a0'41"
-            },
-            "uk": {
-                "short": "\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u00a0'41",
-                "full": "\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u00a0'41"
-            },
-            "zh": {
-                "short": "\u5854\u4ec0\u5e72 '41",
-                "full": "\u5854\u4ec0\u5e72 '41"
-            },
-            "zh_sg": {
-                "short": "\u5854\u4ec0\u5e7241",
-                "full": "\u5854\u4ec0\u5e7241"
-            },
-            "zh_tw": {
-                "short": "Tashkent\u00a0'41",
-                "full": "Tashkent\u00a0'41"
-            }
-        }
-    },
-    {
         "id": 3762271984,
         "index": "PISA508",
         "isPaperShip": true,
@@ -19684,98 +20052,6 @@
             "zh_tw": {
                 "short": "Vampire II",
                 "full": "Vampire II"
-            }
-        }
-    },
-    {
-        "id": 4081006384,
-        "index": "PGSB204",
-        "isPaperShip": false,
-        "group": "upgradeable",
-        "level": 4,
-        "name": "PGSB204_Moltke",
-        "species": "Battleship",
-        "nation": "Germany",
-        "translations": {
-            "cs": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "de": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "en": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "es": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "es_mx": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "fr": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "it": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "ja": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "ko": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "nl": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "pl": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "pt": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "pt_br": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "ru": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "th": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "tr": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "uk": {
-                "short": "Moltke",
-                "full": "Moltke"
-            },
-            "zh": {
-                "short": "\u6bdb\u5947",
-                "full": "\u6bdb\u5947"
-            },
-            "zh_sg": {
-                "short": "\u6bdb\u5947",
-                "full": "\u6bdb\u5947"
-            },
-            "zh_tw": {
-                "short": "Moltke",
-                "full": "Moltke"
             }
         }
     },
@@ -23552,98 +23828,6 @@
         }
     },
     {
-        "id": 4180554960,
-        "index": "PZSD109",
-        "isPaperShip": false,
-        "group": "upgradeable",
-        "level": 9,
-        "name": "PZSD109_Chung_Mu",
-        "species": "Destroyer",
-        "nation": "Pan_Asia",
-        "translations": {
-            "cs": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "de": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "en": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "es": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "es_mx": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "fr": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "it": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "ja": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "ko": {
-                "short": "\ucda9\ubb34\ud568",
-                "full": "\ucda9\ubb34\ud568"
-            },
-            "nl": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "pl": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "pt": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "pt_br": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "ru": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "th": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "tr": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "uk": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            },
-            "zh": {
-                "short": "\u5fe0\u6b66",
-                "full": "\u5fe0\u6b66"
-            },
-            "zh_sg": {
-                "short": "\u5fe0\u6b66",
-                "full": "\u5fe0\u6b66"
-            },
-            "zh_tw": {
-                "short": "Chung Mu",
-                "full": "Chung Mu"
-            }
-        }
-    },
-    {
         "id": 4076779344,
         "index": "PFSC208",
         "isPaperShip": true,
@@ -25303,7 +25487,7 @@
         "id": 4179015632,
         "index": "PBSS110",
         "isPaperShip": false,
-        "group": "earlyAccess",
+        "group": "upgradeable",
         "level": 10,
         "name": "PBSS110_Thrasher",
         "species": "Submarine",
@@ -27327,7 +27511,7 @@
         "id": 3769546000,
         "index": "PXSC501",
         "isPaperShip": false,
-        "group": "event",
+        "group": "disabled",
         "level": 10,
         "name": "PXSC501_Cruiser_Duck_FA2023",
         "species": "Cruiser",
@@ -29443,7 +29627,7 @@
         "id": 3767416080,
         "index": "PXSD503",
         "isPaperShip": false,
-        "group": "event",
+        "group": "disabled",
         "level": 11,
         "name": "PXSD503_Destroyer_Duck_Two_FA2023",
         "species": "Destroyer",
@@ -32663,7 +32847,7 @@
         "id": 3768464656,
         "index": "PXSD502",
         "isPaperShip": false,
-        "group": "event",
+        "group": "disabled",
         "level": 10,
         "name": "PXSD502_Destroyer_Duck_FA2023",
         "species": "Destroyer",
@@ -33212,6 +33396,98 @@
         }
     },
     {
+        "id": 3447666672,
+        "index": "PASB808",
+        "isPaperShip": false,
+        "group": "demoWithoutStatsPrem",
+        "level": 8,
+        "name": "PASB808_Colorful_North_Carolina",
+        "species": "Battleship",
+        "nation": "USA",
+        "translations": {
+            "cs": {
+                "short": "N.\u00a0Carolina\u00a0CLR",
+                "full": "North\u00a0Carolina\u00a0CLR"
+            },
+            "de": {
+                "short": "N.\u00a0Carolina\u00a0CLR",
+                "full": "North Carolina\u00a0CLR"
+            },
+            "en": {
+                "short": "N. Carolina CLR",
+                "full": "North\u00a0Carolina\u00a0CLR"
+            },
+            "es": {
+                "short": "N. Carolina CLR",
+                "full": "North Carolina\u00a0CLR"
+            },
+            "es_mx": {
+                "short": "N.\u00a0Carolina\u00a0CLR",
+                "full": "North\u00a0Carolina\u00a0CLR"
+            },
+            "fr": {
+                "short": "N. Carolina CLR",
+                "full": "North\u00a0Carolina\u00a0CLR"
+            },
+            "it": {
+                "short": "N. Carolina CLR",
+                "full": "North\u00a0Carolina\u00a0CLR"
+            },
+            "ja": {
+                "short": "N. Carolina CLR",
+                "full": "North\u00a0Carolina\u00a0CLR"
+            },
+            "ko": {
+                "short": "N. Carolina CLR",
+                "full": "North\u00a0Carolina\u00a0CLR"
+            },
+            "nl": {
+                "short": "N. Carolina CLR",
+                "full": "North\u00a0Carolina\u00a0CLR"
+            },
+            "pl": {
+                "short": "N. Carolina CLR",
+                "full": "North\u00a0Carolina\u00a0CLR"
+            },
+            "pt": {
+                "short": "N. Carolina CLR",
+                "full": "North\u00a0Carolina\u00a0CLR"
+            },
+            "pt_br": {
+                "short": "N. Carolina CLR",
+                "full": "North\u00a0Carolina\u00a0CLR"
+            },
+            "ru": {
+                "short": "N. Carolina CLR",
+                "full": "North Carolina CLR"
+            },
+            "th": {
+                "short": "N. Carolina CLR",
+                "full": "North\u00a0Carolina\u00a0CLR"
+            },
+            "tr": {
+                "short": "N. Carolina CLR",
+                "full": "North\u00a0Carolina\u00a0CLR"
+            },
+            "uk": {
+                "short": "N. Carolina CLR",
+                "full": "North Carolina CLR"
+            },
+            "zh": {
+                "short": "\u5317\u5361\u7f57\u6765\u7eb3 \u70ab\u5f69",
+                "full": "\u5317\u5361\u7f57\u6765\u7eb3 \u70ab\u5f69"
+            },
+            "zh_sg": {
+                "short": "\u5317\u5361\u7f57\u6765\u7eb3CLR",
+                "full": "\u5317\u5361\u7f57\u6765\u7eb3CLR"
+            },
+            "zh_tw": {
+                "short": "N. Carolina CLR",
+                "full": "North\u00a0Carolina\u00a0CLR"
+            }
+        }
+    },
+    {
         "id": 3760109296,
         "index": "PISC510",
         "isPaperShip": true,
@@ -33668,98 +33944,6 @@
             "zh_tw": {
                 "short": "Makarov",
                 "full": "Admiral Makarov"
-            }
-        }
-    },
-    {
-        "id": 4187895536,
-        "index": "PISD102",
-        "isPaperShip": false,
-        "group": "upgradeable",
-        "level": 2,
-        "name": "PISD102_Curtatone",
-        "species": "Destroyer",
-        "nation": "Italy",
-        "translations": {
-            "cs": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "de": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "en": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "es": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "es_mx": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "fr": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "it": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "ja": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "ko": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "nl": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "pl": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "pt": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "pt_br": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "ru": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "th": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "tr": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "uk": {
-                "short": "Curtatone",
-                "full": "Curtatone"
-            },
-            "zh": {
-                "short": "\u5e93\u5c14\u5854\u6258\u5185",
-                "full": "\u5e93\u5c14\u5854\u6258\u5185"
-            },
-            "zh_sg": {
-                "short": "\u5e93\u5c14\u5854\u6258\u5185",
-                "full": "\u5e93\u5c14\u5854\u6258\u5185"
-            },
-            "zh_tw": {
-                "short": "Curtatone",
-                "full": "Curtatone"
             }
         }
     },
@@ -34319,7 +34503,7 @@
         "id": 3762206032,
         "index": "PVSC508",
         "isPaperShip": false,
-        "group": "demoWithoutStatsPrem",
+        "group": "special",
         "level": 8,
         "name": "PVSC508_Almirante_Grau",
         "species": "Cruiser",
@@ -36524,98 +36708,6 @@
         }
     },
     {
-        "id": 4187928016,
-        "index": "PRSC102",
-        "isPaperShip": false,
-        "group": "upgradeable",
-        "level": 2,
-        "name": "PRSC102_Novik",
-        "species": "Cruiser",
-        "nation": "Russia",
-        "translations": {
-            "cs": {
-                "short": "Novik",
-                "full": "Novik"
-            },
-            "de": {
-                "short": "Nowik",
-                "full": "Nowik"
-            },
-            "en": {
-                "short": "Novik",
-                "full": "Novik"
-            },
-            "es": {
-                "short": "Novik",
-                "full": "Novik"
-            },
-            "es_mx": {
-                "short": "Novik",
-                "full": "Novik"
-            },
-            "fr": {
-                "short": "Novik",
-                "full": "Novik"
-            },
-            "it": {
-                "short": "Novik",
-                "full": "Novik"
-            },
-            "ja": {
-                "short": "Novik",
-                "full": "Novik"
-            },
-            "ko": {
-                "short": "Novik",
-                "full": "Novik"
-            },
-            "nl": {
-                "short": "Novik",
-                "full": "Novik"
-            },
-            "pl": {
-                "short": "Nowik",
-                "full": "Nowik"
-            },
-            "pt": {
-                "short": "Novik",
-                "full": "Novik"
-            },
-            "pt_br": {
-                "short": "Novik",
-                "full": "Novik"
-            },
-            "ru": {
-                "short": "\u041d\u043e\u0432\u0438\u043a",
-                "full": "\u041d\u043e\u0432\u0438\u043a"
-            },
-            "th": {
-                "short": "Novik",
-                "full": "Novik"
-            },
-            "tr": {
-                "short": "Novik",
-                "full": "Novik"
-            },
-            "uk": {
-                "short": "\u041d\u043e\u0432\u0456\u043a",
-                "full": "\u041d\u043e\u0432\u0456\u043a"
-            },
-            "zh": {
-                "short": "\u8bfa\u7ef4\u514b",
-                "full": "\u8bfa\u7ef4\u514b"
-            },
-            "zh_sg": {
-                "short": "\u8bfa\u7ef4\u514b",
-                "full": "\u8bfa\u7ef4\u514b"
-            },
-            "zh_tw": {
-                "short": "Novik",
-                "full": "Novik"
-            }
-        }
-    },
-    {
         "id": 3560912592,
         "index": "PJSB700",
         "isPaperShip": false,
@@ -37362,84 +37454,84 @@
         "nation": "USA",
         "translations": {
             "cs": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W.\u00a0Virginia\u00a0'41",
+                "full": "W.\u00a0Virginia\u00a0'41"
             },
             "de": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W.\u00a0Virginia\u00a0\u201941",
+                "full": "W.\u00a0Virginia\u00a0\u201941"
             },
             "en": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W. Virginia '41",
+                "full": "W. Virginia '41"
             },
             "es": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W. Virginia\u00a0'41",
+                "full": "W. Virginia\u00a0'41"
             },
             "es_mx": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W.\u00a0Virginia\u00a0'41",
+                "full": "W.\u00a0Virginia\u00a0'41"
             },
             "fr": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W. Virginia '41",
+                "full": "W. Virginia '41"
             },
             "it": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W. Virginia '41",
+                "full": "W. Virginia '41"
             },
             "ja": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W. Virginia '41",
+                "full": "W. Virginia '41"
             },
             "ko": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W. Virginia '41",
+                "full": "W. Virginia '41"
             },
             "nl": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W. Virginia '41",
+                "full": "W. Virginia '41"
             },
             "pl": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W. Virginia '41",
+                "full": "W. Virginia '41"
             },
             "pt": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W. Virginia '41",
+                "full": "W. Virginia '41"
             },
             "pt_br": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W. Virginia '41",
+                "full": "W. Virginia '41"
             },
             "ru": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W. Virginia '41",
+                "full": "W. Virginia '41"
             },
             "th": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W. Virginia '41",
+                "full": "W. Virginia '41"
             },
             "tr": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W. Virginia '41",
+                "full": "W. Virginia '41"
             },
             "uk": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W. Virginia '41",
+                "full": "W. Virginia '41"
             },
             "zh": {
-                "short": "\u897f\u5f17\u5409\u5c3c\u4e9a",
-                "full": "\u897f\u5f17\u5409\u5c3c\u4e9a"
+                "short": "\u897f\u5f17\u5409\u5c3c\u4e9a '41",
+                "full": "\u897f\u5f17\u5409\u5c3c\u4e9a '41"
             },
             "zh_sg": {
-                "short": "\u897f\u5f17\u5409\u5c3c\u4e9a1941",
-                "full": "\u897f\u5f17\u5409\u5c3c\u4e9a1941"
+                "short": "\u897f\u5f17\u5409\u5c3c\u4e9a41",
+                "full": "\u897f\u5f17\u5409\u5c3c\u4e9a41"
             },
             "zh_tw": {
-                "short": "W. Virginia 1941",
-                "full": "W. Virginia 1941"
+                "short": "W. Virginia '41",
+                "full": "W. Virginia '41"
             }
         }
     },
@@ -39468,6 +39560,98 @@
         }
     },
     {
+        "id": 4187895536,
+        "index": "PISD102",
+        "isPaperShip": false,
+        "group": "upgradeable",
+        "level": 2,
+        "name": "PISD102_Curtatone",
+        "species": "Destroyer",
+        "nation": "Italy",
+        "translations": {
+            "cs": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "de": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "en": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "es": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "es_mx": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "fr": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "it": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "ja": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "ko": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "nl": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "pl": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "pt": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "pt_br": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "ru": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "th": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "tr": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "uk": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            },
+            "zh": {
+                "short": "\u5e93\u5c14\u5854\u6258\u5185",
+                "full": "\u5e93\u5c14\u5854\u6258\u5185"
+            },
+            "zh_sg": {
+                "short": "\u5e93\u5c14\u5854\u6258\u5185",
+                "full": "\u5e93\u5c14\u5854\u6258\u5185"
+            },
+            "zh_tw": {
+                "short": "Curtatone",
+                "full": "Curtatone"
+            }
+        }
+    },
+    {
         "id": 4281219056,
         "index": "PASD013",
         "isPaperShip": false,
@@ -41304,6 +41488,98 @@
             "zh_tw": {
                 "short": "V-25",
                 "full": "V-25"
+            }
+        }
+    },
+    {
+        "id": 3446585136,
+        "index": "PGSC809",
+        "isPaperShip": true,
+        "group": "demoWithoutStatsPrem",
+        "level": 9,
+        "name": "PGSC809_Colorful_Roon",
+        "species": "Cruiser",
+        "nation": "Germany",
+        "translations": {
+            "cs": {
+                "short": "Roon\u00a0CLR",
+                "full": "Roon\u00a0CLR"
+            },
+            "de": {
+                "short": "Roon\u00a0CLR",
+                "full": "Roon\u00a0CLR"
+            },
+            "en": {
+                "short": "Roon CLR",
+                "full": "Roon CLR"
+            },
+            "es": {
+                "short": "Roon\u00a0CLR",
+                "full": "Roon\u00a0CLR"
+            },
+            "es_mx": {
+                "short": "Roon\u00a0CLR",
+                "full": "Roon\u00a0CLR"
+            },
+            "fr": {
+                "short": "Roon CLR",
+                "full": "Roon CLR"
+            },
+            "it": {
+                "short": "Roon CLR",
+                "full": "Roon CLR"
+            },
+            "ja": {
+                "short": "Roon CLR",
+                "full": "Roon CLR"
+            },
+            "ko": {
+                "short": "Roon CLR",
+                "full": "Roon CLR"
+            },
+            "nl": {
+                "short": "Roon CLR",
+                "full": "Roon CLR"
+            },
+            "pl": {
+                "short": "Roon CLR",
+                "full": "Roon CLR"
+            },
+            "pt": {
+                "short": "Roon CLR",
+                "full": "Roon CLR"
+            },
+            "pt_br": {
+                "short": "Roon CLR",
+                "full": "Roon CLR"
+            },
+            "ru": {
+                "short": "Roon CLR",
+                "full": "Roon CLR"
+            },
+            "th": {
+                "short": "Roon CLR",
+                "full": "Roon CLR"
+            },
+            "tr": {
+                "short": "Roon CLR",
+                "full": "Roon CLR"
+            },
+            "uk": {
+                "short": "Roon CLR",
+                "full": "Roon CLR"
+            },
+            "zh": {
+                "short": "\u7f57\u6069 \u70ab\u5f69",
+                "full": "\u7f57\u6069 \u70ab\u5f69"
+            },
+            "zh_sg": {
+                "short": "\u7f57\u6069CLR",
+                "full": "\u7f57\u6069CLR"
+            },
+            "zh_tw": {
+                "short": "Roon CLR",
+                "full": "Roon CLR"
             }
         }
     },
@@ -43880,98 +44156,6 @@
             "zh_tw": {
                 "short": "Zorkiy",
                 "full": "Zorkiy"
-            }
-        }
-    },
-    {
-        "id": 4285445840,
-        "index": "PJSC009",
-        "isPaperShip": false,
-        "group": "upgradeable",
-        "level": 8,
-        "name": "PJSC009_Mogami_1935",
-        "species": "Cruiser",
-        "nation": "Japan",
-        "translations": {
-            "cs": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "de": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "en": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "es": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "es_mx": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "fr": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "it": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "ja": {
-                "short": "\u6700\u4e0a",
-                "full": "\u6700\u4e0a"
-            },
-            "ko": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "nl": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "pl": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "pt": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "pt_br": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "ru": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "th": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "tr": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "uk": {
-                "short": "Mogami",
-                "full": "Mogami"
-            },
-            "zh": {
-                "short": "\u72ee",
-                "full": "\u72ee"
-            },
-            "zh_sg": {
-                "short": "\u6700\u4e0a",
-                "full": "\u6700\u4e0a"
-            },
-            "zh_tw": {
-                "short": "Mogami",
-                "full": "Mogami"
             }
         }
     },
@@ -46555,7 +46739,7 @@
         "id": 4183209936,
         "index": "PBSS106",
         "isPaperShip": false,
-        "group": "earlyAccess",
+        "group": "upgradeable",
         "level": 6,
         "name": "PBSS106_Undine",
         "species": "Submarine",
@@ -47564,6 +47748,98 @@
         }
     },
     {
+        "id": 4285445840,
+        "index": "PJSC009",
+        "isPaperShip": false,
+        "group": "upgradeable",
+        "level": 8,
+        "name": "PJSC009_Mogami_1935",
+        "species": "Cruiser",
+        "nation": "Japan",
+        "translations": {
+            "cs": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "de": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "en": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "es": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "es_mx": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "fr": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "it": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "ja": {
+                "short": "\u6700\u4e0a",
+                "full": "\u6700\u4e0a"
+            },
+            "ko": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "nl": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "pl": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "pt": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "pt_br": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "ru": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "th": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "tr": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "uk": {
+                "short": "Mogami",
+                "full": "Mogami"
+            },
+            "zh": {
+                "short": "\u72ee",
+                "full": "\u72ee"
+            },
+            "zh_sg": {
+                "short": "\u6700\u4e0a",
+                "full": "\u6700\u4e0a"
+            },
+            "zh_tw": {
+                "short": "Mogami",
+                "full": "Mogami"
+            }
+        }
+    },
+    {
         "id": 4181636944,
         "index": "PFSC108",
         "isPaperShip": true,
@@ -47744,6 +48020,98 @@
             "zh_tw": {
                 "short": "Iwaki A",
                 "full": "Iwaki Alpha"
+            }
+        }
+    },
+    {
+        "id": 4081006384,
+        "index": "PGSB204",
+        "isPaperShip": false,
+        "group": "upgradeable",
+        "level": 4,
+        "name": "PGSB204_Moltke",
+        "species": "Battleship",
+        "nation": "Germany",
+        "translations": {
+            "cs": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "de": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "en": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "es": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "es_mx": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "fr": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "it": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "ja": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "ko": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "nl": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "pl": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "pt": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "pt_br": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "ru": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "th": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "tr": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "uk": {
+                "short": "Moltke",
+                "full": "Moltke"
+            },
+            "zh": {
+                "short": "\u6bdb\u5947",
+                "full": "\u6bdb\u5947"
+            },
+            "zh_sg": {
+                "short": "\u6bdb\u5947",
+                "full": "\u6bdb\u5947"
+            },
+            "zh_tw": {
+                "short": "Moltke",
+                "full": "Moltke"
             }
         }
     },
@@ -51615,7 +51983,7 @@
         "id": 4178457808,
         "index": "PZSD111",
         "isPaperShip": true,
-        "group": "earlyAccess",
+        "group": "superShip",
         "level": 11,
         "name": "PZSD111_Kunming",
         "species": "Destroyer",
@@ -53268,6 +53636,98 @@
         }
     },
     {
+        "id": 4180554960,
+        "index": "PZSD109",
+        "isPaperShip": false,
+        "group": "upgradeable",
+        "level": 9,
+        "name": "PZSD109_Chung_Mu",
+        "species": "Destroyer",
+        "nation": "Pan_Asia",
+        "translations": {
+            "cs": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "de": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "en": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "es": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "es_mx": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "fr": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "it": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "ja": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "ko": {
+                "short": "\ucda9\ubb34\ud568",
+                "full": "\ucda9\ubb34\ud568"
+            },
+            "nl": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "pl": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "pt": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "pt_br": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "ru": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "th": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "tr": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "uk": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            },
+            "zh": {
+                "short": "\u5fe0\u6b66",
+                "full": "\u5fe0\u6b66"
+            },
+            "zh_sg": {
+                "short": "\u5fe0\u6b66",
+                "full": "\u5fe0\u6b66"
+            },
+            "zh_tw": {
+                "short": "Chung Mu",
+                "full": "Chung Mu"
+            }
+        }
+    },
+    {
         "id": 4184749264,
         "index": "PZSD105",
         "isPaperShip": true,
@@ -53731,7 +54191,7 @@
         "id": 3768497424,
         "index": "PXSC502",
         "isPaperShip": false,
-        "group": "event",
+        "group": "disabled",
         "level": 11,
         "name": "PXSC502_Cruiser_Duck_Two_FA2023",
         "species": "Cruiser",
@@ -54467,7 +54927,7 @@
         "id": 3729733328,
         "index": "PJSB539",
         "isPaperShip": true,
-        "group": "demoWithoutStats",
+        "group": "special",
         "level": 9,
         "name": "PJSB539_Daisen",
         "species": "Battleship",
@@ -55847,7 +56307,7 @@
         "id": 3764335888,
         "index": "PXSB506",
         "isPaperShip": false,
-        "group": "event",
+        "group": "disabled",
         "level": 11,
         "name": "PXSB506_Battleship_Duck_Two_FA2023",
         "species": "Battleship",
@@ -61180,6 +61640,98 @@
         }
     },
     {
+        "id": 3750639600,
+        "index": "PASD519",
+        "isPaperShip": false,
+        "group": "demoWithoutStatsPrem",
+        "level": 9,
+        "name": "PASD519_Halford",
+        "species": "Destroyer",
+        "nation": "USA",
+        "translations": {
+            "cs": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "de": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "en": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "es": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "es_mx": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "fr": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "it": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "ja": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "ko": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "nl": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "pl": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "pt": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "pt_br": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "ru": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "th": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "tr": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "uk": {
+                "short": "Halford",
+                "full": "Halford"
+            },
+            "zh": {
+                "short": "\u54c8\u5c14\u798f\u5fb7",
+                "full": "\u54c8\u5c14\u798f\u5fb7"
+            },
+            "zh_sg": {
+                "short": "\u54c8\u5c14\u798f\u5fb7",
+                "full": "\u54c8\u5c14\u798f\u5fb7"
+            },
+            "zh_tw": {
+                "short": "Halford",
+                "full": "Halford"
+            }
+        }
+    },
+    {
         "id": 4188976880,
         "index": "PISC101",
         "isPaperShip": false,
@@ -61643,7 +62195,7 @@
         "id": 4181112784,
         "index": "PBSS108",
         "isPaperShip": false,
-        "group": "earlyAccess",
+        "group": "upgradeable",
         "level": 8,
         "name": "PBSS108_Sturdy",
         "species": "Submarine",
@@ -62372,6 +62924,98 @@
             "zh_tw": {
                 "short": "Shchors",
                 "full": "Shchors"
+            }
+        }
+    },
+    {
+        "id": 3752736208,
+        "index": "PRSD517",
+        "isPaperShip": false,
+        "group": "special",
+        "level": 7,
+        "name": "PRSD517_Tashkent_1939",
+        "species": "Destroyer",
+        "nation": "Russia",
+        "translations": {
+            "cs": {
+                "short": "Tashkent\u00a0'39",
+                "full": "Tashkent\u00a0'39"
+            },
+            "de": {
+                "short": "Taschkent\u00a0\u201939",
+                "full": "Taschkent\u00a0\u201939"
+            },
+            "en": {
+                "short": "Tashkent\u00a0'39",
+                "full": "Tashkent\u00a0'39"
+            },
+            "es": {
+                "short": "Tashkent\u00a0'39",
+                "full": "Tashkent\u00a0'39"
+            },
+            "es_mx": {
+                "short": "Tashkent\u00a0'39",
+                "full": "Tashkent\u00a0'39"
+            },
+            "fr": {
+                "short": "Tashkent\u00a0'39",
+                "full": "Tashkent\u00a0'39"
+            },
+            "it": {
+                "short": "Tashkent\u00a0'39",
+                "full": "Tashkent\u00a0'39"
+            },
+            "ja": {
+                "short": "Tashkent\u00a0'39",
+                "full": "Tashkent\u00a0'39"
+            },
+            "ko": {
+                "short": "Tashkent\u00a0'39",
+                "full": "Tashkent\u00a0'39"
+            },
+            "nl": {
+                "short": "Tashkent\u00a0'39",
+                "full": "Tashkent\u00a0'39"
+            },
+            "pl": {
+                "short": "Taszkient\u00a0\u201939",
+                "full": "Taszkient\u00a0\u201939"
+            },
+            "pt": {
+                "short": "Tashkent\u00a0'39",
+                "full": "Tashkent\u00a0'39"
+            },
+            "pt_br": {
+                "short": "Tashkent\u00a0'39",
+                "full": "Tashkent\u00a0'39"
+            },
+            "ru": {
+                "short": "\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u00a0'39",
+                "full": "\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u00a0'39"
+            },
+            "th": {
+                "short": "Tashkent\u00a0'39",
+                "full": "Tashkent\u00a0'39"
+            },
+            "tr": {
+                "short": "Tashkent\u00a0'39",
+                "full": "Tashkent\u00a0'39"
+            },
+            "uk": {
+                "short": "\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u00a0'39",
+                "full": "\u0422\u0430\u0448\u043a\u0435\u043d\u0442\u00a0'39"
+            },
+            "zh": {
+                "short": "\u5854\u4ec0\u5e72 '39",
+                "full": "\u5854\u4ec0\u5e72 '39"
+            },
+            "zh_sg": {
+                "short": "\u5854\u4ec0\u5e7239",
+                "full": "\u5854\u4ec0\u5e7239"
+            },
+            "zh_tw": {
+                "short": "Tashkent\u00a0'39",
+                "full": "Tashkent\u00a0'39"
             }
         }
     },
@@ -64216,6 +64860,98 @@
         }
     },
     {
+        "id": 4181702448,
+        "index": "PGSA108",
+        "isPaperShip": true,
+        "group": "upgradeable",
+        "level": 8,
+        "name": "PGSA108_Parseval",
+        "species": "AirCarrier",
+        "nation": "Germany",
+        "translations": {
+            "cs": {
+                "short": "A. Parseval",
+                "full": "August von Parseval"
+            },
+            "de": {
+                "short": "A. Parseval",
+                "full": "August von Parseval"
+            },
+            "en": {
+                "short": "A.\u00a0Parseval",
+                "full": "August von Parseval"
+            },
+            "es": {
+                "short": "A.\u00a0Parseval",
+                "full": "August von Parseval"
+            },
+            "es_mx": {
+                "short": "A. Parseval",
+                "full": "August von Parseval"
+            },
+            "fr": {
+                "short": "A. Parseval",
+                "full": "August von Parseval"
+            },
+            "it": {
+                "short": "A. Parseval",
+                "full": "August von Parseval"
+            },
+            "ja": {
+                "short": "A. Parseval",
+                "full": "August von Parseval"
+            },
+            "ko": {
+                "short": "A. Parseval",
+                "full": "August von Parseval"
+            },
+            "nl": {
+                "short": "A. Parseval",
+                "full": "August von Parseval"
+            },
+            "pl": {
+                "short": "A. Parseval",
+                "full": "August von Parseval"
+            },
+            "pt": {
+                "short": "A. Parseval",
+                "full": "August von Parseval"
+            },
+            "pt_br": {
+                "short": "A. Parseval",
+                "full": "August von Parseval"
+            },
+            "ru": {
+                "short": "A.\u00a0Parseval",
+                "full": "August von Parseval"
+            },
+            "th": {
+                "short": "A. Parseval",
+                "full": "August von Parseval"
+            },
+            "tr": {
+                "short": "A. Parseval",
+                "full": "August von Parseval"
+            },
+            "uk": {
+                "short": "A.\u00a0Parseval",
+                "full": "August von Parseval"
+            },
+            "zh": {
+                "short": "A.\u5e15\u585e\u74e6\u5c14",
+                "full": "\u5965\u53e4\u65af\u7279\u00b7\u51af\u00b7\u5e15\u585e\u74e6\u5c14"
+            },
+            "zh_sg": {
+                "short": "\u5965\u53e4\u65af\u7279\u00b7\u51af\u00b7\u5e15\u585e\u74e6\u5c14",
+                "full": "\u5965\u53e4\u65af\u7279\u00b7\u51af\u00b7\u5e15\u585e\u74e6\u5c14"
+            },
+            "zh_tw": {
+                "short": "A. Parseval",
+                "full": "August von Parseval"
+            }
+        }
+    },
+    {
         "id": 4186912592,
         "index": "PFSB103",
         "isPaperShip": true,
@@ -65122,8 +65858,8 @@
                 "full": "Ship Smasha"
             },
             "zh": {
-                "short": "\u65af\u739b\u838e",
-                "full": "\u65af\u739b\u838e"
+                "short": "\u51b2\u649e\u8df3\u8df3",
+                "full": "\u51b2\u649e\u8df3\u8df3"
             },
             "zh_sg": {
                 "short": "Ship Smasha",
@@ -65214,8 +65950,8 @@
                 "full": "Giuseppe Verdi"
             },
             "zh": {
-                "short": "\u6731\u585e\u4f69\u00b7\u798f\u56fe\u5c3c\u8bfa",
-                "full": "\u6731\u585e\u4f69\u00b7\u798f\u56fe\u5c3c\u8bfa"
+                "short": "\u6731\u585e\u4f69\u00b7\u5a01\u5c14\u7b2c",
+                "full": "\u6731\u585e\u4f69\u00b7\u5a01\u5c14\u7b2c"
             },
             "zh_sg": {
                 "short": "\u6731\u585e\u4f69\u00b7\u5a01\u5c14\u7b2c",
@@ -67800,98 +68536,6 @@
             "zh_tw": {
                 "short": "Kolberg",
                 "full": "Kolberg"
-            }
-        }
-    },
-    {
-        "id": 3730782032,
-        "index": "PFSB538",
-        "isPaperShip": true,
-        "group": "special",
-        "level": 8,
-        "name": "PFSB538_Flandre",
-        "species": "Battleship",
-        "nation": "France",
-        "translations": {
-            "cs": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "de": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "en": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "es": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "es_mx": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "fr": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "it": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "ja": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "ko": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "nl": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "pl": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "pt": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "pt_br": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "ru": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "th": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "tr": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "uk": {
-                "short": "Flandre",
-                "full": "Flandre"
-            },
-            "zh": {
-                "short": "\u4f5b\u5170\u5fb7",
-                "full": "\u4f5b\u5170\u5fb7"
-            },
-            "zh_sg": {
-                "short": "\u5f17\u5170\u5fb7\u5c14",
-                "full": "\u5f17\u5170\u5fb7\u5c14"
-            },
-            "zh_tw": {
-                "short": "Flandre",
-                "full": "Flandre"
             }
         }
     },
@@ -72312,98 +72956,6 @@
         }
     },
     {
-        "id": 3256825840,
-        "index": "PASB990",
-        "isPaperShip": true,
-        "group": "demoWithoutStats",
-        "level": 10,
-        "name": "PASB990_New_Hampshire",
-        "species": "Battleship",
-        "nation": "USA",
-        "translations": {
-            "cs": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "de": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "en": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "es": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "es_mx": {
-                "short": "New\u00a0Hampshire",
-                "full": "New\u00a0Hampshire"
-            },
-            "fr": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "it": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "ja": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "ko": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "nl": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "pl": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "pt": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "pt_br": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "ru": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "th": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "tr": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "uk": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            },
-            "zh": {
-                "short": "\u65b0\u7f55\u5e03\u4ec0\u5c14",
-                "full": "\u65b0\u7f55\u5e03\u4ec0\u5c14"
-            },
-            "zh_sg": {
-                "short": "\u65b0\u7f55\u5e03\u4ec0\u5c14",
-                "full": "\u65b0\u7f55\u5e03\u4ec0\u5c14"
-            },
-            "zh_tw": {
-                "short": "New Hampshire",
-                "full": "New Hampshire"
-            }
-        }
-    },
-    {
         "id": 4180621040,
         "index": "PISB109",
         "isPaperShip": true,
@@ -75252,6 +75804,98 @@
             "zh_tw": {
                 "short": "Sea Devil",
                 "full": "Sea Devil"
+            }
+        }
+    },
+    {
+        "id": 3256825840,
+        "index": "PASB990",
+        "isPaperShip": true,
+        "group": "demoWithoutStats",
+        "level": 10,
+        "name": "PASB990_Utah",
+        "species": "Battleship",
+        "nation": "USA",
+        "translations": {
+            "cs": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "de": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "en": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "es": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "es_mx": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "fr": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "it": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "ja": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "ko": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "nl": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "pl": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "pt": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "pt_br": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "ru": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "th": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "tr": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "uk": {
+                "short": "Utah",
+                "full": "Utah"
+            },
+            "zh": {
+                "short": "\u72b9\u4ed6",
+                "full": "\u72b9\u4ed6"
+            },
+            "zh_sg": {
+                "short": "\u72b9\u4ed6",
+                "full": "\u72b9\u4ed6"
+            },
+            "zh_tw": {
+                "short": "Utah",
+                "full": "Utah"
             }
         }
     },

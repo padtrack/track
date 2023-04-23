@@ -60,8 +60,9 @@ similar = [
         "PGSB506",  # P.E.F.
     ],
     [
-        "PASB507",  # W. Virginia
+        "PASB507",  # W. Virginia '41
         "PASB008",  # Colorado
+        "PASB527",  # W. Virginia '44
     ],
     [
         "PFSB506",  # Dunkerque
@@ -95,6 +96,7 @@ similar = [
         "PBSB509",  # Marlborough
         "PBSB110",  # Conqueror
         "PBSB510",  # Thunderer
+        "PBSB111",  # Devastation
     ],
     [
         "PBSB209",  # Duncan
@@ -646,6 +648,8 @@ forbidden = [
     "PZSB529",  # Sun Yat-Sen
     "PJSD889",  # STAR Kitakaze
     "PBSC888",  # STAR Edinburgh
+    "PASB808",  # North Carolina CLR
+    "PGSC809",  # Roon CLR
     "PRSD308",  # Kiev (Bad Silhouette)
     "PISC108",  # Amalfi (Bad Silhouette)
     "PISC105",  # Montecuccoli (Bad Silhouette)
