@@ -38,12 +38,14 @@ The bot infers regions using the following conversion table:
 | `pl`    | `eu`   |
 | `pt-BR` | `na`   |
 | `ro`    | `eu`   |
-| `ru`    | `ru`   |
+| `ru`    | `eu`   |
 | `es-ES` | `eu`   |
 | `sv-SE` | `eu`   |
 | `th`    | `asia` |
 | `tr`    | `eu`   |
 | `uk`    | `eu`   |
 | `vi`    | `asia` |
+
+RU is no longer supported as of 4/23/23 due to API changes after the Lesta/Wargaming split.
 
 If you disagree with this table, feel free to open an Issue.
