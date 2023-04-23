@@ -14,7 +14,7 @@ class OwnerCog(commands.Cog):
     @commands.is_owner()
     async def shutdown(self, ctx: commands.Context):
         self.bot.stopping = True
-        await ctx.send("Done.")
+        await ctx.send("Done. Don't forget to `)jsk shutdown`.")
 
     @commands.command()
     @commands.guild_only()
