@@ -14,7 +14,7 @@ from bot.utils import db, errors
 
 
 # NOTE: this is Player IDs order, they appear to be unique
-REGIONS = ["ru", "eu", "na", "asia"]
+REGIONS = ["eu", "na", "asia"]
 INFERRED_REGIONS = {
     "en-US": "na",
     "en-GB": "eu",
@@ -39,7 +39,7 @@ INFERRED_REGIONS = {
     "pl": "eu",
     "pt-BR": "na",
     "ro": "eu",
-    "ru": "ru",
+    "ru": "eu",
     "es-ES": "eu",
     "sv-SE": "eu",
     "th": "asia",
@@ -94,7 +94,6 @@ _SHIPS_DATA_PATH = os.path.join(
 
 
 class Regions(enum.Enum):
-    ru = "ru"
     eu = "eu"
     na = "na"
     asia = "asia"

@@ -23,10 +23,7 @@ def scrape():
         result = {}
 
         for region, url in api.URLS.items():
-            if region == "ru":
-                route = url + "/ru/news"
-            else:
-                route = url + "/en/news"
+            route = url + "/en/news"
 
             response = requests.get(
                 route,

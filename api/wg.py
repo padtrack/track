@@ -14,7 +14,6 @@ from .utils import *
 
 
 API = {
-    "ru": "https://api.korabli.su/wows",
     "eu": "https://api.worldofwarships.eu/wows",
     "na": "https://api.worldofwarships.com/wows",
     "asia": "https://api.worldofwarships.asia/wows",

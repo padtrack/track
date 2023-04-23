@@ -13,7 +13,6 @@ from bot.utils import db
 
 
 URLS = {
-    "ru": "https://profile.korabli.su",
     "eu": "https://profile.worldofwarships.eu",
     "na": "https://profile.worldofwarships.com",
     "asia": "https://profile.worldofwarships.asia",

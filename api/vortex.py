@@ -34,7 +34,7 @@ BATTLE_TYPES = {
     "rank": {"default": 1, "sizes": {1: "rank_solo"}},
     "rank_old": {"default": 1, "sizes": {1: "rank_old_solo", 2: "rank_old_div2"}},
 }
-REALMS = {"ru": "ru", "eu": "eu", "na": "us", "asia": "sg"}
+REALMS = {"eu": "eu", "na": "us", "asia": "sg"}
 
 vortex_limit = aiolimiter.AsyncLimiter(10, 1)
 
