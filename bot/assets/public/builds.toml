@@ -1072,7 +1072,6 @@ ships = [
 	"PJSC009",	# Mogami 203
 	"PJSC012",	# Ibuki
 	"PJSC034",	# Zao
-	"PJSC505",	# Yahagi
 	"PJSC705",	# ARP Myōkō
 	"PJSC737",	# ARP Nachi
 	"PJSC709",	# ARP Haguro
@@ -1303,7 +1302,7 @@ ships = [
 ]
 
 ["id.j4y7wmcvixgv"]
-name = "Yodo"
+name = "IJN CLs"
 ships = [
 	"PJSC205",  # Agano
 	"PJSC206",  # Gokase
@@ -1311,6 +1310,7 @@ ships = [
 	"PJSC208",  # Shimanto
 	"PJSC209",  # Takahashi
 	"PJSC210",  # Yodo
+	"PJSC505",	# Yahagi
 ]
 
 ["id.3o8aun40m0pq"]
@@ -1410,4 +1410,10 @@ ships = [
 name = "Huron"
 ships = [
 	"PUSD517",  # Huron
+]
+
+["id.1qtz4iabxta2"]
+name = "Daisen"
+ships = [
+	"PJSB539",  # Daisen
 ]
