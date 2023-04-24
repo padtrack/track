@@ -565,7 +565,9 @@ class StatsCog(commands.Cog):
                     "This player has not played any battles."
                 )
         else:
-            await interaction.followup.send("No players found.")
+            used_region = await api.get_region(interaction)
+
+            await interaction.followup.send(f"No players found in `{used_region}`.")
 
     @app_commands.command(
         name="mystats",

@@ -478,7 +478,9 @@ class ClansCog(commands.Cog):
     @staticmethod
     async def send_clan(interaction: discord.Interaction, clan: api.FullClan):
         if clan is None:
-            await interaction.followup.send("No clans found.")
+            used_region = await api.get_region(interaction)
+
+            await interaction.followup.send(f"No clans found in `{used_region}`.")
             return
 
         if not (members := await api.get_clan_members(clan.region, clan.clan.id)):

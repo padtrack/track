@@ -3,6 +3,7 @@ from typing import List, Optional
 __all__ = [
     "PlayerTransformer",
     "ClanTransformer",
+    "get_region",
 ]
 
 import aiohttp
