@@ -1417,3 +1417,9 @@ name = "Daisen"
 ships = [
 	"PJSB539",  # Daisen
 ]
+
+["id.j83tv9sn83wr"]
+name = "Halland LM build"
+ships = [
+	"PWSD110",  # Halland
+]
