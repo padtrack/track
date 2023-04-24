@@ -11,7 +11,7 @@ from bot.utils import db
 
 async def main():
     async with db.async_session() as session:
-        users = (await session.execute(select(db.User).filter_by(wg_region="na"))).all()
+        users = (await session.execute(select(db.User).filter_by(wg_region="ru"))).all()
 
         for (user,) in users:
             user.wg_region = None
@@ -19,7 +19,7 @@ async def main():
             user.wg_ac = None
 
         guilds = (
-            await session.execute(select(db.Guild).filter_by(wg_region="na"))
+            await session.execute(select(db.Guild).filter_by(wg_region="ru"))
         ).all()
 
         for (guild,) in guilds:
