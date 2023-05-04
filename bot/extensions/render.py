@@ -64,7 +64,7 @@ class BuildsButton(ui.Button):
         for build in builds:
             if clan := build["clan"]:
                 self.fp.write(f"[{clan}] ")
-            self.fp.write(build["name"] + "\n" + build["build_url"] + "\n\n")
+            self.fp.write(build["name"] + " (" + build["ship"] + ")\n" + build["build_url"] + "&ref=track" + "\n\n")
         self.fp.seek(0)
 
     async def callback(self, interaction: discord.Interaction) -> None:
