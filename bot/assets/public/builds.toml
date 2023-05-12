@@ -1423,3 +1423,15 @@ name = "Halland LM build"
 ships = [
 	"PWSD110",  # Halland
 ]
+
+["id.p44dlddp8h6r"]
+name = "Tashkent '39"
+ships = [
+	"PRSD517",  # Tashkent '39
+]
+
+["id.hrwzkj2cxnfv"]
+name = "Almirante Grau"
+ships = [
+	"PVSC508",  # Almirante Grau
+]
