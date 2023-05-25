@@ -1435,3 +1435,19 @@ name = "Almirante Grau"
 ships = [
 	"PVSC508",  # Almirante Grau
 ]
+
+["id.gsnnamk0369y"]
+name = "EU DDs gunboat branch"
+ships = [
+	"PWSD206",  # Stord
+	"PWSD207",  # Grom
+	"PWSD208",  # Split
+	"PWSD209",  # Lambros Katsonis
+	"PWSD210",  # Gdansk
+]
+
+["id.j2tqu9c6kors"]
+name = "Gato"
+ships = [
+	"PASS510",  # Gato
+]
