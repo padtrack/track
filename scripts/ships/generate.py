@@ -55,8 +55,9 @@ def get_translations(index: str) -> dict[str, dict[str, str]]:
 def main():
     print("Loading translations...")
     for locale in sorted(os.listdir(TEXTS_PATH)):
-        mo_file = polib.mofile(f"{TEXTS_PATH}/{locale}/LC_MESSAGES/global.mo")
-        translations[locale] = {entry.msgid: entry.msgstr for entry in mo_file}
+        if os.path.isdir(f"{TEXTS_PATH}/{locale}"):
+            mo_file = polib.mofile(f"{TEXTS_PATH}/{locale}/LC_MESSAGES/global.mo")
+            translations[locale] = {entry.msgid: entry.msgstr for entry in mo_file}
 
     print("Loading GameParams...")
     with open(GAMEPARAMS_PATH, "rb") as fp:
