@@ -259,6 +259,7 @@ similar = [
     [
         "PRSC508",  # Mikhail Kutuzov
         "PZSC508",  # Irian
+        "PRSC558",  # Dmitry Pozharsky
     ],
     [
         "PASC518",  # Anchorage
@@ -577,6 +578,18 @@ similar = [
         "PISC506",  # Duca d'Aosta
         "PWSC506",  # Elli
     ],
+    [
+        "PSSC506",  # Canarias
+        "PSSC106",  # Baleares
+    ],
+    [
+        "PHSC108",  # Haarlem
+        "PHSC509",  # Van Speijk
+    ],
+    [
+        "PRSD709",  # Neustrashimy
+        "PZSD510",  # Lushun
+    ],
 ]
 
 forbidden = [
@@ -650,6 +663,7 @@ forbidden = [
     "PBSC888",  # STAR Edinburgh
     "PASB808",  # North Carolina CLR
     "PGSC809",  # Roon CLR
+    "PFSD810",  # Kleber CLR
     "PRSD308",  # Kiev (Bad Silhouette)
     "PISC108",  # Amalfi (Bad Silhouette)
     "PISC105",  # Montecuccoli (Bad Silhouette)
