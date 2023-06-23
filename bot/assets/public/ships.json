@@ -4879,7 +4879,7 @@
         "id": 4178490832,
         "index": "PRSC111",
         "isPaperShip": true,
-        "group": "demoWithoutStats",
+        "group": "earlyAccess",
         "level": 11,
         "name": "PRSC111_Novosibirsk",
         "species": "Cruiser",
@@ -11135,7 +11135,7 @@
         "id": 3750638896,
         "index": "PWSD519",
         "isPaperShip": true,
-        "group": "demoWithoutStatsPrem",
+        "group": "special",
         "level": 9,
         "name": "PWSD519_Jager",
         "species": "Destroyer",
@@ -11411,7 +11411,7 @@
         "id": 4178524112,
         "index": "PBSB111",
         "isPaperShip": true,
-        "group": "demoWithoutStats",
+        "group": "earlyAccess",
         "level": 11,
         "name": "PBSB111_Devastation",
         "species": "Battleship",
@@ -13895,7 +13895,7 @@
         "id": 3742316528,
         "index": "PASB527",
         "isPaperShip": false,
-        "group": "demoWithoutStatsPrem",
+        "group": "special",
         "level": 7,
         "name": "PASB527_West_Virginia_1944",
         "species": "Battleship",
@@ -51152,6 +51152,98 @@
         }
     },
     {
+        "id": 3760142064,
+        "index": "PISB510",
+        "isPaperShip": true,
+        "group": "demoWithoutStatsPrem",
+        "level": 10,
+        "name": "PISB510_Ruggiero_di_Lauria",
+        "species": "Battleship",
+        "nation": "Italy",
+        "translations": {
+            "cs": {
+                "short": "R.\u00a0Lauria",
+                "full": "Ruggiero di\u00a0Lauria"
+            },
+            "de": {
+                "short": "R.\u00a0Lauria",
+                "full": "Ruggiero di\u00a0Lauria"
+            },
+            "en": {
+                "short": "R. Lauria",
+                "full": "Ruggiero di\u00a0Lauria"
+            },
+            "es": {
+                "short": "R.\u00a0Lauria",
+                "full": "Ruggiero di\u00a0Lauria"
+            },
+            "es_mx": {
+                "short": "R.\u00a0Lauria",
+                "full": "Ruggiero\u00a0di\u00a0Lauria"
+            },
+            "fr": {
+                "short": "R. Lauria",
+                "full": "Ruggiero di\u00a0Lauria"
+            },
+            "it": {
+                "short": "R. Lauria",
+                "full": "Ruggiero di\u00a0Lauria"
+            },
+            "ja": {
+                "short": "R. Lauria",
+                "full": "Ruggiero di\u00a0Lauria"
+            },
+            "ko": {
+                "short": "R. Lauria",
+                "full": "Ruggiero di\u00a0Lauria"
+            },
+            "nl": {
+                "short": "R. Lauria",
+                "full": "Ruggiero di\u00a0Lauria"
+            },
+            "pl": {
+                "short": "R. Lauria",
+                "full": "Ruggiero di\u00a0Lauria"
+            },
+            "pt": {
+                "short": "R. Lauria",
+                "full": "Ruggiero di Lauria"
+            },
+            "pt_br": {
+                "short": "R. Lauria",
+                "full": "Ruggiero di Lauria"
+            },
+            "ru": {
+                "short": "R. Lauria",
+                "full": "Ruggiero di\u00a0Lauria"
+            },
+            "th": {
+                "short": "R. Lauria",
+                "full": "Ruggiero di\u00a0Lauria"
+            },
+            "tr": {
+                "short": "R. Lauria",
+                "full": "Ruggiero di\u00a0Lauria"
+            },
+            "uk": {
+                "short": "R. Lauria",
+                "full": "Ruggiero di\u00a0Lauria"
+            },
+            "zh": {
+                "short": "\u9c81\u6770\u7f57\u00b7\u8fea\u00b7\u52b3\u91cc\u4e9a",
+                "full": "\u9c81\u6770\u7f57\u00b7\u8fea\u00b7\u52b3\u91cc\u4e9a"
+            },
+            "zh_sg": {
+                "short": "\u9c81\u6770\u7f57\u00b7\u8fea\u00b7\u52b3\u91cc\u4e9a",
+                "full": "\u9c81\u6770\u7f57\u00b7\u8fea\u00b7\u52b3\u91cc\u4e9a"
+            },
+            "zh_tw": {
+                "short": "R. Lauria",
+                "full": "Ruggiero di\u00a0Lauria"
+            }
+        }
+    },
+    {
         "id": 4075763504,
         "index": "PGSB209",
         "isPaperShip": true,
@@ -62931,7 +63023,7 @@
         "id": 3750639600,
         "index": "PASD519",
         "isPaperShip": false,
-        "group": "demoWithoutStatsPrem",
+        "group": "special",
         "level": 9,
         "name": "PASD519_Halford",
         "species": "Destroyer",
@@ -65316,6 +65408,98 @@
             "zh_tw": {
                 "short": "Grom",
                 "full": "Grom"
+            }
+        }
+    },
+    {
+        "id": 4180555056,
+        "index": "PWSD109",
+        "isPaperShip": false,
+        "group": "upgradeable",
+        "level": 9,
+        "name": "PWSD109_Ostergotland",
+        "species": "Destroyer",
+        "nation": "Europe",
+        "translations": {
+            "cs": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "de": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "en": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "es": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "es_mx": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "fr": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "it": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "ja": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "ko": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "nl": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "pl": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "pt": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "pt_br": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "ru": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "th": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "tr": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "uk": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
+            },
+            "zh": {
+                "short": "\u4e1c\u7ea6\u7279\u5170",
+                "full": "\u4e1c\u7ea6\u7279\u5170"
+            },
+            "zh_sg": {
+                "short": "\u4e1c\u7ea6\u7279\u5170",
+                "full": "\u4e1c\u7ea6\u7279\u5170"
+            },
+            "zh_tw": {
+                "short": "\u00d6sterg\u00f6tland",
+                "full": "\u00d6sterg\u00f6tland"
             }
         }
     },
@@ -68812,98 +68996,6 @@
             "zh_tw": {
                 "short": "[Richelieu]",
                 "full": "[Richelieu]"
-            }
-        }
-    },
-    {
-        "id": 4180555056,
-        "index": "PWSD109",
-        "isPaperShip": false,
-        "group": "upgradeable",
-        "level": 9,
-        "name": "PWSD109_Ostergotland",
-        "species": "Destroyer",
-        "nation": "Europe",
-        "translations": {
-            "cs": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "de": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "en": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "es": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "es_mx": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "fr": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "it": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "ja": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "ko": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "nl": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "pl": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "pt": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "pt_br": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "ru": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "th": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "tr": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "uk": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
-            },
-            "zh": {
-                "short": "\u4e1c\u7ea6\u7279\u5170",
-                "full": "\u4e1c\u7ea6\u7279\u5170"
-            },
-            "zh_sg": {
-                "short": "\u4e1c\u7ea6\u7279\u5170",
-                "full": "\u4e1c\u7ea6\u7279\u5170"
-            },
-            "zh_tw": {
-                "short": "\u00d6sterg\u00f6tland",
-                "full": "\u00d6sterg\u00f6tland"
             }
         }
     },
@@ -74056,6 +74148,98 @@
             "zh_tw": {
                 "short": "Giussano",
                 "full": "Alberto di Giussano"
+            }
+        }
+    },
+    {
+        "id": 3762206128,
+        "index": "PSSC508",
+        "isPaperShip": true,
+        "group": "demoWithoutStatsPrem",
+        "level": 8,
+        "name": "PSSC508_Numancia",
+        "species": "Cruiser",
+        "nation": "Spain",
+        "translations": {
+            "cs": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "de": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "en": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "es": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "es_mx": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "fr": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "it": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "ja": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "ko": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "nl": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "pl": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "pt": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "pt_br": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "ru": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "th": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "tr": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "uk": {
+                "short": "Numancia",
+                "full": "Numancia"
+            },
+            "zh": {
+                "short": "\u52aa\u66fc\u897f\u4e9a",
+                "full": "\u52aa\u66fc\u897f\u4e9a"
+            },
+            "zh_sg": {
+                "short": "\u52aa\u66fc\u897f\u4e9a",
+                "full": "\u52aa\u66fc\u897f\u4e9a"
+            },
+            "zh_tw": {
+                "short": "Numancia",
+                "full": "Numancia"
             }
         }
     },
