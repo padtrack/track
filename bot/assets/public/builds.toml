@@ -228,6 +228,7 @@ ships = [
 	"PWSD111",  # Dalarna
 	"PASD111",  # J. Humphreys
 	"PZSD111",  # Kunming
+	"PWSD519",  # Jäger
 ]
 
 ["id.ixgdmvl3rc7f"]
@@ -498,6 +499,7 @@ ships = [
 	"PUSB507",  # Yukon
 	"PBSB109",  # Lion
 	"PBSB110",  # Conqueror
+	"PBSB111",  # Devastation
 ]
 
 ["id.firiu64x1q00"]
@@ -526,6 +528,7 @@ ships = [
 	"PASB518",  # Massachusetts
 	"PASB598",  # Massachusetts B
 	"PASB505",  # Oklahoma
+	"PASB527",  # West Virginia '44
 ]
 
 ["id.17r3seq56mm7"]
@@ -979,6 +982,7 @@ ships = [
 	"PGSC506",	# Admiral Graf Spee
 	"PGSC509",	# Siegfried
 	"PGSC519",	# Ägir
+	"PRSC111",  # Novosibirsk
 ]
 
 ["id.y9y8msu27u6u"]
@@ -1450,4 +1454,10 @@ ships = [
 name = "Gato"
 ships = [
 	"PASS510",  # Gato
+]
+
+["id.gy14vzhz1i3w"]
+name = "Halford"
+ships = [
+	"PASD519",  # Halford
 ]
