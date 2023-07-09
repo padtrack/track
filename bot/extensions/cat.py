@@ -1,5 +1,7 @@
 import concurrent.futures
+import json
 import random
+import os
 
 from discord.ext import commands, tasks
 from discord import app_commands
@@ -21,6 +23,9 @@ GUILD_IDS = [
     750943854215036950,
     990805648927240192,
 ]
+CATS_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "../assets/public/cats.json"
+)
 
 
 executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
@@ -73,7 +78,17 @@ def scrape():
 class CatCog(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot: commands.Bot = bot
-        self.task_scrape.start()
+
+        if not cfg.twitter.token:
+            logger.warn("No twitter token found, loading backup data")
+
+            with open(CATS_PATH) as fp:
+                global images
+
+                for tweet_id, media_url in json.load(fp):
+                    images.add((int(tweet_id), media_url))
+        else:
+            self.task_scrape.start()
 
     @tasks.loop(hours=4)
     async def task_scrape(self):
@@ -98,8 +113,4 @@ class CatCog(commands.Cog):
 
 
 async def setup(bot: commands.Bot):
-    if not cfg.twitter.token:
-        logger.warn("No twitter token found, Cat extension not loaded")
-        return
-
     await bot.add_cog(CatCog(bot))
