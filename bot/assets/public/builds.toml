@@ -934,6 +934,7 @@ ships = [
 	"PHSC108",	# Haarlem
 	"PHSC109",	# Johan de Witt
 	"PHSC110",	# Gouden Leeuw
+	"PHSC509",  # Van Speijk
 ]
 
 ["id.kva9i1xlskob"]
@@ -1460,4 +1461,19 @@ ships = [
 name = "Halford"
 ships = [
 	"PASD519",  # Halford
+]
+
+["id.4qb4tm24wimg"]
+name = "ES CAs"
+ships = [
+	"PSSC101",  # Jupiter
+	"PSSC102",  # Méndez Núñez
+	"PSSC103",  # Navarra
+	"PSSC104",  # Almirante Cervera
+	"PSSC105",  # Galicia
+	"PSSC106",  # Baleares
+	"PSSC107",  # Asturias
+	"PSSC108",  # Cataluña
+	"PSSC109",  # Andalucía
+	"PSSC110",  # Castilla
 ]
