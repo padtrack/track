@@ -23,9 +23,10 @@ class BuildsEmbed(discord.Embed):
     def __init__(self, builds: List[Tuple[str, str, int]], ship_name: str, **kwargs):
         super().__init__(
             title=f"Found {len(builds)} build{'s' if len(builds) > 1 else ''} for {ship_name}!",
-            description="Document: [wo.ws/builds](https://wo.ws/builds)",
+            description="Source Document: [wo.ws/builds](https://wo.ws/builds)",
             **kwargs,
         )
+        self.set_footer(text="Click the button(s) to open a build.")
 
 
 class BuildsView(ui.View):
