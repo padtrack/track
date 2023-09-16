@@ -1477,3 +1477,9 @@ ships = [
 	"PSSC109",  # Andalucía
 	"PSSC110",  # Castilla
 ]
+
+["id.fkcdb8f3bviu"]
+name = "Karl XIV Johan"
+ships = [
+	"PWSB509",  # Karl XIV Johan
+]
