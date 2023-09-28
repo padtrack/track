@@ -133,6 +133,7 @@ ships = [
 	"PBSB509",	# Marlborough
 	"PBSB510",	# Thunderer
 	"PBSB503",  # Dreadnought
+	"PBSB609",  # Scarlet Thunder
 ]
 
 ["id.cuqerje3k66a"]
@@ -157,6 +158,7 @@ ships = [
 	"PISC110",	# Venezia
 	"PISC505",	# Genova
 	"PISC607",  # Gorizia
+	"PISC111",  # Piemonte
 ]
 
 ["id.3s6krd2jzxbz"]
@@ -311,6 +313,7 @@ ships = [
 	"PBSD110",  # Daring
 	"PBSD517",  # Cossack
 	"PBSD598",  # Cossack B
+	"PBSD519",  # Somme
 ]
 
 ["id.v8j5t94cbfyz"]
@@ -1482,4 +1485,16 @@ ships = [
 name = "Karl XIV Johan"
 ships = [
 	"PWSB509",  # Karl XIV Johan
+]
+
+["id.v6d066vkdkkm"]
+name = "Lushun"
+ships = [
+	"PZSD510",  # Lushun
+]
+
+["id.a00uiw4rrrn8"]
+name = "Ruggiero di Lauria"
+ships = [
+	"PISB510",  # Ruggiero di Lauria
 ]
