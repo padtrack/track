@@ -101,6 +101,7 @@ similar = [
     [
         "PBSB209",  # Duncan
         "PBSB210",  # St. Vincent
+        "PBSB609",  # Scarlet Thunder
     ],
     [
         "PFSB108",  # Richelieu
@@ -590,6 +591,14 @@ similar = [
         "PRSD709",  # Neustrashimy
         "PZSD510",  # Lushun
     ],
+    [
+        "PGSB209",  # Prinz Rupprecht
+        "PWSB509",  # Karl IV Johan
+    ],
+    [
+        "PFSB107",  # Lyon
+        "PFSB548",  # Picardie
+    ],
 ]
 
 forbidden = [
@@ -664,6 +673,14 @@ forbidden = [
     "PASB808",  # North Carolina CLR
     "PGSC809",  # Roon CLR
     "PFSD810",  # Kleber CLR
+    "PBSD519",  # Somme
+    "PASC505",  # Rattlehead
+    "PGSB517",  # AL Prinz Heinrich
+    "PASA908",  # Concord Bridge
+    "PJSA908",  # Kikaku
+    "PZSC529",  # Mengchong
+    "PZSB539",  # Louchan
+    "PBSC558",  # AL Chesire
     "PRSD308",  # Kiev (Bad Silhouette)
     "PISC108",  # Amalfi (Bad Silhouette)
     "PISC105",  # Montecuccoli (Bad Silhouette)
