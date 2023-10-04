@@ -599,6 +599,10 @@ similar = [
         "PFSB107",  # Lyon
         "PFSB548",  # Picardie
     ],
+    [
+        "PFSC107",  # Algerie
+        "PFSC516",  # Dupleix
+    ],
 ]
 
 forbidden = [
