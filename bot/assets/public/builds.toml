@@ -73,6 +73,7 @@ ships = [
 	"PFSC109",	# Saint-Louis
 	"PFSC110",	# Henri IV
 	"PFSC111",	# Conde
+	"PFSC516",  # Dupleix
 ]
 
 ["id.5i3cdfaeerq8"]
@@ -987,6 +988,7 @@ ships = [
 	"PGSC509",	# Siegfried
 	"PGSC519",	# Ägir
 	"PRSC111",  # Novosibirsk
+	"PGSC528",  # Schill
 ]
 
 ["id.y9y8msu27u6u"]
