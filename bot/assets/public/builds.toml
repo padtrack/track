@@ -1500,3 +1500,18 @@ name = "Ruggiero di Lauria"
 ships = [
 	"PISB510",  # Ruggiero di Lauria
 ]
+
+["id.2jm9ntjnf3bu"]
+name = "U-4501"
+ships = [
+	"PGSS510",  # U-4501
+]
+
+["id.fahu4sjc6baa"]
+name = "IJN BCs"
+ships = [
+	"PJSB208",  # Yumihari
+	"PJSB209",  # Adatara
+	"PJSB549",  # Tsurugi
+	"PJSB210",  # Bungo
+]
