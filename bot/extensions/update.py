@@ -38,8 +38,8 @@ def scrape():
                 return
 
             soup = bs4.BeautifulSoup(response.text, "html.parser")
-            link = soup.find("article").find("router-link")
-            article_url = url + link.get("to")
+            link = soup.find("article").find("vue-news-link")
+            article_url = url + link.get("link")
 
             response = requests.get(article_url, params={"pjax": "1"})
 
