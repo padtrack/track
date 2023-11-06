@@ -359,7 +359,6 @@ class LootboxCog(commands.Cog):
                         "vehicles",
                     ]
                 }
-                print(results.most_common())
                 for obj, amount in results.most_common():
                     category = obj_data[str(obj.identifier)]["category"]
                     categories[category].append((str(obj), amount))
