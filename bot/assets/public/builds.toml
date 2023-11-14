@@ -1,9 +1,3 @@
-["id.w0hxkbip0bu9"]
-name = "Incomparable"
-ships = [
-    "PBSB610",  # Incomparable
-]
-
 ["id.jtq3xxx20b39"]
 name = "KM CVs"
 ships = [
@@ -118,23 +112,9 @@ ships = [
 ]
 
 ["id.qtolc4x83d75"]
-name = "Thunderer, RN BBs and some premiums"
+name = "Thunderer"
 ships = [
-	"PBSB103",	# Bellerophon
-	"PBSB104",	# Orion
-	"PBSB105",	# Iron Duke
-	"PBSB106",	# QE
-	"PBSB107",	# KGV
-	"PBSB108",	# Monarch
-	"PBSB002",	# Warspite
-	"PBSB527",	# Duke of York
-	"PBSB537",	# Collingwood
-	"PBSB507",	# Hood
-	"PBSB508",	# Vanguard
-	"PBSB509",	# Marlborough
 	"PBSB510",	# Thunderer
-	"PBSB503",  # Dreadnought
-	"PBSB609",  # Scarlet Thunder
 ]
 
 ["id.cuqerje3k66a"]
@@ -497,13 +477,27 @@ ships = [
 ]
 
 ["id.zhjoj6qvmu95"]
-name = "Superheal RN BBs"
+name = "RN BBs tank build"
 ships = [
-	"PBSB517",  # Nelson
-	"PUSB507",  # Yukon
-	"PBSB109",  # Lion
-	"PBSB110",  # Conqueror
 	"PBSB111",  # Devastation
+	"PBSB110",  # Conqueror
+	"PBSB109",  # Lion
+	"PBSB609",  # Scarlet Thunder
+	"PBSB509",	# Marlborough
+	"PBSB508",	# Vanguard
+	"PBSB108",	# Monarch
+	"PBSB507",	# Hood
+	"PBSB537",	# Collingwood
+	"PUSB507",  # Yukon
+	"PBSB517",  # Nelson
+	"PBSB527",	# Duke of York
+	"PBSB107",	# KGV
+	"PBSB106",	# QE
+	"PBSB002",	# Warspite
+	"PBSB105",	# Iron Duke
+	"PBSB104",	# Orion
+	"PBSB503",  # Dreadnought
+	"PBSB103",	# Bellerophon
 ]
 
 ["id.firiu64x1q00"]
@@ -1514,4 +1508,52 @@ ships = [
 	"PJSB209",  # Adatara
 	"PJSB549",  # Tsurugi
 	"PJSB210",  # Bungo
+]
+
+["id.bd9qyfqg4lv7"]
+name = "Navarin"
+ships = [
+	"PRSB509",  # Navarin
+]
+
+["id.vnqoj43wf8ks"]
+name = "Napoli secondary build"
+ships = [
+	"PISC510",  # Napoli
+]
+
+["id.orc473olbsfc"]
+name = "VMF BBs damage build"
+ships = [
+	"PRSB111",  # Ushakov
+	"PRSB110",	# Kremlin
+	"PRSB109",	# Sovetsky Soyuz
+	"PRSB108",	# Vladivostok
+	"PRSB518",	# Lenin
+	"PRSB709",	# AL Sovetskaya Rossiya
+	"PZSB529",  # Sun Yat-Sen
+]
+
+["id.mjcssknhn8w7"]
+name = "RN BBs damage build"
+ships = [
+	"PBSB111",  # Devastation
+	"PBSB110",  # Conqueror
+	"PBSB109",  # Lion
+	"PBSB609",  # Scarlet Thunder
+	"PBSB509",	# Marlborough
+	"PBSB508",	# Vanguard
+	"PBSB108",	# Monarch
+	"PBSB507",	# Hood
+	"PBSB537",	# Collingwood
+	"PUSB507",  # Yukon
+	"PBSB517",  # Nelson
+	"PBSB527",	# Duke of York
+	"PBSB107",	# KGV
+	"PBSB106",	# QE
+	"PBSB002",	# Warspite
+	"PBSB105",	# Iron Duke
+	"PBSB104",	# Orion
+	"PBSB503",  # Dreadnought
+	"PBSB103",	# Bellerophon
 ]
