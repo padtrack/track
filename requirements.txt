@@ -6,7 +6,7 @@ aiosqlite>=0.17.0
 beautifulsoup4>=4.11.1
 black>=22.6.0
 cachetools>=5.2.0
-dacite>=1.6.0
+dacite==1.7.0  # https://github.com/konradhalas/dacite/issues/217
 discord.py>=2.0.0
 environ-config>=22.1.0
 greenlet>=2.0.1
