@@ -251,6 +251,7 @@ class LootboxCog(commands.Cog):
                 f"https://vortex.worldofwarships.com/api/get_lootbox/en/{lootbox}/"
             ) as response:
                 data = (await response.json())["data"]
+                global_threshold: Optional[int] = data.get("savePoint", None)
 
                 slots = []
                 for slot in data["slots"]:
@@ -288,13 +289,12 @@ class LootboxCog(commands.Cog):
                         if (
                             slot.threshold is not None
                             and slot.pity == slot.threshold - 1
+                        ) or (
+                            global_threshold is not None
+                            and slot.pity == global_threshold - 1
                         ):
                             used_pity += 1
-                            result = next(
-                                c
-                                for c in slot.choices
-                                if c.get("savePoint", None) is not None
-                            )
+                            result = next(c for c in slot.choices if "savePoint" in c)
                         else:
                             result = random.choices(slot.choices, slot.weights)[0]
 
@@ -338,7 +338,7 @@ class LootboxCog(commands.Cog):
                                     add_result(reward["id"], reward, reward["amount"])
                                     slot.index[result["bucket"]] += 1
 
-                        if result.get("savePoint", None) is not None:
+                        if "savePoint" in result:
                             slot.pity = 0
                         else:
                             slot.pity += 1
