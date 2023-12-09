@@ -775,6 +775,7 @@ ships = [
 	"PGSB509",	# Pommern
 	"PGSB599",	# Pommern B
 	"PGSB110",	# Grosser Kurfürst
+	"PGSB717",  # Scharnhorst '43
 ]
 
 
@@ -901,6 +902,8 @@ ships = [
 	"PRSC528",  # Ochakov
 	"PRSC505",  # Krasny Krym
 	"PRSC606",  # Admiral Makarov
+	"PRSC003",  # Murmansk
+	"PASC044",  # Marblehead
 ]
 
 ["id.vh7pdk69v5j3"]
@@ -1022,6 +1025,7 @@ ships = [
 	"PBSC516",	# London
 	"PBSC508",	# Cheshire
 	"PBSC505",  # Exeter
+	"PBSC548",  # Nottingham
 ]
 
 ["id.dh6i307yqt54"]
@@ -1475,6 +1479,7 @@ ships = [
 	"PSSC108",  # Cataluña
 	"PSSC109",  # Andalucía
 	"PSSC110",  # Castilla
+	"PSSC508",  # Numancia
 ]
 
 ["id.fkcdb8f3bviu"]
@@ -1520,6 +1525,7 @@ ships = [
 name = "Napoli secondary build"
 ships = [
 	"PISC510",  # Napoli
+	"PISC519",  # Michelangelo
 ]
 
 ["id.orc473olbsfc"]
@@ -1556,4 +1562,38 @@ ships = [
 	"PBSB104",	# Orion
 	"PBSB503",  # Dreadnought
 	"PBSB103",	# Bellerophon
+]
+
+["id.qnlwk2pnhj1x"]
+name = "FR25"
+ships = [
+	"PISD507",  # FR25
+]
+
+["id.oanerv4g2srq"]
+name = "Karl von Schönberg"
+ships = [
+	"PGSD516",  # Karl von Schönberg
+]
+
+["id.go5tgtcr4kaf"]
+name = "Picardie"
+ships = [
+	"PFSB548",  # Picardie
+]
+
+["id.15avpi2ws4ls"]
+name = "Dimitry Pozharsky"
+ships = [
+	"PRSC558",  # Dimitry Pozharsky
+]
+
+["id.cxjvgndgqy6m"]
+name = "USN BB damage build"
+ships = [
+	"PASB017",  # Montana
+	"PASB018",  # Iowa
+	"PASB012",  # North Carolina
+	"PASB509",  # Missouri
+	"PASB508",  # Alabama
 ]
