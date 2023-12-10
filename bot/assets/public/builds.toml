@@ -768,8 +768,6 @@ ships = [
 	"PGSB111",	# Hannover
 	"PGSB503",	# König Albert
 	"PGSB506",	# Prinz Eitel Friedrich
-	"PGSB507",	# Scharnhorst
-	"PGSB597",	# Scharnhorst B
 	"PGSB002",	# Tirpitz
 	"PGSB598",	# Tirpitz B
 	"PGSB509",	# Pommern
