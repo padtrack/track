@@ -1024,6 +1024,7 @@ ships = [
 	"PBSC508",	# Cheshire
 	"PBSC505",  # Exeter
 	"PBSC548",  # Nottingham
+	"PBSC810",  # Defence
 ]
 
 ["id.dh6i307yqt54"]
@@ -1594,4 +1595,28 @@ ships = [
 	"PASB012",  # North Carolina
 	"PASB509",  # Missouri
 	"PASB508",  # Alabama
+]
+
+["id.b3mkoqcgbwch"]
+name = "Kitakami"
+ships = [
+	"PJSC610",  # Kitakami
+]
+
+["id.qzlqfnx0jmsd"]
+name = "Stord '43"
+ships = [
+	"PWSD717",  # Stord '43
+]
+
+["id.h8rmb4oeesbk"]
+name = "Elli"
+ships = [
+	"PWSC506",  # Elli
+]
+
+["id.btx6j5dxwkkp"]
+name = "Francesco Ferrucio"
+ships = [
+	"PISC517",  # Francesco Ferrucio
 ]
