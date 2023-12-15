@@ -17,6 +17,7 @@ similar = [
     [
         "PASA518",  # Enterprise
         "PASA538",  # Hornet
+        "PASA028",  # Yorktown
     ],
     [
         "PASA110",  # Midway
@@ -86,6 +87,7 @@ similar = [
     [
         "PGSB107",  # Gneisenau
         "PGSB507",  # Scharnhorst
+        "PGSB717",  # Scharnhorst '43
     ],
     [
         "PASB508",  # Alabama
@@ -427,6 +429,7 @@ similar = [
     [
         "PBSD107",  # Jervis
         "PZSD107",  # Gadjah Mada
+        "PBSD717",  # Jupiter '42
     ],
     [
         "PUSD507",  # Haida
@@ -462,6 +465,7 @@ similar = [
         "PJSD208",  # Kagero
         "PJSD518",  # Asashio
         "PJSD209",  # Yugumo
+        "PJSD719",  # Minegumo
     ],
     [
         "PJSD108",  # Akizuki
@@ -561,6 +565,7 @@ similar = [
     [
         "PVSC106",  # Alte Cochrane
         "PISC507",  # Abruzzi
+        "PISC517",  # Francesco Ferruccio
     ],
     [
         "PBSA108",  # Implacable
@@ -602,6 +607,18 @@ similar = [
     [
         "PFSC107",  # Algerie
         "PFSC516",  # Dupleix
+    ],
+    [
+        "PWSD206",  # Stord
+        "PWSD717",  # Stord '43
+    ],
+    [
+        "PASB729",  # Georgia
+        "PASB720",  # Rhode Island
+    ],
+    [
+        "PISB110",  # Cristoforo Colombo
+        "PISB710",  # Sicilia
     ],
 ]
 
@@ -685,6 +702,7 @@ forbidden = [
     "PZSC529",  # Mengchong
     "PZSB539",  # Louchan
     "PBSC558",  # AL Chesire
+    "PZSC719",  # Tianjin
     "PRSD308",  # Kiev (Bad Silhouette)
     "PISC108",  # Amalfi (Bad Silhouette)
     "PISC105",  # Montecuccoli (Bad Silhouette)
