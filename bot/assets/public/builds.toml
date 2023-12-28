@@ -1620,3 +1620,9 @@ name = "Francesco Ferrucio"
 ships = [
 	"PISC517",  # Francesco Ferrucio
 ]
+
+["id.f5tojdad419e"]
+name = "Colossus"
+ships = [
+	"PBSA528",  # Colossus
+]
