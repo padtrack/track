@@ -1626,3 +1626,17 @@ name = "Colossus"
 ships = [
 	"PBSA528",  # Colossus
 ]
+
+["id.hzq49m95zown"]
+name = "Rhode Island"
+ships = [
+	"PASB720",  # Rhode Island
+]
+
+["id.7wclje10hna5"]
+name = "USN alternative CVs"
+ships = [
+	"PASA020",  # Essex
+	"PASA028",  # Yorktown
+	"PASA026",  # Independence
+]
