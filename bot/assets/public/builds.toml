@@ -1640,3 +1640,15 @@ ships = [
 	"PASA028",  # Yorktown
 	"PASA026",  # Independence
 ]
+
+["id.1c63wpv3q0nr"]
+name = "Sicilia"
+ships = [
+	"PISB710",  # Sicilia
+]
+
+["id.6t9xrn9264oq"]
+name = "Tianjin"
+ships = [
+	"PZSC719",  # Tianjin
+]
