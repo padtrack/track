@@ -1001,7 +1001,6 @@ ships = [
 	"PRSD111",	# Zorkiy
 	"PRSD505",	# Okhotnik
 	"PRSD507",	# Leningrad
-	"PRSD110",	# Khabarovsk
 ]
 
 ["id.41we9xypcyai"]
@@ -1651,4 +1650,10 @@ ships = [
 name = "Tianjin"
 ships = [
 	"PZSC719",  # Tianjin
+]
+
+["id.wk6hskfwdf8t"]
+name = "Khabarovsk"
+ships = [
+	"PRSD110",  # Khabarovsk
 ]
