@@ -212,6 +212,7 @@ ships = [
 	"PASD111",  # J. Humphreys
 	"PZSD111",  # Kunming
 	"PWSD519",  # Jäger
+	"PJSD719",  # Minegumo
 ]
 
 ["id.ixgdmvl3rc7f"]
@@ -1656,4 +1657,10 @@ ships = [
 name = "Khabarovsk"
 ships = [
 	"PRSD110",  # Khabarovsk
+]
+
+["id.jrh88jhre7kh"]
+name = "Jupiter '42"
+ships = [
+	"PBSD717",  # Jupiter '42
 ]
