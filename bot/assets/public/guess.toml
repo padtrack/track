@@ -703,6 +703,13 @@ forbidden = [
     "PZSB539",  # Louchan
     "PBSC558",  # AL Chesire
     "PZSC719",  # Tianjin
+    "PASB013",  # Arkansas B
+    "PASD529",  # Black B
+    "PGSB538",  # Brandenburg B
+    "PJSB559",  # Iwami B
+    "PRSC530",  # Smolensk B
+    "PBSB536",  # Repulse B
+    "PRSC568",  # Lazo B
     "PRSD308",  # Kiev (Bad Silhouette)
     "PISC108",  # Amalfi (Bad Silhouette)
     "PISC105",  # Montecuccoli (Bad Silhouette)
