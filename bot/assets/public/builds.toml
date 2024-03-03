@@ -1664,3 +1664,9 @@ name = "Jupiter '42"
 ships = [
 	"PBSD717",  # Jupiter '42
 ]
+
+["id.wm3bl4bsgtyt"]
+name = "Wukong"
+ships = [
+	"PZSC518",  # Wukong
+]
