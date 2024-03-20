@@ -322,12 +322,6 @@ ships = [
     "PBSC610",  # Gibraltar
 ]
 
-["id.2on753u4kx9h"]
-name = "Perth"
-ships = [
-    "PUSC506",  # Perth
-]
-
 ["id.xrdhjtsd5fcd"]
 name = "RN CLs"
 ships = [
@@ -1669,4 +1663,20 @@ ships = [
 name = "Wukong"
 ships = [
 	"PZSC518",  # Wukong
+]
+
+["id.wvux2qoxkk2o"]
+name = "Commonwealth CAs"
+ships = [
+	"PUSC001",  # Sutlej
+	"PUSC012",  # Port Jackson
+	"PUSC013",  # Caradoc
+	"PUSC014",  # Dunedin
+	"PUSC025",  # Red Fort
+	"PUSC016",  # Hobart
+	"PUSC506",  # Perth
+	"PUSC017",  # Uganda
+	"PUSC018",  # Auckland
+	"PUSC019",  # Encounter
+	"PUSC010",  # Cerberus
 ]
