@@ -949,16 +949,11 @@ ships = [
 ]
 
 ["id.9klpenssnqn4"]
-name = "Standard submarine build"
+name = "KM sub build"
 ships = [
-	"PJSS518",  # I-56
-	"PASS206",	# Cachalot
-	"PASS208",	# Salmon
-	"PASS210",	# Balao
 	"PGSS206",  # U-69
 	"PGSS208",  # U-190
 	"PGSS210",  # U-2501
-	"PRSS508",  # S-189
 ]
 
 ["id.blqxm8hzmlqk"]
@@ -1448,9 +1443,11 @@ ships = [
 ]
 
 ["id.j2tqu9c6kors"]
-name = "Gato"
+name = "USN sub build"
 ships = [
-	"PASS510",  # Gato
+	"PASS206",	# Cachalot
+	"PASS208",	# Salmon
+	"PASS210",	# Balao
 ]
 
 ["id.gy14vzhz1i3w"]
@@ -1679,4 +1676,16 @@ ships = [
 	"PUSC018",  # Auckland
 	"PUSC019",  # Encounter
 	"PUSC010",  # Cerberus
+]
+
+["id.fhq7wzg98l2e"]
+name = "S-189"
+ships = [
+	"PRSS508",  # S-189
+]
+
+["id.gbej6ijpza5f"]
+name = "I-56"
+ships = [
+	"PJSS518",  # I-56
 ]
