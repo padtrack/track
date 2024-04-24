@@ -40,9 +40,10 @@ ships = [
 ]
 
 ["id.j0pgh5w41soz"]
-name = "Tone"
+name = "Tone + Chikuma II"
 ships = [
     "PJSC018",  # Tone
+	"PJSC719",  # Chikuma II
 ]
 
 ["id.xmhlvj8g3fhk"]
@@ -1688,4 +1689,10 @@ ships = [
 name = "I-56"
 ships = [
 	"PJSS518",  # I-56
+]
+
+["id.ruwzawqoak0r"]
+name = "Wiesbaden"
+ships = [
+	"PGSC728",  # Wiesbaden
 ]
