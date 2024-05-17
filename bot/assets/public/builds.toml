@@ -1696,3 +1696,9 @@ name = "Wiesbaden"
 ships = [
 	"PGSC728",  # Wiesbaden
 ]
+
+["id.rzzd73hmtjeg"]
+name = "Komissar"
+ships = [
+	"PRSC810",  # Komissar
+]
