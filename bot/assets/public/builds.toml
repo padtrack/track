@@ -244,6 +244,7 @@ ships = [
 	"PASB528",	# Alabama VL
 	"PASB538",	# Constellation
 	"PASB509",	# Missouri
+	"PASB111",  # Maine
 ]
 
 ["id.g810x27hzf17"]
@@ -436,6 +437,7 @@ ships = [
 name = "Montana"
 ships = [
 	"PASB017",  # Montana
+	"PASB111",  # Maine
 ]
 
 ["id.pg3ugjokavb0"]
@@ -1587,6 +1589,7 @@ ships = [
 	"PASB012",  # North Carolina
 	"PASB509",  # Missouri
 	"PASB508",  # Alabama
+	"PASB111",  # Maine
 ]
 
 ["id.b3mkoqcgbwch"]
