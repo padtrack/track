@@ -94,7 +94,7 @@ class RenderView(ui.View):
         super().__init__(**kwargs)
 
         for build in builds:
-            if build["relation"] == -1:
+            if build["relation"] == -1 and build["build_url"]:
                 url = build["build_url"] + "&ref=track"
                 if len(url) <= URL_MAX_LENGTH:
                     self.add_item(ui.Button(label="Player Build", url=url))
