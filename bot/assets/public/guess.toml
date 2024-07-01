@@ -129,11 +129,13 @@ similar = [
         "PISB108",  # Vittorio Veneto
         "PISB508",  # Roma
         "PISB109",  # Lepanto
+        "PSSB719",  # Victoria
     ],
     [
         "PASB018",  # Iowa
         "PASB509",  # Missouri
         "PASB539",  # Illinois
+        "PASB730",  # Wisconsin
     ],
     [
         "PGSB109",  # F.D.G.
@@ -180,6 +182,8 @@ similar = [
         "PBSC103",  # Caledon
         "PBSC104",  # Danae
         "PVSC104",  # Cordoba
+        "PUSC013",  # Caradoc
+        "PUSC014",  # Dunedin
     ],
     [
         "PGSC002",  # Dresden
@@ -211,6 +215,7 @@ similar = [
     [
         "PFSC105",  # Emile Bertin
         "PFSC106",  # La Galissonniere
+        "PFSC716",  # Montcalm
     ],
     [
         "PFSC507",  # Toulon
@@ -222,11 +227,15 @@ similar = [
         "PZSC506",  # Huanghe
         "PBSC106",  # Leander
         "PUSC506",  # Perth
+        "PBSC716",  # Orion '44
+        "PUSC015",  # Delhi
+        "PUSC016",  # Hobart
     ],
     [
         "PUSC516",  # Mysore
         "PBSC107",  # Fiji
         "PVSC107",  # Cor. Bolognesi
+        "PUSC017",  # Uganda
     ],
     [
         "PGSC107",  # Yorck
@@ -267,6 +276,7 @@ similar = [
     [
         "PASC518",  # Anchorage
         "PASC109",  # Buffalo
+        "PZSC710",  # Incheon
     ],
     [
         "PASC528",  # Congress
@@ -307,6 +317,8 @@ similar = [
         "PBSC508",  # Cheshire
         "PBSC209",  # Drake
         "PBSC610",  # Gibraltar
+        "PUSC018",  # Auckland
+        "PBSC020",  # Monmouth
     ],
     [
         "PGSC108",  # Admiral Hipper
@@ -319,6 +331,7 @@ similar = [
     [
         "PHSC109",  # Johan de Witt
         "PHSC110",  # Gouden Leeuw
+        "PHSC710",  # Prins van Oranje
     ],
     [
         "PJSC510",  # Azuma
@@ -352,6 +365,7 @@ similar = [
     [
         "PFSC110",  # Henri IV
         "PFSC111",  # Conde
+        "PFSC710",  # Brennus
     ],
     [
         "PGSD102",  # V-25
@@ -482,6 +496,8 @@ similar = [
         "PASD709",  # Black
         "PZSD109",  # Chung Mu
         "PWSD509",  # Velos
+        "PASD899",  # Frank Friday
+        "PASD719",  # Johnston
     ],
     [
         "PFSD109",  # Mogador
@@ -571,10 +587,12 @@ similar = [
         "PBSA108",  # Implacable
         "PBSA508",  # Indomitable
         "PBSA528",  # Colossus
+        "PBSA718",  # Theseus
     ],
     [
         "PHSC508",  # De 7 Provincien
         "PVSC508",  # Alte Grau
+        "PHSC988",  # Admiraal
     ],
     [
         "PWSD501",  # Blyskawica
@@ -619,6 +637,23 @@ similar = [
     [
         "PISB110",  # Cristoforo Colombo
         "PISB710",  # Sicilia
+    ],
+    [
+        "PJSC018",  # Tone
+        "PJSC719",  # Chikuma II
+    ],
+    [
+        "PBSB517",  # Nelson
+        "PBSB727",  # Duke of Bronte
+        "PBSB717",  # Rodney
+    ],
+    [
+        "PBSC101",  # Black Swan
+        "PUSC001",  # Sutlej
+    ],
+    [
+        "PRSC109",  # Dmitri Donskoi
+        "PRSC719",  # Kozma Minin
     ],
 ]
 
@@ -710,6 +745,21 @@ forbidden = [
     "PRSC530",  # Smolensk B
     "PBSB536",  # Repulse B
     "PRSC568",  # Lazo B
+    "PASS910",  # Balao 2
+    "PASB998",  # North Carolina 2
+    "PASB919",  # Iowa 2
+    "PASB920",  # Montana 2
+    "PASB997",  # Colorado 2
+    "PJSD890",  # AL Shimakaze
+    "PASA898",  # AL Hornet
+    "PASA898",  # AL Agir
+    "PZSB708",  # Xuan Wu
+    "PZSD708",  # Zhu Que
+    "PGSD707",  # Z-32
+    "PGSD717",  # Z-33
+    "PGSD727",  # Z-34
+    "PGSD737",  # Z-38
+    "PJSC729",  # Chikuma II Golden
     "PRSD308",  # Kiev (Bad Silhouette)
     "PISC108",  # Amalfi (Bad Silhouette)
     "PISC105",  # Montecuccoli (Bad Silhouette)
