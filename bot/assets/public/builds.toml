@@ -16,7 +16,7 @@ ships = [
 ]
 
 ["id.r6wbgmuzr7r9"]
-name = "FR DDs"
+name = "FR gunboat DDs"
 ships = [
 	"PFSD102",	# Gabolde
 	"PFSD103",	# Fusilier
@@ -1704,4 +1704,21 @@ ships = [
 name = "Komissar"
 ships = [
 	"PRSC810",  # Komissar
+]
+
+["id.d0m3bfd789je"]
+name = "FR torpedoboat DDs"
+ships = [
+	"PFSD010",  # Cassard
+	"PFSD019",  # Orage
+	"PFSD018",  # L'Aventurier
+	"PFSD017",  # Le Hardi
+	"PFSD016",  # Duchaffault
+	"PFSD015",  # L'Adroit
+]
+
+["id.fxm8g9na5gx9"]
+name = "Johnston"
+ships = [
+	"PASD899",  # Johnston
 ]
