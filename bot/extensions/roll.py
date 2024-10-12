@@ -66,6 +66,7 @@ class RollCog(commands.GroupCog, name="roll"):
             }
             embed = discord.Embed(title="Group Roll Session", description=f"Values: `0` to `{maximum}`\n{description}")
             embed.set_author(name=interaction.user.display_name, icon_url=interaction.user.avatar.url)
+            embed.set_footer(text="Type \"roll\" to roll")
             await interaction.followup.send(embed=embed)
 
             self.save()
