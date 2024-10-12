@@ -14,7 +14,6 @@ DATA_PATH = os.path.join(
 
 
 @app_commands.guild_only()
-@app_commands.checks.has_permissions(manage_guild=True, manage_messages=True)
 class RollCog(commands.GroupCog, name="roll"):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
@@ -45,6 +44,7 @@ class RollCog(commands.GroupCog, name="roll"):
         description="Optional message appended to embed's description.",
         maximum="The maximum value (inclusive). Defaults to 100.",
     )
+    @app_commands.checks.has_permissions(manage_guild=True, manage_messages=True)
     async def start(self, interaction: discord.Interaction, description: str = "", maximum: int = 100):
         await interaction.response.defer()
 
@@ -72,6 +72,7 @@ class RollCog(commands.GroupCog, name="roll"):
             self.save()
 
     @app_commands.command(description="Closes the group roll session in this channel.")
+    @app_commands.checks.has_permissions(manage_guild=True, manage_messages=True)
     async def close(self, interaction: discord.Interaction):
         await interaction.response.defer()
 
