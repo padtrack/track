@@ -83,7 +83,7 @@ class InspectView(ui.View):
         self.add_item(
             ui.Button(label="ShipBuilder", url=self.SHIPBUILDER_URL.format(ship.index))
         )
-        self.add_item(ui.Button(label="WoWSFT", url=self.WOWSFT_URL.format(ship.index)))
+        # self.add_item(ui.Button(label="WoWSFT", url=self.WOWSFT_URL.format(ship.index)))
 
 
 class GuessEmbed(discord.Embed):
