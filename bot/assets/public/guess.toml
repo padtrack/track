@@ -759,6 +759,14 @@ forbidden = [
     "PGSD717",  # Z-33
     "PGSD727",  # Z-34
     "PGSD737",  # Z-38
+    "PJSC829",  # Azuma B
+    "PGSC817",  # Munchen B
+    "PASB818",  # Alabama B
+    "PUSC810",  # Brisbane B
+    "PJSC819",  # BA Takahashi
+    "PGSB818",  # BA Tirpitz
+    "PASB820",  # BA Montana
+    "PJSC890",  # Zao CLR
     "PJSC729",  # Chikuma II Golden
     "PRSD308",  # Kiev (Bad Silhouette)
     "PISC108",  # Amalfi (Bad Silhouette)
