@@ -145,7 +145,7 @@ class LootboxTransformer(app_commands.Transformer):
 
         for box_id, data in box_names.items():
             if clean in data["clean"]:
-                results.append(app_commands.Choice(name=data["name"], value=box_id))
+                results.append(app_commands.Choice(name=data["name"] + f" ({box_id})", value=box_id))
 
             if len(results) == self.MAX_AC_RESULTS:
                 break
@@ -347,6 +347,7 @@ class LootboxCog(commands.Cog):
                     title="Lootbox Results",
                     description=f"{data['title']}\nQuantity: `{quantity}`\n",
                 )
+                embed.set_thumbnail(url=f"https://wows-gloss-icons.wgcdn.co/icons/{data['icons']['large']}")
                 embed.set_footer(text=f"Pity Used: {used_pity}")
 
                 categories = {
@@ -357,11 +358,15 @@ class LootboxCog(commands.Cog):
                         "collectibleAlbum",
                         "crews",
                         "vehicles",
+                        "containers",
                     ]
                 }
                 for obj, amount in results.most_common():
-                    category = obj_data[str(obj.identifier)]["category"]
-                    categories[category].append((str(obj), amount))
+                    try:
+                        category = obj_data[str(obj.identifier)]["category"]
+                        categories[category].append((str(obj), amount))
+                    except KeyError:
+                        categories["containers"].append((str(obj.identifier), amount))
 
                 for category, pairs in categories.items():
                     if pairs:
