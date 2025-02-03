@@ -12,7 +12,7 @@ from bot.utils import wows
 
 DOCUMENT_URL = (
     "https://docs.google.com/document/d/1XfsIIbyORQAxgOE-ao_nVSP8_fpa1igg0t48pXZFIu0/"
-    "#bookmark={}"
+    "#heading={}"
 )
 BUILDS_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "../assets/public/builds.toml"
