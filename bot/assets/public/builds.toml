@@ -1,401 +1,308 @@
-["id.jtq3xxx20b39"]
-name = "KM CVs"
+["h.wb9n14plia4f"]
+name = "IJN gunboat DDs"
 ships = [
-	"PGSA104",	# Rhein
-	"PGSA106",	# Weser
-	"PGSA108",	# Parseval
-	"PGSA110",	# Richthofen
-	"PGSA518",	# Graf Zeppelin
-	"PGSA598",	# Graf Zeppelin B
-]
-
-["id.vdik1jbjz4ag"]
-name = "Anshan"
-ships = [
-	"PZSD506",	# Anshan
-]
-
-["id.r6wbgmuzr7r9"]
-name = "FR gunboat DDs"
-ships = [
-	"PFSD102",	# Gabolde
-	"PFSD103",	# Fusilier
-	"PFSD104",	# Bourrasque
-	"PFSD105",	# Jaguar
-	"PFSD106",	# Guepard
-	"PFSD107",	# Vauquelin
-	"PFSD108",	# Le Fantasque
-	"PFSD109",	# Mogador
-	"PFSD110",	# Kléber
-	"PFSD508",	# Le Terrible
-	"PFSD506",  # Aigle
-	"PFSD504",  # Siroco
-]
-
-["id.rdq0zskmppym"]
-name = "Fen Yang"
-ships = [
-    "PZSD518",  # Fen Yang
-	"PZSD718",  # Ship Smasha
-]
-
-["id.j0pgh5w41soz"]
-name = "Tone + Chikuma II"
-ships = [
-    "PJSC018",  # Tone
-	"PJSC719",  # Chikuma II
-]
-
-["id.xmhlvj8g3fhk"]
-name = "Vampire II"
-ships = [
-    "PUSD510",  # Vampire II
-    "PUSD507",  # Haida
-]
-
-["id.r9dz6zw287lw"]
-name = "Leone"
-ships = [
-    "PISD506",  # Leone
-]
-
-["id.owmpjybi48qx"]
-name = "FR CAs"
-ships = [
-
-	"PFSC107",	# Algerie
-	"PFSC108",	# Charles Martel
-	"PFSC109",	# Saint-Louis
-	"PFSC110",	# Henri IV
-	"PFSC111",	# Conde
-	"PFSC516",  # Dupleix
-]
-
-["id.5i3cdfaeerq8"]
-name = "Plymouth"
-ships = [
-	"PBSC510",	# Plymouth
-]
-
-["id.6kd121r9y0t7"]
-name = "Sevastopol"
-ships = [
-    "PRSC710",  # Sevastopol
-]
-
-["id.h5yy00r2h2oa"]
-name = "VMF CVs"
-ships = [
-	"PRSA104",	# Komsomolets
-	"PRSA106",	# Serov
-	"PRSA108",	# Pobeda
-	"PRSA110",	# Nakhimov
-	"PRSA508",  # Chkalov
-]
-
-["id.9xwgg0d91053"]
-name = "USN CVs"
-ships = [
-	"PASA104",	# Langley
-	"PASA106",	# Ranger
-	"PASA108",	# Lexington
-	"PASA110",	# Midway
-	"PASA528",	# Saipan
-	"PASA598",	# Saipan B
-	"PZSA508",	# Sanzang
-	"PASA518",	# Enterprise
-	]
-
-["id.rxemlmow4nbk"]
-name = "Colbert"
-ships = [
-    "PFSC510",  # Colbert
-]
-
-["id.qtolc4x83d75"]
-name = "Thunderer"
-ships = [
-	"PBSB510",	# Thunderer
-]
-
-["id.cuqerje3k66a"]
-name = "Atlanta, Flint"
-ships = [
-    "PASC006",  # Atlanta
-	"PASC587",  # Atlanta B
-    "PASC707",  # Flint
-]
-
-["id.8iw4mlnq3joj"]
-name = "IT CAs"
-ships = [
-	"PISC102",	# Nino Bixio
-	"PISC103",	# Taranto
-	"PISC104",	# Alberto di Giussano
-	"PISC105",	# Montecuccoli
-	"PISC106",	# Trento
-	"PISC107",	# Zara
-	"PISC108",	# Amalfi
-	"PISC109",	# Brindisi
-	"PISC110",	# Venezia
-	"PISC505",	# Genova
-	"PISC607",  # Gorizia
-	"PISC111",  # Piemonte
-]
-
-["id.3s6krd2jzxbz"]
-name = "IJN gunboats"
-ships = [
+	"PJSD708",	# HSF Harekaze I
 	"PJSD108",	# Akizuki
 	"PJSD219",	# Kitakaze
+	"PJSD889",	# STAR Kitakaze
 	"PJSD210",	# Harugumo
-	"PJSD708",	# HSF Harekaze I
 ]
 
-["id.3w05jwohl0d"]
-name = "Nevsky, Donskoi"
+["h.685a5b3udg2b"]
+name = "Harugumo LM/farming build"
 ships = [
-    "PRSC210",  # Nevsky
-    "PRSC109",  # Donskoi
+	"PJSD210",	# Harugumo
 ]
 
-["id.6cuvyjy1udau"]
-name = "Franklin D. Roosevelt"
+["h.8dywu6syxfrz"]
+name = "Hayate"
 ships = [
-    "PASA510",  # FDR
+	"PJSD510",	# Hayate
 ]
 
-["id.2qajsumowvhs"]
-name = "Generic torpedoboat build"
+["h.cpd6jr92yl0s"]
+name = "IJN torpedoboat DDs"
 ships = [
+	"PJSD002",	# Umikaze
 	"PJSD024",	# Wakatake
+	"PJSD001",	# Tachibana
+	"PJSD014",	# Tachibana Lima
 	"PJSD003",	# Isokaze
 	"PJSD105",	# Mutsuki
 	"PJSD004",	# Minekaze
 	"PJSD025",	# Kamikaze
 	"PJSD026",	# Kamikaze R
-	"PJSD017",	# Fūjin
+	"PJSD017",	# Fujin
 	"PJSD106",	# Fubuki
+	"PJSD206",	# Hatsuharu
 	"PJSD706",	# Shinonome
+	"PJSD596",	# Shinonome B
 	"PJSD107",	# Akatsuki
 	"PJSD207",	# Shiratsuyu
+	"PJSD507",	# Yudachi
 	"PJSD208",	# Kagerō
-	"PJSD209",	# Yugumo
-	"PJSD012",	# Shimakaze
-	"PJSD111",	# Yamagiri
+	"PJSD718",	# AL Yukikaze
 	"PJSD518", 	# Asashio
 	"PJSD598", 	# Asashio B
-	"PGSD519",	# Z-44
-	"PZSD108",	# Hsienyang
-	"PZSD109",	# Chung Mu
-	"PZSD110",	# Yueyang
+	"PJSD209",	# Yugumo
+	"PJSD719",	# Minegumo
+	"PJSD012",	# Shimakaze
+	"PJSD890",	# AL Shimakaze
+	"PJSD111",	# Yamagiri
+]
+
+["h.859y8r56165d"]
+name = "USN DDs standard build"
+ships = [
+	"PASD002",	# Sampson
+	"PASD027",	# Wickes
+	"PASD502",	# Smith
+	"PASD019",	# Clemson
+	"PASD014",	# Nicholas
+	"PASD505",	# Hill
+	"PASD005",	# Farragut
+	"PASD006",	# Mahan
+	"PASD029",	# Sims
+	"PASD597",	# Sims B
+	"PASD008",	# Benson
+	"PASD021",	# Fletcher
+	"PASD013",	# Gearing
+	"PASD111",	# J. Humphreys
+]
+
+["h.gq3wh7qjnpza"]
+name = "USN DDs torpedo build"
+ships = [
+	"PASD506",	# Monaghan
 	"PASD021",	# Fletcher
 	"PASD509",	# Benham
 	"PASD013",	# Gearing
 	"PASD510",	# Somers
-	"PWSD102",	# Tatra
-	"PWSD103",	# Romulus
-	"PWSD104",	# Klas Horn
-	"PWSD105",	# Visby
-	"PWSD106",	# Vasteras
-	"PWSD107",	# Skane
-	"PWSD108",	# Öland
-	"PWSD109",	# Östergötland
-	"PWSD110",	# Halland
-	"PJSD206",  # Hatsuharu
-	"PASD506",  # Monaghan
-	"PJSD001",  # Tachibana
-	"PJSD002",  # Umikaze
-	"PJSD014",  # Tachibana Lima
-	"PJSD718",  # AL Yukiakaze
-	"PJSD507",  # Yudachi
-	"PWSD111",  # Dalarna
-	"PASD111",  # J. Humphreys
-	"PZSD111",  # Kunming
-	"PWSD519",  # Jäger
-	"PJSD719",  # Minegumo
+	"PASD111",	# J. Humphreys
 ]
 
-["id.ixgdmvl3rc7f"]
-name = "Repulse"
-ships = [
-    "PBSB526",  # Repulse
-]
-
-["id.o385dmp9wb3l"]
-name = "USN fast BB branch"
-ships = [
-	"PASB001",	# South Carolina
-	"PASB004",	# Wyoming
-	"PASB006",	# New York
-	"PASB034",	# New Mexico
-	"PASB008",	# Colorado
-	"PASB012",	# North Carolina
-	"PASB018",	# Iowa
-	"PASB017",	# Montana
-	"PASB013",	# Arkansas Beta
-	"PASB705",	# Texas
-	"PASB506",	# Arizona
-	"PASB507",	# W. Virginia 1941
-	"PASB707",	# California
-	"PASB517",	# Florida
-	"PASB508",	# Alabama
-	"PASB708",	# Alabama ST
-	"PASB528",	# Alabama VL
-	"PASB538",	# Constellation
-	"PASB509",	# Missouri
-	"PASB111",  # Maine
-]
-
-["id.g810x27hzf17"]
-name = "Napoli"
-ships = [
-    "PISC510",  # Napoli
-]
-
-["id.99nlj2fbpusb"]
-name = "Huanghe"
-ships = [
-    "PZSC506",  # Huanghe
-]
-
-["id.7acpd5vlc5d8"]
-name = "Orkan"
-ships = [
-	"PWSD508"	# Orkan
-]
-
-["id.gt08mamfvnmr"]
-name = "KM DDs gunboat branch"
-ships = [
-	"PGSD207",  # Z-31
-	"PGSD208",  # Maerker
-	"PGSD209",  # Schultz
-	"PGSD210",  # Elbing
-]
-
-["id.s44v6mgnpfxl"]
-name = "FR CAs sub-branch"
-ships = [
-	"PFSC208",  # Cherbourg
-	"PFSC209",  # Brest
-	"PFSC210",  # Marseille
-	"PFSC507",  # Toulon
-]
-
-["id.c6436n7vehf0"]
-name = "RN (British) DDs"
-ships = [
-	"PBSD102",  # Medea
-	"PBSD103",  # Valkyrie
-	"PBSD104",  # Wakeful
-	"PBSD105",  # Acasta
-	"PBSD106",  # Icarus
-	"PBSD107",  # Jervis
-	"PBSD108",  # Lightning
-	"PBSD109",  # Jutland
-	"PBSD110",  # Daring
-	"PBSD517",  # Cossack
-	"PBSD598",  # Cossack B
-	"PBSD519",  # Somme
-]
-
-["id.v8j5t94cbfyz"]
-name = "Carnot"
-ships = [
-    "PFSC509",  # Carnot
-]
-
-["id.2z9kcywx23hy"]
-name = "Siliwangi"
-ships = [
-    "PZSD208",  # Siliwangi
-]
-
-["id.abmw2hixp5zg"]
-name = "ZF-6"
-ships = [
-    "PGSD529",  # ZF-6
-]
-
-["id.3lljf5bxnjsn"]
-name = "Gibraltar"
-ships = [
-    "PBSC610",  # Gibraltar
-]
-
-["id.xrdhjtsd5fcd"]
-name = "RN CLs"
-ships = [
-	"PBSC102",  # Weymouth
-	"PBSC103",  # Caledon
-	"PBSC104",  # Danae
-	"PBSC105",  # Emerald
-	"PBSC106",  # Leander
-	"PBSC107",  # Fiji
-	"PBSC108",  # Edinburgh
-	"PBSC109",  # Neptune
-	"PBSC110",  # Minotaur
-	"PBSC111",  # Edgar
-	"PUSC516",  # Mysore
-	"PBSC518",  # Tiger ‘59
-]
-
-["id.c5qew6k8p89y"]
+["h.d32vclq6flrg"]
 name = "Forrest Sherman"
 ships = [
 	"PASD610"	# Forrest Sherman
 ]
 
-["id.f0h4gikm191p"]
-name = "Kidd"
+["h.7u6b3gfswwos"]
+name = "VMF DPS DDs standard build"
 ships = [
-	"PASD508",  # Kidd
+	"PRSD102",	# Storozhevoi
+	"PRSD103",	# Derzki
+	"PRSD104",	# Izyaslav
+	"PRSD205",	# Podvoisky
+	"PRSD505",	# Okhotnik
+	"PRSD206",	# Gnevny
+ 	"PRSD001",	# Gremyashchy
+	"PRSD207",	# Minsk
+	"PRSD507",	# Leningrad
+	"PRSD308",	# Kiev
+	"PRSD409",	# Tashkent
+	"PRSD410",	# Delny
+	"PRSD110",	# Khabarovsk
+	"PRSD111",	# Zorkiy
 ]
 
-["id.h4j2ipd9vlrw"]
-name = "IJN CVs"
+["h.pnebg1xoab1e"]
+name = "VMF DPS DDs damage build"
 ships = [
-	"PJSA104",  # Hosho
-	"PJSA106",  # Ryujo
-	"PJSA108",  # Shokaku
-	"PJSA518",  # Kaga
-	"PJSA110",  # Hakuryu
-	"PJSA598",  # Kaga B
-	"PJSA111",  # Sekiryu
+	"PRSD308",	# Kiev
+	"PRSD409",	# Tashkent
+	"PRSD410",	# Delny
+	"PRSD110",	# Khabarovsk
+	"PRSD111",	# Zorkiy
 ]
 
-["id.m7k8fzvnx0mp"]
-name = "Bourgogne, JB, Strasbourg"
+["h.umynkzynzgwc"]
+name = "VMF universal-type DDs"
 ships = [
-	"PFSB507",  # Strasbourg
-	"PFSB518",  # JB
-	"PFSB599",  # JB B
-	"PFSB510",  # Bourgogne
+	"PRSD107",	# Udaloi
+	"PRSD210",	# Grozovoi
 ]
 
-["id.3ccr5zavzs1c"]
-name = "IT BBs"
+["h.76in2wnic3rr"]
+name = "Ognevoi"
 ships = [
-	"PISB104",	# Dante Alighieri
-	"PISB105",	# Conte di Cavour
-	"PISB106",	# Andrea Doria
-	"PISB107",	# Francesco Caracciolo
-	"PISB108",	# Vittorio Veneto
-	"PISB109",	# Lepanto
-	"PISB110",	# Cristoforo Colombo
-	"PISB505",	# Giulio Cesare
-	"PISB509",	# Marco Polo
+	"PRSD208",	# Ognevoi
 ]
 
-["id.s4ifvwth8uo6"]
-name = "E. Löwenhardt"
+["h.foy2hulat9js"]
+name = "KM universal-type DDs contesting build"
 ships = [
-	"PGSA506",  # Erich Loewenhardt
+	"PGSD102",	# V-25
+	"PGSD103",	# G-101
+	"PGSD104",	# V-170
+	"PGSD105",	# T-22
+	"PGSD106",	# Gaede
+	"PGSD506",	# T-61
+	"PGSD107",	# Maass
+	"PGSD508",	# Z-39
+	"PGSD108",	# Z-23
+	"PGSD518",	# Z-35
+	"PGSD109",	# Z-46
+	"PGSD110",	# Z-52
 ]
 
-["id.rsqm3eck9bx5"]
-name = "EU DDs"
+["h.8ancccxd694q"]
+name = "KM universal-type DDs balanced build"
+ships = [
+	"PGSD102",	# V-25
+	"PGSD103",	# G-101
+	"PGSD104",	# V-170
+	"PGSD105",	# T-22
+	"PGSD106",	# Gaede
+	"PGSD506",	# T-61
+	"PGSD107",	# Maass
+	"PGSD508",	# Z-39
+	"PGSD108",	# Z-23
+	"PGSD518",	# Z-35
+	"PGSD109",	# Z-46
+	"PGSD110",	# Z-52
+]
+
+["h.g3oh9lwfl72w"]
+name = "Z-52 LM build"
+ships = [
+	"PGSD110",	# Z-52
+]
+
+["h.lt17gj7w7o79"]
+name = "Z-42"
+ships = [
+	"PGSD610",	# Z-42
+]
+
+["h.tc25x4q7yp51"]
+name = "KM gunboat DDs standard build"
+ships = [
+	"PGSD207",	# Z-31
+	"PGSD208",	# Maerker
+	"PGSD209",	# Schultz
+	"PGSD210",	# Elbing
+]
+
+["h.dbx69y60x01y"]
+name = "KM DPS DDs farming build"
+ships = [
+	"PGSD209",	# Schultz
+	"PGSD210",	# Elbing
+]
+
+["h.v07acmxivgvf"]
+name = "Georg Hoffmann"
+ships = [
+	"PGSD710",	# Georg Hoffmann
+ 	"PGSD720",	# Georg Hoffmann G
+]
+
+["h.5ljeq6wzq5s4"]
+name = "RN DDs"
+ships = [
+	"PBSD102",	# Medea
+	"PBSD103",	# Valkyrie
+	"PBSD104",	# Wakeful
+	"PBSD105",	# Acasta
+	"PBSD106",	# Icarus
+	"PBSD107",	# Jervis
+	"PBSD108",	# Lightning
+	"PBSD517",	# Cossack
+	"PBSD598",	# Cossack B
+	"PBSD109",	# Jutland
+	"PBSD519",	# Somme
+	"PBSD110",	# Daring
+]
+
+["h.pyjbm7c9s6ta"]
+name = "Druid standard build"
+ships = [
+	"PBSD510",	# Druid
+]
+
+["h.n9p5gytwn25q"]
+name = "Druid damage build"
+ships = [
+	"PBSD510",	# Druid
+]
+
+["h.w8uw8xuq88d1"]
+name = "FR gunboat DDs standard build"
+ships = [
+	"PFSD102",	# Enseigne Gabolde
+	"PFSD103",	# Fusilier
+	"PFSD104",	# Bourrasque
+	"PFSD105",	# Jaguar
+	"PFSD504",	# Siroco
+	"PFSD106",	# Guepard
+	"PFSD506",	# Aigle
+	"PFSD107",	# Vauquelin
+	"PFSD108",	# Le Fantasque
+	"PFSD508",	# Le Terrible
+	"PFSD109",	# Mogador
+	"PFSD110",	# Kleber
+	"PFSD810",	# Kleber CLR
+]
+
+["h.cz375kddeegu"]
+name = "Kléber, Mogador damage build"
+ships = [
+	"PFSD109",	# Mogador
+	"PFSD110",	# Kleber
+	"PFSD810",	# Kleber CLR
+]
+
+["h.kvslt5zdfqf"]
+name = "Kléber LM build"
+ships = [
+	"PFSD110",	# Kleber
+	"PFSD810",	# Kleber CLR
+]
+
+["h.m9w6ckquv3e3"]
+name = "Marceau"
+ships = [
+	"PFSD109",	# Mogador
+	"PFSD110",	# Kleber
+	"PFSD810",	# Kleber CLR
+	"PFSD210",	# Marceau
+]
+
+["h.bts7k5gu59p5"]
+name = "FR torpedoboat DDs"
+ships = [
+	"PFSD015",	# L'Adroit
+	"PFSD016",	# Duchaffault
+	"PFSD017",	# Le Hardi
+	"PFSD018",	# L'Aventurier
+	"PFSD019",	# Orage
+	"PFSD010",	# Cassard
+]
+
+["h.r1fd79x3eh5v"]
+name = "PA DDs"
+ships = [
+	"PZSD102",	# Longjiang
+	"PZSD103",	# Phra Ruang
+	"PZSD105",	# Jianwei
+	"PZSD104",	# Shenyang
+	"PZSD106",	# Fushun
+	"PZSD107",	# Gadjah Mada
+	"PZSD108",	# Hsienyang
+	"PZSD109",	# Chung Mu
+	"PZSD110",	# Yueyang
+	"PZSD111",	# Kunming
+]
+
+["h.witxzv46hc49"]
+name = "Lushun"
+ships = [
+	"PZSD510",	# Lushun
+]
+
+["h.d0r23629zai5"]
+name = "EU torpedoboat DDs standard build"
 ships = [
 	"PWSD102",	# Tatra
 	"PWSD103",	# Romulus
@@ -403,406 +310,64 @@ ships = [
 	"PWSD105",	# Visby
 	"PWSD106",	# Vasteras
 	"PWSD107",	# Skane
-	"PWSD108",	# Öland
-	"PWSD109",	# Östergötland
+	"PWSD108",	# Oland
+	"PWSD109",	# Ostergotland
 	"PWSD110",	# Halland
-	"PWSD111",  # Dalarna
+	"PWSD111",	# Dalarna
 ]
 
-["id.8x0ciu5s5sx3"]
-name = "Odin"
+["h.fkwzyhfv8soj"]
+name = "EU torpedoboat DDs torpedo build"
 ships = [
-	"PGSB508",  # Odin
+	"PWSD102",	# Tatra
+	"PWSD103",	# Romulus
+	"PWSD104",	# Klas Horn
+	"PWSD105",	# Visby
+ 	"PWSD705",	# Kalmar
+	"PWSD106",	# Vasteras
+	"PWSD107",	# Skane
+	"PWSD108",	# Oland
+	"PWSD109",	# Ostergotland
+	"PWSD110",	# Halland
+	"PWSD111",	# Dalarna
 ]
 
-["id.ge50xdjdqgi6"]
-name = "Haida"
+["h.nwlwmfqop3bn"]
+name = "Dalarna gun build"
 ships = [
-	"PUSD507",  # Haida
+	"PWSD111",	# Dalarna
 ]
 
-["id.oy8926jqgti7"]
-name = "Indomitable"
+["h.skqgcw6paq76"]
+name = "Halland LM build"
 ships = [
-	"PBSA508",  # Indomitable
+	"PWSD110",	# Halland
 ]
 
-["id.t7rax48q5vb6"]
-name = "Giuseppe Verdi"
+["h.hyksmeonfgc3"]
+name = "EU DDs gunboat branch"
 ships = [
-	"PISB519",  # Giuseppe Verdi
+	"PWSD205",	# Muavenet
+	"PWSD206",	# Stord
+	"PWSD207",	# Grom
+	"PWSD208",	# Split
+	"PWSD209",	# Lambros Katsonis
+	"PWSD210",	# Gdansk
 ]
 
-["id.5a668u6op21p"]
-name = "Montana"
+["h.9z7v4gt3d3pz"]
+name = "Smaland"
 ships = [
-	"PASB017",  # Montana
-	"PASB111",  # Maine
+	"PWSD610",	# Smaland
 ]
 
-["id.pg3ugjokavb0"]
-name = "Brandenburg"
-ships = [
-	"PGSB518",  # Brandenburg
-]
-
-["id.vox2pa6t0jj6"]
-name = "Bayard"
-ships = [
-	"PFSC508",  # Bayard
-]
-
-["id.ptnef125wkec"]
-name = "Småland"
-ships = [
-	"PWSD610",  # Småland
-]
-
-["id.2qs4tz8ramnu"]
-name = "RN CVs"
-ships = [
-	"PBSA204",  # Hermes
-	"PBSA106",  # Furious
-	"PBSA108",  # Implacable
-	"PBSA210",  # Audacious
-	"PBSA518",  # Ark Royal
-]
-
-["id.bise7uvv0z04"]
-name = "Neustrashimy"
-ships = [
-	"PRSD709",  # Neustrashimy
-]
-
-["id.zhjoj6qvmu95"]
-name = "RN BBs tank build"
-ships = [
-	"PBSB111",  # Devastation
-	"PBSB110",  # Conqueror
-	"PBSB109",  # Lion
-	"PBSB609",  # Scarlet Thunder
-	"PBSB509",	# Marlborough
-	"PBSB508",	# Vanguard
-	"PBSB108",	# Monarch
-	"PBSB507",	# Hood
-	"PBSB537",	# Collingwood
-	"PUSB507",  # Yukon
-	"PBSB517",  # Nelson
-	"PBSB527",	# Duke of York
-	"PBSB107",	# KGV
-	"PBSB106",	# QE
-	"PBSB002",	# Warspite
-	"PBSB105",	# Iron Duke
-	"PBSB104",	# Orion
-	"PBSB503",  # Dreadnought
-	"PBSB103",	# Bellerophon
-]
-
-["id.firiu64x1q00"]
-name = "Champagne"
-ships = [
-	"PFSB528",  # Champagne
-]
-
-["id.t9yczqxr24us"]
+["h.sa18ffpjw9i3"]
 name = "Ragnar"
 ships = [
-	"PWSD710",  # Ragnar
+	"PWSD710",	# Ragnar
 ]
 
-["id.hwzbaexcrpiy"]
-name = "Loyang"
-ships = [
-	"PZSD508",  # Loyang
-	"PZSD598",	# Loyang B
-]
-
-["id.k8vpmfgn527n"]
-name = "Ohio"
-ships = [
-	"PASB510",  # Ohio
-	"PASB518",  # Massachusetts
-	"PASB598",  # Massachusetts B
-	"PASB505",  # Oklahoma
-	"PASB527",  # West Virginia '44
-]
-
-["id.17r3seq56mm7"]
-name = "IJN BBs"
-ships = [
-	"PJSB001",	# Kawachi
-	"PJSB003",	# Myogi
-	"PJSB007",	# Kongo
-	"PJSB006",	# Fuso
-	"PJSB010",	# Nagato
-	"PJSB013",	# Amagi
-	"PJSB021",	# Izumo
-	"PJSB018",	# Yamato
-	"PJSB111",	# Satsuma
-	"PJSB008",	# Ishizuchi
-	"PJSB705",	# ARP Kongō
-	"PJSB706",	# ARP Kirishima
-	"PJSB708",	# ARP Hiei
-	"PJSB707",	# ARP Haruna
-	"PJSB715",	# HSF Hiei
-	"PJSB526",	# Ise
-	"PJSB506",	# Mutsu
-	"PJSB507",	# Ashitaka
-	"PJSB517",	# Hyuga
-	"PJSB508",	# Kii
-	"PJSB888",	# Ragnarok
-	"PJSB878",	# Ignis Purgatio
-	"PZSB509",	# Bajie
-	"PJSB519",	# Hizen
-	"PJSB509",	# Musashi
-	"PJSB510",	# Shikishima
-	"PJSB700",	# ARP Yamato
-	"PWSB504",  # Viribus Unitis
-	"PJSB529",  # Iwami
-]
-
-["id.mzd9tsk8069m"]
-name = "Black"
-ships = [
-	"PASD709",  # Black
-]
-
-["id.q7joipudn9br"]
-name = "KM BCs"
-ships = [
-	"PGSB203",	# Von der Tann
-	"PGSB204",	# Moltke
-	"PGSB205",	# Derfflinger
-	"PGSB206",	# Mackensen
-	"PGSB207",	# Prinz Heinrich
-	"PGSB208",	# Zieten
-	"PGSB209",	# Prinz Rupprecht
-	"PGSB210",	# Schlieffen
-]
-
-["id.965tufw5ty8g"]
-name = "VMF BBs"
-ships = [
-	"PRSB103",	# Knyaz Suvorov
-	"PRSB104",	# Gangut
-	"PRSB105",	# Pyotr Velikiy
-	"PRSB106",	# Izmail
-	"PRSB107",	# Sinop
-	"PRSB108",	# Vladivostok
-	"PRSB109",	# Sovetsky Soyuz
-	"PRSB110",	# Kremlin
-	"PRSB505",	# Oktyabrskaya Revolutsiya
-	"PRSB516",	# Novorossiysk
-	"PRSB508",	# Poltava
-	"PRSB518",	# Lenin
-	"PRSB709",	# AL Sovetskaya Rossiya
-	"PRSB528",  # Borodino
-	"PRSB001",  # Imperator Nikolai I
-	"PRSB111",  # Ushakov
-	"PZSB529",  # Sun Yat-Sen
-]
-
-["id.mynw49aoevnb"]
-name = "De Zeven Provinciën"
-ships = [
-	"PHSC508",  # De Zeven Provinciën
-]
-
-["id.c96ef28v5utj"]
-name = "Smolensk"
-ships = [
-	"PRSC610",  # Smolensk
-	"PRSC505",  # Krasny Krym
-]
-
-["id.aym8pk9tihm5"]
-name = "Canarias"
-ships = [
-	"PSSC506",  # Canarias
-]
-
-["id.busiua9d7xbc"]
-name = "Weimar"
-ships = [
-	"PGSC517",  # Weimar
-]
-
-["id.o7ezdtamp82f"]
-name = "Druid"
-ships = [
-	"PBSD510",  # Druid
-]
-
-["id.vtvx2jctjhvw"]
-name = "Mikasa, Agincourt"
-ships = [
-	"PJSB011",  # Mikasa
-	"PBSB505",  # Agincourt
-]
-
-["id.o6809xa6q0aq"]
-name = "Blyskawica"
-ships = [
-	"PWSD501",  # Błyskawica
-]
-
-["id.t4o0zyphy5mv"]
-name = "USN super-dreadnought BB branch"
-ships = [
-	"PASB001",	# South Carolina
-	"PASB004",	# Wyoming
-	"PASB006",	# New York
-	"PASB034",	# New Mexico
-	"PASB008",	# Colorado
-	"PASB108",	# Kansas
-	"PASB109",	# Minnesota
-	"PASB110",	# Vermont
-	"PASB013",	# Arkansas Beta
-	"PASB705",	# Texas
-	"PASB506",	# Arizona
-	"PASB507",	# W. Virginia 1941
-	"PASB707",	# California
-]
-
-["id.je3j63gc2udz"]
-name = "Slava"
-ships = [
-	"PRSB510",  # Slava
-]
-
-["id.357wotaqgbkz"]
-name = "Béarn"
-ships = [
-	"PFSA506",  # Béarn
-]
-
-["id.1hwrnias4b7x"]
-name = "VMF DDs sub-branch"
-ships = [
-	"PRSD107",	# Udaloi
-	"PRSD210",	# Grozovoi
-	"PRSD208",  # Ognevoi
-]
-
-["id.tqzkmc1fti3z"]
-name = "USN and PA DDs"
-ships = [
-	"PASD002",	# Sampson
-	"PASD027",	# Wickes
-	"PASD019",	# Clemson
-	"PASD014",	# Nicholas
-	"PASD005",	# Farragut
-	"PASD006",	# Mahan
-	"PASD008",	# Benson
-	"PASD021",	# Fletcher
-	"PASD013",	# Gearing
-	"PASD505",	# Hill
-	"PASD029",	# Sims
-	"PASD597",	# Sims B
-	"PZSD102",	# Longjiang
-	"PZSD103",	# Phra Ruang
-	"PZSD104",	# Shenyang
-	"PZSD105",	# Jianwei
-	"PZSD106",	# Fushun
-	"PZSD107",	# Gadjah Mada
-	"PZSD108",	# Hsienyang
-	"PZSD109",	# Chung Mu
-	"PZSD110",	# Yueyang
-	"PVSD506",	# Juruá
-	"PBSD506",	# Gallant
-	"PASD502",  # Smith
-	"PASD111",  # J. Humphreys
-]
-
-["id.y2ca90mt5psb"]
-name = "Bagration, Molotov, Kirov, Mikoyan"
-ships = [
-	"PRSC525",  # Kirov
-	"PRSC506",  # Molotov
-	"PRSC538",  # Bagration
-	"PRSC515",  # Mikoyan
-]
-
-["id.fbc02rax2mxt"]
-name = "Austin"
-ships = [
-	"PASC810",  # Austin
-]
-
-["id.uny55pwq7wv"]
-name = "KM BBs tank build"
-ships = [
-	"PGSB103",	# Nassau
-	"PGSB104",	# Kaiser
-	"PGSB105",	# König
-	"PGSB106",	# Bayern
-	"PGSB107",	# Gneisenau
-	"PGSB108",	# Bismarck
-	"PGSB109",	# Friedrich der Grosse
-	"PGSB310",	# Preussen
-	"PGSB111",	# Hannover
-	"PGSB503",	# König Albert
-	"PGSB506",	# Prinz Eitel Friedrich
-	"PGSB507",	# Scharnhorst
-	"PGSB597",	# Scharnhorst B
-	"PGSB002",	# Tirpitz
-	"PGSB598",	# Tirpitz B
-	"PGSB509",	# Pommern
-	"PGSB599",	# Pommern B
-	"PGSB110",	# Grosser Kurfürst
-]
-
-["id.h0fk7ae2jqg1"]
-name = "KM BBs secondary build"
-ships = [
-	"PGSB103",	# Nassau
-	"PGSB104",	# Kaiser
-	"PGSB105",	# König
-	"PGSB106",	# Bayern
-	"PGSB107",	# Gneisenau
-	"PGSB108",	# Bismarck
-	"PGSB109",	# Friedrich der Grosse
-	"PGSB310",	# Preussen
-	"PGSB111",	# Hannover
-	"PGSB503",	# König Albert
-	"PGSB506",	# Prinz Eitel Friedrich
-	"PGSB002",	# Tirpitz
-	"PGSB598",	# Tirpitz B
-	"PGSB509",	# Pommern
-	"PGSB599",	# Pommern B
-	"PGSB110",	# Grosser Kurfürst
-	"PGSB717",  # Scharnhorst '43
-]
-
-
-["id.9hf91bph8i31"]
-name = "Marceau"
-ships = [
-	"PFSD210",  # Marceau
-	"PFSD110",  # Kléber
-]
-
-["id.ybm0dhobaoge"]
-name = "KM CAs"
-ships = [
-	"PGSC107",	# Yorck
-	"PGSC108",	# Hipper
-	"PGSC109",	# Roon
-	"PGSC110",	# Hindenburg
-	"PGSC508",	# Prinz Eugen
-	"PGSC106",  # Nurnberg
-	"PGSC105",  # Konigsberg
-	"PGSC111",  # Clausewitz
-]
-
-["id.jmwr902j7zlj"]
-name = "Friesland/Groningen"
-ships = [
-	"PWSD510",  # Friesland
-	"PHSD509",  # Groningen
-]
-
-["id.h2zbcoulwrs6"]
+["h.14lti7gcenl7"]
 name = "IT DDs"
 ships = [
 	"PISD102",	# Curtatone
@@ -813,102 +378,438 @@ ships = [
 	"PISD107",	# Luca Tarigo
 	"PISD108",	# Vittorio Cuniberti
 	"PISD109",	# Adriatico
-	"PISD110",	# Attilio Regolo
 	"PISD509",	# Paolo Emilio
+	"PISD110",	# Attilio Regolo
 ]
 
-["id.9rbp9jxf22bf"]
-name = "Harugumo only farming build"
+["h.umdmx2uewxsf"]
+name = "Vampire II"
 ships = [
-	"PJSD210",  # Harugumo
+	"PUSD510",	# Vampire II
+	"PUSD507",	# Haida
 ]
 
-["id.a7yp1qfz0y8"]
-name = "FR BB tree and some premiums"
+["h.lz1bffvme3ub"]
+name = "Tromp"
 ships = [
-	"PFSB103",	# Turenne
-	"PFSB104",	# Courbet
-	"PFSB105",	# Bretagne
-	"PFSB106",	# Normandie
-	"PFSB107",	# Lyon
-	"PFSB108",	# Richelieu
-	"PFSB109",	# Alsace
-	"PFSB110",	# République
-	"PFSB506",	# Dunkerque
-	"PFSB596",	# Dunkerque B
-	"PFSB538",	# Flandre
-	"PFSB508",	# Gascogne
-	"PZSB519",	# Wujing
-	"PFSB111",  # Patrie
+	"PHSD610",	# Tromp
 ]
 
-["id.373nc57o1yqr"]
-name = "Moskva"
+["h.ek4w8iki6a2x"]
+name = "Álvaro de Bazán"
 ships = [
-	"PRSC110",  # Moskva
+	"PSSD510",	# Alvaro de Bazan
 ]
 
-["id.o56fx6liae6o"]
-name = "Traditional light cruiser build"
+["h.y3y772o8wtha"]
+name = "La Pampa"
+ships = [
+	"PVSD710",	# La Pampa
+]
+
+["h.oo12ygont6pa"]
+name = "IJN CAs"
+ships = [
+	"PJSC035",	# Chikuma
+	"PJSC015",	# Tenryu
+	"PJSC013",	# Kuma
+	"PJSC005",	# Furutaka
+	"PJSC007",	# Aoba
+	"PJSC008",	# Myoko
+	"PJSC705",	# ARP Myoko
+	"PJSC737",	# ARP Nachi
+	"PJSC709",	# ARP Haguro
+	"PJSC707",	# ARP Ashigara
+	"PJSC009",	# Mogami
+	"PJSC038",	# Atago
+	"PJSC598",	# Atago B
+	"PJSC708",	# ARP Takao
+	"PJSC718",	# ARP Maya
+	"PJSC717",	# Southern Dragon
+	"PJSC727",	# Eastern Dragon
+	"PJSC012",	# Ibuki
+	"PJSC034",	# Zao
+	"PJSC890",	# Zao CLR
+]
+
+["h.y3hhnh6ukosb"]
+name = "IJN CLs"
+ships = [
+	"PJSC205",	# Agano
+	"PJSC505",	# Yahagi
+	"PJSC206",	# Gokase
+	"PJSC207",	# Omono
+	"PJSC208",	# Shimanto
+	"PJSC209",	# Takahashi
+	"PJSC819",	# BA Takahashi
+	"PJSC210",	# Yodo
+]
+
+["h.syxuqwswyi6i"]
+name = "Yoshino standard build"
+ships = [
+	"PJSC520",	# Yoshino
+	"PJSC590",	# Yoshino B
+	"PJSC510",	# Azuma
+	"PJSC829",	# Azuma B
+	"PJSC519",	# AL Azuma
+]
+
+["h.r6d7aaink4tl"]
+name = "Yoshino damage build"
+ships = [
+	"PJSC520",	# Yoshino
+	"PJSC590",	# Yoshino B
+	"PJSC510",	# Azuma
+	"PJSC829",	# Azuma B
+	"PJSC519",	# AL Azuma
+]
+
+["h.4a8i2em53t7m"]
+name = "Kitakami"
+ships = [
+	"PJSC610",	# Kitakami
+]
+
+["h.w1a46m16udfx"]
+name = "USN CAs"
+ships = [
+	"PASC106",	# Pensacola
+	"PASC107",	# New Orleans
+	"PASC507",	# Indianapolis
+	"PASC108",	# Baltimore
+	"PASC508",	# Wichita
+	"PASC518",	# Anchorage
+	"PASC538",	# Rochester
+	"PASC109",	# Buffalo
+	"PASC519",	# Tulsa
+	"PASC020",	# Des Moines
+	"PASC710",	# Salem
+	"PASC111",	# Annapolis
+]
+
+["h.n6wexli3onp"]
+name = "Salem damage build"
+ships = [
+	"PASC710"	# Salem
+]
+
+["h.4xbrbqhpl86r"]
+name = "USN CLs"
 ships = [
 	"PASC002",	# Chester
 	"PASC004",	# St. Louis
 	"PASC503",	# Charleston
 	"PASC024",	# Phoenix
 	"PASC005",	# Omaha
-	"PASC206",	# Dallas
-	"PASC207",	# Helena
-	"PASC208",	# Cleveland
-	"PASC209",	# Seattle
-	"PASC210",	# Worcester
 	"PASC044",	# Marblehead
 	"PASC045",	# Marblehead Lima
-	"PRSC003",	# Murmansk
+	"PASC505",	# Rattlehead
+	"PASC206",	# Dallas
+	"PASC207",	# Helena
 	"PASC597",	# Boise
-	"PVSC507",	# Nueve de Julio
+	"PASC208",	# Cleveland
 	"PASC718",	# AL Montpelier
-	"PJSC009",	# Mogami 155
+	"PASC209",	# Seattle
+	"PASC210",	# Worcester
+ 	"PASC011",	# Jacksonville
 	"PBSC507",	# Belfast
-	"PBSC528",	# Belfast `43
+	"PBSC528",	# Belfast '43
+	"PZSC508",	# Irian
+	"PISC506",	# Duca d'Aosta
+	"PISC507",	# Duca degli Abruzzi
+]
+
+["h.lr8c26e3j0m"]
+name = "Worcester LM build"
+ships = [
+	"PASC210",	# Worcester
+]
+
+["h.rgcpdcp4ojym"]
+name = "Austin"
+ships = [
+	"PASC810",	# Austin
+]
+
+["h.850hx87f5twk"]
+name = "Battlecruiser build"
+ships = [
+	"PRSC208",	# Tallinn
+	"PRSC209",	# Riga
+	"PRSC509",	# Kronshtadt
+	"PRSC310",	# Petropavlovsk
+	"PRSC510",	# Stalingrad
+	"PRSC111",	# Novosibirsk
+	"PGSC506",	# Admiral Graf Spee
+	"PGSC706",	# HSF Graf Spee
+	"PGSC528",	# Schill
+	"PGSC509",	# Siegfried
+	"PGSC519",	# Agir
+	"PGSC899",	# AL Agir
+	"PZSC529",	# Mengchong
+	"PASC528",	# Congress
+	"PASC510",	# Alaska
+	"PASC599",	# Alaska B
+	"PASC610",	# Puerto Rico
+]
+
+["h.c5vcv6gozcie"]
+name = "Sevastopol"
+ships = [
+	"PRSC710",	# Sevastopol
+]
+
+["h.fgxkcuwntpxl"]
+name = "Moskva"
+ships = [
+	"PRSC110",	# Moskva
+]
+
+["h.7rp251asmupo"]
+name = "VMF CLs"
+ships = [
 	"PRSC102",	# Novik
 	"PRSC001",	# Aurora
 	"PRSC523",	# AL Avrora
 	"PRSC103",	# Bogatyr
 	"PRSC104",	# Svietlana
+	"PRSC505",	# Krasny Krym
 	"PRSC215",	# Kotovsky
 	"PRSC106",	# Budyonny
+	"PRSC606",	# Admiral Makarov
 	"PRSC107",	# Shchors
-	"PRSC108",	# Chapayev
-	"PGSC502",	# Emden
-	"PRSC002",	# Diana
-	"PRSC010",	# Diana Lima
-	"PRSC513",	# Varyag
-	"PRSC503",	# Oleg
 	"PRSC518",	# Lazo
+	"PRSC568",	# Lazo B
+	"PRSC108",	# Chapayev
+	"PRSC208",	# Tallinn
 	"PRSC508",	# Kutuzov
-	"PZSC508",	# Irian
+	"PRSC528",	# Ochakov
+	"PRSC109",	# Dmitri Donskoi
+	"PRSC210",	# Alexander Nevsky
+]
+
+["h.gh99k17mx4l8"]
+name = "Smolensk"
+ships = [
+	"PRSC610",	# Smolensk
+	"PRSC530",	# Smolensk B
+	"PRSC505",	# Krasny Krym
+]
+
+["h.r8ka44py6kdr"]
+name = "Komissar"
+ships = [
+	"PRSC810",	# Komissar
+]
+
+["h.ggkej36tjsyf"]
+name = "KM CAs standard build"
+ships = [
+	"PGSC107",	# Yorck
+	"PGSC108",	# Hipper
+	"PGSC508",	# Prinz Eugen
+	"PGSC109",	# Roon
+	"PGSC809",	# Roon CLR
+	"PGSC110",	# Hindenburg
+	"PGSC111",	# Clausewitz
+]
+
+["h.spvjxqxcadmj"]
+name = "Clausewitz, Hindenburg, Roon"
+ships = [
+	"PGSC109",	# Roon
+	"PGSC809",	# Roon CLR
+	"PGSC110",	# Hindenburg
+	"PGSC111",	# Clausewitz
+]
+
+["h.b8sqcbffc3yd"]
+name = "Hildebrand"
+ships = [
+	"PGSC710",	# Hildebrand
+]
+
+["h.c793hxq03zs"]
+name = "RN CLs smoke build"
+ships = [
+	"PBSC102",	# Weymouth
+	"PBSC103",	# Caledon
+	"PBSC104",	# Danae
+	"PBSC105",	# Emerald
+	"PBSC106",	# Leander
+ 	"PBSC716",	# Orion '44
+	"PUSC516",	# Mysore
+	"PBSC107",	# Fiji
+	"PBSC108",	# Edinburgh
+	"PBSC888",	# STAR Edinburgh
+	"PBSC518",	# Tiger '59
+	"PBSC109",	# Neptune
+	"PBSC110",	# Minotaur
+	"PBSC111",	# Edgar
+]
+
+["h.4oq3ggbemxs4"]
+name = "RN CLs radar build"
+ships = [
+	"PBSC108",	# Edinburgh
+	"PBSC888",	# STAR Edinburgh
+	"PBSC518",	# Tiger '59
+	"PBSC109",	# Neptune
+	"PBSC110",	# Minotaur
+	"PBSC111",	# Edgar
+]
+
+["h.dam8vg8pvysy"]
+name = "Minotaur LM build"
+ships = [
+	"PBSC110",	# Minotaur
+]
+
+["h.dsmzpo5hecmu"]
+name = "Plymouth"
+ships = [
+	"PBSC510",	# Plymouth
+]
+
+["h.q42fnaid92c0"]
+name = "RN CAs standard build"
+ships = [
+	"PBSC205",	# Hawkins
+	"PBSC505",	# Exeter
+	"PBSC206",	# Devonshire
+	"PBSC516",	# London
+	"PBSC207",	# Surrey
+	"PBSC208",	# Albemarle
+	"PBSC508",	# Cheshire
+	"PBSC558",	# AL Cheshire
+	"PBSC548",	# Nottingham
+	"PBSC209",	# Drake
+	"PBSC210",	# Goliath
+	"PBSC810",	# Defence
+]
+
+["h.t82ejt34nay3"]
+name = "Goliath damage build"
+ships = [
+	"PBSC210",	# Goliath
+]
+
+["h.cjgyokx3rw7l"]
+name = "Gibraltar"
+ships = [
+	"PBSC610",	# Gibraltar
+]
+
+["h.hl1fv2jwo9d7"]
+name = "Commonwealth CAs"
+ships = [
+	"PUSC001",	# Sutlej
+	"PUSC012",	# Port Jackson
+	"PUSC013",	# Caradoc
+	"PUSC014",	# Dunedin
+ 	"PUSC015",	# Delhi
+	"PUSC016",	# Hobart
+	"PUSC506",	# Perth
+	"PUSC017",	# Uganda
+	"PUSC018",	# Auckland
+	"PUSC019",	# Encounter
+	"PUSC010",	# Cerberus
+]
+
+["h.uitlvy7dwsog"]
+name = "Brisbane"
+ships = [
+	"PUSC510",	# Brisbane
+	"PUSC810",	# Brisbane B
+]
+
+["h.gvh7a5qlbe6i"]
+name = "FR CAs standard build"
+ships = [
 	"PFSC102",	# Jurien
 	"PFSC103",	# Friant
 	"PFSC104",	# Duguay-Trouin
 	"PFSC105",	# Emile Bertin
-	"PFSC106",	# La Galisonniere
+	"PFSC106",	# La Galissonniere
 	"PFSC506",	# De Grasse
-	"PISC506",	# Duca d’Aosta
-	"PISC507",	# Duca degli Abruzzi
-	"PRSC528",  # Ochakov
-	"PRSC505",  # Krasny Krym
-	"PRSC606",  # Admiral Makarov
-	"PRSC003",  # Murmansk
-	"PASC044",  # Marblehead
+ 	"PFSC716",	# Montcalm
+	"PFSC516",	# Dupleix
+	"PFSC107",	# Algerie
+	"PFSC108",	# Charles Martel
+	"PFSC109",	# Saint-Louis
+	"PFSC110",	# Henri IV
+	"PFSC111",	# Conde
 ]
 
-["id.vh7pdk69v5j3"]
-name = "Georgia"
+["h.ksrb5fhwamcz"]
+name = "Henri IV LM/lighthouse build"
 ships = [
-	"PASB729",  # Georgia
+	"PFSC110",	# Henri IV
+	"PFSC111",	# Conde
 ]
 
-["id.wpg7sebec4hy"]
+["h.9grdd2mkzsvm"]
+name = "Colbert standard build"
+ships = [
+	"PFSC510",	# Colbert
+]
+
+["h.5bn980tgtdhc"]
+name = "Colbert damage build"
+ships = [
+	"PFSC510",	# Colbert
+]
+
+["h.52zv1jxzideu"]
+name = "FR BCs"
+ships = [
+	"PFSC507",	# Toulon
+	"PFSC208",	# Cherbourg
+	"PFSC209",	# Brest
+	"PFSC210",	# Marseille
+ 	"PFSC710",	# Brennus
+]
+
+["h.xye2c1g8kfbr"]
+name = "IT CAs"
+ships = [
+	"PISC102",	# Nino Bixio
+	"PISC103",	# Taranto
+	"PISC104",	# Alberto di Giussano
+	"PISC105",	# Montecuccoli
+	"PISC505",	# Genova
+	"PISC106",	# Trento
+	"PISC107",	# Zara
+	"PISC607",	# Gorizia
+	"PISC108",	# Amalfi
+	"PISC109",	# Brindisi
+	"PISC110",	# Venezia
+	"PISC111",	# Piemonte
+]
+
+["h.rvctfeoiv48g"]
+name = "Venezia LM build"
+ships = [
+	"PISC110",	# Venezia
+]
+
+["h.fk29obz8z0ez"]
+name = "Napoli standard build"
+ships = [
+	"PISC510",	# Napoli
+	"PISC590",	# Napoli B
+]
+
+["h.wakswex744vw"]
+name = "Napoli secondary build"
+ships = [
+	"PISC510",	# Napoli
+	"PISC590",	# Napoli B
+	"PISC519",	# Michelangelo
+]
+
+["h.fi3fzc6we428"]
 name = "PA CLs"
 ships = [
 	"PZSC105",	# Chungking
@@ -919,7 +820,13 @@ ships = [
 	"PZSC110",	# Jinan
 ]
 
-["id.rgukyvcfofjs"]
+["h.wjowlyi4l8xk"]
+name = "Svea"
+ships = [
+	"PWSC710",	# Svea
+]
+
+["h.gw76j6jl9oyv"]
 name = "NL CAs"
 ships = [
 	"PHSC102",	# Gelderland
@@ -930,795 +837,1098 @@ ships = [
 	"PHSC107",	# Eendracht
 	"PHSC108",	# Haarlem
 	"PHSC109",	# Johan de Witt
+	"PHSC509",	# Van Speijk
 	"PHSC110",	# Gouden Leeuw
-	"PHSC509",  # Van Speijk
 ]
 
-["id.kva9i1xlskob"]
-name = "USN CAs"
+["h.wa9pnhu6chru"]
+name = "Prins van Oranje"
 ships = [
-	"PASC106",	# Pensacola
-	"PASC107",	# New Orleans
-	"PASC108",	# Baltimore
-	"PASC109",	# Buffalo
-	"PASC020",	# Des Moines
-	"PASC111",	# Annapolis
-	"PASC507",	# Indianapolis
-	"PASC518",	# Anchorage
-	"PASC538",	# Rochester
-	"PASC519",	# Tulsa
-	"PASC710",	# Salem
-	"PASC508",  # Wichita
+	"PHSC710",	# Prins Van Oranje
+	"PHSC720",	# Prins Van Oranje G
 ]
 
-["id.9klpenssnqn4"]
-name = "KM sub build"
+["h.2tubs8gxvfm5"]
+name = "NL CLs"
 ships = [
-	"PGSS206",  # U-69
-	"PGSS208",  # U-190
-	"PGSS210",  # U-2501
+	"PHSC018",	# Jaarsveld
+	"PHSC019",	# Menno Van Coehoorn
+ 	"PHSC010",	# Utrecht
 ]
 
-["id.blqxm8hzmlqk"]
-name = "Battlecruiser build"
+["h.gjb2q67wjvcj"]
+name = "Pan-American CLs"
 ships = [
-	"PRSC208",	# Tallinn
-	"PRSC209",	# Riga
-	"PRSC310",	# Petropavlovsk
-	"PRSC509",	# Kronshtadt
-	"PRSC510",	# Stalingrad
-	"PASC528",	# Congress
-	"PASC510",	# Alaska
-	"PASC599",	# Alaska B
-	"PASC610",	# Puerto Rico
-	"PGSC706",	# HSF Graf Spee
-	"PGSC506",	# Admiral Graf Spee
-	"PGSC509",	# Siegfried
-	"PGSC519",	# Ägir
-	"PRSC111",  # Novosibirsk
-	"PGSC528",  # Schill
+	"PVSC102",	# Almirante Barroso
+	"PVSC103",	# Vicente Guerrero
+	"PVSC104",	# Córdoba
+	"PVSC105",	# La Argentina
+	"PVSC106",	# Alte Cochrane
+	"PVSC107",	# Cor. Bolognesi
+	"PVSC108",	# Ignacio Allende
+	"PVSC109",	# Santander
+	"PVSC110",	# San Martin
 ]
 
-["id.y9y8msu27u6u"]
-name = "VMF (Soviet) DDs, main branch"
+["h.g8jpcyi8udif"]
+name = "ES CAs"
 ships = [
-	"PRSD102",	# Storozhevoi
-	"PRSD103",	# Derzki
-	"PRSD104",	# Izyaslav
-	"PRSD205",	# Podvoisky
-	"PRSD206",	# Gnevny
-	"PRSD207",	# Minsk
-	"PRSD308",	# Kiev
-	"PRSD409",	# Tashkent
-	"PRSD410",	# Delny
-	"PRSD111",	# Zorkiy
-	"PRSD505",	# Okhotnik
-	"PRSD507",	# Leningrad
+	"PSSC101",	# Jupiter
+	"PSSC102",	# Mendez Nunez
+	"PSSC103",	# Navarra
+	"PSSC104",	# Almirante Cervera
+	"PSSC105",	# Galicia
+	"PSSC106",	# Baleares
+	"PSSC107",	# Asturias
+	"PSSC108",	# Cataluna
+	"PSSC508",	# Numancia
+	"PSSC109",	# Andalucia
+ 	"PSSC719",	# Almirante Oquendo
+	"PSSC110",	# Castilla
 ]
 
-["id.41we9xypcyai"]
-name = "San Diego"
+["h.ch4l12d24rjn"]
+name = "IJN BBs"
 ships = [
-    "PASC548",  # San Diego
-    "PASC810",  # Austin
+	"PJSB001",	# Kawachi
+	"PJSB003",	# Myogi
+	"PJSB008",	# Ishizuchi
+	"PWSB504",	# Viribus Unitis
+	"PJSB007",	# Kongo
+	"PJSB705",	# ARP Kongō
+	"PJSB706",	# ARP Kirishima
+	"PJSB708",	# ARP Hiei
+	"PJSB707",	# ARP Haruna
+	"PJSB715",	# HSF Hiei
+	"PJSB006",	# Fuso
+	"PJSB526",	# Ise
+	"PJSB506",	# Mutsu
+	"PJSB010",	# Nagato
+	"PJSB507",	# Ashitaka
+	"PJSB517",	# Hyuga
+	"PJSB013",	# Amagi
+	"PJSB508",	# Kii
+	"PJSB888",	# Ragnarok
+	"PJSB878",	# Ignis Purgatio
+	"PJSB021",	# Izumo
+	"PZSB509",	# Bajie
+	"PJSB519",	# Hizen
+	"PJSB509",	# Musashi
+	"PJSB529",	# Iwami
+	"PJSB559",	# Iwami B
+	"PJSB018",	# Yamato
+	"PJSB700",	# ARP Yamato
+	"PJSB510",	# Shikishima
+	"PJSB111",	# Satsuma
 ]
 
-["id.l35dsm78vgs1"]
-name = "RN CAs"
+["h.7lqrgyx60m5l"]
+name = "IJN BCs"
 ships = [
-	"PBSC205",	# Hawkins
-	"PBSC206",	# Devonshire
-	"PBSC207",	# Surrey
-	"PBSC208",	# Albemarle
-	"PBSC209",	# Drake
-	"PBSC210",	# Goliath
-	"PBSC516",	# London
-	"PBSC508",	# Cheshire
-	"PBSC505",  # Exeter
-	"PBSC548",  # Nottingham
-	"PBSC810",  # Defence
+	"PJSB208",	# Yumihari
+	"PJSB209",	# Adatara
+	"PJSB549",	# Tsurugi
+	"PJSB210",	# Bungo
 ]
 
-["id.dh6i307yqt54"]
-name = "KM (German) DDs main and Z sub-branch"
+["h.x6i466lklj42"]
+name = "USN fast BBs standard build"
 ships = [
-	"PGSD102",	# V-25
-	"PGSD103",	# G-101
-	"PGSD104",	# V-170
-	"PGSD105",	# T-22
-	"PGSD106",	# Gaede
-	"PGSD107",	# Maass
-	"PGSD108",	# Z-23
-	"PGSD109",	# Z-46
-	"PGSD110",	# Z-52
-	"PGSD518",	# Z-35
-	"PGSD508",	# Z-39
-	"PGSD506",	# T-61
+	"PASB001",	# South Carolina
+	"PASB004",	# Wyoming
+	"PASB013",	# Arkansas Beta
+	"PASB006",	# New York
+	"PASB705",	# Texas
+	"PASB034",	# New Mexico
+	"PASB506",	# Arizona
+	"PASB507",	# W. Virginia '41
+	"PASB008",	# Colorado
+	"PASB707",	# California
+	"PASB517",	# Florida
+	"PASB012",	# North Carolina
+ 	"PASB808",	# North Carolina CLR
+	"PASB508",	# Alabama
+	"PASB818",	# Alabama B
+	"PASB708",	# Alabama ST
+	"PASB528",	# Alabama VL
+	"PASB538",	# Constellation
+	"PASB018",	# Iowa
+	"PZSB708",	# Xuan Wu
+	"PASB509",	# Missouri
+	"PASB017",	# Montana
+	"PASB820",	# BA Montana
+	"PASB510",	# Ohio
+	"PASB111",	# Maine
 ]
 
-["id.kcjxptc81stg"]
-name = "Mainz"
+["h.x6cibewuegn0"]
+name = "USN fast BBs damage build"
 ships = [
-    "PGSC518",  # Mainz
-	"PGSC718",	# Cross of Dorn
-	"PGSC106",  # Nurnberg
-	"PGSC105",  # Konigsberg
-	"PRSC606",  # Admiral Makarov
-	"PGSC507",  # Munchen
+	"PASB012",	# North Carolina
+ 	"PASB808",	# North Carolina CLR
+	"PASB508",	# Alabama
+	"PASB708",	# Alabama ST
+	"PASB528",	# Alabama VL
+	"PASB018",	# Iowa
+	"PZSB708",	# Xuan Wu
+	"PASB509",	# Missouri
+	"PASB017",	# Montana
+	"PASB820",	# BA Montana
+	"PASB510",	# Ohio
+	"PASB111",	# Maine
 ]
 
-["id.wy30pyqqogqk"]
-name = "Dido"
+["h.g7q9dk45lcrs"]
+name = "Montana LM build"
 ships = [
-    "PBSC526",  # Dido
+	"PASB017",	# Montana
+	"PASB820",	# BA Montana
+	"PASB111",	# Maine
 ]
 
-["id.urzuudny2aq"]
-name = "Hayate"
+["h.cy2pv0jfe097"]
+name = "USN super-dreadnought BBs"
 ships = [
-    "PJSD510",  # Hayate
+	"PASB001",	# South Carolina
+	"PASB004",	# Wyoming
+	"PASB013",	# Arkansas Beta
+	"PASB006",	# New York
+	"PASB705",	# Texas
+	"PASB034",	# New Mexico
+	"PASB506",	# Arizona
+	"PASB507",	# W. Virginia '41
+	"PASB008",	# Colorado
+	"PASB707",	# California
+	"PASB108",	# Kansas
+ 	"PASB718",	# Tennessee
+	"PASB109",	# Minnesota
+	"PASB110",	# Vermont
 ]
 
-["id.iidpt32z9ctw"]
-name = "IJN CAs"
+["h.pud0hsxbzmhw"]
+name = "USN hybrid BBs"
 ships = [
-	"PJSC035",	# Chikuma
-	"PJSC015",	# Tenryu
-	"PJSC013",	# Kuma
-	"PJSC005",	# Furutaka
-	"PJSC007",	# Aoba
-	"PJSC008",	# Myoko
-	"PJSC009",	# Mogami 203
-	"PJSC012",	# Ibuki
-	"PJSC034",	# Zao
-	"PJSC705",	# ARP Myōkō
-	"PJSC737",	# ARP Nachi
-	"PJSC709",	# ARP Haguro
-	"PJSC707",	# ARP Ashigara
-	"PJSC717",	# Southern Dragon
-	"PJSC727",	# Eastern Dragon
-	"PJSC038",	# Atago
-	"PJSC598",	# Atago B
-	"PJSC708",	# ARP Takao
-	"PJSC718",	# ARP Maya
+	"PASB208",	# Nebraska
+	"PASB209",	# Delaware
+	"PASB519",	# Kearsarge
+	"PASB599",	# Kearsarge B
+	"PASB210",	# Louisiana
 ]
 
-["id.vpwtkdmq4auq"]
-name = "Roma"
+["h.6ow1671bnkq4"]
+name = "Ohio alternative build"
 ships = [
-    "PISB508",	# Roma
-	"PISB708",	# AL Littorio
+	"PASB505",	# Oklahoma
+	"PASB527",	# West Virginia '44
+	"PASB518",	# Massachusetts
+	"PASB598",	# Massachusetts B
+	"PASB510",	# Ohio
 ]
 
-["id.tixw05leg201"]
-name = "Yoshino"
+["h.qnlh5lsmsc1m"]
+name = "Rhode Island"
 ships = [
-	"PJSC520",	# Yoshino
-	"PJSC590",	# Yoshino B
-	"PJSC510",  # Azuma
-	"PJSC519",  # AL Azuma
+	"PASB720",	# Rhode Island
 ]
 
-["id.w1bg6dmfq5wp"]
-name = "Max Immelmann"
+["h.nwbm5zfyaxzo"]
+name = "Wisconsin"
 ships = [
-    "PGSA610",  # Immelmann
+	"PASB730",	# Wisconsin
 ]
 
-["id.ta054wt1ioia"]
-name = "Eagle"
+["h.4eg5ykkrqw8k"]
+name = "Thunderer"
 ships = [
-    "PBSA111",  # Eagle
+	"PBSB510",	# Thunderer
 ]
 
-["id.yrb58o9d98ji"]
-name = "Hornet"
+["h.ih4aqk15wfm2"]
+name = "RN BBs standard build"
 ships = [
-    "PASA538",  # Hornet
+	"PBSB103",	# Bellerophon
+	"PBSB503",	# Dreadnought
+	"PBSB104",	# Orion
+	"PBSB105",	# Iron Duke
+	"PBSB106",	# Queen Elizabeth
+	"PBSB002",	# Warspite
+	"PBSB107",	# King George V
+	"PBSB527",	# Duke of York
+	"PBSB517",	# Nelson
+ 	"PBSB717",	# Rodney
+	"PUSB507",	# Yukon
+	"PBSB537",	# Collingwood
+	"PBSB507",	# Hood
+	"PBSB108",	# Monarch
+	"PBSB508",	# Vanguard
+	"PBSB109",	# Lion
+	"PZSB539",	# Louchuan
+	"PBSB509",	# Marlborough
+	"PBSB609",	# Scarlet Thunder
+	"PBSB110",	# Conqueror
+	"PBSB111",	# Devastation
 ]
 
-["id.yi7xyv57z6z3"]
-name = "Yoshino"
+["h.2x2ro21n7x0o"]
+name = "RN BBs damage build"
 ships = [
-	"PJSC520",	# Yoshino
-	"PJSC590",	# Yoshino B
-	"PJSC510",  # Azuma
-	"PJSC519",  # AL Azuma
+	"PBSB517",	# Nelson
+	"PUSB507",	# Yukon
+	"PBSB108",	# Monarch
+	"PBSB109",	# Lion
+	"PZSB539",	# Louchuan
+	"PBSB110",	# Conqueror
+	"PBSB111",	# Devastation
 ]
 
-["id.jyprori5bb2n"]
-name = "Druid"
+["h.b51lr6pp4ddr"]
+name = "RN BCs standard build"
 ships = [
-    "PBSD510",  # Druid
-]
-
-["id.bnltpu6mgqvp"]
-name = "United States"
-ships = [
-    "PASA111",  # United States
-]
-
-["id.rphaz29mh1e6"]
-name = "Hampshire"
-ships = [
-    "PBSC538",  # Hampshire
-]
-
-["id.aucg5mglcoal"]
-name = "Nevsky"
-ships = [
-    "PRSC210",  # Nevsky
-]
-
-["id.9fg4q4p9t3ev"]
-name = "Venezia"
-ships = [
-    "PISC110",  # Venezia
-]
-
-["id.gisw4xyzdbl3"]
-name = "Elbing"
-ships = [
-    "PGSD210",  # Elbing
-]
-
-["id.d1ye8itehqb3"]
-name = "Goliath"
-ships = [
-    "PBSC210",  # Goliath
-]
-
-["id.6ohwaiidmn9h"]
-name = "Orkan"
-ships = [
-    "PWSD508",  # Orkan
-]
-
-["id.lqi9zkga9bz9"]
-name = "Zao"
-ships = [
-    "PJSC034",  # Zao
-]
-
-["id.74ml0tnjblth"]
-name = "Worcester"
-ships = [
-    "PASC210",  # Worcester
-]
-
-["id.f3ls5khbk9v2"]
-name = "Atlântico"
-ships = [
-    "PVSB508",  # Atlântico
-]
-
-["id.k4esnqvf8wbe"]
-name = "Yuubari"
-ships = [
-    "PJSC004",  # Yuubari
-]
-
-["id.z4zs5ry27xxs"]
-name = "Worcester"
-ships = [
-    "PASC210",  # Worcester
-]
-
-["id.541kyfsrmxzg"]
-name = "Álvaro de Bazán"
-ships = [
-    "PSSD510",  # Álvaro de Bazán
-]
-
-["id.flq1sy2akkhg"]
-name = "Mecklenburg"
-ships = [
-    "PGSB610",  # Mecklenburg
-]
-
-["id.3xhi7r1gzroi"]
-name = "Kléber"
-ships = [
-    "PFSD110",  # Kléber
-]
-
-["id.3weaof3wvn28"]
-name = "Hindenburg, Roon"
-ships = [
-	"PGSC109",	# Roon
-	"PGSC110",	# Hindenburg
-	"PGSC111",  # Clausewitz
-]
-
-["id.w1og65wzzg6h"]
-name = "Henri IV"
-ships = [
-	"PFSC110",	# Henri IV
-]
-
-["id.xbeu8qq1noah"]
-name = "Salem"
-ships = [
-	"PASC710"	# Salem
-]
-
-["id.d30pawhosd85"]
-name = "Kléber, Mogador"
-ships = [
-	"PFSD109",	# Mogador
-    "PFSD110",  # Kléber
-]
-
-["id.lu82gpkcn2yz"]
-name = "Dalian"
-ships = [
-    "PZSC509",  # Dalian
-]
-
-["id.1sq6ys2bkopu"]
-name = "RN BCs"
-ships = [
-	"PBSB203",  # Indefatigable
+	"PBSB203",	# Indefatigable
 	"PBSB204",	# Queen Mary
 	"PBSB205",	# Tiger
 	"PBSB206",	# Renown
 	"PBSB208",	# Hawke
+	"PBSB547",	# Renown '44
 	"PBSB207",	# Rooke
 	"PBSB209",	# Duncan
 	"PBSB210",	# St. Vincent
 	"PBSB610",	# Incomparable
-	"PBSB547",  # Renown '44
 ]
 
-["id.jc45b7fm6cs6"]
-name = "Maya"
+["h.yjdu1p3vd2d8"]
+name = "RN BCs damage build"
 ships = [
-	"PJSC517",  # Maya
+	"PBSB209",	# Duncan
+	"PBSB210",	# St. Vincent
+	"PBSB610",	# Incomparable
 ]
 
-["id.3t713nliswi4"]
-name = "Aquila"
+["h.sshemyseyny0"]
+name = "Slava"
 ships = [
-	"PISA508",  # Aquila
+	"PRSB510",	# Slava
 ]
 
-["id.y7lwbb5e8qj3"]
-name = "Anhalt"
+["h.qp5t92dep9ek"]
+name = "VMF BBs"
 ships = [
-	"PGSB528",  # Anhalt
+	"PRSB103",	# Knyaz Suvorov
+	"PRSB104",	# Gangut
+	"PRSB001",	# Imperator Nikolai I
+	"PRSB105",	# Pyotr Velikiy
+	"PRSB505",	# Oktyabrskaya Revolutsiya
+	"PRSB106",	# Izmail
+	"PRSB516",	# Novorossiysk
+	"PRSB107",	# Sinop
+	"PRSB508",	# Poltava
+	"PRSB108",	# Vladivostok
+	"PRSB518",	# Lenin
+	"PRSB528",	# Borodino
+	"PRSB109",	# Sovetsky Soyuz
+	"PRSB709",	# AL Sovetskaya Rossiya
+	"PZSB529",	# Sun Yat-Sen
+	"PRSB110",	# Kremlin
+	"PRSB111",	# Ushakov
 ]
 
-["id.9nmcduk573t2"]
+["h.58t65b2y17"]
+name = "KM BBs tank build"
+ships = [
+	"PGSB103",	# Nassau
+	"PGSB503",	# Konig Albert
+	"PGSB104",	# Kaiser
+	"PGSB105",	# Konig
+	"PGSB106",	# Bayern
+	"PGSB506",	# Prinz Eitel Friedrich
+	"PGSB107",	# Gneisenau
+	"PGSB507",	# Scharnhorst
+	"PGSB597",	# Scharnhorst B
+	"PGSB108",	# Bismarck
+	"PGSB002",	# Tirpitz
+	"PGSB598",	# Tirpitz B
+	"PGSB818",	# BA Tirpitz
+	"PGSB109",	# Friedrich der Grosse
+	"PGSB509",	# Pommern
+	"PGSB599",	# Pommern B
+	"PGSB310",	# Preussen
+	"PGSB110",	# Grosser Kurfurst
+	"PGSB111",	# Hannover
+]
+
+["h.tyiny3irvfn5"]
+name = "KM BBs secondary build"
+ships = [
+	"PGSB717",	# Scharnhorst '43
+	"PGSB108",	# Bismarck
+	"PGSB002",	# Tirpitz
+	"PGSB598",	# Tirpitz B
+	"PGSB818",	# BA Tirpitz
+	"PGSB109",	# Friedrich der Grosse
+	"PGSB509",	# Pommern
+	"PGSB599",	# Pommern B
+	"PGSB310",	# Preussen
+	"PGSB110",	# Grosser Kurfurst
+	"PGSB111",	# Hannover
+]
+
+["h.7tgj1k494yhd"]
+name = "KM BCs"
+ships = [
+	"PGSB203",	# Von der Tann
+	"PGSB204",	# Moltke
+	"PGSB205",	# Derfflinger
+	"PGSB206",	# Mackensen
+	"PGSB207",	# Prinz Heinrich
+ 	"PGSB517",	# AL Prinz Heinrich
+	"PGSB208",	# Zieten
+	"PGSB209",	# Prinz Rupprecht
+	"PGSB210",	# Schlieffen
+]
+
+["h.eu3bwz1vhvox"]
+name = "Mecklenburg"
+ships = [
+	"PGSB610",	# Mecklenburg
+]
+
+["h.o4a0hpihbj6g"]
+name = "FR BBs"
+ships = [
+	"PFSB103",	# Turenne
+	"PFSB104",	# Courbet
+	"PFSB105",	# Bretagne
+	"PFSB106",	# Normandie
+	"PFSB506",	# Dunkerque
+	"PFSB596",	# Dunkerque B
+	"PFSB107",	# Lyon
+	"PFSB507",	# Strasbourg
+	"PFSB108",	# Richelieu
+	"PFSB538",	# Flandre
+	"PFSB508",	# Gascogne
+	"PFSB109",	# Alsace
+	"PFSB518",	# Jean Bart
+	"PFSB599",	# Jean Bart B
+	"PZSB519",	# Wujing
+	"PFSB110",	# Republique
+	"PFSB510",	# Bourgogne
+	"PFSB111",	# Patrie
+]
+
+["h.pd6k1o611cbv"]
+name = "IT BBs"
+ships = [
+	"PISB104",	# Dante Alighieri
+	"PISB105",	# Conte di Cavour
+	"PISB505",	# Giulio Cesare
+	"PISB106",	# Andrea Doria
+	"PISB107",	# Francesco Caracciolo
+	"PISB108",	# Vittorio Veneto
+	"PISB109",	# Lepanto
+	"PISB509",	# Marco Polo
+	"PISB110",	# Cristoforo Colombo
+	"PISB710",	# Sicilia
+	"PISB510",	# Ruggiero di Lauria
+]
+
+["h.ts21ehr5rgqz"]
+name = "Sicilia alternative build"
+ships = [
+	"PISB710",	# Sicilia
+]
+
+["h.7s5ao04wpw1c"]
+name = "Pan-American BBs"
+ships = [
+	"PVSB018",	# Ipiranga
+ 	"PVSB019",	# Los Andes
+  	"PVSB010",	# Libertad
+]
+
+["h.tcup966g8aum"]
+name = "IJN CVs"
+ships = [
+	"PJSA104",	# Hosho
+	"PJSA106",	# Ryujo
+	"PJSA108",	# Shokaku
+	"PJSA518",	# Kaga
+	"PJSA598",	# Kaga B
+	"PJSA110",	# Hakuryu
+	"PJSA111",	# Sekiryu
+]
+
+["h.w2gr79qui15a"]
+name = "Shinano"
+ships = [
+	"PJSA710",	# Shinano
+]
+
+["h.l0e5gc5z8w69"]
+name = "USN CVs"
+ships = [
+	"PASA104",	# Langley
+	"PASA106",	# Ranger
+	"PASA108",	# Lexington
+	"PASA528",	# Saipan
+	"PASA598",	# Saipan B
+	"PZSA508",	# Sanzang
+	"PASA518",	# Enterprise
+	"PASA110",	# Midway
+]
+
+["h.4v5lhjj3i9ka"]
+name = "United States"
+ships = [
+	"PASA111",	# United States
+]
+
+["h.fxst9yq6yua4"]
+name = "USN alternative CVs"
+ships = [
+	"PASA026",	# Independence
+	"PASA028",	# Yorktown
+	"PASA020",	# Essex
+]
+
+["h.43qer2ullj29"]
+name = "Franklin D. Roosevelt"
+ships = [
+	"PASA510",	# Roosevelt
+]
+
+["h.8nd7mqdb556s"]
+name = "KM CVs"
+ships = [
+	"PGSA104",	# Rhein
+	"PGSA106",	# Weser
+	"PGSA108",	# Parseval
+	"PGSA518",	# Graf Zeppelin
+	"PGSA598",	# Graf Zeppelin B
+	"PGSA110",	# Manfred Richthofen
+]
+
+["h.t311om4y7jm6"]
+name = "Max Immelmann"
+ships = [
+	"PGSA610",	# Max Immelmann
+]
+
+["h.7pgupy1w3hvh"]
+name = "RN CVs"
+ships = [
+	"PBSA204",	# Hermes
+	"PBSA106",	# Furious
+	"PBSA518",	# Ark Royal
+	"PBSA108",	# Implacable
+	"PBSA210",	# Audacious
+]
+
+["h.fiockejymqg3"]
 name = "Malta"
 ships = [
 	"PBSA510",  # Malta
 ]
 
-["id.8opzu9g1fs9u"]
-name = "Vallejo"
+["h.56ev7ijhvfoz"]
+name = "Eagle"
 ships = [
-	"PASC509",  # Vallejo
+    "PBSA111",  # Eagle
 ]
 
-["id.j4y7wmcvixgv"]
-name = "IJN CLs"
+["h.h1dqlwgt2xph"]
+name = "VMF CVs"
 ships = [
-	"PJSC205",  # Agano
-	"PJSC206",  # Gokase
-	"PJSC207",  # Omono
-	"PJSC208",  # Shimanto
-	"PJSC209",  # Takahashi
-	"PJSC210",  # Yodo
-	"PJSC505",	# Yahagi
+	"PRSA104",	# Komsomolets
+	"PRSA106",	# Serov
+	"PRSA108",	# Pobeda
+	"PRSA508",	# Chkalov
+	"PRSA598",	# Chkalov B
+	"PRSA110",	# Nakhimov
 ]
 
-["id.3o8aun40m0pq"]
-name = "Yodo"
+["h.3vty6eswysbh"]
+name = "KM sub build"
 ships = [
-	"PJSC209",  # Takahashi
-	"PJSC210",  # Yodo
+	"PGSS206",	# U-69
+	"PGSS208",	# U-190
+	"PGSS210",	# U-2501
 ]
 
-["id.faiqx5okltg8"]
-name = "Velos"
+["h.clrnwzc58c2y"]
+name = "U-4501"
 ships = [
-    "PWSD509",  # Velos
+	"PGSS510",	# U-4501
 ]
 
-["id.4n5uank5szb6"]
-name = "Tokachi"
-ships = [
-    "PJSC507",  # Tokachi
-]
-
-["id.7mefupsqagxn"]
-name = "Tromp"
-ships = [
-    "PHSD610",  # Tromp
-]
-
-["id.hqqtqgqy7ywv"]
-name = "Admiral Schröder"
-ships = [
-	"PGSC529",  # Schröder
-]
-
-["id.horms1vo71ut"]
-name = "Hector"
-ships = [
-	"PUSC509",  # Hector
-]
-
-["id.xey6ouhvycc7"]
-name = "USN hybrid BBs"
-ships = [
-	"PASB208",  # Nebraska
-	"PASB209",  # Delaware
-	"PASB519",  # Kearsarge
-	"PASB210",  # Lousiana
-]
-
-["id.ihmt1osth9i5"]
-name = "Z-42 Range build"
-ships = [
-    "PGSD610",  # Z-42
-]
-
-["id.7ilkk6ic1mmy"]
-name = "Z-42 DPM + fire build"
-ships = [
-    "PGSD610",  # Z-42
-]
-
-["id.js55tsiznta8"]
-name = "RN submarine build"
-ships = [
-    "PBSS110",  # Thrasher
-    "PBSS508",  # Alliance
-    "PBSS108",  # Sturdy
-    "PBSS106",  # Undine
-]
-
-["id.7zqumj79f19k"]
-name = "Brisbane"
-ships = [
-	"PUSC510",  # Brisbane
-]
-
-["id.8pvmv1kyilvx"]
-name = "Illinois"
-ships = [
-	"PASB539",  # Illinois
-]
-
-["id.iqyqlkiq81qx"]
-name = "Pan-American CLs"
-ships = [
-	"PVSC102",  # Almirante Barroso
-	"PVSC103",  # Vicente Guerrero
-	"PVSC104",  # Córdoba
-	"PVSC105",  # La Argentina
-	"PVSC106",  # Alte Cochrane
-	"PVSC107",  # Cor. Bolognesi
-	"PVSC108",  # Ignacio Allende
-	"PVSC109",  # Santander
-	"PVSC110",  # San Martin
-]
-
-["id.z7tegqxyz7ob"]
-name = "Huron"
-ships = [
-	"PUSD517",  # Huron
-]
-
-["id.1qtz4iabxta2"]
-name = "Daisen"
-ships = [
-	"PJSB539",  # Daisen
-]
-
-["id.j83tv9sn83wr"]
-name = "Halland LM build"
-ships = [
-	"PWSD110",  # Halland
-]
-
-["id.p44dlddp8h6r"]
-name = "Tashkent '39"
-ships = [
-	"PRSD517",  # Tashkent '39
-]
-
-["id.hrwzkj2cxnfv"]
-name = "Almirante Grau"
-ships = [
-	"PVSC508",  # Almirante Grau
-]
-
-["id.gsnnamk0369y"]
-name = "EU DDs gunboat branch"
-ships = [
-	"PWSD206",  # Stord
-	"PWSD207",  # Grom
-	"PWSD208",  # Split
-	"PWSD209",  # Lambros Katsonis
-	"PWSD210",  # Gdansk
-]
-
-["id.j2tqu9c6kors"]
+["h.htjanczdsoco"]
 name = "USN sub build"
 ships = [
 	"PASS206",	# Cachalot
 	"PASS208",	# Salmon
 	"PASS210",	# Balao
+ 	"PASS510",	# Gato
 ]
 
-["id.gy14vzhz1i3w"]
-name = "Halford"
+["h.ejvsf7jvebmz"]
+name = "Archerfish"
 ships = [
-	"PASD519",  # Halford
+	"PASS710",	# Archerfish
 ]
 
-["id.4qb4tm24wimg"]
-name = "ES CAs"
+["h.xfejgo3f1exi"]
+name = "RN submarine build"
 ships = [
-	"PSSC101",  # Jupiter
-	"PSSC102",  # Méndez Núñez
-	"PSSC103",  # Navarra
-	"PSSC104",  # Almirante Cervera
-	"PSSC105",  # Galicia
-	"PSSC106",  # Baleares
-	"PSSC107",  # Asturias
-	"PSSC108",  # Cataluña
-	"PSSC109",  # Andalucía
-	"PSSC110",  # Castilla
-	"PSSC508",  # Numancia
+	"PBSS106",	# Undine
+	"PBSS108",	# Sturdy
+	"PBSS508",	# Alliance
+	"PBSS110",	# Thrasher
 ]
 
-["id.fkcdb8f3bviu"]
-name = "Karl XIV Johan"
+["h.igvuvk25zstp"]
+name = "Gallant/Juruá"
 ships = [
-	"PWSB509",  # Karl XIV Johan
+	"PVSD506",	# Jurua
+	"PBSD506",	# Gallant
 ]
 
-["id.v6d066vkdkkm"]
-name = "Lushun"
-ships = [
-	"PZSD510",  # Lushun
-]
-
-["id.a00uiw4rrrn8"]
-name = "Ruggiero di Lauria"
-ships = [
-	"PISB510",  # Ruggiero di Lauria
-]
-
-["id.2jm9ntjnf3bu"]
-name = "U-4501"
-ships = [
-	"PGSS510",  # U-4501
-]
-
-["id.fahu4sjc6baa"]
-name = "IJN BCs"
-ships = [
-	"PJSB208",  # Yumihari
-	"PJSB209",  # Adatara
-	"PJSB549",  # Tsurugi
-	"PJSB210",  # Bungo
-]
-
-["id.bd9qyfqg4lv7"]
-name = "Navarin"
-ships = [
-	"PRSB509",  # Navarin
-]
-
-["id.vnqoj43wf8ks"]
-name = "Napoli secondary build"
-ships = [
-	"PISC510",  # Napoli
-	"PISC519",  # Michelangelo
-]
-
-["id.orc473olbsfc"]
-name = "VMF BBs damage build"
-ships = [
-	"PRSB111",  # Ushakov
-	"PRSB110",	# Kremlin
-	"PRSB109",	# Sovetsky Soyuz
-	"PRSB108",	# Vladivostok
-	"PRSB518",	# Lenin
-	"PRSB709",	# AL Sovetskaya Rossiya
-	"PZSB529",  # Sun Yat-Sen
-]
-
-["id.mjcssknhn8w7"]
-name = "RN BBs damage build"
-ships = [
-	"PBSB111",  # Devastation
-	"PBSB110",  # Conqueror
-	"PBSB109",  # Lion
-	"PBSB609",  # Scarlet Thunder
-	"PBSB509",	# Marlborough
-	"PBSB508",	# Vanguard
-	"PBSB108",	# Monarch
-	"PBSB507",	# Hood
-	"PBSB537",	# Collingwood
-	"PUSB507",  # Yukon
-	"PBSB517",  # Nelson
-	"PBSB527",	# Duke of York
-	"PBSB107",	# KGV
-	"PBSB106",	# QE
-	"PBSB002",	# Warspite
-	"PBSB105",	# Iron Duke
-	"PBSB104",	# Orion
-	"PBSB503",  # Dreadnought
-	"PBSB103",	# Bellerophon
-]
-
-["id.qnlwk2pnhj1x"]
-name = "FR25"
-ships = [
-	"PISD507",  # FR25
-]
-
-["id.oanerv4g2srq"]
+["h.ug0kroezbfqf"]
 name = "Karl von Schönberg"
 ships = [
-	"PGSD516",  # Karl von Schönberg
+	"PGSD516",	# Karl von Schonberg
 ]
 
-["id.go5tgtcr4kaf"]
-name = "Picardie"
+["h.b93t3fvb9wrx"]
+name = "Leone"
 ships = [
-	"PFSB548",  # Picardie
+	"PISD506",	# Leone
 ]
 
-["id.15avpi2ws4ls"]
-name = "Dimitry Pozharsky"
+["h.t6a7hahhpxgv"]
+name = "FR25"
 ships = [
-	"PRSC558",  # Dimitry Pozharsky
+	"PISD507",	# FR25
 ]
 
-["id.cxjvgndgqy6m"]
-name = "USN BB damage build"
+["h.fzh9duqk1sl8"]
+name = "Anshan"
 ships = [
-	"PASB017",  # Montana
-	"PASB018",  # Iowa
-	"PASB012",  # North Carolina
-	"PASB509",  # Missouri
-	"PASB508",  # Alabama
-	"PASB111",  # Maine
+	"PZSD506",	# Anshan
 ]
 
-["id.b3mkoqcgbwch"]
-name = "Kitakami"
+["h.83ikjfyzuk5x"]
+name = "Tashkent '39"
 ships = [
-	"PJSC610",  # Kitakami
+	"PRSD517",	# Tashkent '39
 ]
 
-["id.qzlqfnx0jmsd"]
-name = "Stord '43"
-ships = [
-	"PWSD717",  # Stord '43
-]
-
-["id.h8rmb4oeesbk"]
-name = "Elli"
-ships = [
-	"PWSC506",  # Elli
-]
-
-["id.btx6j5dxwkkp"]
-name = "Francesco Ferrucio"
-ships = [
-	"PISC517",  # Francesco Ferrucio
-]
-
-["id.f5tojdad419e"]
-name = "Colossus"
-ships = [
-	"PBSA528",  # Colossus
-]
-
-["id.hzq49m95zown"]
-name = "Rhode Island"
-ships = [
-	"PASB720",  # Rhode Island
-]
-
-["id.7wclje10hna5"]
-name = "USN alternative CVs"
-ships = [
-	"PASA020",  # Essex
-	"PASA028",  # Yorktown
-	"PASA026",  # Independence
-]
-
-["id.1c63wpv3q0nr"]
-name = "Sicilia"
-ships = [
-	"PISB710",  # Sicilia
-]
-
-["id.6t9xrn9264oq"]
-name = "Tianjin"
-ships = [
-	"PZSC719",  # Tianjin
-]
-
-["id.wk6hskfwdf8t"]
-name = "Khabarovsk"
-ships = [
-	"PRSD110",  # Khabarovsk
-]
-
-["id.jrh88jhre7kh"]
+["h.73jyptto3zkq"]
 name = "Jupiter '42"
 ships = [
-	"PBSD717",  # Jupiter '42
+	"PBSD717",	# Jupiter '42
 ]
 
-["id.wm3bl4bsgtyt"]
-name = "Wukong"
+["h.b73gb5l3iz7z"]
+name = "Haida"
 ships = [
-	"PZSC518",  # Wukong
+	"PUSD507",	# Haida
+	"PUSD510",	# Vampire II
 ]
 
-["id.wvux2qoxkk2o"]
-name = "Commonwealth CAs"
+["h.a8olgcjnj9ra"]
+name = "Huron"
 ships = [
-	"PUSC001",  # Sutlej
-	"PUSC012",  # Port Jackson
-	"PUSC013",  # Caradoc
-	"PUSC014",  # Dunedin
-	"PUSC025",  # Red Fort
-	"PUSC016",  # Hobart
-	"PUSC506",  # Perth
-	"PUSC017",  # Uganda
-	"PUSC018",  # Auckland
-	"PUSC019",  # Encounter
-	"PUSC010",  # Cerberus
+	"PUSD517",	# Huron
 ]
 
-["id.fhq7wzg98l2e"]
-name = "S-189"
+["h.ywb83obc1d55"]
+name = "Błyskawica"
 ships = [
-	"PRSS508",  # S-189
+	"PWSD501",	# Blyskawica
 ]
 
-["id.gbej6ijpza5f"]
-name = "I-56"
+["h.fai3grv7vtk0"]
+name = "Stord '43"
 ships = [
-	"PJSS518",  # I-56
+	"PWSD717",	# Stord '43
 ]
 
-["id.ruwzawqoak0r"]
-name = "Wiesbaden"
+["h.k1fwmok9pmjz"]
+name = "Kidd"
 ships = [
-	"PGSC728",  # Wiesbaden
+	"PASD508",	# Kidd
+	"PZSD708",	# Zhu Que
 ]
 
-["id.rzzd73hmtjeg"]
-name = "Komissar"
+["h.jwotvtrewoo9"]
+name = "Orkan conventional build"
 ships = [
-	"PRSC810",  # Komissar
+	"PWSD508"	# Orkan
 ]
 
-["id.d0m3bfd789je"]
-name = "FR torpedoboat DDs"
+["h.5fw3jmoetfka"]
+name = "Orkan DPS build"
 ships = [
-	"PFSD010",  # Cassard
-	"PFSD019",  # Orage
-	"PFSD018",  # L'Aventurier
-	"PFSD017",  # Le Hardi
-	"PFSD016",  # Duchaffault
-	"PFSD015",  # L'Adroit
+	"PWSD508",	# Orkan
 ]
 
-["id.fxm8g9na5gx9"]
+["h.ry0np1gvcjgx"]
+name = "Fenyang"
+ships = [
+	"PZSD518",	# Fenyang
+	"PZSD718",	# Ship Smasha
+]
+
+["h.og7y2bfo4kzc"]
+name = "Loyang"
+ships = [
+	"PZSD508",	# Loyang
+	"PZSD598",	# Loyang B
+]
+
+["h.8tv5o8lx6nxn"]
+name = "Siliwangi"
+ships = [
+	"PZSD208",	# Siliwangi
+]
+
+["h.raujgcdu0v8b"]
+name = "Black"
+ships = [
+	"PASD709",	# Black
+ 	"PASD529",	# Black B
+]
+
+["h.3u2hu6dsqk35"]
+name = "Halford"
+ships = [
+	"PASD519",	# Halford
+]
+
+["h.5ikeqx1h03nx"]
 name = "Johnston"
 ships = [
-	"PASD899",  # Johnston
+	"PASD719",	# Johnston
+]
+
+["h.9lu36xkwsdy0"]
+name = "Velos"
+ships = [
+	"PWSD509",	# Velos
+]
+
+["h.i9xex7m47vql"]
+name = "Jäger"
+ships = [
+	"PWSD519",	# Jager
+]
+
+["h.r84ak2wvojrr"]
+name = "Friesland/Groningen"
+ships = [
+	"PWSD510",	# Friesland
+	"PHSD509",	# Groningen
+]
+
+["h.waqk2j3x2rw4"]
+name = "Neustrashimy"
+ships = [
+	"PRSD709",	# Neustrashimy
+]
+
+["h.7tdxqsm4mm4k"]
+name = "ZF-6"
+ships = [
+	"PGSD529",	# ZF-6
+]
+
+["h.79ui6z3umr0z"]
+name = "Z-44"
+ships = [
+	"PGSD519",	# Z-44
+]
+
+["h.onjorr20t1k8"]
+name = "Yubari"
+ships = [
+	"PJSC004",	# Yubari
+]
+
+["h.xhzw55igr9k8"]
+name = "Dido"
+ships = [
+	"PBSC526",	# Dido
+]
+
+["h.tps0rtxse90v"]
+name = "Huanghe"
+ships = [
+	"PZSC506",	# Huanghe
+]
+
+["h.lctoh88mwex2"]
+name = "Canarias"
+ships = [
+	"PSSC506",	# Canarias
+]
+
+["h.v2rufxbskfyv"]
+name = "Elli"
+ships = [
+	"PWSC506",	# Elli
+]
+
+["h.5y38oe83512i"]
+name = "Atlanta, Flint"
+ships = [
+	"PASC006",	# Atlanta
+	"PASC587",	# Atlanta B
+	"PASC707",	# Flint
+]
+
+["h.yq2g4z3b1miy"]
+name = "Maya"
+ships = [
+	"PJSC517",	# Maya
+]
+
+["h.i24yz7fz478"]
+name = "Tokachi"
+ships = [
+	"PJSC507",	# Tokachi
+]
+
+["h.eied9jaoj0km"]
+name = "Weimar"
+ships = [
+	"PGSC517",	# Weimar
+]
+
+["h.t7dd08qcv99q"]
+name = "Francesco Ferruccio"
+ships = [
+	"PISC517",	# Francesco Ferruccio
+]
+
+["h.gq1fo26s16ta"]
+name = "Nueve de Julio"
+ships = [
+	"PVSC507",	# Nueve de Julio
+]
+
+["h.dj6x585drn02"]
+name = "San Diego"
+ships = [
+	"PASC548",	# San Diego
+	"PASC810",	# Austin
+]
+
+["h.easamga33npe"]
+name = "Bagration, Molotov, Kirov, Mikoyan"
+ships = [
+	"PRSC538",  # Bagration
+	"PRSC506",  # Molotov
+	"PRSC525",  # Kirov
+	"PRSC515",  # Mikoyan
+]
+
+["h.yqanbucqtaye"]
+name = "Dimitry Pozharsky"
+ships = [
+	"PRSC558",	# Dmitry Pozharsky
+]
+
+["h.w2z4tl2eij4z"]
+name = "Bayard"
+ships = [
+	"PFSC508",	# Bayard
+]
+
+["h.cbiwkxw2z8k3"]
+name = "Mainz"
+ships = [
+	"PGSC518",	# Mainz
+	"PGSC598",	# Mainz B
+	"PGSC718",	# Cross of Dorn
+	"PGSC105",	# Konigsberg
+	"PGSC106",	# Nurnberg
+	"PRSC606",	# Admiral Makarov
+	"PGSC507",	# Munchen
+	"PGSC817",	# Munchen B
+ 	"PGSC516",	# Leipzig
+]
+
+["h.u2nwmdmuojj6"]
+name = "Wiesbaden"
+ships = [
+	"PGSC728",	# Wiesbaden
+]
+
+["h.k762dtpft84b"]
+name = "Hampshire"
+ships = [
+	"PBSC538",	# Hampshire
+]
+
+["h.16aekc5u7qgk"]
+name = "Wukong"
+ships = [
+	"PZSC518",	# Wukong
+]
+
+["h.yvssot63fl3d"]
+name = "De Zeven Provinciën"
+ships = [
+	"PHSC508",	# De Zeven Provincien
+]
+
+["h.aw3wc73br0in"]
+name = "Almirante Grau"
+ships = [
+	"PVSC508",	# Almirante Grau
+]
+
+["h.j69vomh7ftg"]
+name = "Chikuma II, Tone"
+ships = [
+	"PJSC719",	# Chikuma II
+	"PJSC729",	# Chikuma II G
+	"PJSC018",	# Tone
+]
+
+["h.ho57d373glr0"]
+name = "Vallejo"
+ships = [
+	"PASC509",	# Vallejo
+]
+
+["h.c25v274sp3yh"]
+name = "Kozma Minin"
+ships = [
+	"PRSC719",	# Kozma Minin
+]
+
+["h.n88nuiw0qqtc"]
+name = "Admiral Schröder"
+ships = [
+	"PGSC529",	# Admiral Schroder
+]
+
+["h.e53gkhkiey7t"]
+name = "Carnot"
+ships = [
+	"PFSC509",	# Carnot
+]
+
+["h.xiei0b5x67dc"]
+name = "Dalian"
+ships = [
+	"PZSC509",	# Dalian
+]
+
+["h.fklyg59dcxlq"]
+name = "Tianjin"
+ships = [
+	"PZSC719",	# Tianjin
+]
+
+["h.z3v6jwu9cfxn"]
+name = "Hector"
+ships = [
+	"PUSC509",	# Hector
+]
+
+["h.begmiw139hm6"]
+name = "Mikasa, Agincourt"
+ships = [
+	"PJSB011",	# Mikasa
+	"PBSB505",	# Agincourt
+]
+
+["h.net0snl4dwkc"]
+name = "Rio de Janeiro"
+ships = [
+	"PVSB505",	# Rio de Janeiro
+]
+
+["h.fcr1o8oazbxd"]
+name = "Repulse"
+ships = [
+	"PBSB526",	# Repulse
+	"PBSB536",	# Repulse B
+]
+
+["h.mxnro3pyc3to"]
+name = "Ise"
+ships = [
+	"PJSB526",	# Ise
+]
+
+["h.xld0e94y8882"]
+name = "Lugdunum"
+ships = [
+	"PWSB707",	# Lugdunum
+]
+
+["h.unz21rdsrgxi"]
+name = "Teng She"
+ships = [
+	"PZSB707",	# Teng She
+]
+
+["h.gimt7m4a43bp"]
+name = "Odin"
+ships = [
+	"PGSB508",	# Odin
+	"PGSB717",	# Scharnhorst '43
+	"PGSB108",	# Bismarck
+	"PGSB002",	# Tirpitz
+	"PGSB598",	# Tirpitz B
+	"PGSB818",	# BA Tirpitz
+	"PGSB109",	# Friedrich der Grosse
+	"PGSB509",	# Pommern
+	"PGSB599",	# Pommern B
+	"PGSB310",	# Preussen
+	"PGSB110",	# Grosser Kurfurst
+	"PGSB111",	# Hannover
+]
+
+["h.hgdsgayotzv0"]
+name = "Brandenburg"
+ships = [
+	"PGSB518",	# Brandenburg
+	"PGSB538",	# Brandenburg B
+]
+
+["h.s68p7icoig8s"]
+name = "Anhalt"
+ships = [
+	"PGSB528",	# Anhalt
+]
+
+["h.fdy8jkv4dzlg"]
+name = "Roma"
+ships = [
+	"PISB508",	# Roma
+	"PISB708",	# AL Littorio
+]
+
+["h.uqsy5t27gney"]
+name = "Champagne"
+ships = [
+	"PFSB528",	# Champagne
+]
+
+["h.a2kojnse67fy"]
+name = "Picardie"
+ships = [
+	"PFSB548",	# Picardie
+]
+
+["h.j44exfg86yri"]
+name = "Atlântico"
+ships = [
+	"PVSB508",	# Atlantico
+]
+
+["h.5n1b7hdp63en"]
+name = "Giuseppe Verdi"
+ships = [
+	"PISB519",	# Giuseppe Verdi
+]
+
+["h.lhevqpwuw5eo"]
+name = "Daisen"
+ships = [
+	"PJSB539",	# Daisen
+]
+
+["h.koq53up16o7g"]
+name = "Georgia"
+ships = [
+	"PASB729",	# Georgia
+]
+
+["h.vf9yogapxbro"]
+name = "Illinois"
+ships = [
+	"PASB539",	# Illinois
+]
+
+["h.j7w1vdtm867v"]
+name = "Navarin"
+ships = [
+	"PRSB509",	# Navarin
+]
+
+["h.canrhjajsuoz"]
+name = "Karl XIV Johan"
+ships = [
+	"PWSB509",	# Karl XIV Johan
+]
+
+["h.guzllm2d5m6s"]
+name = "Niord"
+ships = [
+	"PWSB719",	# Niord
+]
+
+["h.85u3z2fs4hmu"]
+name = "Victoria"
+ships = [
+	"PSSB719",	# Victoria
+]
+
+["h.jbas5en2zvh4"]
+name = "E. Loewenhardt"
+ships = [
+	"PGSA506",	# Erich Loewenhardt
+]
+
+["h.28lm54ldihum"]
+name = "Béarn"
+ships = [
+	"PFSA506",	# Bearn
+]
+
+["h.kw73d893tf3m"]
+name = "Hornet"
+ships = [
+	"PASA538",	# Hornet
+	"PASA898",	# AL Hornet
+]
+
+["h.7tmi8vvlnvef"]
+name = "Colossus"
+ships = [
+	"PBSA528",	# Colossus
+]
+
+["h.4aigswmux3q"]
+name = "Indomitable"
+ships = [
+	"PBSA508",	# Indomitable
+]
+
+["h.6w9rfa43d4up"]
+name = "Theseus"
+ships = [
+	"PBSA718",	# Theseus
+]
+
+["h.fqt68tqru7w4"]
+name = "Aquila"
+ships = [
+	"PISA508",	# Aquila
+]
+
+["h.qdwq0ajsgyr6"]
+name = "I-56"
+ships = [
+	"PJSS518",	# I-56
+]
+
+["h.siukxes4vt3"]
+name = "S-189"
+ships = [
+	"PRSS508",	# S-189
 ]
