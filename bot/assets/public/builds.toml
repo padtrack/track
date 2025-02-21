@@ -407,15 +407,6 @@ ships = [
 	"PVSD710",	# La Pampa
 ]
 
-
-
-
-
-
-
-
-
-
 ["h.oo12ygont6pa"]
 name = "IJN CAs"
 ships = [
@@ -896,15 +887,6 @@ ships = [
 	"PSSC110",	# Castilla
 ]
 
-
-
-
-
-
-
-
-
-
 ["h.ch4l12d24rjn"]
 name = "IJN BBs"
 ships = [
@@ -1263,15 +1245,6 @@ ships = [
   	"PVSB010",	# Libertad
 ]
 
-
-
-
-
-
-
-
-
-
 ["h.tcup966g8aum"]
 name = "IJN CVs"
 ships = [
@@ -1373,15 +1346,6 @@ ships = [
 	"PRSA110",	# Nakhimov
 ]
 
-
-
-
-
-
-
-
-
-
 ["h.3vty6eswysbh"]
 name = "KM sub build"
 ships = [
@@ -1419,15 +1383,6 @@ ships = [
 	"PBSS508",	# Alliance
 	"PBSS110",	# Thrasher
 ]
-
-
-
-
-
-
-
-
-
 
 ["h.igvuvk25zstp"]
 name = "Gallant/Juruá"
@@ -1591,15 +1546,6 @@ name = "Z-44"
 ships = [
 	"PGSD519",	# Z-44
 ]
-
-
-
-
-
-
-
-
-
 
 ["h.onjorr20t1k8"]
 name = "Yubari"
@@ -1791,15 +1737,6 @@ ships = [
 	"PUSC509",	# Hector
 ]
 
-
-
-
-
-
-
-
-
-
 ["h.begmiw139hm6"]
 name = "Mikasa, Agincourt"
 ships = [
@@ -1941,15 +1878,6 @@ ships = [
 	"PSSB719",	# Victoria
 ]
 
-
-
-
-
-
-
-
-
-
 ["h.jbas5en2zvh4"]
 name = "E. Loewenhardt"
 ships = [
@@ -1992,15 +1920,6 @@ name = "Aquila"
 ships = [
 	"PISA508",	# Aquila
 ]
-
-
-
-
-
-
-
-
-
 
 ["h.qdwq0ajsgyr6"]
 name = "I-56"
