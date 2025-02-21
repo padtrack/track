@@ -327,7 +327,7 @@ ships = [
 	"PWSD106",	# Vasteras
 	"PWSD107",	# Skane
 	"PWSD108",	# Oland
-	"PWSD109",	# OstergOtland
+	"PWSD109",	# Ostergotland
 	"PWSD110",	# Halland
 	"PWSD111",	# Dalarna
 ]
@@ -594,7 +594,7 @@ ships = [
 	"PRSC208",	# Tallinn
 	"PRSC508",	# Kutuzov
 	"PRSC528",	# Ochakov
-	"PRSC109",	# Dmitry Donskoy
+	"PRSC109",	# Dmitri Donskoi
 	"PRSC210",	# Alexander Nevsky
 ]
 
@@ -740,7 +740,7 @@ ships = [
 	"PFSC103",	# Friant
 	"PFSC104",	# Duguay-Trouin
 	"PFSC105",	# Emile Bertin
-	"PFSC106",	# La Galisonniere
+	"PFSC106",	# La Galissonniere
 	"PFSC506",	# De Grasse
  	"PFSC716",	# Montcalm
 	"PFSC516",	# Dupleix
@@ -777,7 +777,7 @@ ships = [
 	"PFSC208",	# Cherbourg
 	"PFSC209",	# Brest
 	"PFSC210",	# Marseille
- 	"PFSC810",	# Brennus
+ 	"PFSC710",	# Brennus
 ]
 
 ["h.xye2c1g8kfbr"]
@@ -1030,7 +1030,7 @@ ships = [
 	"PASB209",	# Delaware
 	"PASB519",	# Kearsarge
 	"PASB599",	# Kearsarge B
-	"PASB210",	# Lousiana
+	"PASB210",	# Louisiana
 ]
 
 ["h.6ow1671bnkq4"]
@@ -1068,7 +1068,7 @@ ships = [
 	"PBSB503",	# Dreadnought
 	"PBSB104",	# Orion
 	"PBSB105",	# Iron Duke
-	"PBSB106",	# Qeen Elisabeth
+	"PBSB106",	# Queen Elizabeth
 	"PBSB002",	# Warspite
 	"PBSB107",	# King George V
 	"PBSB527",	# Duke of York
@@ -1552,7 +1552,7 @@ ships = [
 ["h.5ikeqx1h03nx"]
 name = "Johnston"
 ships = [
-	"PASD899",	# Johnston
+	"PASD719",	# Johnston
 ]
 
 ["h.9lu36xkwsdy0"]
@@ -1601,7 +1601,7 @@ ships = [
 
 
 
-["heading=h.onjorr20t1k8"]
+["h.onjorr20t1k8"]
 name = "Yubari"
 ships = [
 	"PJSC004",	# Yubari
@@ -1688,7 +1688,7 @@ ships = [
 ["h.yqanbucqtaye"]
 name = "Dimitry Pozharsky"
 ships = [
-	"PRSC558",	# Dimitry Pozharsky
+	"PRSC558",	# Dmitry Pozharsky
 ]
 
 ["h.w2z4tl2eij4z"]
